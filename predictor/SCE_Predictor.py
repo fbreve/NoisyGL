@@ -23,8 +23,8 @@ class sce_Predictor(Predictor):
         self.alpha = conf.model['alpha']
         self.beta = conf.model['beta']
 
-    def get_prediction(self, features, adj, label=None, mask=None):
-        output = self.model(features, adj)
+    def get_prediction(self, features, edge_index, edge_weight=None, label=None, mask=None):
+        output = self.model(features, edge_index, edge_weight)
         loss, acc = None, None
         if (label is not None) and (mask is not None):
             loss = symmetric_cross_entropy(label[mask], output[mask], self.alpha, self.beta)

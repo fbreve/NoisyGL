@@ -17,7 +17,7 @@ class mlp_Predictor(Predictor):
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.conf.training['lr'],
                                       weight_decay=self.conf.training['weight_decay'])
 
-    def get_prediction(self, features, adj, label=None, mask=None):
+    def get_prediction(self, features, edge_index, edge_weight=None, label=None, mask=None):
         output = self.model(features)
         loss, acc = None, None
         if (label is not None) and (mask is not None):

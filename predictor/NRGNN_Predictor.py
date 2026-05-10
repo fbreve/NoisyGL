@@ -45,7 +45,9 @@ class nrgnn_Predictor(Predictor):
         self.edge_index = edge_index.to(self.device)
         self.idx_unlabel = torch.LongTensor(list(set(range(features.shape[0])) - set(self.train_mask))).to(self.device)
 
+        t_cpu_start = time.time()
         self.pred_edge_index = self.get_train_edge(edge_index, features, self.conf.model['n_p'], self.train_mask)
+        self._t_cpu += (time.time() - t_cpu_start)
 
     def get_prediction(self, features, adj, label=None, mask=None, reformed_adj_model=None):
         if reformed_adj_model is None:
@@ -56,7 +58,10 @@ class nrgnn_Predictor(Predictor):
             pred_edge_index = torch.cat([edge_index, self.pred_edge_index], dim=1)
             predictor_weights_1 = torch.cat([torch.ones([edge_index.shape[1]], device=self.device), predictor_weights],
                                             dim=0).detach()
-            reformed_adj_pred = torch.sparse_coo_tensor(pred_edge_index, predictor_weights_1, [self.n_nodes, self.n_nodes])
+            try:
+                reformed_adj_pred = torch.sparse_coo_tensor(pred_edge_index, predictor_weights_1, [self.n_nodes, self.n_nodes]).to_sparse_csr()
+            except:
+                reformed_adj_pred = torch.sparse_coo_tensor(pred_edge_index, predictor_weights_1, [self.n_nodes, self.n_nodes])
             log_pred = self.predictor(features, reformed_adj_pred)
             if self.best_pred == None:
                 pred = F.softmax(log_pred, dim=1).detach()
@@ -67,8 +72,12 @@ class nrgnn_Predictor(Predictor):
             estimated_weights = self.estimator.get_estimated_weigths(self.unlabel_edge_index, representations)
             estimated_weights_1 = torch.cat([predictor_weights_1, estimated_weights], dim=0).detach()
             model_edge_index = torch.cat([pred_edge_index, self.unlabel_edge_index], dim=1)
-            reformed_adj_model = torch.sparse_coo_tensor(model_edge_index, estimated_weights_1,
-                                                     [self.n_nodes, self.n_nodes])
+            try:
+                reformed_adj_model = torch.sparse_coo_tensor(model_edge_index, estimated_weights_1,
+                                                         [self.n_nodes, self.n_nodes]).to_sparse_csr()
+            except:
+                reformed_adj_model = torch.sparse_coo_tensor(model_edge_index, estimated_weights_1,
+                                                         [self.n_nodes, self.n_nodes])
             output = self.model(features, reformed_adj_model)
             pred_model = F.softmax(output, dim=1)
             eps = 1e-8
@@ -149,8 +158,12 @@ class nrgnn_Predictor(Predictor):
         self.model.eval()
         self.predictor.eval()
         with torch.no_grad():
-            reformed_adj_model = torch.sparse_coo_tensor(model_edge_index, estimated_weights,
-                                                         [self.n_nodes, self.n_nodes])
+            try:
+                reformed_adj_model = torch.sparse_coo_tensor(model_edge_index, estimated_weights,
+                                                             [self.n_nodes, self.n_nodes]).to_sparse_csr()
+            except:
+                reformed_adj_model = torch.sparse_coo_tensor(model_edge_index, estimated_weights,
+                                                             [self.n_nodes, self.n_nodes])
             _, loss, acc = self.get_prediction(features, adj, label, mask, reformed_adj_model)
         return loss, acc
 

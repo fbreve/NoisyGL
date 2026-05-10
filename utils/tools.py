@@ -331,7 +331,7 @@ def get_neighbors(adj, mask):
 
     edge_index = adj.indices()
     row, col = edge_index[0, :].cpu().numpy(), edge_index[1, :].cpu().numpy()
-    col_mask = np.in1d(row, mask)
+    col_mask = np.isin(row, mask)
     masked_col = col[col_mask]
     neighbors = np.unique(masked_col)
     return neighbors

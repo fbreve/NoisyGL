@@ -57,10 +57,12 @@ class Dataset:
                  train_size=None, val_size=None, test_size=None,
                  train_percent=None, val_percent=None, test_percent=None,
                  train_examples_per_class=None, val_examples_per_class=None, test_examples_per_class=None,
-                 add_self_loop=True, split_type='default', from_npz=False, device='cuda:0'):
+                 add_self_loop=True, split_type='default', from_npz=False, device='cpu'):
+        print("DEBUG 3.1: Dataset init start", flush=True)
         self.name = data
         self.path = path
-        self.device = torch.device(device)
+        self.device = torch.device('cpu')  # Always start on CPU to save GPU memory
+        self.target_device = torch.device(device)
         self.single_graph = True
         self.self_loop = add_self_loop
         self.split_type = split_type
@@ -88,6 +90,35 @@ class Dataset:
             self.adj = normalize(self.adj, add_loop=False)
         self.adj = self.adj.coalesce()
 
+        # Only move to target device if it's NOT cpu and we want to load immediately
+        # (Usually we'll call .to() manually in the predictor)
+        # if device != 'cpu':
+        #     self.to(device)
+
+    def to(self, device):
+        """Move all tensors to the specified device, except those known to be unstable on Windows/CUDA."""
+        device = torch.device(device)
+        if device == self.device:
+            return self
+        
+        # Move standard tensors
+        self.feats = self.feats.to(device)
+        self.labels = self.labels.to(device)
+        
+        # self.adj is kept on CPU because Sparse COO tensors are unstable on GPU in Windows/CUDA.
+        # It's better to move only required portions like edge_index individually.
+        if device.type == 'cpu':
+            self.adj = self.adj.to(device)
+        
+        # Move any other torch.Tensor attributes (like noisy_label, original_label)
+        # except self.adj which we handled specially above.
+        for attr_name, attr_val in self.__dict__.items():
+            if isinstance(attr_val, torch.Tensor) and attr_name != 'adj':
+                setattr(self, attr_name, attr_val.to(device))
+                
+        self.device = device
+        return self
+
     def prepare_data(self, ds_name, feat_norm, from_npz):
         '''
         Function to Load various datasets.
@@ -110,6 +141,7 @@ class Dataset:
 
         '''
 
+        print(f"DEBUG 3.2: prepare_data start {ds_name}", flush=True)
         if from_npz:
             adj, features, labels = get_npz_data(self.path + ds_name + '.npz', self_loop=self.self_loop)
             self.adj = adj.to(self.device).coalesce()

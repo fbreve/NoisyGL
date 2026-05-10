@@ -1,0 +1,15 @@
+Fase 1: Otimização Exaustiva (Optuna HPO)
+
+powershell
+python run_lnpcc_parallel.py --all_datasets --all_noise --hpo_only --max_workers 16 --gpus 0 1 --resume --priority 'idle'
+
+Fase 2: Benchmark com Hiperparâmetros Otimizados
+
+powershell
+python run_lnpcc_parallel.py --all_datasets --all_noise --skip_hpo --max_workers 16 --gpus 0 1 --resume --priority 'idle'
+
+
+python generate_tables.py
+
+
+python run_instance_parallel.py --gpus 0 1 --workers_per_gpu 4 --resume

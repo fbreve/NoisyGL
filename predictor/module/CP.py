@@ -22,8 +22,8 @@ class CPGCN(nn.Module):
         self.fc1 = nn.Linear(hidden_channels, out_channels)
         self.fc2 = nn.Linear(hidden_channels, n_clusters)
 
-    def forward(self, x, adj):
-        x = self.GCN(x, adj)
+    def forward(self, x, edge_index, edge_weight=None):
+        x = self.GCN(x, edge_index, edge_weight)
         pred = self.fc1(x)
         pred_cluster = self.fc2(x)
         return pred, pred_cluster

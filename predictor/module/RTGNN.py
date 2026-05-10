@@ -202,7 +202,10 @@ class Dual_GCN(nn.Module):
                          act=act, input_layer=input_layer, output_layer=output_layer)
 
     def forward(self, x, edge_index, edge_weight):
-        reformed_adj = torch.sparse_coo_tensor(edge_index, edge_weight, [self.n_nodes, self.n_nodes])
+        try:
+            reformed_adj = torch.sparse_coo_tensor(edge_index, edge_weight, [self.n_nodes, self.n_nodes]).to_sparse_csr()
+        except:
+            reformed_adj = torch.sparse_coo_tensor(edge_index, edge_weight, [self.n_nodes, self.n_nodes])
         x1 = self.GCN_1(x, reformed_adj)
         x2 = self.GCN_2(x, reformed_adj)
         return x1, x2

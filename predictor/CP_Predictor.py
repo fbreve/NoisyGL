@@ -20,8 +20,10 @@ class cp_Predictor(Predictor):
                            output_layer=conf.model['output_layer']).to(self.device)
         self.optim = torch.optim.Adam(self.model.parameters(), lr=self.conf.training['lr'],
                                       weight_decay=self.conf.training['weight_decay'])
+        t_emb_start = time.time()
         self.embedding = self.get_graph_emb(self.adj, self.conf)
         self.community_labels = self.get_communities(conf, self.embedding)
+        self._t_gpu += (time.time() - t_emb_start)
 
     def get_graph_emb(self, adj, conf):
         edge_index = adj.indices()
@@ -70,8 +72,8 @@ class cp_Predictor(Predictor):
             print("Community detection finished")
         return community_labels
 
-    def get_prediction(self, features, adj, label=None, mask=None):
-        output, output_cluster = self.model(features, adj)
+    def get_prediction(self, features, edge_index, edge_weight=None, label=None, mask=None):
+        output, output_cluster = self.model(features, edge_index, edge_weight)
         loss, acc = None, None
         if (label is not None) and (mask is not None):
             loss_output = self.loss_fn(output[self.train_mask], self.noisy_label[self.train_mask])

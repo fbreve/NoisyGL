@@ -22,8 +22,8 @@ class smodel_Predictor(Predictor):
                                       lr=self.conf.training['lr'],
                                       weight_decay=self.conf.training['weight_decay'])
 
-    def get_prediction(self, features, adj, label=None, mask=None):
-        output = self.model(features, adj)
+    def get_prediction(self, features, edge_index, edge_weight=None, label=None, mask=None):
+        output = self.model(features, edge_index, edge_weight)
         pred = F.softmax(output, dim=1)
         eps = 1e-8
         score = self.noiseAda(pred).clamp(eps, 1 - eps)

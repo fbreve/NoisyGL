@@ -22,8 +22,8 @@ class apl_Predictor(Predictor):
 
         self.criterion = NCEandRCE(conf.model['alpha'], conf.model['beta'], self.n_classes, self.device)
 
-    def get_prediction(self, features, adj, label=None, mask=None):
-        output = self.model(features, adj)
+    def get_prediction(self, features, edge_index, edge_weight=None, label=None, mask=None):
+        output = self.model(features, edge_index, edge_weight)
         loss, acc = None, None
         if (label is not None) and (mask is not None):
             loss = self.criterion(output[mask], self.noisy_label[mask])

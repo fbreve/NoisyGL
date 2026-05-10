@@ -61,11 +61,11 @@ class GIN(nn.Module):
                 self.convs.append(GINConv(MLP(hidden_channels, hidden_channels, hidden_channels, mlp_layers, dropout), train_eps=train_eps))
             self.convs.append(GINConv(MLP(hidden_channels, hidden_channels, out_channels, mlp_layers, dropout), train_eps=train_eps))
 
-    def forward(self, x, adj):
+    def forward(self, x, edge_index, edge_weight=None):
         for i in range(self.n_layers - 1):
-            x = self.convs[i](x, adj)
+            x = self.convs[i](x, edge_index, edge_weight)
             x = F.relu(x)
-        x = self.convs[-1](x, adj)
+        x = self.convs[-1](x, edge_index, edge_weight)
         return x
 
 
@@ -112,7 +112,7 @@ class GCN(nn.Module):
                 self.norms.append(self.norm_type(in_hidden))
         self.convs[-1].last_layer = True
 
-    def forward(self, x, adj):
+    def forward(self, x, edge_index, edge_weight=None):
         if self.input_layer:
             x = self.input_linear(x)
             x = self.input_drop(x)
@@ -121,10 +121,10 @@ class GCN(nn.Module):
         for i, layer in enumerate(self.convs):
             if self.is_norm:
                 x_res = self.norms[i](x)
-                x_res = layer(x_res, adj)
+                x_res = layer(x_res, edge_index, edge_weight)
                 x = x + x_res
             else:
-                x = layer(x, adj)
+                x = layer(x, edge_index, edge_weight)
             if i < self.n_layers - 1:
                 x = self.act(x)
                 x = F.dropout(x, p=self.dropout, training=self.training)

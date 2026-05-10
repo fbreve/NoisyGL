@@ -90,7 +90,7 @@ parser.add_argument('--datasets', type=str, nargs='+',
                              'dblp', 'blogcatalog', 'flickr', 'amazon-ratings', 'roman-empire'],
                     help='Select datasets')
 parser.add_argument('--noise_type', type=str, nargs='+',
-                    default=['clean', 'pair', 'uniform'],
+                    default=['clean', 'uniform', 'pair', 'random'],
                     choices=['clean', 'pair', 'uniform', 'random', 'instance'], help='Noise type')
 parser.add_argument('--noise_rate', type=float, nargs='+',
                     default=[0.1, 0.2, 0.3, 0.4, 0.5],
@@ -143,12 +143,25 @@ if __name__ == '__main__':
 
             for method_name in method_list:
                 logger = MultiExpRecorder(runs=args.runs)
+                acc_list = []
                 for run in range(args.runs):
                     # setup different random seed for each runs
-                    setup_seed(args.seed + run)
+                    seed = args.seed + run
+                    setup_seed(seed)
                     simple_result, total_results = run_single_exp(data, method_name, noise_type=noise_type,
                                                                   noise_rate=noise_rate,
-                                                                  seed=args.seed + run, device=args.device, debug=False)
+                                                                  seed=seed, device=args.device, debug=False)
                     logger.add_result(run, total_results)
+                    
+                    acc = simple_result['test']
+                    acc_list.append(acc)
+                    cur_mean = np.mean(acc_list)
+                    elapsed = total_results.get('total_time', 0.0)
+                    
+                    from datetime import datetime
+                    print(f'    [{datetime.now().strftime("%H:%M:%S")}] {data_name} | {noise_type} {noise_rate} | '
+                          f'{method_name} | run {run+1:2d}/{args.runs} | seed={seed} | '
+                          f'acc={acc:.4f} | mean={cur_mean:.4f} | time={elapsed:.2f}s', flush=True)
+
                 total_results = logger.get_statistics()
                 result_recorder.dump_record(method_name, data_name, noise_type, noise_rate, total_results)
