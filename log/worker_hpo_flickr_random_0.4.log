@@ -1,0 +1,296 @@
+[worker] START  hpo_flickr_random_0.4  gpu=0
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-19 14:29:55
+Variants       : ['lnpcc']
+Datasets       : ['flickr']
+Noise          : [[0.4, 'random']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+
+[HPO] Optimizing lnpcc on flickr_random_0.4 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: flickr_random_0.4  (max_trials=200, startup=20)
+  [Trial   1] flickr_random_0.4 | acc=0.1257  (169.8s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] flickr_random_0.4 | acc=0.1127  (214.4s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] flickr_random_0.4 | acc=0.1477  (135.9s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] flickr_random_0.4 | acc=0.2348  (128.3s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] flickr_random_0.4 | acc=0.2429  (74.0s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] flickr_random_0.4 | acc=0.2567  (142.5s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] flickr_random_0.4 | acc=0.1143  (155.4s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] flickr_random_0.4 | acc=0.1536  (192.1s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] flickr_random_0.4 | acc=0.5052  (236.8s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] flickr_random_0.4 | acc=0.1424  (281.0s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] flickr_random_0.4 | acc=0.2059  (144.8s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] flickr_random_0.4 | acc=0.3194  (67.5s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] flickr_random_0.4 | acc=0.1510  (118.1s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] flickr_random_0.4 | acc=0.1838  (123.6s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] flickr_random_0.4 | acc=0.2750  (168.5s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] flickr_random_0.4 | acc=0.1162  (275.7s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] flickr_random_0.4 | acc=0.1221  (146.4s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] flickr_random_0.4 | acc=0.1485  (151.7s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] flickr_random_0.4 | acc=0.3458  (273.2s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] flickr_random_0.4 | acc=0.4242  (75.4s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] flickr_random_0.4 | acc=0.4823  (81.6s)  knn=u  k=-    dexp=6.27  p_grd=0.160  unc_rem=0.801  unc_rel=0.098  drop=0.63  h=64  L=2  lr=0.01  wd=5e-05
+  [Trial  22] flickr_random_0.4 | acc=0.4814  (174.4s)  knn=p  k= 23  dexp=8.50  p_grd=0.268  unc_rem=0.954  unc_rel=0.078  drop=0.64  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  23] flickr_random_0.4 | acc=0.3519  (217.3s)  knn=d  k= 24  dexp=8.47  p_grd=0.317  unc_rem=0.952  unc_rel=0.110  drop=0.68  h=32  L=1  lr=0.005  wd=1e-05
+  [Trial  24] flickr_random_0.4 | acc=0.4950  (253.4s)  knn=p  k= 24  dexp=6.24  p_grd=0.449  unc_rem=0.884  unc_rel=0.288  drop=0.57  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  25] flickr_random_0.4 | acc=0.4371  (218.9s)  knn=p  k= 24  dexp=7.01  p_grd=0.448  unc_rem=0.570  unc_rel=0.266  drop=0.46  h=16  L=2  lr=0.01  wd=1e-05
+  [Trial  26] flickr_random_0.4 | acc=0.4958  (199.3s)  knn=p  k= 19  dexp=7.68  p_grd=0.499  unc_rem=0.999  unc_rel=0.218  drop=0.22  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial  27] flickr_random_0.4 | acc=0.4859  (187.1s)  knn=p  k= 19  dexp=6.54  p_grd=0.400  unc_rem=0.696  unc_rel=0.197  drop=0.16  h=128  L=2  lr=0.005  wd=1e-05
+  [Trial  28] flickr_random_0.4 | acc=0.4923  (278.0s)  knn=p  k= 19  dexp=3.73  p_grd=0.461  unc_rem=0.959  unc_rel=0.296  drop=0.67  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial  29] flickr_random_0.4 | acc=0.3559  (240.4s)  knn=p  k= 24  dexp=8.13  p_grd=0.439  unc_rem=0.964  unc_rel=0.338  drop=0.43  h=32  L=2  lr=0.1  wd=0.0005
+  [Trial  30] flickr_random_0.4 | acc=0.2199  (105.4s)  knn=s  k= 40  dexp=7.85  p_grd=0.367  unc_rem=0.898  unc_rel=0.293  drop=0.15  h=32  L=4  lr=0.005  wd=0.0005
+  [Trial  31] flickr_random_0.4 | acc=0.1701  (210.7s)  knn=d  k= 19  dexp=9.20  p_grd=0.486  unc_rem=0.855  unc_rel=0.133  drop=0.22  h=64  L=2  lr=0.0001  wd=0.01
+  [Trial  32] flickr_random_0.4 | acc=0.4232  (272.7s)  knn=p  k= 19  dexp=4.16  p_grd=0.468  unc_rem=0.868  unc_rel=0.181  drop=0.81  h=16  L=2  lr=0.001  wd=1e-05
+  [Trial  33] flickr_random_0.4 | acc=0.3422  (208.9s)  knn=p  k= 20  dexp=9.59  p_grd=0.498  unc_rem=0.896  unc_rel=0.030  drop=0.30  h=32  L=1  lr=0.005  wd=5e-05
+  [Trial  34] flickr_random_0.4 | acc=0.1041  (228.3s)  knn=p  k= 18  dexp=5.09  p_grd=0.441  unc_rem=0.871  unc_rel=0.094  drop=0.77  h=32  L=4  lr=0.0001  wd=0.0001
+  [Trial  35] flickr_random_0.4 | acc=0.1732  (301.0s)  knn=d  k= 20  dexp=4.38  p_grd=0.453  unc_rem=0.958  unc_rel=0.391  drop=0.62  h=32  L=2  lr=0.001  wd=0.05
+  [Trial  36] flickr_random_0.4 | acc=0.2533  (228.1s)  knn=p  k= 23  dexp=7.65  p_grd=0.464  unc_rem=0.961  unc_rel=0.601  drop=0.24  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  37] flickr_random_0.4 | acc=0.1760  (151.7s)  knn=s  k= 35  dexp=2.07  p_grd=0.421  unc_rem=0.818  unc_rel=0.342  drop=0.74  h=32  L=2  lr=1e-05  wd=1e-05
+  [Trial  38] flickr_random_0.4 | acc=0.2427  (210.6s)  knn=p  k= 16  dexp=4.72  p_grd=0.314  unc_rem=0.687  unc_rel=0.416  drop=0.40  h=32  L=1  lr=0.0001  wd=1e-05
+  [Trial  39] flickr_random_0.4 | acc=0.1818  (155.6s)  knn=p  k= 17  dexp=8.61  p_grd=0.470  unc_rem=0.780  unc_rel=0.456  drop=0.14  h=32  L=2  lr=0.005  wd=0.01
+  [Trial  40] flickr_random_0.4 | acc=0.4590  (128.4s)  knn=s  k= 20  dexp=8.68  p_grd=0.479  unc_rem=0.737  unc_rel=0.104  drop=0.49  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  41] flickr_random_0.4 | acc=0.4501  (304.2s)  knn=p  k= 23  dexp=2.76  p_grd=0.479  unc_rem=0.787  unc_rel=0.473  drop=0.51  h=32  L=2  lr=0.05  wd=5e-05
+  [Trial  42] flickr_random_0.4 | acc=0.3457  (217.2s)  knn=p  k= 18  dexp=6.26  p_grd=0.392  unc_rem=0.607  unc_rel=0.372  drop=0.12  h=128  L=2  lr=0.1  wd=0.001
+  [Trial  43] flickr_random_0.4 | acc=0.3940  (733.3s)  knn=p  k= 19  dexp=3.60  p_grd=0.447  unc_rem=0.892  unc_rel=0.386  drop=0.55  h=64  L=2  lr=0.1  wd=1e-05
+  [Trial  44] flickr_random_0.4 | acc=0.1417  (292.7s)  knn=p  k= 19  dexp=5.45  p_grd=0.386  unc_rem=0.629  unc_rel=0.056  drop=0.12  h=128  L=2  lr=1e-05  wd=1e-05
+  [Trial  45] flickr_random_0.4 | acc=0.1360  (225.8s)  knn=p  k= 20  dexp=6.45  p_grd=0.481  unc_rem=0.826  unc_rel=0.418  drop=0.50  h=32  L=3  lr=0.01  wd=0.1
+  [Trial  46] flickr_random_0.4 | acc=0.4932  (317.5s)  knn=p  k= 22  dexp=8.07  p_grd=0.420  unc_rem=0.992  unc_rel=0.127  drop=0.31  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial  47] flickr_random_0.4 | acc=0.5068  (209.2s)  knn=d  k= 23  dexp=6.47  p_grd=0.451  unc_rem=0.843  unc_rel=0.137  drop=0.44  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial  48] flickr_random_0.4 | acc=0.3950  (183.6s)  knn=p  k= 24  dexp=9.55  p_grd=0.381  unc_rem=0.934  unc_rel=0.188  drop=0.37  h=64  L=2  lr=0.05  wd=1e-05
+  [Trial  49] flickr_random_0.4 | acc=0.1554  (98.1s)  knn=u  k=-    dexp=5.05  p_grd=0.425  unc_rem=0.754  unc_rel=0.054  drop=0.40  h=32  L=2  lr=0.005  wd=0.05
+  [Trial  50] flickr_random_0.4 | acc=0.5060  (242.8s)  knn=p  k= 23  dexp=7.69  p_grd=0.432  unc_rem=0.743  unc_rel=0.719  drop=0.63  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  51] flickr_random_0.4 | acc=0.4258  (175.2s)  knn=p  k= 24  dexp=8.49  p_grd=0.312  unc_rem=0.918  unc_rel=0.967  drop=0.63  h=16  L=2  lr=0.01  wd=0.0001
+  [Trial  52] flickr_random_0.4 | acc=0.4913  (121.9s)  knn=s  k= 35  dexp=7.46  p_grd=0.411  unc_rem=0.856  unc_rel=0.246  drop=0.33  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial  53] flickr_random_0.4 | acc=0.5011  (201.0s)  knn=p  k= 23  dexp=6.10  p_grd=0.365  unc_rem=0.867  unc_rel=0.666  drop=0.50  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  54] flickr_random_0.4 | acc=0.3226  (207.8s)  knn=p  k= 23  dexp=8.35  p_grd=0.474  unc_rem=0.586  unc_rel=0.729  drop=0.65  h=64  L=2  lr=0.0001  wd=1e-05
+  [Trial  55] flickr_random_0.4 | acc=0.1620  (220.6s)  knn=p  k= 24  dexp=7.27  p_grd=0.432  unc_rem=0.927  unc_rel=0.696  drop=0.44  h=64  L=2  lr=0.01  wd=0.005
+  [Trial  56] flickr_random_0.4 | acc=0.4682  (302.2s)  knn=p  k= 23  dexp=5.31  p_grd=0.346  unc_rem=0.642  unc_rel=0.615  drop=0.66  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  57] flickr_random_0.4 | acc=0.4748  (279.8s)  knn=p  k= 22  dexp=5.80  p_grd=0.363  unc_rem=0.830  unc_rel=0.728  drop=0.58  h=128  L=2  lr=0.01  wd=1e-05
+  [Trial  58] flickr_random_0.4 | acc=0.1117  (226.9s)  knn=d  k= 23  dexp=6.95  p_grd=0.381  unc_rem=0.763  unc_rel=0.244  drop=0.45  h=32  L=4  lr=0.0001  wd=1e-05
+  [Trial  59] flickr_random_0.4 | acc=0.4727  (247.1s)  knn=d  k= 23  dexp=7.63  p_grd=0.500  unc_rem=0.652  unc_rel=0.186  drop=0.52  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial  60] flickr_random_0.4 | acc=0.2216  (186.6s)  knn=p  k= 23  dexp=8.16  p_grd=0.241  unc_rem=0.840  unc_rel=0.608  drop=0.55  h=32  L=2  lr=0.0001  wd=5e-05
+  [Trial  61] flickr_random_0.4 | acc=0.3884  (217.1s)  knn=d  k= 23  dexp=6.39  p_grd=0.317  unc_rem=0.908  unc_rel=0.763  drop=0.36  h=32  L=2  lr=0.1  wd=1e-05
+  [Trial  62] flickr_random_0.4 | acc=0.2780  (156.4s)  knn=s  k= 50  dexp=5.74  p_grd=0.476  unc_rem=0.640  unc_rel=0.513  drop=0.66  h=32  L=4  lr=0.01  wd=1e-05
+  [Trial  63] flickr_random_0.4 | acc=0.4237  (266.1s)  knn=p  k= 23  dexp=6.53  p_grd=0.478  unc_rem=0.830  unc_rel=0.039  drop=0.12  h=32  L=2  lr=0.001  wd=0.001
+  [Trial  64] flickr_random_0.4 | acc=0.4894  (353.8s)  knn=p  k= 21  dexp=5.22  p_grd=0.497  unc_rem=0.957  unc_rel=0.195  drop=0.22  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  65] flickr_random_0.4 | acc=0.1586  (241.4s)  knn=p  k= 23  dexp=9.52  p_grd=0.477  unc_rem=0.652  unc_rel=0.826  drop=0.89  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  66] flickr_random_0.4 | acc=0.1439  (224.5s)  knn=p  k= 21  dexp=7.63  p_grd=0.434  unc_rem=0.978  unc_rel=0.165  drop=0.28  h=16  L=2  lr=0.005  wd=0.05
+  [Trial  67] flickr_random_0.4 | acc=0.4869  (221.9s)  knn=d  k= 23  dexp=6.63  p_grd=0.452  unc_rem=0.811  unc_rel=0.079  drop=0.69  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  68] flickr_random_0.4 | acc=0.1520  (241.8s)  knn=p  k= 20  dexp=5.10  p_grd=0.315  unc_rem=0.982  unc_rel=0.126  drop=0.19  h=32  L=2  lr=0.005  wd=0.005
+  [Trial  69] flickr_random_0.4 | acc=0.1772  (204.8s)  knn=p  k= 24  dexp=6.78  p_grd=0.421  unc_rem=0.643  unc_rel=0.197  drop=0.59  h=32  L=2  lr=1e-05  wd=1e-05
+  [Trial  70] flickr_random_0.4 | acc=0.4894  (115.0s)  knn=p  k=  1  dexp=9.92  p_grd=0.497  unc_rem=0.874  unc_rel=0.326  drop=0.48  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial  71] flickr_random_0.4 | acc=0.4013  (302.7s)  knn=d  k= 20  dexp=4.15  p_grd=0.493  unc_rem=0.939  unc_rel=0.237  drop=0.29  h=16  L=2  lr=0.0005  wd=1e-05
+  [Trial  72] flickr_random_0.4 | acc=0.1498  (195.4s)  knn=d  k= 15  dexp=6.86  p_grd=0.453  unc_rem=0.741  unc_rel=0.165  drop=0.45  h=32  L=2  lr=0.005  wd=0.005
+  [Trial  73] flickr_random_0.4 | acc=0.4879  (205.4s)  knn=p  k= 18  dexp=4.15  p_grd=0.288  unc_rem=0.916  unc_rel=0.534  drop=0.61  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial  74] flickr_random_0.4 | acc=0.4936  (182.1s)  knn=p  k= 20  dexp=6.64  p_grd=0.263  unc_rem=0.865  unc_rel=0.581  drop=0.35  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  75] flickr_random_0.4 | acc=0.3659  (187.3s)  knn=d  k= 20  dexp=6.50  p_grd=0.457  unc_rem=0.991  unc_rel=0.283  drop=0.11  h=32  L=3  lr=0.005  wd=1e-05
+  [Trial  76] flickr_random_0.4 | acc=0.3651  (185.1s)  knn=d  k= 21  dexp=7.11  p_grd=0.186  unc_rem=0.878  unc_rel=0.518  drop=0.41  h=32  L=3  lr=0.01  wd=1e-05
+  [Trial  77] flickr_random_0.4 | acc=0.1061  (164.1s)  knn=p  k= 24  dexp=8.66  p_grd=0.392  unc_rem=0.802  unc_rel=0.032  drop=0.27  h=32  L=4  lr=1e-05  wd=0.1
+  [Trial  78] flickr_random_0.4 | acc=0.4923  (128.0s)  knn=p  k=  6  dexp=7.68  p_grd=0.147  unc_rem=0.626  unc_rel=0.625  drop=0.39  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial  79] flickr_random_0.4 | acc=0.4917  (179.9s)  knn=p  k= 20  dexp=6.74  p_grd=0.481  unc_rem=0.902  unc_rel=0.977  drop=0.68  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  80] flickr_random_0.4 | acc=0.4920  (211.3s)  knn=d  k= 20  dexp=7.01  p_grd=0.423  unc_rem=0.938  unc_rel=0.151  drop=0.38  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial  81] flickr_random_0.4 | acc=0.4859  (72.0s)  knn=u  k=-    dexp=8.79  p_grd=0.291  unc_rem=0.741  unc_rel=0.050  drop=0.19  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  82] flickr_random_0.4 | acc=0.4806  (72.9s)  knn=u  k=-    dexp=5.35  p_grd=0.332  unc_rem=0.859  unc_rel=0.605  drop=0.37  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  83] flickr_random_0.4 | acc=0.4780  (147.2s)  knn=p  k= 15  dexp=6.04  p_grd=0.224  unc_rem=0.845  unc_rel=0.502  drop=0.38  h=32  L=2  lr=0.01  wd=0.0005
+  [Trial  84] flickr_random_0.4 | acc=0.4691  (91.4s)  knn=u  k=-    dexp=3.23  p_grd=0.419  unc_rem=0.764  unc_rel=0.145  drop=0.80  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial  85] flickr_random_0.4 | acc=0.1760  (192.6s)  knn=p  k= 18  dexp=7.40  p_grd=0.440  unc_rem=0.907  unc_rel=0.062  drop=0.84  h=32  L=2  lr=0.001  wd=0.005
+  [Trial  86] flickr_random_0.4 | acc=0.4880  (169.7s)  knn=s  k= 35  dexp=6.89  p_grd=0.368  unc_rem=0.789  unc_rel=0.298  drop=0.62  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial  87] flickr_random_0.4 | acc=0.1401  (316.1s)  knn=p  k= 19  dexp=2.61  p_grd=0.487  unc_rem=0.827  unc_rel=0.270  drop=0.68  h=128  L=2  lr=0.0001  wd=0.1
+  [Trial  88] flickr_random_0.4 | acc=0.3582  (359.4s)  knn=p  k= 20  dexp=8.80  p_grd=0.465  unc_rem=0.770  unc_rel=0.131  drop=0.60  h=32  L=1  lr=0.01  wd=1e-05
+  [Trial  89] flickr_random_0.4 | acc=0.1143  (310.1s)  knn=p  k= 23  dexp=4.66  p_grd=0.478  unc_rem=0.755  unc_rel=0.310  drop=0.63  h=32  L=3  lr=0.0001  wd=1e-05
+  [Trial  90] flickr_random_0.4 | acc=0.2701  (242.7s)  knn=p  k= 18  dexp=4.05  p_grd=0.411  unc_rem=0.944  unc_rel=0.231  drop=0.65  h=32  L=1  lr=0.01  wd=0.01
+  [Trial  91] flickr_random_0.4 | acc=0.2770  (186.2s)  knn=p  k= 23  dexp=6.71  p_grd=0.166  unc_rem=0.774  unc_rel=0.961  drop=0.55  h=32  L=4  lr=0.01  wd=1e-05
+  [Trial  92] flickr_random_0.4 | acc=0.4773  (115.5s)  knn=p  k=  7  dexp=6.68  p_grd=0.117  unc_rem=0.398  unc_rel=0.790  drop=0.15  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial  93] flickr_random_0.4 | acc=0.4821  (130.6s)  knn=p  k=  6  dexp=7.92  p_grd=0.197  unc_rem=0.796  unc_rel=0.404  drop=0.60  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial  94] flickr_random_0.4 | acc=0.4615  (118.6s)  knn=p  k=  6  dexp=4.98  p_grd=0.081  unc_rem=0.855  unc_rel=0.503  drop=0.30  h=16  L=2  lr=0.05  wd=1e-05
+  [Trial  95] flickr_random_0.4 | acc=0.2059  (162.3s)  knn=p  k=  8  dexp=9.82  p_grd=0.176  unc_rem=0.601  unc_rel=0.451  drop=0.35  h=64  L=2  lr=0.01  wd=0.01
+  [Trial  96] flickr_random_0.4 | acc=0.2668  (76.7s)  knn=u  k=-    dexp=8.93  p_grd=0.461  unc_rem=0.769  unc_rel=0.063  drop=0.29  h=32  L=4  lr=0.005  wd=1e-05
+  [Trial  97] flickr_random_0.4 | acc=0.4310  (63.1s)  knn=u  k=-    dexp=8.16  p_grd=0.070  unc_rem=0.831  unc_rel=0.634  drop=0.24  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial  98] flickr_random_0.4 | acc=0.1521  (133.9s)  knn=p  k= 10  dexp=9.25  p_grd=0.146  unc_rem=0.741  unc_rel=0.467  drop=0.35  h=128  L=2  lr=1e-05  wd=1e-05
+  [Trial  99] flickr_random_0.4 | acc=0.4593  (129.0s)  knn=d  k=  4  dexp=8.60  p_grd=0.409  unc_rem=0.913  unc_rel=0.521  drop=0.66  h=32  L=2  lr=0.01  wd=0.0001
+  [Trial 100] flickr_random_0.4 | acc=0.1435  (233.8s)  knn=p  k= 21  dexp=6.67  p_grd=0.475  unc_rem=0.893  unc_rel=0.392  drop=0.61  h=32  L=2  lr=0.01  wd=0.05
+  [Trial 101] flickr_random_0.4 | acc=0.4123  (132.0s)  knn=p  k= 24  dexp=7.57  p_grd=0.186  unc_rem=0.738  unc_rel=0.450  drop=0.54  h=16  L=2  lr=0.01  wd=1e-05
+  [Trial 102] flickr_random_0.4 | acc=0.5011  (231.9s)  knn=d  k= 19  dexp=5.78  p_grd=0.432  unc_rem=0.989  unc_rel=0.093  drop=0.37  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 103] flickr_random_0.4 | acc=0.1599  (216.7s)  knn=p  k= 17  dexp=6.55  p_grd=0.334  unc_rem=0.845  unc_rel=0.702  drop=0.49  h=32  L=2  lr=1e-05  wd=1e-05
+  [Trial 104] flickr_random_0.4 | acc=0.0987  (139.9s)  knn=d  k= 20  dexp=8.14  p_grd=0.082  unc_rem=0.417  unc_rel=0.633  drop=0.42  h=64  L=2  lr=1e-05  wd=1e-05
+  [Trial 105] flickr_random_0.4 | acc=0.2935  (175.2s)  knn=p  k= 20  dexp=6.91  p_grd=0.177  unc_rem=0.608  unc_rel=0.961  drop=0.40  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 106] flickr_random_0.4 | acc=0.3559  (136.9s)  knn=p  k= 16  dexp=6.47  p_grd=0.152  unc_rem=0.708  unc_rel=0.627  drop=0.32  h=64  L=1  lr=0.01  wd=1e-05
+  [Trial 107] flickr_random_0.4 | acc=0.1435  (254.7s)  knn=d  k= 24  dexp=6.97  p_grd=0.475  unc_rem=0.753  unc_rel=0.069  drop=0.41  h=128  L=2  lr=0.001  wd=0.1
+  [Trial 108] flickr_random_0.4 | acc=0.3828  (237.2s)  knn=p  k= 21  dexp=8.48  p_grd=0.392  unc_rem=0.861  unc_rel=0.020  drop=0.27  h=32  L=2  lr=0.1  wd=1e-05
+  [Trial 109] flickr_random_0.4 | acc=0.5019  (241.0s)  knn=d  k= 20  dexp=2.51  p_grd=0.219  unc_rem=0.572  unc_rel=0.210  drop=0.34  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 110] flickr_random_0.4 | acc=0.4242  (180.7s)  knn=d  k= 18  dexp=2.40  p_grd=0.201  unc_rem=0.285  unc_rel=0.234  drop=0.36  h=32  L=2  lr=0.05  wd=1e-05
+  [Trial 111] flickr_random_0.4 | acc=0.4207  (83.7s)  knn=u  k=-    dexp=0.77  p_grd=0.161  unc_rem=0.510  unc_rel=0.178  drop=0.33  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 112] flickr_random_0.4 | acc=0.4993  (165.8s)  knn=p  k= 21  dexp=7.69  p_grd=0.500  unc_rem=0.907  unc_rel=0.127  drop=0.18  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 113] flickr_random_0.4 | acc=0.1765  (312.7s)  knn=d  k= 21  dexp=3.49  p_grd=0.393  unc_rem=0.956  unc_rel=0.300  drop=0.35  h=32  L=1  lr=0.005  wd=0.1
+  [Trial 114] flickr_random_0.4 | acc=0.5021  (260.8s)  knn=p  k= 20  dexp=2.73  p_grd=0.496  unc_rem=0.764  unc_rel=0.254  drop=0.52  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial 115] flickr_random_0.4 | acc=0.1322  (181.4s)  knn=p  k= 21  dexp=8.62  p_grd=0.468  unc_rem=0.524  unc_rel=0.197  drop=0.12  h=64  L=2  lr=0.005  wd=0.1
+  [Trial 116] flickr_random_0.4 | acc=0.5024  (199.2s)  knn=d  k= 21  dexp=3.83  p_grd=0.175  unc_rem=0.586  unc_rel=0.141  drop=0.56  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 117] flickr_random_0.4 | acc=0.4986  (206.2s)  knn=d  k= 20  dexp=4.49  p_grd=0.135  unc_rem=0.577  unc_rel=0.106  drop=0.78  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 118] flickr_random_0.4 | acc=0.3544  (201.7s)  knn=d  k= 21  dexp=4.25  p_grd=0.191  unc_rem=0.478  unc_rel=0.073  drop=0.71  h=32  L=2  lr=0.1  wd=1e-05
+  [Trial 119] flickr_random_0.4 | acc=0.2637  (223.0s)  knn=p  k= 18  dexp=4.06  p_grd=0.232  unc_rem=0.473  unc_rel=0.257  drop=0.72  h=32  L=4  lr=0.005  wd=1e-05
+  [Trial 120] flickr_random_0.4 | acc=0.4943  (287.0s)  knn=d  k= 24  dexp=2.67  p_grd=0.264  unc_rem=0.740  unc_rel=0.248  drop=0.33  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 121] flickr_random_0.4 | acc=0.4961  (206.7s)  knn=d  k= 20  dexp=8.35  p_grd=0.441  unc_rem=0.507  unc_rel=0.742  drop=0.53  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 122] flickr_random_0.4 | acc=0.4941  (321.6s)  knn=p  k= 20  dexp=2.00  p_grd=0.498  unc_rem=0.649  unc_rel=0.040  drop=0.59  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial 123] flickr_random_0.4 | acc=0.4940  (215.6s)  knn=d  k= 20  dexp=9.96  p_grd=0.424  unc_rem=0.638  unc_rel=0.837  drop=0.37  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 124] flickr_random_0.4 | acc=0.2150  (129.1s)  knn=d  k= 22  dexp=1.79  p_grd=0.098  unc_rem=0.702  unc_rel=0.196  drop=0.64  h=32  L=2  lr=0.005  wd=0.005
+  [Trial 125] flickr_random_0.4 | acc=0.3478  (191.4s)  knn=d  k= 17  dexp=7.79  p_grd=0.353  unc_rem=0.339  unc_rel=0.680  drop=0.61  h=32  L=1  lr=0.005  wd=1e-05
+  [Trial 126] flickr_random_0.4 | acc=0.1501  (91.3s)  knn=d  k= 22  dexp=6.56  p_grd=0.007  unc_rem=0.730  unc_rel=0.346  drop=0.79  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 127] flickr_random_0.4 | acc=0.3506  (238.2s)  knn=d  k= 20  dexp=3.68  p_grd=0.187  unc_rem=0.455  unc_rel=0.375  drop=0.60  h=32  L=1  lr=0.005  wd=1e-05
+  [Trial 128] flickr_random_0.4 | acc=0.4592  (304.8s)  knn=d  k= 24  dexp=3.91  p_grd=0.345  unc_rem=0.968  unc_rel=0.148  drop=0.36  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 129] flickr_random_0.4 | acc=0.2673  (185.6s)  knn=d  k= 18  dexp=8.13  p_grd=0.435  unc_rem=0.297  unc_rel=0.829  drop=0.71  h=32  L=4  lr=0.01  wd=1e-05
+  [Trial 130] flickr_random_0.4 | acc=0.4267  (232.4s)  knn=d  k= 21  dexp=3.77  p_grd=0.309  unc_rem=0.444  unc_rel=0.281  drop=0.69  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 131] flickr_random_0.4 | acc=0.4966  (120.4s)  knn=s  k= 35  dexp=4.09  p_grd=0.123  unc_rem=0.644  unc_rel=0.256  drop=0.88  h=128  L=2  lr=0.005  wd=1e-05
+  [Trial 132] flickr_random_0.4 | acc=0.4804  (109.9s)  knn=s  k= 35  dexp=3.75  p_grd=0.171  unc_rem=0.818  unc_rel=0.139  drop=0.85  h=128  L=2  lr=0.005  wd=1e-05
+  [Trial 133] flickr_random_0.4 | acc=0.1023  (146.1s)  knn=s  k= 35  dexp=6.41  p_grd=0.159  unc_rem=0.706  unc_rel=0.368  drop=0.85  h=32  L=2  lr=0.005  wd=0.1
+  [Trial 134] flickr_random_0.4 | acc=0.3509  (113.0s)  knn=s  k= 60  dexp=3.55  p_grd=0.233  unc_rem=0.394  unc_rel=0.021  drop=0.71  h=16  L=1  lr=0.005  wd=1e-05
+  [Trial 135] flickr_random_0.4 | acc=0.4908  (316.3s)  knn=d  k= 24  dexp=3.29  p_grd=0.481  unc_rem=0.657  unc_rel=0.663  drop=0.43  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 136] flickr_random_0.4 | acc=0.4618  (139.3s)  knn=p  k= 24  dexp=3.02  p_grd=0.106  unc_rem=0.473  unc_rel=0.372  drop=0.90  h=128  L=2  lr=0.05  wd=1e-05
+  [Trial 137] flickr_random_0.4 | acc=0.4735  (271.0s)  knn=p  k= 24  dexp=7.41  p_grd=0.439  unc_rem=0.750  unc_rel=0.040  drop=0.55  h=128  L=2  lr=0.01  wd=0.0001
+  [Trial 138] flickr_random_0.4 | acc=0.1973  (218.1s)  knn=d  k= 24  dexp=6.89  p_grd=0.459  unc_rem=0.544  unc_rel=0.731  drop=0.57  h=64  L=2  lr=1e-05  wd=1e-05
+  [Trial 139] flickr_random_0.4 | acc=0.3871  (214.8s)  knn=d  k= 19  dexp=3.01  p_grd=0.150  unc_rem=0.682  unc_rel=0.089  drop=0.74  h=64  L=3  lr=0.005  wd=1e-05
+  [Trial 140] flickr_random_0.4 | acc=0.4468  (199.1s)  knn=d  k= 24  dexp=4.08  p_grd=0.198  unc_rem=0.291  unc_rel=0.199  drop=0.54  h=128  L=2  lr=0.005  wd=0.0005
+  [Trial 141] flickr_random_0.4 | acc=0.3623  (107.2s)  knn=d  k= 19  dexp=1.08  p_grd=0.036  unc_rem=0.517  unc_rel=0.088  drop=0.86  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 142] flickr_random_0.4 | acc=0.3796  (136.8s)  knn=s  k= 35  dexp=5.44  p_grd=0.129  unc_rem=0.687  unc_rel=0.448  drop=0.84  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial 143] flickr_random_0.4 | acc=0.4404  (134.6s)  knn=s  k= 45  dexp=6.81  p_grd=0.170  unc_rem=0.571  unc_rel=0.398  drop=0.87  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial 144] flickr_random_0.4 | acc=0.4745  (250.0s)  knn=d  k= 24  dexp=2.74  p_grd=0.177  unc_rem=0.821  unc_rel=0.107  drop=0.13  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 145] flickr_random_0.4 | acc=0.1391  (213.1s)  knn=p  k= 24  dexp=7.45  p_grd=0.460  unc_rem=0.426  unc_rel=0.759  drop=0.43  h=32  L=2  lr=0.01  wd=0.1
+  [Trial 146] flickr_random_0.4 | acc=0.4679  (211.9s)  knn=d  k= 24  dexp=0.55  p_grd=0.273  unc_rem=0.574  unc_rel=0.262  drop=0.42  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 147] flickr_random_0.4 | acc=0.4823  (132.0s)  knn=d  k= 20  dexp=4.80  p_grd=0.113  unc_rem=0.773  unc_rel=0.284  drop=0.47  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial 148] flickr_random_0.4 | acc=0.4478  (126.1s)  knn=d  k= 21  dexp=9.72  p_grd=0.357  unc_rem=0.407  unc_rel=0.653  drop=0.48  h=32  L=2  lr=0.001  wd=0.0005
+  [Trial 149] flickr_random_0.4 | acc=0.2528  (184.2s)  knn=u  k=-    dexp=7.10  p_grd=0.463  unc_rem=0.513  unc_rel=0.567  drop=0.49  h=32  L=2  lr=0.0001  wd=1e-05
+  [Trial 150] flickr_random_0.4 | acc=0.1394  (130.7s)  knn=s  k= 30  dexp=4.56  p_grd=0.028  unc_rem=0.417  unc_rel=0.140  drop=0.60  h=128  L=2  lr=0.005  wd=0.05
+  [Trial 151] flickr_random_0.4 | acc=0.1680  (109.2s)  knn=s  k= 35  dexp=5.29  p_grd=0.099  unc_rem=0.689  unc_rel=0.077  drop=0.84  h=128  L=4  lr=0.1  wd=1e-05
+  [Trial 152] flickr_random_0.4 | acc=0.3722  (196.2s)  knn=p  k= 20  dexp=8.37  p_grd=0.487  unc_rem=0.848  unc_rel=0.101  drop=0.17  h=32  L=3  lr=0.005  wd=1e-05
+  [Trial 153] flickr_random_0.4 | acc=0.4285  (244.3s)  knn=p  k= 20  dexp=1.56  p_grd=0.432  unc_rem=0.531  unc_rel=0.219  drop=0.45  h=32  L=2  lr=0.05  wd=1e-05
+  [Trial 154] flickr_random_0.4 | acc=0.4519  (253.5s)  knn=d  k= 17  dexp=2.27  p_grd=0.492  unc_rem=0.356  unc_rel=0.179  drop=0.58  h=32  L=2  lr=0.001  wd=0.0005
+  [Trial 155] flickr_random_0.4 | acc=0.2551  (268.4s)  knn=p  k= 21  dexp=1.39  p_grd=0.466  unc_rem=0.785  unc_rel=0.145  drop=0.49  h=32  L=4  lr=0.001  wd=1e-05
+  [Trial 156] flickr_random_0.4 | acc=0.3631  (193.8s)  knn=p  k= 21  dexp=1.48  p_grd=0.496  unc_rem=0.580  unc_rel=0.151  drop=0.59  h=32  L=2  lr=0.1  wd=0.0001
+  [Trial 157] flickr_random_0.4 | acc=0.4857  (79.5s)  knn=u  k=-    dexp=4.24  p_grd=0.448  unc_rem=0.812  unc_rel=0.098  drop=0.30  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial 158] flickr_random_0.4 | acc=0.4757  (255.5s)  knn=p  k= 21  dexp=3.08  p_grd=0.485  unc_rem=0.556  unc_rel=0.284  drop=0.56  h=128  L=2  lr=0.001  wd=1e-05
+  [Trial 159] flickr_random_0.4 | acc=0.4003  (228.2s)  knn=p  k= 17  dexp=0.47  p_grd=0.477  unc_rem=0.743  unc_rel=0.322  drop=0.37  h=32  L=2  lr=0.001  wd=0.001
+  [Trial 160] flickr_random_0.4 | acc=0.4956  (252.1s)  knn=d  k= 24  dexp=3.79  p_grd=0.254  unc_rem=0.636  unc_rel=0.231  drop=0.74  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 161] flickr_random_0.4 | acc=0.1076  (236.6s)  knn=d  k= 24  dexp=4.29  p_grd=0.211  unc_rem=0.629  unc_rel=0.413  drop=0.61  h=32  L=2  lr=1e-05  wd=0.1
+  [Trial 162] flickr_random_0.4 | acc=0.1397  (215.4s)  knn=d  k= 24  dexp=2.99  p_grd=0.255  unc_rem=0.699  unc_rel=0.445  drop=0.20  h=16  L=2  lr=0.005  wd=0.1
+  [Trial 163] flickr_random_0.4 | acc=0.4917  (315.0s)  knn=p  k= 21  dexp=6.82  p_grd=0.448  unc_rem=0.651  unc_rel=0.346  drop=0.78  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 164] flickr_random_0.4 | acc=0.4110  (266.0s)  knn=d  k= 24  dexp=2.63  p_grd=0.368  unc_rem=0.681  unc_rel=0.241  drop=0.88  h=16  L=2  lr=0.005  wd=1e-05
+  [Trial 165] flickr_random_0.4 | acc=0.1709  (265.6s)  knn=d  k= 21  dexp=7.79  p_grd=0.386  unc_rem=0.319  unc_rel=0.549  drop=0.65  h=32  L=2  lr=0.01  wd=0.05
+  [Trial 166] flickr_random_0.4 | acc=0.4831  (486.3s)  knn=p  k= 24  dexp=3.24  p_grd=0.482  unc_rem=0.540  unc_rel=0.123  drop=0.79  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial 167] flickr_random_0.4 | acc=0.4900  (177.0s)  knn=d  k= 20  dexp=5.17  p_grd=0.317  unc_rem=0.696  unc_rel=0.357  drop=0.85  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 168] flickr_random_0.4 | acc=0.4927  (272.4s)  knn=d  k= 21  dexp=3.51  p_grd=0.477  unc_rem=0.951  unc_rel=0.104  drop=0.29  h=32  L=2  lr=0.005  wd=0.0001
+  [Trial 169] flickr_random_0.4 | acc=0.4892  (199.0s)  knn=d  k= 18  dexp=4.51  p_grd=0.277  unc_rem=0.772  unc_rel=0.282  drop=0.28  h=32  L=2  lr=0.005  wd=5e-05
+  [Trial 170] flickr_random_0.4 | acc=0.1506  (209.0s)  knn=d  k= 24  dexp=9.25  p_grd=0.489  unc_rem=0.497  unc_rel=0.992  drop=0.56  h=128  L=2  lr=0.01  wd=0.01
+  [Trial 171] flickr_random_0.4 | acc=0.4656  (179.0s)  knn=p  k= 21  dexp=6.95  p_grd=0.347  unc_rem=0.660  unc_rel=0.732  drop=0.66  h=32  L=2  lr=0.0005  wd=1e-05
+  [Trial 172] flickr_random_0.4 | acc=0.4950  (232.9s)  knn=d  k= 18  dexp=8.58  p_grd=0.435  unc_rem=0.675  unc_rel=0.803  drop=0.33  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 173] flickr_random_0.4 | acc=0.4816  (238.7s)  knn=p  k= 16  dexp=6.82  p_grd=0.484  unc_rem=0.768  unc_rel=0.078  drop=0.20  h=32  L=2  lr=0.005  wd=0.0005
+  [Trial 174] flickr_random_0.4 | acc=0.1680  (284.1s)  knn=p  k= 17  dexp=2.38  p_grd=0.475  unc_rem=0.454  unc_rel=0.068  drop=0.43  h=32  L=2  lr=0.001  wd=0.005
+  [Trial 175] flickr_random_0.4 | acc=0.3019  (209.0s)  knn=d  k= 18  dexp=9.61  p_grd=0.442  unc_rem=0.510  unc_rel=0.796  drop=0.55  h=32  L=3  lr=0.05  wd=1e-05
+  [Trial 176] flickr_random_0.4 | acc=0.1562  (155.6s)  knn=s  k= 40  dexp=2.80  p_grd=0.205  unc_rem=0.534  unc_rel=0.270  drop=0.57  h=32  L=2  lr=0.005  wd=0.01
+  [Trial 177] flickr_random_0.4 | acc=0.2450  (171.0s)  knn=d  k= 21  dexp=4.09  p_grd=0.292  unc_rem=0.557  unc_rel=0.213  drop=0.44  h=16  L=2  lr=0.0001  wd=1e-05
+  [Trial 178] flickr_random_0.4 | acc=0.4877  (188.7s)  knn=p  k= 20  dexp=7.98  p_grd=0.462  unc_rem=0.938  unc_rel=0.100  drop=0.16  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial 179] flickr_random_0.4 | acc=0.4300  (128.5s)  knn=s  k= 35  dexp=4.70  p_grd=0.208  unc_rem=0.508  unc_rel=0.253  drop=0.77  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 180] flickr_random_0.4 | acc=0.2769  (142.5s)  knn=u  k=-    dexp=2.22  p_grd=0.228  unc_rem=0.573  unc_rel=0.100  drop=0.72  h=128  L=2  lr=1e-05  wd=1e-05
+  [Trial 181] flickr_random_0.4 | acc=0.3542  (178.5s)  knn=p  k= 14  dexp=1.90  p_grd=0.431  unc_rem=0.716  unc_rel=0.308  drop=0.53  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial 182] flickr_random_0.4 | acc=0.5049  (129.7s)  knn=d  k= 19  dexp=9.31  p_grd=0.477  unc_rem=0.826  unc_rel=0.754  drop=0.36  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 183] flickr_random_0.4 | acc=0.3414  (174.3s)  knn=d  k= 18  dexp=1.96  p_grd=0.207  unc_rem=0.426  unc_rel=0.118  drop=0.28  h=32  L=3  lr=0.0005  wd=1e-05
+  [Trial 184] flickr_random_0.4 | acc=0.5060  (137.7s)  knn=p  k= 19  dexp=4.94  p_grd=0.366  unc_rem=0.924  unc_rel=0.153  drop=0.60  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 185] flickr_random_0.4 | acc=0.4712  (185.7s)  knn=d  k= 18  dexp=7.27  p_grd=0.495  unc_rem=0.590  unc_rel=0.789  drop=0.15  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial 186] flickr_random_0.4 | acc=0.4834  (148.6s)  knn=u  k=-    dexp=9.53  p_grd=0.477  unc_rem=0.939  unc_rel=0.258  drop=0.12  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 187] flickr_random_0.4 | acc=0.1010  (142.3s)  knn=d  k= 24  dexp=3.77  p_grd=0.097  unc_rem=0.596  unc_rel=0.219  drop=0.73  h=32  L=2  lr=0.0005  wd=0.05
+  [Trial 188] flickr_random_0.4 | acc=0.4978  (226.8s)  knn=p  k= 18  dexp=6.21  p_grd=0.424  unc_rem=0.929  unc_rel=0.019  drop=0.54  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 189] flickr_random_0.4 | acc=0.4729  (104.0s)  knn=u  k=-    dexp=4.73  p_grd=0.089  unc_rem=0.186  unc_rel=0.032  drop=0.88  h=128  L=2  lr=0.005  wd=1e-05
+  [Trial 190] flickr_random_0.4 | acc=0.4994  (175.5s)  knn=p  k= 16  dexp=4.09  p_grd=0.263  unc_rem=0.953  unc_rel=0.089  drop=0.60  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 191] flickr_random_0.4 | acc=0.3523  (287.5s)  knn=s  k= 10  dexp=3.21  p_grd=0.147  unc_rem=0.651  unc_rel=0.423  drop=0.88  h=128  L=2  lr=0.0001  wd=1e-05
+  [Trial 192] flickr_random_0.4 | acc=0.4734  (157.2s)  knn=d  k= 14  dexp=7.95  p_grd=0.430  unc_rem=0.343  unc_rel=0.652  drop=0.40  h=32  L=2  lr=0.0005  wd=1e-05
+  [Trial 193] flickr_random_0.4 | acc=0.4738  (124.3s)  knn=s  k= 15  dexp=1.43  p_grd=0.286  unc_rem=0.952  unc_rel=0.216  drop=0.52  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 194] flickr_random_0.4 | acc=0.1625  (144.7s)  knn=p  k= 17  dexp=6.59  p_grd=0.491  unc_rem=0.940  unc_rel=0.098  drop=0.23  h=32  L=1  lr=1e-05  wd=1e-05
+  [Trial 195] flickr_random_0.4 | acc=0.3735  (253.6s)  knn=p  k= 18  dexp=1.55  p_grd=0.140  unc_rem=0.957  unc_rel=0.216  drop=0.75  h=32  L=2  lr=0.1  wd=1e-05
+  [Trial 196] flickr_random_0.4 | acc=0.2780  (168.1s)  knn=p  k= 17  dexp=6.55  p_grd=0.418  unc_rem=0.698  unc_rel=0.240  drop=0.50  h=32  L=4  lr=0.01  wd=1e-05
+  [Trial 197] flickr_random_0.4 | acc=0.4981  (194.4s)  knn=d  k= 18  dexp=4.50  p_grd=0.208  unc_rem=0.487  unc_rel=0.093  drop=0.56  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 198] flickr_random_0.4 | acc=0.4486  (316.8s)  knn=d  k= 18  dexp=9.46  p_grd=0.498  unc_rem=0.870  unc_rel=0.917  drop=0.21  h=16  L=2  lr=0.005  wd=1e-05
+  [Trial 199] flickr_random_0.4 | acc=0.1772  (243.0s)  knn=p  k= 20  dexp=7.44  p_grd=0.392  unc_rem=0.878  unc_rel=0.110  drop=0.39  h=32  L=2  lr=0.01  wd=0.005
+  [Trial 200] flickr_random_0.4 | acc=0.4948  (233.3s)  knn=p  k= 20  dexp=4.93  p_grd=0.343  unc_rem=0.871  unc_rel=0.076  drop=0.57  h=32  L=2  lr=0.01  wd=1e-05
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (flickr_random_0.4) Testing top-5 configs × 10 seeds...
+
+  [Retest] (flickr_random_0.4) Config 1/5: (Trial #46, Orig Acc: 0.5068)
+           Params: {'knn_mode': 'd', 'k': 23, 'dexp': 6.470671988483729, 'p_grd': 0.4505145116965571, 'unc_rem': 0.8425792046433512, 'unc_rel': 0.13697635008561793, 'dropout': 0.4397411614426595, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 1e-05}
+    [Retest] flickr | Config 1 | Run 1/10 | seed=3000 | Acc: 0.5068 | Mean: 0.5068 | Time: 257.5s
+    [Retest] flickr | Config 1 | Run 2/10 | seed=3001 | Acc: 0.4682 | Mean: 0.4875 | Time: 211.2s
+    [Retest] flickr | Config 1 | Run 3/10 | seed=3002 | Acc: 0.4856 | Mean: 0.4869 | Time: 158.2s
+    [Retest] flickr | Config 1 | Run 4/10 | seed=3003 | Acc: 0.4527 | Mean: 0.4783 | Time: 185.9s
+    [Retest] flickr | Config 1 | Run 5/10 | seed=3004 | Acc: 0.4862 | Mean: 0.4799 | Time: 133.6s
+    [Retest] flickr | Config 1 | Run 6/10 | seed=3005 | Acc: 0.5077 | Mean: 0.4845 | Time: 144.4s
+    [Retest] flickr | Config 1 | Run 7/10 | seed=3006 | Acc: 0.4902 | Mean: 0.4854 | Time: 169.3s
+    [Retest] flickr | Config 1 | Run 8/10 | seed=3007 | Acc: 0.4674 | Mean: 0.4831 | Time: 360.5s
+    [Retest] flickr | Config 1 | Run 9/10 | seed=3008 | Acc: 0.4861 | Mean: 0.4834 | Time: 117.8s
+    [Retest] flickr | Config 1 | Run 10/10 | seed=3009 | Acc: 0.4887 | Mean: 0.4840 | Time: 115.3s
+  [Retest] Config 1: mean=0.4840 ± 0.0163
+
+  [Retest] (flickr_random_0.4) Config 2/5: (Trial #49, Orig Acc: 0.5060)
+           Params: {'knn_mode': 'p', 'k': 23, 'dexp': 7.685613236831824, 'p_grd': 0.4320465668596274, 'unc_rem': 0.7426465506477121, 'unc_rel': 0.7187650184358818, 'dropout': 0.6296281338058448, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.01, 'weight_decay': 1e-05}
+    [Retest] flickr | Config 2 | Run 1/10 | seed=3000 | Acc: 0.5060 | Mean: 0.5060 | Time: 115.4s
+    [Retest] flickr | Config 2 | Run 2/10 | seed=3001 | Acc: 0.4811 | Mean: 0.4936 | Time: 147.9s
+    [Retest] flickr | Config 2 | Run 3/10 | seed=3002 | Acc: 0.4727 | Mean: 0.4866 | Time: 101.2s
+    [Retest] flickr | Config 2 | Run 4/10 | seed=3003 | Acc: 0.4248 | Mean: 0.4712 | Time: 152.6s
+    [Retest] flickr | Config 2 | Run 5/10 | seed=3004 | Acc: 0.4672 | Mean: 0.4704 | Time: 144.5s
+    [Retest] flickr | Config 2 | Run 6/10 | seed=3005 | Acc: 0.5078 | Mean: 0.4766 | Time: 263.8s
+    [Retest] flickr | Config 2 | Run 7/10 | seed=3006 | Acc: 0.4907 | Mean: 0.4786 | Time: 137.8s
+    [Retest] flickr | Config 2 | Run 8/10 | seed=3007 | Acc: 0.4516 | Mean: 0.4753 | Time: 149.0s
+    [Retest] flickr | Config 2 | Run 9/10 | seed=3008 | Acc: 0.4859 | Mean: 0.4764 | Time: 99.5s
+    [Retest] flickr | Config 2 | Run 10/10 | seed=3009 | Acc: 0.4927 | Mean: 0.4781 | Time: 149.0s
+  [Retest] Config 2: mean=0.4781 ± 0.0241
+
+  [Retest] (flickr_random_0.4) Config 3/5: (Trial #183, Orig Acc: 0.5060)
+           Params: {'knn_mode': 'p', 'k': 19, 'dexp': 4.935403548185097, 'p_grd': 0.36636922719054954, 'unc_rem': 0.9235847549963938, 'unc_rel': 0.15284509215760644, 'dropout': 0.6018356607907481, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.01, 'weight_decay': 1e-05}
+    [Retest] flickr | Config 3 | Run 1/10 | seed=3000 | Acc: 0.5060 | Mean: 0.5060 | Time: 144.3s
+    [Retest] flickr | Config 3 | Run 2/10 | seed=3001 | Acc: 0.4750 | Mean: 0.4905 | Time: 134.2s
+    [Retest] flickr | Config 3 | Run 3/10 | seed=3002 | Acc: 0.4770 | Mean: 0.4860 | Time: 142.9s
+    [Retest] flickr | Config 3 | Run 4/10 | seed=3003 | Acc: 0.4575 | Mean: 0.4789 | Time: 122.3s
+    [Retest] flickr | Config 3 | Run 5/10 | seed=3004 | Acc: 0.4696 | Mean: 0.4770 | Time: 154.2s
+    [Retest] flickr | Config 3 | Run 6/10 | seed=3005 | Acc: 0.5100 | Mean: 0.4825 | Time: 137.4s
+    [Retest] flickr | Config 3 | Run 7/10 | seed=3006 | Acc: 0.4917 | Mean: 0.4838 | Time: 151.8s
+    [Retest] flickr | Config 3 | Run 8/10 | seed=3007 | Acc: 0.4506 | Mean: 0.4797 | Time: 194.0s
+    [Retest] flickr | Config 3 | Run 9/10 | seed=3008 | Acc: 0.4785 | Mean: 0.4795 | Time: 212.2s
+    [Retest] flickr | Config 3 | Run 10/10 | seed=3009 | Acc: 0.4885 | Mean: 0.4804 | Time: 338.6s
+  [Retest] Config 3: mean=0.4804 ± 0.0182
+
+  [Retest] (flickr_random_0.4) Config 4/5: (Trial #8, Orig Acc: 0.5052)
+           Params: {'knn_mode': 'p', 'k': 21, 'dexp': 7.049473009520948, 'p_grd': 0.40465451659669194, 'unc_rem': 0.8193810297338315, 'unc_rel': 0.20911302131436577, 'dropout': 0.5588866246107809, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.01, 'weight_decay': 1e-05}
+    [Retest] flickr | Config 4 | Run 1/10 | seed=3000 | Acc: 0.5052 | Mean: 0.5052 | Time: 132.8s
+    [Retest] flickr | Config 4 | Run 2/10 | seed=3001 | Acc: 0.4687 | Mean: 0.4870 | Time: 154.0s
+    [Retest] flickr | Config 4 | Run 3/10 | seed=3002 | Acc: 0.4803 | Mean: 0.4847 | Time: 151.5s
+    [Retest] flickr | Config 4 | Run 4/10 | seed=3003 | Acc: 0.4701 | Mean: 0.4811 | Time: 359.0s
+    [Retest] flickr | Config 4 | Run 5/10 | seed=3004 | Acc: 0.4839 | Mean: 0.4816 | Time: 135.3s
+    [Retest] flickr | Config 4 | Run 6/10 | seed=3005 | Acc: 0.5146 | Mean: 0.4871 | Time: 158.5s
+    [Retest] flickr | Config 4 | Run 7/10 | seed=3006 | Acc: 0.4854 | Mean: 0.4869 | Time: 92.6s
+    [Retest] flickr | Config 4 | Run 8/10 | seed=3007 | Acc: 0.4463 | Mean: 0.4818 | Time: 359.7s
+    [Retest] flickr | Config 4 | Run 9/10 | seed=3008 | Acc: 0.4867 | Mean: 0.4824 | Time: 137.4s
+    [Retest] flickr | Config 4 | Run 10/10 | seed=3009 | Acc: 0.4899 | Mean: 0.4831 | Time: 155.2s
+  [Retest] Config 4: mean=0.4831 ± 0.0181
+
+  [Retest] (flickr_random_0.4) Config 5/5: (Trial #181, Orig Acc: 0.5049)
+           Params: {'knn_mode': 'd', 'k': 19, 'dexp': 9.313055934696205, 'p_grd': 0.47736937114148836, 'unc_rem': 0.8264257353157528, 'unc_rel': 0.7539825985660179, 'dropout': 0.3560236211443421, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.01, 'weight_decay': 1e-05}
+    [Retest] flickr | Config 5 | Run 1/10 | seed=3000 | Acc: 0.5049 | Mean: 0.5049 | Time: 213.4s
+    [Retest] flickr | Config 5 | Run 2/10 | seed=3001 | Acc: 0.4730 | Mean: 0.4889 | Time: 114.5s
+    [Retest] flickr | Config 5 | Run 3/10 | seed=3002 | Acc: 0.4790 | Mean: 0.4856 | Time: 102.5s
+    [Retest] flickr | Config 5 | Run 4/10 | seed=3003 | Acc: 0.4592 | Mean: 0.4790 | Time: 235.1s
+    [Retest] flickr | Config 5 | Run 5/10 | seed=3004 | Acc: 0.4814 | Mean: 0.4795 | Time: 110.6s
+    [Retest] flickr | Config 5 | Run 6/10 | seed=3005 | Acc: 0.5072 | Mean: 0.4841 | Time: 162.7s
+    [Retest] flickr | Config 5 | Run 7/10 | seed=3006 | Acc: 0.4882 | Mean: 0.4847 | Time: 131.0s
+    [Retest] flickr | Config 5 | Run 8/10 | seed=3007 | Acc: 0.4679 | Mean: 0.4826 | Time: 168.3s
+    [Retest] flickr | Config 5 | Run 9/10 | seed=3008 | Acc: 0.4866 | Mean: 0.4830 | Time: 124.4s
+    [Retest] flickr | Config 5 | Run 10/10 | seed=3009 | Acc: 0.4757 | Mean: 0.4823 | Time: 180.9s
+  [Retest] Config 5: mean=0.4823 ± 0.0144
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'd', 'k': 23, 'dexp': 6.470671988483729, 'p_grd': 0.4505145116965571, 'unc_rem': 0.8425792046433512, 'unc_rel': 0.13697635008561793, 'dropout': 0.4397411614426595, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 1e-05}
+[Optuna] Success: Best retest mean accuracy: 0.4840
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_flickr_random_0.4.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_flickr_random_0.4.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_flickr_random_0.4  gpu=0  805.5 min  rc=0

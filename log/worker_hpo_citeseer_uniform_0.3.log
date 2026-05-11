@@ -1,0 +1,296 @@
+[worker] START  hpo_citeseer_uniform_0.3  gpu=0
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-20 18:15:46
+Variants       : ['lnpcc']
+Datasets       : ['citeseer']
+Noise          : [[0.3, 'uniform']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+
+[HPO] Optimizing lnpcc on citeseer_uniform_0.3 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: citeseer_uniform_0.3  (max_trials=200, startup=20)
+  [Trial   1] citeseer_uniform_0.3 | acc=0.6390  (40.6s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] citeseer_uniform_0.3 | acc=0.2350  (32.1s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] citeseer_uniform_0.3 | acc=0.1990  (27.1s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] citeseer_uniform_0.3 | acc=0.5660  (29.8s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] citeseer_uniform_0.3 | acc=0.5610  (28.4s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] citeseer_uniform_0.3 | acc=0.5860  (28.4s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] citeseer_uniform_0.3 | acc=0.4800  (42.7s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] citeseer_uniform_0.3 | acc=0.5820  (33.3s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] citeseer_uniform_0.3 | acc=0.5730  (35.4s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] citeseer_uniform_0.3 | acc=0.6180  (49.2s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] citeseer_uniform_0.3 | acc=0.4410  (31.5s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] citeseer_uniform_0.3 | acc=0.5970  (30.8s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] citeseer_uniform_0.3 | acc=0.1800  (41.2s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] citeseer_uniform_0.3 | acc=0.5750  (29.7s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] citeseer_uniform_0.3 | acc=0.4640  (40.2s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] citeseer_uniform_0.3 | acc=0.2890  (44.0s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] citeseer_uniform_0.3 | acc=0.6250  (37.1s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] citeseer_uniform_0.3 | acc=0.6320  (33.1s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] citeseer_uniform_0.3 | acc=0.5020  (53.1s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] citeseer_uniform_0.3 | acc=0.5670  (35.3s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] citeseer_uniform_0.3 | acc=0.6720  (40.3s)  knn=d  k=  1  dexp=8.10  p_grd=0.402  unc_rem=0.175  unc_rel=0.624  drop=0.48  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial  22] citeseer_uniform_0.3 | acc=0.6330  (38.4s)  knn=p  k=  2  dexp=1.77  p_grd=0.225  unc_rem=0.775  unc_rel=0.207  drop=0.48  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  23] citeseer_uniform_0.3 | acc=0.6670  (33.3s)  knn=d  k=  1  dexp=8.50  p_grd=0.358  unc_rem=0.108  unc_rel=0.284  drop=0.59  h=128  L=2  lr=0.1  wd=0.05
+  [Trial  24] citeseer_uniform_0.3 | acc=0.5640  (92.5s)  knn=d  k=  1  dexp=8.34  p_grd=0.399  unc_rem=0.311  unc_rel=0.659  drop=0.38  h=128  L=3  lr=0.1  wd=0.05
+  [Trial  25] citeseer_uniform_0.3 | acc=0.6430  (39.0s)  knn=d  k=  1  dexp=7.34  p_grd=0.326  unc_rem=0.151  unc_rel=0.289  drop=0.62  h=128  L=2  lr=0.01  wd=0.05
+  [Trial  26] citeseer_uniform_0.3 | acc=0.6480  (43.9s)  knn=d  k=  2  dexp=6.57  p_grd=0.202  unc_rem=0.150  unc_rel=0.161  drop=0.65  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  27] citeseer_uniform_0.3 | acc=0.4940  (39.8s)  knn=d  k=  5  dexp=7.79  p_grd=0.150  unc_rem=0.101  unc_rel=0.182  drop=0.81  h=32  L=3  lr=0.05  wd=1e-05
+  [Trial  28] citeseer_uniform_0.3 | acc=0.5750  (35.4s)  knn=p  k=  1  dexp=8.54  p_grd=0.477  unc_rem=0.222  unc_rel=0.132  drop=0.81  h=128  L=2  lr=0.1  wd=0.0001
+  [Trial  29] citeseer_uniform_0.3 | acc=0.1960  (35.6s)  knn=d  k=  6  dexp=4.65  p_grd=0.268  unc_rem=0.076  unc_rel=0.170  drop=0.77  h=32  L=2  lr=1e-05  wd=0.001
+  [Trial  30] citeseer_uniform_0.3 | acc=0.6180  (29.6s)  knn=s  k= 45  dexp=8.22  p_grd=0.471  unc_rem=0.188  unc_rel=0.766  drop=0.65  h=128  L=3  lr=0.0001  wd=0.005
+  [Trial  31] citeseer_uniform_0.3 | acc=0.6240  (29.4s)  knn=d  k=  1  dexp=4.16  p_grd=0.134  unc_rem=0.077  unc_rel=0.406  drop=0.69  h=16  L=1  lr=0.05  wd=0.05
+  [Trial  32] citeseer_uniform_0.3 | acc=0.6330  (28.7s)  knn=d  k=  1  dexp=6.75  p_grd=0.271  unc_rem=0.320  unc_rel=0.055  drop=0.62  h=128  L=2  lr=0.01  wd=0.05
+  [Trial  33] citeseer_uniform_0.3 | acc=0.6080  (30.7s)  knn=d  k=  1  dexp=8.22  p_grd=0.308  unc_rem=0.386  unc_rel=0.176  drop=0.67  h=32  L=1  lr=0.1  wd=0.05
+  [Trial  34] citeseer_uniform_0.3 | acc=0.5880  (31.1s)  knn=d  k=  1  dexp=6.91  p_grd=0.300  unc_rem=0.113  unc_rel=0.450  drop=0.51  h=128  L=2  lr=0.001  wd=0.01
+  [Trial  35] citeseer_uniform_0.3 | acc=0.5640  (38.3s)  knn=d  k=  5  dexp=6.41  p_grd=0.084  unc_rem=0.132  unc_rel=0.245  drop=0.55  h=32  L=2  lr=0.05  wd=0.0001
+  [Trial  36] citeseer_uniform_0.3 | acc=0.4940  (30.1s)  knn=d  k=  1  dexp=9.97  p_grd=0.353  unc_rem=0.015  unc_rel=0.335  drop=0.54  h=128  L=1  lr=0.0001  wd=0.1
+  [Trial  37] citeseer_uniform_0.3 | acc=0.5490  (31.9s)  knn=d  k=  5  dexp=8.09  p_grd=0.409  unc_rem=0.057  unc_rel=0.514  drop=0.45  h=16  L=2  lr=0.01  wd=0.0001
+  [Trial  38] citeseer_uniform_0.3 | acc=0.5290  (25.1s)  knn=u  k=-    dexp=7.35  p_grd=0.427  unc_rem=0.141  unc_rel=0.415  drop=0.50  h=128  L=1  lr=0.0005  wd=0.05
+  [Trial  39] citeseer_uniform_0.3 | acc=0.6470  (35.2s)  knn=s  k= 10  dexp=8.69  p_grd=0.352  unc_rem=0.060  unc_rel=0.148  drop=0.63  h=128  L=2  lr=0.1  wd=0.05
+  [Trial  40] citeseer_uniform_0.3 | acc=0.5850  (25.5s)  knn=s  k= 35  dexp=8.27  p_grd=0.357  unc_rem=0.062  unc_rel=0.253  drop=0.48  h=128  L=2  lr=0.1  wd=1e-05
+  [Trial  41] citeseer_uniform_0.3 | acc=0.6080  (25.8s)  knn=u  k=-    dexp=8.26  p_grd=0.304  unc_rem=0.262  unc_rel=0.113  drop=0.69  h=64  L=3  lr=0.1  wd=0.01
+  [Trial  42] citeseer_uniform_0.3 | acc=0.6130  (33.9s)  knn=p  k=  2  dexp=4.45  p_grd=0.308  unc_rem=0.106  unc_rel=0.244  drop=0.83  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  43] citeseer_uniform_0.3 | acc=0.5910  (29.1s)  knn=s  k= 10  dexp=9.13  p_grd=0.226  unc_rem=0.181  unc_rel=0.294  drop=0.61  h=128  L=2  lr=0.0001  wd=0.05
+  [Trial  44] citeseer_uniform_0.3 | acc=0.6480  (31.1s)  knn=d  k=  1  dexp=8.05  p_grd=0.352  unc_rem=0.128  unc_rel=0.405  drop=0.65  h=16  L=2  lr=0.05  wd=0.05
+  [Trial  45] citeseer_uniform_0.3 | acc=0.6080  (32.2s)  knn=d  k=  5  dexp=7.90  p_grd=0.298  unc_rem=0.079  unc_rel=0.531  drop=0.88  h=16  L=2  lr=0.05  wd=0.005
+  [Trial  46] citeseer_uniform_0.3 | acc=0.6250  (36.2s)  knn=p  k=  1  dexp=6.78  p_grd=0.471  unc_rem=0.064  unc_rel=0.381  drop=0.65  h=16  L=3  lr=0.01  wd=0.05
+  [Trial  47] citeseer_uniform_0.3 | acc=0.6180  (30.9s)  knn=s  k= 15  dexp=6.07  p_grd=0.229  unc_rem=0.043  unc_rel=0.333  drop=0.82  h=16  L=2  lr=0.1  wd=0.05
+  [Trial  48] citeseer_uniform_0.3 | acc=0.6120  (38.3s)  knn=d  k=  7  dexp=5.77  p_grd=0.497  unc_rem=0.090  unc_rel=0.777  drop=0.16  h=128  L=2  lr=0.0001  wd=0.05
+  [Trial  49] citeseer_uniform_0.3 | acc=0.2250  (27.4s)  knn=p  k=  1  dexp=7.42  p_grd=0.314  unc_rem=0.014  unc_rel=0.030  drop=0.67  h=128  L=1  lr=1e-05  wd=0.05
+  [Trial  50] citeseer_uniform_0.3 | acc=0.6360  (30.7s)  knn=d  k=  6  dexp=5.57  p_grd=0.235  unc_rem=0.099  unc_rel=0.023  drop=0.60  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  51] citeseer_uniform_0.3 | acc=0.6210  (29.1s)  knn=s  k= 55  dexp=9.84  p_grd=0.383  unc_rem=0.279  unc_rel=0.264  drop=0.68  h=128  L=4  lr=0.0005  wd=0.0005
+  [Trial  52] citeseer_uniform_0.3 | acc=0.5700  (32.0s)  knn=s  k= 15  dexp=9.40  p_grd=0.327  unc_rem=0.043  unc_rel=0.196  drop=0.74  h=32  L=2  lr=0.1  wd=5e-05
+  [Trial  53] citeseer_uniform_0.3 | acc=0.6710  (29.5s)  knn=d  k=  1  dexp=7.37  p_grd=0.356  unc_rem=0.332  unc_rel=0.679  drop=0.58  h=16  L=2  lr=0.05  wd=0.05
+  [Trial  54] citeseer_uniform_0.3 | acc=0.6620  (28.2s)  knn=d  k=  1  dexp=7.33  p_grd=0.447  unc_rem=0.454  unc_rel=0.635  drop=0.57  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  55] citeseer_uniform_0.3 | acc=0.6300  (33.0s)  knn=d  k=  2  dexp=7.51  p_grd=0.483  unc_rem=0.371  unc_rel=0.718  drop=0.48  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  56] citeseer_uniform_0.3 | acc=0.3850  (32.3s)  knn=d  k=  1  dexp=7.22  p_grd=0.345  unc_rem=0.327  unc_rel=0.617  drop=0.50  h=16  L=3  lr=0.0001  wd=0.01
+  [Trial  57] citeseer_uniform_0.3 | acc=0.5840  (28.9s)  knn=d  k=  1  dexp=6.50  p_grd=0.256  unc_rem=0.388  unc_rel=0.656  drop=0.45  h=16  L=2  lr=0.05  wd=0.0005
+  [Trial  58] citeseer_uniform_0.3 | acc=0.6490  (29.7s)  knn=d  k=  1  dexp=8.70  p_grd=0.338  unc_rem=0.317  unc_rel=0.606  drop=0.51  h=16  L=2  lr=0.005  wd=0.05
+  [Trial  59] citeseer_uniform_0.3 | acc=0.4180  (28.0s)  knn=u  k=-    dexp=8.93  p_grd=0.496  unc_rem=0.097  unc_rel=0.694  drop=0.30  h=32  L=3  lr=0.0001  wd=0.05
+  [Trial  60] citeseer_uniform_0.3 | acc=0.6440  (28.2s)  knn=d  k=  4  dexp=9.58  p_grd=0.228  unc_rem=0.537  unc_rel=0.623  drop=0.48  h=16  L=2  lr=0.005  wd=0.05
+  [Trial  61] citeseer_uniform_0.3 | acc=0.6480  (28.0s)  knn=s  k= 15  dexp=5.87  p_grd=0.330  unc_rem=0.582  unc_rel=0.830  drop=0.64  h=16  L=2  lr=0.01  wd=0.05
+  [Trial  62] citeseer_uniform_0.3 | acc=0.6330  (32.4s)  knn=d  k=  1  dexp=7.42  p_grd=0.314  unc_rem=0.205  unc_rel=0.575  drop=0.62  h=16  L=2  lr=0.001  wd=0.05
+  [Trial  63] citeseer_uniform_0.3 | acc=0.6200  (26.8s)  knn=d  k=  1  dexp=4.36  p_grd=0.402  unc_rem=0.322  unc_rel=0.378  drop=0.51  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial  64] citeseer_uniform_0.3 | acc=0.3640  (26.1s)  knn=u  k=-    dexp=9.58  p_grd=0.471  unc_rem=0.316  unc_rel=0.432  drop=0.60  h=16  L=2  lr=0.0001  wd=0.05
+  [Trial  65] citeseer_uniform_0.3 | acc=0.5640  (41.2s)  knn=d  k=  4  dexp=8.17  p_grd=0.328  unc_rem=0.321  unc_rel=0.272  drop=0.49  h=16  L=2  lr=0.1  wd=5e-05
+  [Trial  66] citeseer_uniform_0.3 | acc=0.6510  (30.4s)  knn=d  k=  1  dexp=7.98  p_grd=0.339  unc_rem=0.527  unc_rel=0.948  drop=0.82  h=16  L=2  lr=0.05  wd=0.05
+  [Trial  67] citeseer_uniform_0.3 | acc=0.1910  (30.9s)  knn=d  k=  1  dexp=8.21  p_grd=0.480  unc_rem=0.435  unc_rel=0.570  drop=0.81  h=64  L=2  lr=1e-05  wd=0.05
+  [Trial  68] citeseer_uniform_0.3 | acc=0.4470  (35.3s)  knn=d  k=  4  dexp=9.48  p_grd=0.385  unc_rem=0.778  unc_rel=0.973  drop=0.87  h=16  L=1  lr=0.0001  wd=0.05
+  [Trial  69] citeseer_uniform_0.3 | acc=0.5950  (32.1s)  knn=d  k=  1  dexp=7.83  p_grd=0.221  unc_rem=0.745  unc_rel=0.718  drop=0.78  h=16  L=2  lr=0.05  wd=1e-05
+  [Trial  70] citeseer_uniform_0.3 | acc=0.5040  (42.0s)  knn=d  k=  5  dexp=4.94  p_grd=0.373  unc_rem=0.561  unc_rel=0.669  drop=0.67  h=16  L=3  lr=0.05  wd=0.05
+  [Trial  71] citeseer_uniform_0.3 | acc=0.5750  (26.4s)  knn=d  k=  1  dexp=8.54  p_grd=0.437  unc_rem=0.441  unc_rel=0.918  drop=0.80  h=16  L=2  lr=0.01  wd=0.001
+  [Trial  72] citeseer_uniform_0.3 | acc=0.5740  (28.3s)  knn=d  k=  1  dexp=7.42  p_grd=0.443  unc_rem=0.579  unc_rel=0.555  drop=0.67  h=32  L=2  lr=0.005  wd=5e-05
+  [Trial  73] citeseer_uniform_0.3 | acc=0.6610  (27.2s)  knn=u  k=-    dexp=5.99  p_grd=0.297  unc_rem=0.506  unc_rel=0.768  drop=0.79  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  74] citeseer_uniform_0.3 | acc=0.6610  (28.9s)  knn=d  k=  5  dexp=8.58  p_grd=0.463  unc_rem=0.440  unc_rel=0.885  drop=0.86  h=16  L=2  lr=0.05  wd=0.05
+  [Trial  75] citeseer_uniform_0.3 | acc=0.6540  (27.0s)  knn=u  k=-    dexp=6.11  p_grd=0.193  unc_rem=0.796  unc_rel=0.683  drop=0.84  h=128  L=2  lr=0.05  wd=0.05
+  [Trial  76] citeseer_uniform_0.3 | acc=0.6650  (24.2s)  knn=u  k=-    dexp=6.44  p_grd=0.196  unc_rem=0.829  unc_rel=0.633  drop=0.52  h=64  L=2  lr=0.05  wd=0.05
+  [Trial  77] citeseer_uniform_0.3 | acc=0.6560  (25.3s)  knn=u  k=-    dexp=5.88  p_grd=0.169  unc_rem=0.760  unc_rel=0.571  drop=0.81  h=128  L=2  lr=0.05  wd=0.05
+  [Trial  78] citeseer_uniform_0.3 | acc=0.5980  (22.7s)  knn=u  k=-    dexp=7.76  p_grd=0.133  unc_rem=0.825  unc_rel=0.378  drop=0.43  h=64  L=2  lr=0.05  wd=0.0001
+  [Trial  79] citeseer_uniform_0.3 | acc=0.5820  (28.6s)  knn=u  k=-    dexp=4.51  p_grd=0.228  unc_rem=0.839  unc_rel=0.596  drop=0.53  h=64  L=2  lr=0.0005  wd=0.05
+  [Trial  80] citeseer_uniform_0.3 | acc=0.5810  (26.0s)  knn=u  k=-    dexp=6.27  p_grd=0.241  unc_rem=0.860  unc_rel=0.893  drop=0.45  h=64  L=2  lr=0.05  wd=1e-05
+  [Trial  81] citeseer_uniform_0.3 | acc=0.5960  (21.9s)  knn=u  k=-    dexp=5.35  p_grd=0.428  unc_rem=0.344  unc_rel=0.632  drop=0.85  h=32  L=2  lr=0.05  wd=0.0005
+  [Trial  82] citeseer_uniform_0.3 | acc=0.6620  (26.1s)  knn=u  k=-    dexp=7.57  p_grd=0.176  unc_rem=0.779  unc_rel=0.501  drop=0.83  h=128  L=2  lr=0.05  wd=0.05
+  [Trial  83] citeseer_uniform_0.3 | acc=0.5720  (23.1s)  knn=u  k=-    dexp=6.18  p_grd=0.244  unc_rem=0.576  unc_rel=0.425  drop=0.84  h=32  L=2  lr=0.0005  wd=0.05
+  [Trial  84] citeseer_uniform_0.3 | acc=0.2090  (24.4s)  knn=u  k=-    dexp=5.43  p_grd=0.329  unc_rem=0.425  unc_rel=0.955  drop=0.87  h=32  L=4  lr=0.1  wd=0.05
+  [Trial  85] citeseer_uniform_0.3 | acc=0.6460  (36.6s)  knn=s  k= 30  dexp=9.14  p_grd=0.464  unc_rem=0.410  unc_rel=0.724  drop=0.70  h=128  L=2  lr=0.05  wd=0.1
+  [Trial  86] citeseer_uniform_0.3 | acc=0.6420  (36.5s)  knn=s  k= 20  dexp=5.08  p_grd=0.290  unc_rem=0.518  unc_rel=0.824  drop=0.90  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  87] citeseer_uniform_0.3 | acc=0.6370  (28.4s)  knn=u  k=-    dexp=6.21  p_grd=0.032  unc_rem=0.682  unc_rel=0.235  drop=0.78  h=128  L=2  lr=0.05  wd=0.01
+  [Trial  88] citeseer_uniform_0.3 | acc=0.6030  (25.0s)  knn=u  k=-    dexp=3.76  p_grd=0.203  unc_rem=0.706  unc_rel=0.783  drop=0.73  h=32  L=2  lr=0.05  wd=0.1
+  [Trial  89] citeseer_uniform_0.3 | acc=0.5700  (31.7s)  knn=d  k=  6  dexp=7.45  p_grd=0.484  unc_rem=0.056  unc_rel=0.337  drop=0.77  h=128  L=2  lr=0.1  wd=0.001
+  [Trial  90] citeseer_uniform_0.3 | acc=0.6600  (35.0s)  knn=d  k=  6  dexp=8.78  p_grd=0.399  unc_rem=0.114  unc_rel=0.555  drop=0.56  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial  91] citeseer_uniform_0.3 | acc=0.6330  (25.2s)  knn=u  k=-    dexp=8.22  p_grd=0.308  unc_rem=0.268  unc_rel=0.753  drop=0.62  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial  92] citeseer_uniform_0.3 | acc=0.6510  (29.6s)  knn=u  k=-    dexp=9.45  p_grd=0.177  unc_rem=0.865  unc_rel=0.762  drop=0.35  h=128  L=2  lr=0.05  wd=0.05
+  [Trial  93] citeseer_uniform_0.3 | acc=0.6270  (27.9s)  knn=u  k=-    dexp=7.35  p_grd=0.221  unc_rem=0.454  unc_rel=0.944  drop=0.59  h=32  L=2  lr=0.05  wd=0.05
+  [Trial  94] citeseer_uniform_0.3 | acc=0.6150  (34.9s)  knn=d  k=  7  dexp=7.32  p_grd=0.499  unc_rem=0.018  unc_rel=0.740  drop=0.57  h=128  L=3  lr=0.0001  wd=0.0001
+  [Trial  95] citeseer_uniform_0.3 | acc=0.5200  (29.2s)  knn=d  k=  8  dexp=8.58  p_grd=0.317  unc_rem=0.145  unc_rel=0.542  drop=0.32  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  96] citeseer_uniform_0.3 | acc=0.5890  (21.6s)  knn=u  k=-    dexp=6.32  p_grd=0.305  unc_rem=0.937  unc_rel=0.521  drop=0.32  h=64  L=1  lr=0.05  wd=0.05
+  [Trial  97] citeseer_uniform_0.3 | acc=0.6410  (35.7s)  knn=d  k=  6  dexp=8.36  p_grd=0.399  unc_rem=0.638  unc_rel=0.470  drop=0.64  h=128  L=2  lr=0.1  wd=0.05
+  [Trial  98] citeseer_uniform_0.3 | acc=0.6500  (24.5s)  knn=s  k= 15  dexp=7.44  p_grd=0.193  unc_rem=0.914  unc_rel=0.573  drop=0.51  h=64  L=2  lr=0.05  wd=0.05
+  [Trial  99] citeseer_uniform_0.3 | acc=0.5970  (27.0s)  knn=u  k=-    dexp=8.17  p_grd=0.303  unc_rem=0.597  unc_rel=0.714  drop=0.52  h=64  L=2  lr=0.01  wd=0.01
+  [Trial 100] citeseer_uniform_0.3 | acc=0.6540  (33.5s)  knn=d  k=  6  dexp=8.08  p_grd=0.425  unc_rem=0.291  unc_rel=0.603  drop=0.88  h=128  L=3  lr=0.001  wd=0.05
+  [Trial 101] citeseer_uniform_0.3 | acc=0.1930  (26.1s)  knn=u  k=-    dexp=9.43  p_grd=0.243  unc_rem=0.955  unc_rel=0.599  drop=0.79  h=128  L=3  lr=0.05  wd=0.1
+  [Trial 102] citeseer_uniform_0.3 | acc=0.6480  (31.3s)  knn=s  k= 15  dexp=4.80  p_grd=0.128  unc_rem=0.825  unc_rel=0.440  drop=0.82  h=128  L=2  lr=0.001  wd=0.05
+  [Trial 103] citeseer_uniform_0.3 | acc=0.6580  (24.6s)  knn=u  k=-    dexp=5.09  p_grd=0.228  unc_rem=0.903  unc_rel=0.793  drop=0.78  h=128  L=2  lr=0.05  wd=0.05
+  [Trial 104] citeseer_uniform_0.3 | acc=0.6020  (22.0s)  knn=u  k=-    dexp=5.58  p_grd=0.270  unc_rem=0.657  unc_rel=0.673  drop=0.89  h=128  L=1  lr=0.1  wd=1e-05
+  [Trial 105] citeseer_uniform_0.3 | acc=0.6030  (32.9s)  knn=d  k=  6  dexp=9.43  p_grd=0.338  unc_rem=0.346  unc_rel=0.612  drop=0.51  h=128  L=3  lr=0.0001  wd=1e-05
+  [Trial 106] citeseer_uniform_0.3 | acc=0.5230  (27.0s)  knn=u  k=-    dexp=6.14  p_grd=0.198  unc_rem=0.642  unc_rel=0.585  drop=0.67  h=128  L=4  lr=0.05  wd=0.0005
+  [Trial 107] citeseer_uniform_0.3 | acc=0.6110  (31.3s)  knn=d  k=  5  dexp=8.92  p_grd=0.313  unc_rem=0.506  unc_rel=0.591  drop=0.53  h=64  L=2  lr=0.05  wd=0.005
+  [Trial 108] citeseer_uniform_0.3 | acc=0.6180  (40.8s)  knn=p  k=  5  dexp=8.90  p_grd=0.426  unc_rem=0.130  unc_rel=0.458  drop=0.62  h=128  L=3  lr=0.0001  wd=0.1
+  [Trial 109] citeseer_uniform_0.3 | acc=0.6420  (22.1s)  knn=u  k=-    dexp=4.55  p_grd=0.431  unc_rem=0.603  unc_rel=0.749  drop=0.82  h=64  L=2  lr=0.005  wd=0.05
+  [Trial 110] citeseer_uniform_0.3 | acc=0.5990  (27.9s)  knn=u  k=-    dexp=5.26  p_grd=0.235  unc_rem=0.836  unc_rel=0.552  drop=0.81  h=32  L=3  lr=0.05  wd=0.05
+  [Trial 111] citeseer_uniform_0.3 | acc=0.3400  (24.4s)  knn=u  k=-    dexp=7.58  p_grd=0.232  unc_rem=0.487  unc_rel=0.729  drop=0.85  h=32  L=4  lr=0.05  wd=0.005
+  [Trial 112] citeseer_uniform_0.3 | acc=0.6920  (24.4s)  knn=u  k=-    dexp=4.61  p_grd=0.268  unc_rem=0.705  unc_rel=0.681  drop=0.68  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 113] citeseer_uniform_0.3 | acc=0.6070  (25.8s)  knn=u  k=-    dexp=4.04  p_grd=0.363  unc_rem=0.865  unc_rel=0.536  drop=0.65  h=128  L=2  lr=0.01  wd=0.01
+  [Trial 114] citeseer_uniform_0.3 | acc=0.6560  (24.8s)  knn=u  k=-    dexp=5.16  p_grd=0.312  unc_rem=0.702  unc_rel=0.778  drop=0.65  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 115] citeseer_uniform_0.3 | acc=0.2190  (19.6s)  knn=u  k=-    dexp=8.94  p_grd=0.269  unc_rem=0.864  unc_rel=0.808  drop=0.73  h=16  L=4  lr=0.05  wd=0.05
+  [Trial 116] citeseer_uniform_0.3 | acc=0.6030  (31.6s)  knn=d  k=  9  dexp=7.74  p_grd=0.383  unc_rem=0.147  unc_rel=0.669  drop=0.51  h=128  L=4  lr=0.0001  wd=0.05
+  [Trial 117] citeseer_uniform_0.3 | acc=0.5320  (49.7s)  knn=d  k=  5  dexp=6.53  p_grd=0.404  unc_rem=0.461  unc_rel=0.651  drop=0.64  h=16  L=2  lr=0.05  wd=5e-05
+  [Trial 118] citeseer_uniform_0.3 | acc=0.6620  (38.7s)  knn=d  k=  4  dexp=9.22  p_grd=0.319  unc_rem=0.096  unc_rel=0.818  drop=0.39  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 119] citeseer_uniform_0.3 | acc=0.6640  (68.6s)  knn=d  k=  5  dexp=7.19  p_grd=0.327  unc_rem=0.350  unc_rel=0.916  drop=0.27  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 120] citeseer_uniform_0.3 | acc=0.6620  (36.0s)  knn=d  k=  5  dexp=9.19  p_grd=0.171  unc_rem=0.183  unc_rel=0.730  drop=0.28  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 121] citeseer_uniform_0.3 | acc=0.6180  (35.5s)  knn=d  k=  5  dexp=9.57  p_grd=0.045  unc_rem=0.366  unc_rel=0.527  drop=0.36  h=128  L=3  lr=0.0001  wd=0.001
+  [Trial 122] citeseer_uniform_0.3 | acc=0.6400  (36.9s)  knn=d  k=  5  dexp=5.62  p_grd=0.206  unc_rem=0.359  unc_rel=0.692  drop=0.25  h=128  L=3  lr=0.0001  wd=0.005
+  [Trial 123] citeseer_uniform_0.3 | acc=0.5490  (32.0s)  knn=d  k=  5  dexp=9.80  p_grd=0.345  unc_rem=0.049  unc_rel=0.813  drop=0.36  h=64  L=3  lr=0.0001  wd=0.05
+  [Trial 124] citeseer_uniform_0.3 | acc=0.6620  (35.1s)  knn=d  k=  5  dexp=8.97  p_grd=0.181  unc_rem=0.173  unc_rel=0.842  drop=0.22  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 125] citeseer_uniform_0.3 | acc=0.6270  (29.8s)  knn=d  k=  4  dexp=8.82  p_grd=0.044  unc_rem=0.365  unc_rel=0.768  drop=0.23  h=128  L=3  lr=0.1  wd=0.05
+  [Trial 126] citeseer_uniform_0.3 | acc=0.6670  (34.0s)  knn=d  k=  4  dexp=9.89  p_grd=0.224  unc_rem=0.335  unc_rel=0.670  drop=0.17  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 127] citeseer_uniform_0.3 | acc=0.6620  (33.8s)  knn=d  k=  4  dexp=8.07  p_grd=0.326  unc_rem=0.409  unc_rel=0.956  drop=0.16  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 128] citeseer_uniform_0.3 | acc=0.6620  (32.8s)  knn=d  k=  4  dexp=9.69  p_grd=0.410  unc_rem=0.523  unc_rel=0.893  drop=0.16  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 129] citeseer_uniform_0.3 | acc=0.5980  (35.4s)  knn=d  k=  4  dexp=9.90  p_grd=0.239  unc_rem=0.116  unc_rel=0.443  drop=0.12  h=128  L=3  lr=0.0001  wd=5e-05
+  [Trial 130] citeseer_uniform_0.3 | acc=0.4480  (26.7s)  knn=s  k= 15  dexp=9.65  p_grd=0.232  unc_rem=0.247  unc_rel=0.877  drop=0.24  h=128  L=1  lr=0.0001  wd=0.05
+  [Trial 131] citeseer_uniform_0.3 | acc=0.3210  (35.7s)  knn=d  k=  4  dexp=6.33  p_grd=0.282  unc_rem=0.191  unc_rel=0.916  drop=0.30  h=128  L=3  lr=1e-05  wd=0.05
+  [Trial 132] citeseer_uniform_0.3 | acc=0.6640  (30.3s)  knn=d  k=  4  dexp=9.95  p_grd=0.428  unc_rem=0.800  unc_rel=0.830  drop=0.26  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 133] citeseer_uniform_0.3 | acc=0.5880  (42.6s)  knn=d  k=  4  dexp=9.83  p_grd=0.191  unc_rem=0.417  unc_rel=0.756  drop=0.28  h=128  L=2  lr=0.0001  wd=0.05
+  [Trial 134] citeseer_uniform_0.3 | acc=0.6540  (36.9s)  knn=d  k=  3  dexp=9.53  p_grd=0.440  unc_rem=0.183  unc_rel=0.289  drop=0.51  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 135] citeseer_uniform_0.3 | acc=0.6490  (31.0s)  knn=d  k=  3  dexp=8.36  p_grd=0.133  unc_rem=0.134  unc_rel=0.859  drop=0.22  h=128  L=3  lr=0.0005  wd=0.01
+  [Trial 136] citeseer_uniform_0.3 | acc=0.6030  (37.9s)  knn=d  k=  3  dexp=8.17  p_grd=0.494  unc_rem=0.857  unc_rel=0.822  drop=0.24  h=128  L=3  lr=0.0005  wd=0.0001
+  [Trial 137] citeseer_uniform_0.3 | acc=0.5880  (40.0s)  knn=d  k=  9  dexp=8.17  p_grd=0.370  unc_rem=0.800  unc_rel=0.909  drop=0.54  h=128  L=4  lr=0.0001  wd=0.05
+  [Trial 138] citeseer_uniform_0.3 | acc=0.6480  (31.2s)  knn=u  k=-    dexp=7.21  p_grd=0.291  unc_rem=0.122  unc_rel=0.871  drop=0.11  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 139] citeseer_uniform_0.3 | acc=0.5380  (33.9s)  knn=d  k=  1  dexp=7.59  p_grd=0.444  unc_rem=0.286  unc_rel=0.889  drop=0.31  h=128  L=1  lr=0.0005  wd=0.05
+  [Trial 140] citeseer_uniform_0.3 | acc=0.6720  (47.8s)  knn=d  k=  4  dexp=8.09  p_grd=0.201  unc_rem=0.332  unc_rel=0.862  drop=0.22  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 141] citeseer_uniform_0.3 | acc=0.6390  (34.9s)  knn=d  k=  1  dexp=8.26  p_grd=0.083  unc_rem=0.124  unc_rel=0.970  drop=0.38  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 142] citeseer_uniform_0.3 | acc=0.6070  (39.0s)  knn=d  k=  4  dexp=9.43  p_grd=0.228  unc_rem=0.173  unc_rel=0.837  drop=0.30  h=128  L=4  lr=0.0001  wd=0.0001
+  [Trial 143] citeseer_uniform_0.3 | acc=0.4140  (39.9s)  knn=d  k=  4  dexp=5.31  p_grd=0.251  unc_rem=0.377  unc_rel=0.996  drop=0.45  h=32  L=3  lr=0.0001  wd=0.05
+  [Trial 144] citeseer_uniform_0.3 | acc=0.2070  (35.8s)  knn=d  k=  4  dexp=9.51  p_grd=0.403  unc_rem=0.941  unc_rel=0.856  drop=0.19  h=16  L=3  lr=1e-05  wd=0.05
+  [Trial 145] citeseer_uniform_0.3 | acc=0.6440  (39.7s)  knn=p  k=  7  dexp=9.47  p_grd=0.203  unc_rem=0.142  unc_rel=0.724  drop=0.12  h=128  L=3  lr=0.005  wd=0.05
+  [Trial 146] citeseer_uniform_0.3 | acc=0.6450  (34.4s)  knn=d  k=  1  dexp=8.37  p_grd=0.270  unc_rem=0.162  unc_rel=0.652  drop=0.16  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 147] citeseer_uniform_0.3 | acc=0.5830  (24.2s)  knn=u  k=-    dexp=8.45  p_grd=0.207  unc_rem=0.806  unc_rel=0.418  drop=0.74  h=128  L=2  lr=0.0005  wd=0.0005
+  [Trial 148] citeseer_uniform_0.3 | acc=0.6730  (35.2s)  knn=d  k=  4  dexp=7.89  p_grd=0.110  unc_rem=0.625  unc_rel=0.796  drop=0.14  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 149] citeseer_uniform_0.3 | acc=0.6960  (41.7s)  knn=d  k=  8  dexp=6.66  p_grd=0.182  unc_rem=0.065  unc_rel=0.193  drop=0.61  h=128  L=2  lr=0.1  wd=0.1
+  [Trial 150] citeseer_uniform_0.3 | acc=0.6700  (29.7s)  knn=s  k= 10  dexp=8.45  p_grd=0.341  unc_rem=0.426  unc_rel=0.530  drop=0.54  h=16  L=2  lr=0.05  wd=0.05
+  [Trial 151] citeseer_uniform_0.3 | acc=0.6090  (25.3s)  knn=s  k= 15  dexp=9.27  p_grd=0.381  unc_rem=0.467  unc_rel=0.256  drop=0.47  h=64  L=1  lr=0.05  wd=0.05
+  [Trial 152] citeseer_uniform_0.3 | acc=0.4100  (29.1s)  knn=d  k= 11  dexp=7.57  p_grd=0.126  unc_rem=0.016  unc_rel=0.220  drop=0.60  h=128  L=2  lr=0.1  wd=0.1
+  [Trial 153] citeseer_uniform_0.3 | acc=0.5440  (26.2s)  knn=s  k= 10  dexp=5.73  p_grd=0.381  unc_rem=0.537  unc_rel=0.577  drop=0.43  h=16  L=2  lr=0.05  wd=1e-05
+  [Trial 154] citeseer_uniform_0.3 | acc=0.6640  (27.2s)  knn=s  k= 15  dexp=9.73  p_grd=0.192  unc_rem=0.325  unc_rel=0.460  drop=0.47  h=16  L=2  lr=0.05  wd=0.05
+  [Trial 155] citeseer_uniform_0.3 | acc=0.6620  (29.0s)  knn=s  k= 20  dexp=9.46  p_grd=0.153  unc_rem=0.485  unc_rel=0.562  drop=0.49  h=16  L=2  lr=0.05  wd=0.05
+  [Trial 156] citeseer_uniform_0.3 | acc=0.6590  (35.2s)  knn=d  k=  9  dexp=8.05  p_grd=0.170  unc_rem=0.773  unc_rel=0.703  drop=0.12  h=128  L=3  lr=0.0001  wd=0.05
+  [Trial 157] citeseer_uniform_0.3 | acc=0.5920  (31.9s)  knn=s  k= 15  dexp=7.75  p_grd=0.410  unc_rem=0.358  unc_rel=0.318  drop=0.64  h=16  L=2  lr=0.05  wd=0.005
+  [Trial 158] citeseer_uniform_0.3 | acc=0.6170  (28.1s)  knn=s  k= 15  dexp=9.12  p_grd=0.358  unc_rem=0.316  unc_rel=0.581  drop=0.50  h=16  L=2  lr=0.0005  wd=0.05
+  [Trial 159] citeseer_uniform_0.3 | acc=0.5850  (28.7s)  knn=s  k= 15  dexp=9.16  p_grd=0.061  unc_rem=0.245  unc_rel=0.305  drop=0.40  h=16  L=1  lr=0.05  wd=0.05
+  [Trial 160] citeseer_uniform_0.3 | acc=0.5970  (34.4s)  knn=p  k=  9  dexp=8.93  p_grd=0.190  unc_rem=0.521  unc_rel=0.480  drop=0.23  h=128  L=3  lr=0.0001  wd=0.0001
+  [Trial 161] citeseer_uniform_0.3 | acc=0.6360  (31.6s)  knn=u  k=-    dexp=10.00  p_grd=0.080  unc_rem=0.939  unc_rel=0.571  drop=0.80  h=128  L=1  lr=0.05  wd=0.05
+  [Trial 162] citeseer_uniform_0.3 | acc=0.6890  (22.3s)  knn=u  k=-    dexp=0.86  p_grd=0.205  unc_rem=0.567  unc_rel=0.300  drop=0.83  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 163] citeseer_uniform_0.3 | acc=0.6730  (24.2s)  knn=u  k=-    dexp=1.06  p_grd=0.204  unc_rem=0.279  unc_rel=0.023  drop=0.90  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 164] citeseer_uniform_0.3 | acc=0.6560  (24.5s)  knn=u  k=-    dexp=2.96  p_grd=0.263  unc_rem=0.583  unc_rel=0.170  drop=0.85  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 165] citeseer_uniform_0.3 | acc=0.6380  (26.5s)  knn=u  k=-    dexp=9.54  p_grd=0.471  unc_rem=0.895  unc_rel=0.796  drop=0.38  h=128  L=3  lr=0.0001  wd=0.01
+  [Trial 166] citeseer_uniform_0.3 | acc=0.6470  (32.9s)  knn=u  k=-    dexp=7.99  p_grd=0.175  unc_rem=0.765  unc_rel=0.713  drop=0.61  h=64  L=2  lr=0.05  wd=0.05
+  [Trial 167] citeseer_uniform_0.3 | acc=0.6280  (24.2s)  knn=u  k=-    dexp=1.20  p_grd=0.204  unc_rem=0.154  unc_rel=0.156  drop=0.86  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 168] citeseer_uniform_0.3 | acc=0.3970  (30.7s)  knn=d  k= 10  dexp=8.98  p_grd=0.345  unc_rem=0.816  unc_rel=0.718  drop=0.43  h=32  L=3  lr=0.0001  wd=0.05
+  [Trial 169] citeseer_uniform_0.3 | acc=0.5740  (24.9s)  knn=u  k=-    dexp=1.02  p_grd=0.064  unc_rem=0.304  unc_rel=0.090  drop=0.90  h=64  L=2  lr=0.1  wd=0.001
+  [Trial 170] citeseer_uniform_0.3 | acc=0.6450  (33.9s)  knn=d  k=  1  dexp=8.82  p_grd=0.492  unc_rem=0.397  unc_rel=0.351  drop=0.68  h=32  L=3  lr=0.05  wd=0.05
+  [Trial 171] citeseer_uniform_0.3 | acc=0.6200  (27.3s)  knn=d  k=  1  dexp=7.50  p_grd=0.280  unc_rem=0.272  unc_rel=0.189  drop=0.65  h=128  L=2  lr=0.1  wd=0.005
+  [Trial 172] citeseer_uniform_0.3 | acc=0.6590  (33.3s)  knn=d  k=  7  dexp=8.10  p_grd=0.419  unc_rem=0.907  unc_rel=0.806  drop=0.43  h=128  L=3  lr=0.0001  wd=0.1
+  [Trial 173] citeseer_uniform_0.3 | acc=0.3830  (27.7s)  knn=u  k=-    dexp=1.80  p_grd=0.138  unc_rem=0.808  unc_rel=0.322  drop=0.70  h=128  L=3  lr=0.1  wd=1e-05
+  [Trial 174] citeseer_uniform_0.3 | acc=0.5940  (28.1s)  knn=s  k= 15  dexp=7.85  p_grd=0.285  unc_rem=0.028  unc_rel=0.659  drop=0.43  h=16  L=2  lr=0.05  wd=0.0001
+  [Trial 175] citeseer_uniform_0.3 | acc=0.3660  (62.3s)  knn=s  k= 15  dexp=8.84  p_grd=0.302  unc_rem=0.361  unc_rel=0.324  drop=0.60  h=16  L=4  lr=0.01  wd=0.05
+  [Trial 176] citeseer_uniform_0.3 | acc=0.6220  (43.1s)  knn=d  k=  1  dexp=2.28  p_grd=0.156  unc_rem=0.498  unc_rel=0.414  drop=0.63  h=128  L=2  lr=0.1  wd=0.01
+  [Trial 177] citeseer_uniform_0.3 | acc=0.6170  (25.3s)  knn=s  k= 60  dexp=5.56  p_grd=0.462  unc_rem=0.261  unc_rel=0.802  drop=0.53  h=32  L=3  lr=0.1  wd=0.05
+  [Trial 178] citeseer_uniform_0.3 | acc=0.6220  (23.0s)  knn=u  k=-    dexp=2.99  p_grd=0.177  unc_rem=0.514  unc_rel=0.423  drop=0.57  h=128  L=2  lr=0.01  wd=0.05
+  [Trial 179] citeseer_uniform_0.3 | acc=0.6630  (37.5s)  knn=d  k=  8  dexp=6.05  p_grd=0.307  unc_rem=0.371  unc_rel=0.497  drop=0.73  h=128  L=2  lr=0.05  wd=0.05
+  [Trial 180] citeseer_uniform_0.3 | acc=0.6420  (24.9s)  knn=u  k=-    dexp=5.04  p_grd=0.074  unc_rem=0.805  unc_rel=0.613  drop=0.48  h=16  L=2  lr=0.05  wd=0.05
+  [Trial 181] citeseer_uniform_0.3 | acc=0.1900  (37.0s)  knn=p  k= 11  dexp=0.68  p_grd=0.014  unc_rem=0.355  unc_rel=0.443  drop=0.70  h=128  L=2  lr=0.1  wd=0.05
+  [Trial 182] citeseer_uniform_0.3 | acc=0.5790  (29.9s)  knn=d  k=  8  dexp=9.12  p_grd=0.373  unc_rem=0.376  unc_rel=0.510  drop=0.81  h=32  L=2  lr=0.05  wd=0.0001
+  [Trial 183] citeseer_uniform_0.3 | acc=0.6030  (24.2s)  knn=s  k= 15  dexp=9.16  p_grd=0.338  unc_rem=0.674  unc_rel=0.575  drop=0.65  h=16  L=1  lr=0.05  wd=0.05
+  [Trial 184] citeseer_uniform_0.3 | acc=0.6300  (33.7s)  knn=d  k=  8  dexp=7.24  p_grd=0.411  unc_rem=0.308  unc_rel=0.684  drop=0.56  h=16  L=1  lr=0.05  wd=0.05
+  [Trial 185] citeseer_uniform_0.3 | acc=0.6380  (28.2s)  knn=u  k=-    dexp=7.48  p_grd=0.286  unc_rem=0.341  unc_rel=0.583  drop=0.54  h=128  L=2  lr=0.05  wd=0.01
+  [Trial 186] citeseer_uniform_0.3 | acc=0.6460  (33.0s)  knn=d  k=  7  dexp=5.57  p_grd=0.457  unc_rem=0.545  unc_rel=0.355  drop=0.67  h=128  L=2  lr=0.05  wd=0.05
+  [Trial 187] citeseer_uniform_0.3 | acc=0.5650  (29.7s)  knn=u  k=-    dexp=1.24  p_grd=0.125  unc_rem=0.507  unc_rel=0.183  drop=0.76  h=128  L=2  lr=0.05  wd=5e-05
+  [Trial 188] citeseer_uniform_0.3 | acc=0.5980  (30.1s)  knn=d  k=  4  dexp=7.39  p_grd=0.211  unc_rem=0.393  unc_rel=0.806  drop=0.25  h=128  L=3  lr=0.005  wd=0.0005
+  [Trial 189] citeseer_uniform_0.3 | acc=0.5530  (20.7s)  knn=u  k=-    dexp=0.27  p_grd=0.228  unc_rem=0.447  unc_rel=0.116  drop=0.62  h=16  L=2  lr=0.001  wd=0.05
+  [Trial 190] citeseer_uniform_0.3 | acc=0.6530  (34.9s)  knn=s  k= 25  dexp=9.61  p_grd=0.400  unc_rem=0.663  unc_rel=0.634  drop=0.12  h=128  L=3  lr=0.001  wd=0.05
+  [Trial 191] citeseer_uniform_0.3 | acc=0.5860  (25.0s)  knn=u  k=-    dexp=0.27  p_grd=0.183  unc_rem=0.377  unc_rel=0.010  drop=0.87  h=128  L=1  lr=0.1  wd=0.005
+  [Trial 192] citeseer_uniform_0.3 | acc=0.1640  (25.5s)  knn=u  k=-    dexp=2.13  p_grd=0.105  unc_rem=0.500  unc_rel=0.321  drop=0.85  h=32  L=2  lr=1e-05  wd=0.05
+  [Trial 193] citeseer_uniform_0.3 | acc=0.5910  (31.5s)  knn=d  k=  6  dexp=5.83  p_grd=0.174  unc_rem=0.252  unc_rel=0.376  drop=0.76  h=128  L=2  lr=0.005  wd=5e-05
+  [Trial 194] citeseer_uniform_0.3 | acc=0.3890  (31.9s)  knn=d  k=  4  dexp=9.01  p_grd=0.092  unc_rem=0.432  unc_rel=0.695  drop=0.17  h=32  L=3  lr=0.0001  wd=0.1
+  [Trial 195] citeseer_uniform_0.3 | acc=0.5630  (31.2s)  knn=d  k=  4  dexp=5.95  p_grd=0.332  unc_rem=0.150  unc_rel=0.475  drop=0.72  h=128  L=2  lr=0.05  wd=0.0001
+  [Trial 196] citeseer_uniform_0.3 | acc=0.6460  (34.8s)  knn=d  k=  7  dexp=9.93  p_grd=0.323  unc_rem=0.994  unc_rel=0.918  drop=0.40  h=128  L=3  lr=0.005  wd=0.05
+  [Trial 197] citeseer_uniform_0.3 | acc=0.5920  (26.9s)  knn=s  k= 45  dexp=9.14  p_grd=0.088  unc_rem=0.097  unc_rel=0.334  drop=0.50  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial 198] citeseer_uniform_0.3 | acc=0.6310  (42.4s)  knn=d  k=  3  dexp=4.81  p_grd=0.267  unc_rem=0.439  unc_rel=0.692  drop=0.58  h=32  L=2  lr=0.01  wd=0.05
+  [Trial 199] citeseer_uniform_0.3 | acc=0.6520  (31.3s)  knn=d  k=  3  dexp=5.10  p_grd=0.298  unc_rem=0.276  unc_rel=0.504  drop=0.77  h=128  L=2  lr=0.05  wd=0.05
+  [Trial 200] citeseer_uniform_0.3 | acc=0.6440  (35.7s)  knn=s  k= 15  dexp=7.66  p_grd=0.318  unc_rem=0.092  unc_rel=0.775  drop=0.27  h=128  L=3  lr=0.0001  wd=0.1
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (citeseer_uniform_0.3) Testing top-5 configs × 10 seeds...
+
+  [Retest] (citeseer_uniform_0.3) Config 1/5: (Trial #148, Orig Acc: 0.6960)
+           Params: {'knn_mode': 'd', 'k': 8, 'dexp': 6.660523078947726, 'p_grd': 0.181799692656288, 'unc_rem': 0.06499660573254969, 'unc_rel': 0.19262133013395943, 'dropout': 0.6140338350896837, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.1, 'weight_decay': 0.1}
+    [Retest] citeseer | Config 1 | Run 1/10 | seed=3000 | Acc: 0.6960 | Mean: 0.6960 | Time: 36.8s
+    [Retest] citeseer | Config 1 | Run 2/10 | seed=3001 | Acc: 0.6600 | Mean: 0.6780 | Time: 31.3s
+    [Retest] citeseer | Config 1 | Run 3/10 | seed=3002 | Acc: 0.6800 | Mean: 0.6787 | Time: 30.5s
+    [Retest] citeseer | Config 1 | Run 4/10 | seed=3003 | Acc: 0.6270 | Mean: 0.6658 | Time: 28.2s
+    [Retest] citeseer | Config 1 | Run 5/10 | seed=3004 | Acc: 0.5490 | Mean: 0.6424 | Time: 29.9s
+    [Retest] citeseer | Config 1 | Run 6/10 | seed=3005 | Acc: 0.5790 | Mean: 0.6318 | Time: 40.7s
+    [Retest] citeseer | Config 1 | Run 7/10 | seed=3006 | Acc: 0.6960 | Mean: 0.6410 | Time: 35.5s
+    [Retest] citeseer | Config 1 | Run 8/10 | seed=3007 | Acc: 0.6180 | Mean: 0.6381 | Time: 35.2s
+    [Retest] citeseer | Config 1 | Run 9/10 | seed=3008 | Acc: 0.6150 | Mean: 0.6356 | Time: 34.2s
+    [Retest] citeseer | Config 1 | Run 10/10 | seed=3009 | Acc: 0.4790 | Mean: 0.6199 | Time: 31.4s
+  [Retest] Config 1: mean=0.6199 ± 0.0659
+
+  [Retest] (citeseer_uniform_0.3) Config 2/5: (Trial #111, Orig Acc: 0.6920)
+           Params: {'knn_mode': 'u', 'dexp': 4.61135122519782, 'p_grd': 0.2680861430716812, 'unc_rem': 0.7053049475416584, 'unc_rel': 0.6812725734734101, 'dropout': 0.6824269429033004, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.1, 'weight_decay': 0.05}
+    [Retest] citeseer | Config 2 | Run 1/10 | seed=3000 | Acc: 0.6920 | Mean: 0.6920 | Time: 31.9s
+    [Retest] citeseer | Config 2 | Run 2/10 | seed=3001 | Acc: 0.6170 | Mean: 0.6545 | Time: 31.1s
+    [Retest] citeseer | Config 2 | Run 3/10 | seed=3002 | Acc: 0.6730 | Mean: 0.6607 | Time: 36.4s
+    [Retest] citeseer | Config 2 | Run 4/10 | seed=3003 | Acc: 0.6030 | Mean: 0.6462 | Time: 26.6s
+    [Retest] citeseer | Config 2 | Run 5/10 | seed=3004 | Acc: 0.6410 | Mean: 0.6452 | Time: 38.2s
+    [Retest] citeseer | Config 2 | Run 6/10 | seed=3005 | Acc: 0.6280 | Mean: 0.6423 | Time: 32.8s
+    [Retest] citeseer | Config 2 | Run 7/10 | seed=3006 | Acc: 0.6890 | Mean: 0.6490 | Time: 26.0s
+    [Retest] citeseer | Config 2 | Run 8/10 | seed=3007 | Acc: 0.6360 | Mean: 0.6474 | Time: 28.4s
+    [Retest] citeseer | Config 2 | Run 9/10 | seed=3008 | Acc: 0.6190 | Mean: 0.6442 | Time: 25.8s
+    [Retest] citeseer | Config 2 | Run 10/10 | seed=3009 | Acc: 0.6630 | Mean: 0.6461 | Time: 23.5s
+  [Retest] Config 2: mean=0.6461 ± 0.0298
+
+  [Retest] (citeseer_uniform_0.3) Config 3/5: (Trial #161, Orig Acc: 0.6890)
+           Params: {'knn_mode': 'u', 'dexp': 0.8605272759899569, 'p_grd': 0.2053331474604388, 'unc_rem': 0.5670679573615077, 'unc_rel': 0.3002996369874606, 'dropout': 0.8327179506625472, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.1, 'weight_decay': 0.05}
+    [Retest] citeseer | Config 3 | Run 1/10 | seed=3000 | Acc: 0.6650 | Mean: 0.6650 | Time: 24.4s
+    [Retest] citeseer | Config 3 | Run 2/10 | seed=3001 | Acc: 0.6280 | Mean: 0.6465 | Time: 24.1s
+    [Retest] citeseer | Config 3 | Run 3/10 | seed=3002 | Acc: 0.6910 | Mean: 0.6613 | Time: 24.3s
+    [Retest] citeseer | Config 3 | Run 4/10 | seed=3003 | Acc: 0.5950 | Mean: 0.6447 | Time: 25.5s
+    [Retest] citeseer | Config 3 | Run 5/10 | seed=3004 | Acc: 0.6130 | Mean: 0.6384 | Time: 23.9s
+    [Retest] citeseer | Config 3 | Run 6/10 | seed=3005 | Acc: 0.5950 | Mean: 0.6312 | Time: 29.2s
+    [Retest] citeseer | Config 3 | Run 7/10 | seed=3006 | Acc: 0.6790 | Mean: 0.6380 | Time: 26.4s
+    [Retest] citeseer | Config 3 | Run 8/10 | seed=3007 | Acc: 0.5780 | Mean: 0.6305 | Time: 26.8s
+    [Retest] citeseer | Config 3 | Run 9/10 | seed=3008 | Acc: 0.6550 | Mean: 0.6332 | Time: 27.7s
+    [Retest] citeseer | Config 3 | Run 10/10 | seed=3009 | Acc: 0.6230 | Mean: 0.6322 | Time: 25.1s
+  [Retest] Config 3: mean=0.6322 ± 0.0366
+
+  [Retest] (citeseer_uniform_0.3) Config 4/5: (Trial #147, Orig Acc: 0.6730)
+           Params: {'knn_mode': 'd', 'k': 4, 'dexp': 7.889520643618909, 'p_grd': 0.11033105372682839, 'unc_rem': 0.6250976811979632, 'unc_rel': 0.7957195326870676, 'dropout': 0.1422896001963389, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.0001, 'weight_decay': 0.05}
+    [Retest] citeseer | Config 4 | Run 1/10 | seed=3000 | Acc: 0.6730 | Mean: 0.6730 | Time: 32.6s
+    [Retest] citeseer | Config 4 | Run 2/10 | seed=3001 | Acc: 0.6040 | Mean: 0.6385 | Time: 32.9s
+    [Retest] citeseer | Config 4 | Run 3/10 | seed=3002 | Acc: 0.6300 | Mean: 0.6357 | Time: 39.7s
+    [Retest] citeseer | Config 4 | Run 4/10 | seed=3003 | Acc: 0.4420 | Mean: 0.5873 | Time: 32.4s
+    [Retest] citeseer | Config 4 | Run 5/10 | seed=3004 | Acc: 0.4260 | Mean: 0.5550 | Time: 30.3s
+    [Retest] citeseer | Config 4 | Run 6/10 | seed=3005 | Acc: 0.3570 | Mean: 0.5220 | Time: 36.2s
+    [Retest] citeseer | Config 4 | Run 7/10 | seed=3006 | Acc: 0.4880 | Mean: 0.5171 | Time: 32.1s
+    [Retest] citeseer | Config 4 | Run 8/10 | seed=3007 | Acc: 0.4580 | Mean: 0.5098 | Time: 38.3s
+    [Retest] citeseer | Config 4 | Run 9/10 | seed=3008 | Acc: 0.5170 | Mean: 0.5106 | Time: 69.7s
+    [Retest] citeseer | Config 4 | Run 10/10 | seed=3009 | Acc: 0.4280 | Mean: 0.5023 | Time: 34.8s
+  [Retest] Config 4: mean=0.5023 ± 0.0971
+
+  [Retest] (citeseer_uniform_0.3) Config 5/5: (Trial #162, Orig Acc: 0.6730)
+           Params: {'knn_mode': 'u', 'dexp': 1.0567262876012973, 'p_grd': 0.2043105945158723, 'unc_rem': 0.2794203311076389, 'unc_rel': 0.023346906062927997, 'dropout': 0.8953040383081876, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.1, 'weight_decay': 0.05}
+    [Retest] citeseer | Config 5 | Run 1/10 | seed=3000 | Acc: 0.6730 | Mean: 0.6730 | Time: 27.9s
+    [Retest] citeseer | Config 5 | Run 2/10 | seed=3001 | Acc: 0.6010 | Mean: 0.6370 | Time: 31.5s
+    [Retest] citeseer | Config 5 | Run 3/10 | seed=3002 | Acc: 0.6770 | Mean: 0.6503 | Time: 27.2s
+    [Retest] citeseer | Config 5 | Run 4/10 | seed=3003 | Acc: 0.6590 | Mean: 0.6525 | Time: 23.0s
+    [Retest] citeseer | Config 5 | Run 5/10 | seed=3004 | Acc: 0.6460 | Mean: 0.6512 | Time: 31.0s
+    [Retest] citeseer | Config 5 | Run 6/10 | seed=3005 | Acc: 0.4980 | Mean: 0.6257 | Time: 26.2s
+    [Retest] citeseer | Config 5 | Run 7/10 | seed=3006 | Acc: 0.6870 | Mean: 0.6344 | Time: 27.9s
+    [Retest] citeseer | Config 5 | Run 8/10 | seed=3007 | Acc: 0.6570 | Mean: 0.6373 | Time: 29.0s
+    [Retest] citeseer | Config 5 | Run 9/10 | seed=3008 | Acc: 0.6910 | Mean: 0.6432 | Time: 32.3s
+    [Retest] citeseer | Config 5 | Run 10/10 | seed=3009 | Acc: 0.6340 | Mean: 0.6423 | Time: 28.0s
+  [Retest] Config 5: mean=0.6423 ± 0.0544
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'u', 'dexp': 4.61135122519782, 'p_grd': 0.2680861430716812, 'unc_rem': 0.7053049475416584, 'unc_rel': 0.6812725734734101, 'dropout': 0.6824269429033004, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.1, 'weight_decay': 0.05}
+[Optuna] Success: Best retest mean accuracy: 0.6461
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_citeseer_uniform_0.3.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_citeseer_uniform_0.3.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_citeseer_uniform_0.3  gpu=0  133.9 min  rc=0

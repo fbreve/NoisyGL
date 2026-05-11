@@ -1,0 +1,74 @@
+[priority] Process priority set to IDLE
+Namespace(dataset='amazon-ratings', method='lnpcc', noise_type='instance', noise_rate=0.4, device='cuda:1', seed=3009, params_json='{"knn_mode": "u", "dexp": 5.957996015864114, "p_grd": 0.4616072931478485, "unc_rem": 0.6546914635976364, "unc_rel": 0.9150050871050281, "dropout": 0.33672493349496535, "n_hidden": 128, "n_layer": 4, "lr": 0.001, "weight_decay": 0.001}', priority='idle')
+[GPU] Slot acquired for cuda:1
+DEBUG 3.1: Dataset init start
+DEBUG 3.2: prepare_data start amazon-ratings
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor_Instance.py", line 238, in _lnpcc_worker_func
+    _ = lnpcc.fit_predict(slabel, p_grd=p_grd, dexp=dexp, delta_v=delta_v, n_repeats=n_repeats, max_iter=max_iter, es_chk=es_chk, uniform_labeled=uniform_labeled)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 285, in fit_predict
+    self.__labelPropagation()
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 350, in __labelPropagation
+    success = self._propagate_backend(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 134, in _propagate_backend
+    lnpcc_propagate_cython(neib_list, neib_qt,
+KeyboardInterrupt
+Exception ignored in atexit callback: <function dump_compile_times at 0x000001BCEBAE2A20>
+Traceback (most recent call last):
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\utils.py", line 320, in dump_compile_times
+    log.info(compile_times(repr="str", aggregate=True))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\utils.py", line 307, in compile_times
+    out += tabulate(rows, headers=("Function", "Runtimes (s)"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\utils.py", line 121, in tabulate
+    import tabulate
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1138, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1078, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1507, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1479, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1615, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 147, in _path_stat
+KeyboardInterrupt: 
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 236, in run_train_thread
+    res = predictor.train()
+          ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor_Instance.py", line 184, in train
+    output, loss_train, acc_train = self.get_prediction(self.feats, self.edge_index, self.edge_weight, train_labels, train_mask)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py", line 184, in get_prediction
+    loss = self.loss_fn(output[mask], label[mask])
+                        ~~~~~~^^^^^^
+IndexError: The shape of the mask [1224] at index 0 does not match the shape of the indexed tensor [24492, 5] at index 0
+----Data statistics------'
+                Name: amazon-ratings
+                #Nodes 24492
+                #Edges 93050
+                #Classes 5
+                #Ave_degree 7.60
+----Split statistics------'
+                #Train samples 1224 (5.0 % of nodes)
+                #Val samples 3673 (15.0 % of nodes)
+                #Test samples 19595 (remaining)
+[Params] Overriding from --params_json: {'knn_mode': 'u', 'dexp': 5.957996015864114, 'p_grd': 0.4616072931478485, 'unc_rem': 0.6546914635976364, 'unc_rel': 0.9150050871050281, 'dropout': 0.33672493349496535, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 0.001}
+----label noise information:------
+Instance dependent noise
+#Actual noise rate 0.40 
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 260, in <module>
+    train_thread.join()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\threading.py", line 1119, in join
+    self._wait_for_tstate_lock()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\threading.py", line 1139, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,296 @@
+[worker] START  hpo_blogcatalog_uniform_0.3  gpu=1
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-19 21:57:04
+Variants       : ['lnpcc']
+Datasets       : ['blogcatalog']
+Noise          : [[0.3, 'uniform']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:1
+======================================================================
+
+[HPO] Optimizing lnpcc on blogcatalog_uniform_0.3 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: blogcatalog_uniform_0.3  (max_trials=200, startup=20)
+  [Trial   1] blogcatalog_uniform_0.3 | acc=0.2496  (63.0s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] blogcatalog_uniform_0.3 | acc=0.2953  (54.3s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] blogcatalog_uniform_0.3 | acc=0.1671  (127.9s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] blogcatalog_uniform_0.3 | acc=0.6325  (86.5s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] blogcatalog_uniform_0.3 | acc=0.5897  (82.6s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] blogcatalog_uniform_0.3 | acc=0.6373  (62.9s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] blogcatalog_uniform_0.3 | acc=0.4190  (88.6s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] blogcatalog_uniform_0.3 | acc=0.3141  (93.9s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] blogcatalog_uniform_0.3 | acc=0.7032  (58.9s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] blogcatalog_uniform_0.3 | acc=0.3701  (130.0s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] blogcatalog_uniform_0.3 | acc=0.4132  (79.1s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] blogcatalog_uniform_0.3 | acc=0.5469  (94.0s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] blogcatalog_uniform_0.3 | acc=0.2629  (71.5s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] blogcatalog_uniform_0.3 | acc=0.6361  (64.3s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] blogcatalog_uniform_0.3 | acc=0.4584  (65.7s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] blogcatalog_uniform_0.3 | acc=0.1967  (63.7s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] blogcatalog_uniform_0.3 | acc=0.4300  (161.9s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] blogcatalog_uniform_0.3 | acc=0.5233  (83.6s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] blogcatalog_uniform_0.3 | acc=0.6157  (117.1s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] blogcatalog_uniform_0.3 | acc=0.7249  (43.7s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] blogcatalog_uniform_0.3 | acc=0.7234  (84.5s)  knn=u  k=-    dexp=6.27  p_grd=0.160  unc_rem=0.801  unc_rel=0.098  drop=0.63  h=64  L=2  lr=0.01  wd=5e-05
+  [Trial  22] blogcatalog_uniform_0.3 | acc=0.6970  (71.1s)  knn=p  k= 23  dexp=8.50  p_grd=0.268  unc_rem=0.954  unc_rel=0.078  drop=0.64  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  23] blogcatalog_uniform_0.3 | acc=0.7131  (78.5s)  knn=u  k=-    dexp=6.98  p_grd=0.235  unc_rem=0.741  unc_rel=0.154  drop=0.60  h=16  L=2  lr=0.005  wd=5e-05
+  [Trial  24] blogcatalog_uniform_0.3 | acc=0.6772  (81.1s)  knn=u  k=-    dexp=6.46  p_grd=0.154  unc_rem=0.788  unc_rel=0.162  drop=0.72  h=64  L=2  lr=0.0005  wd=5e-05
+  [Trial  25] blogcatalog_uniform_0.3 | acc=0.6801  (131.3s)  knn=s  k= 40  dexp=7.62  p_grd=0.291  unc_rem=0.450  unc_rel=0.177  drop=0.48  h=16  L=2  lr=0.005  wd=5e-05
+  [Trial  26] blogcatalog_uniform_0.3 | acc=0.4596  (112.3s)  knn=u  k=-    dexp=7.16  p_grd=0.234  unc_rem=0.699  unc_rel=0.281  drop=0.57  h=16  L=1  lr=0.01  wd=0.1
+  [Trial  27] blogcatalog_uniform_0.3 | acc=0.2181  (58.9s)  knn=u  k=-    dexp=9.27  p_grd=0.155  unc_rem=0.773  unc_rel=0.320  drop=0.52  h=16  L=3  lr=0.1  wd=5e-05
+  [Trial  28] blogcatalog_uniform_0.3 | acc=0.6383  (31.9s)  knn=u  k=-    dexp=1.42  p_grd=0.156  unc_rem=0.667  unc_rel=0.118  drop=0.51  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  29] blogcatalog_uniform_0.3 | acc=0.6385  (41.5s)  knn=u  k=-    dexp=6.68  p_grd=0.198  unc_rem=0.657  unc_rel=0.042  drop=0.31  h=16  L=2  lr=0.0005  wd=1e-05
+  [Trial  30] blogcatalog_uniform_0.3 | acc=0.3841  (91.4s)  knn=d  k=  3  dexp=8.97  p_grd=0.153  unc_rem=0.740  unc_rel=0.151  drop=0.73  h=16  L=2  lr=0.01  wd=0.05
+  [Trial  31] blogcatalog_uniform_0.3 | acc=0.7172  (91.7s)  knn=u  k=-    dexp=8.69  p_grd=0.290  unc_rem=0.819  unc_rel=0.116  drop=0.56  h=128  L=2  lr=0.005  wd=0.005
+  [Trial  32] blogcatalog_uniform_0.3 | acc=0.7391  (109.1s)  knn=u  k=-    dexp=6.44  p_grd=0.183  unc_rem=0.846  unc_rel=0.028  drop=0.60  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  33] blogcatalog_uniform_0.3 | acc=0.7124  (56.2s)  knn=u  k=-    dexp=8.22  p_grd=0.419  unc_rem=0.924  unc_rel=0.172  drop=0.56  h=128  L=2  lr=0.005  wd=0.005
+  [Trial  34] blogcatalog_uniform_0.3 | acc=0.3324  (50.2s)  knn=u  k=-    dexp=8.34  p_grd=0.213  unc_rem=0.833  unc_rel=0.250  drop=0.84  h=128  L=4  lr=1e-05  wd=0.001
+  [Trial  35] blogcatalog_uniform_0.3 | acc=0.5979  (49.6s)  knn=u  k=-    dexp=5.47  p_grd=0.043  unc_rem=0.690  unc_rel=0.144  drop=0.59  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  36] blogcatalog_uniform_0.3 | acc=0.7047  (48.0s)  knn=d  k=  2  dexp=4.57  p_grd=0.148  unc_rem=0.960  unc_rel=0.052  drop=0.60  h=128  L=2  lr=0.001  wd=0.005
+  [Trial  37] blogcatalog_uniform_0.3 | acc=0.6823  (131.0s)  knn=u  k=-    dexp=5.32  p_grd=0.201  unc_rem=0.856  unc_rel=0.084  drop=0.62  h=128  L=3  lr=0.005  wd=0.001
+  [Trial  38] blogcatalog_uniform_0.3 | acc=0.7063  (89.4s)  knn=s  k= 50  dexp=5.54  p_grd=0.215  unc_rem=0.945  unc_rel=0.122  drop=0.59  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  39] blogcatalog_uniform_0.3 | acc=0.5945  (96.7s)  knn=p  k=  7  dexp=9.26  p_grd=0.162  unc_rem=0.816  unc_rel=0.056  drop=0.47  h=128  L=2  lr=0.0001  wd=0.001
+  [Trial  40] blogcatalog_uniform_0.3 | acc=0.2092  (37.3s)  knn=u  k=-    dexp=6.92  p_grd=0.199  unc_rem=0.616  unc_rel=0.176  drop=0.67  h=128  L=2  lr=1e-05  wd=0.05
+  [Trial  41] blogcatalog_uniform_0.3 | acc=0.5933  (66.7s)  knn=u  k=-    dexp=5.67  p_grd=0.105  unc_rem=0.518  unc_rel=0.089  drop=0.61  h=64  L=1  lr=0.001  wd=0.0001
+  [Trial  42] blogcatalog_uniform_0.3 | acc=0.6919  (73.7s)  knn=p  k=  1  dexp=6.33  p_grd=0.115  unc_rem=0.625  unc_rel=0.035  drop=0.31  h=64  L=2  lr=0.01  wd=5e-05
+  [Trial  43] blogcatalog_uniform_0.3 | acc=0.5592  (110.6s)  knn=u  k=-    dexp=6.11  p_grd=0.295  unc_rem=0.719  unc_rel=0.338  drop=0.87  h=16  L=2  lr=0.005  wd=0.01
+  [Trial  44] blogcatalog_uniform_0.3 | acc=0.6657  (133.2s)  knn=d  k=  9  dexp=9.96  p_grd=0.250  unc_rem=0.699  unc_rel=0.150  drop=0.68  h=128  L=2  lr=0.005  wd=0.01
+  [Trial  45] blogcatalog_uniform_0.3 | acc=0.4339  (64.9s)  knn=u  k=-    dexp=8.76  p_grd=0.035  unc_rem=0.852  unc_rel=0.351  drop=0.48  h=64  L=4  lr=0.01  wd=5e-05
+  [Trial  46] blogcatalog_uniform_0.3 | acc=0.7116  (30.7s)  knn=u  k=-    dexp=7.53  p_grd=0.206  unc_rem=0.963  unc_rel=0.097  drop=0.66  h=16  L=2  lr=0.005  wd=5e-05
+  [Trial  47] blogcatalog_uniform_0.3 | acc=0.7297  (64.7s)  knn=u  k=-    dexp=6.71  p_grd=0.192  unc_rem=0.592  unc_rel=0.164  drop=0.38  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  48] blogcatalog_uniform_0.3 | acc=0.4245  (193.1s)  knn=u  k=-    dexp=7.10  p_grd=0.154  unc_rem=0.617  unc_rel=0.135  drop=0.19  h=128  L=2  lr=0.01  wd=0.1
+  [Trial  49] blogcatalog_uniform_0.3 | acc=0.6436  (52.4s)  knn=p  k= 17  dexp=9.14  p_grd=0.206  unc_rem=0.862  unc_rel=0.306  drop=0.59  h=128  L=1  lr=0.005  wd=0.005
+  [Trial  50] blogcatalog_uniform_0.3 | acc=0.7323  (49.8s)  knn=u  k=-    dexp=8.78  p_grd=0.205  unc_rem=0.373  unc_rel=0.133  drop=0.39  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  51] blogcatalog_uniform_0.3 | acc=0.2934  (176.6s)  knn=u  k=-    dexp=9.06  p_grd=0.091  unc_rem=0.118  unc_rel=0.123  drop=0.45  h=16  L=2  lr=1e-05  wd=0.001
+  [Trial  52] blogcatalog_uniform_0.3 | acc=0.7304  (48.2s)  knn=u  k=-    dexp=8.58  p_grd=0.342  unc_rem=0.077  unc_rel=0.059  drop=0.44  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  53] blogcatalog_uniform_0.3 | acc=0.7100  (77.0s)  knn=s  k= 40  dexp=3.96  p_grd=0.172  unc_rem=0.364  unc_rel=0.084  drop=0.35  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  54] blogcatalog_uniform_0.3 | acc=0.6837  (40.6s)  knn=u  k=-    dexp=8.37  p_grd=0.321  unc_rem=0.033  unc_rel=0.092  drop=0.51  h=128  L=2  lr=0.005  wd=0.01
+  [Trial  55] blogcatalog_uniform_0.3 | acc=0.6744  (76.1s)  knn=u  k=-    dexp=7.20  p_grd=0.117  unc_rem=0.066  unc_rel=0.435  drop=0.36  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  56] blogcatalog_uniform_0.3 | acc=0.6568  (94.5s)  knn=u  k=-    dexp=9.75  p_grd=0.367  unc_rem=0.314  unc_rel=0.184  drop=0.48  h=32  L=2  lr=0.05  wd=0.001
+  [Trial  57] blogcatalog_uniform_0.3 | acc=0.4565  (55.2s)  knn=u  k=-    dexp=5.46  p_grd=0.214  unc_rem=0.906  unc_rel=0.317  drop=0.49  h=64  L=3  lr=0.01  wd=0.01
+  [Trial  58] blogcatalog_uniform_0.3 | acc=0.6301  (52.1s)  knn=u  k=-    dexp=6.15  p_grd=0.223  unc_rem=0.964  unc_rel=0.012  drop=0.61  h=64  L=1  lr=0.01  wd=5e-05
+  [Trial  59] blogcatalog_uniform_0.3 | acc=0.6869  (39.9s)  knn=u  k=-    dexp=7.84  p_grd=0.311  unc_rem=0.467  unc_rel=0.067  drop=0.43  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  60] blogcatalog_uniform_0.3 | acc=0.5625  (56.2s)  knn=d  k= 14  dexp=6.60  p_grd=0.218  unc_rem=0.719  unc_rel=0.074  drop=0.63  h=64  L=2  lr=0.0001  wd=0.0001
+  [Trial  61] blogcatalog_uniform_0.3 | acc=0.4197  (29.4s)  knn=u  k=-    dexp=5.49  p_grd=0.265  unc_rem=0.985  unc_rel=0.138  drop=0.61  h=16  L=4  lr=0.0001  wd=0.0005
+  [Trial  62] blogcatalog_uniform_0.3 | acc=0.4007  (38.3s)  knn=u  k=-    dexp=8.17  p_grd=0.249  unc_rem=0.570  unc_rel=0.203  drop=0.46  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  63] blogcatalog_uniform_0.3 | acc=0.7256  (39.8s)  knn=u  k=-    dexp=3.97  p_grd=0.403  unc_rem=0.035  unc_rel=0.048  drop=0.40  h=128  L=2  lr=0.001  wd=0.001
+  [Trial  64] blogcatalog_uniform_0.3 | acc=0.7001  (78.2s)  knn=u  k=-    dexp=4.62  p_grd=0.368  unc_rem=0.095  unc_rel=0.092  drop=0.31  h=128  L=2  lr=0.001  wd=0.001
+  [Trial  65] blogcatalog_uniform_0.3 | acc=0.5957  (49.5s)  knn=u  k=-    dexp=4.87  p_grd=0.052  unc_rem=0.774  unc_rel=0.037  drop=0.62  h=128  L=2  lr=0.005  wd=0.0001
+  [Trial  66] blogcatalog_uniform_0.3 | acc=0.2261  (71.6s)  knn=s  k= 35  dexp=5.86  p_grd=0.377  unc_rem=0.077  unc_rel=0.274  drop=0.53  h=128  L=3  lr=1e-05  wd=0.001
+  [Trial  67] blogcatalog_uniform_0.3 | acc=0.3273  (78.8s)  knn=d  k=  7  dexp=1.54  p_grd=0.384  unc_rem=0.068  unc_rel=0.029  drop=0.52  h=128  L=2  lr=0.001  wd=0.1
+  [Trial  68] blogcatalog_uniform_0.3 | acc=0.3314  (67.2s)  knn=u  k=-    dexp=5.97  p_grd=0.317  unc_rem=0.189  unc_rel=0.011  drop=0.53  h=64  L=2  lr=0.1  wd=5e-05
+  [Trial  69] blogcatalog_uniform_0.3 | acc=0.7172  (121.9s)  knn=u  k=-    dexp=5.14  p_grd=0.189  unc_rem=0.655  unc_rel=0.070  drop=0.68  h=128  L=2  lr=0.001  wd=0.001
+  [Trial  70] blogcatalog_uniform_0.3 | acc=0.7008  (104.5s)  knn=u  k=-    dexp=6.02  p_grd=0.108  unc_rem=0.945  unc_rel=0.124  drop=0.66  h=128  L=2  lr=0.01  wd=5e-05
+  [Trial  71] blogcatalog_uniform_0.3 | acc=0.5406  (104.1s)  knn=p  k= 18  dexp=8.88  p_grd=0.372  unc_rem=0.159  unc_rel=0.104  drop=0.41  h=128  L=2  lr=0.0001  wd=0.005
+  [Trial  72] blogcatalog_uniform_0.3 | acc=0.6320  (90.1s)  knn=p  k= 13  dexp=3.42  p_grd=0.387  unc_rem=0.023  unc_rel=0.177  drop=0.50  h=128  L=1  lr=0.001  wd=1e-05
+  [Trial  73] blogcatalog_uniform_0.3 | acc=0.6080  (85.4s)  knn=p  k= 18  dexp=8.98  p_grd=0.301  unc_rem=0.830  unc_rel=0.212  drop=0.46  h=16  L=2  lr=0.001  wd=0.005
+  [Trial  74] blogcatalog_uniform_0.3 | acc=0.6515  (86.9s)  knn=u  k=-    dexp=8.66  p_grd=0.157  unc_rem=0.679  unc_rel=0.172  drop=0.42  h=64  L=2  lr=0.05  wd=0.0005
+  [Trial  75] blogcatalog_uniform_0.3 | acc=0.5486  (73.0s)  knn=d  k= 23  dexp=8.21  p_grd=0.358  unc_rem=0.113  unc_rel=0.021  drop=0.52  h=128  L=4  lr=0.005  wd=0.001
+  [Trial  76] blogcatalog_uniform_0.3 | acc=0.7078  (78.6s)  knn=p  k=  1  dexp=3.04  p_grd=0.406  unc_rem=0.051  unc_rel=0.020  drop=0.37  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  77] blogcatalog_uniform_0.3 | acc=0.7290  (82.1s)  knn=p  k= 23  dexp=7.79  p_grd=0.129  unc_rem=0.745  unc_rel=0.248  drop=0.21  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  78] blogcatalog_uniform_0.3 | acc=0.6222  (69.9s)  knn=p  k= 22  dexp=6.09  p_grd=0.052  unc_rem=0.880  unc_rel=0.077  drop=0.28  h=32  L=2  lr=0.005  wd=0.01
+  [Trial  79] blogcatalog_uniform_0.3 | acc=0.7160  (97.4s)  knn=p  k= 23  dexp=7.12  p_grd=0.219  unc_rem=0.710  unc_rel=0.267  drop=0.22  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  80] blogcatalog_uniform_0.3 | acc=0.6994  (112.4s)  knn=u  k=-    dexp=6.92  p_grd=0.151  unc_rem=0.840  unc_rel=0.048  drop=0.57  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial  81] blogcatalog_uniform_0.3 | acc=0.5885  (87.1s)  knn=u  k=-    dexp=7.05  p_grd=0.275  unc_rem=0.098  unc_rel=0.156  drop=0.69  h=128  L=2  lr=0.0001  wd=0.001
+  [Trial  82] blogcatalog_uniform_0.3 | acc=0.6282  (171.6s)  knn=u  k=-    dexp=8.26  p_grd=0.181  unc_rem=0.401  unc_rel=0.199  drop=0.25  h=128  L=1  lr=0.005  wd=0.0005
+  [Trial  83] blogcatalog_uniform_0.3 | acc=0.5180  (111.4s)  knn=u  k=-    dexp=9.62  p_grd=0.291  unc_rem=0.050  unc_rel=0.156  drop=0.28  h=128  L=4  lr=0.01  wd=0.001
+  [Trial  84] blogcatalog_uniform_0.3 | acc=0.5637  (83.5s)  knn=p  k= 18  dexp=7.05  p_grd=0.026  unc_rem=0.909  unc_rel=0.281  drop=0.14  h=32  L=1  lr=0.005  wd=0.001
+  [Trial  85] blogcatalog_uniform_0.3 | acc=0.7290  (37.9s)  knn=u  k=-    dexp=9.56  p_grd=0.205  unc_rem=0.856  unc_rel=0.019  drop=0.79  h=128  L=2  lr=0.005  wd=0.005
+  [Trial  86] blogcatalog_uniform_0.3 | acc=0.7140  (135.9s)  knn=p  k= 24  dexp=7.76  p_grd=0.433  unc_rem=0.118  unc_rel=0.014  drop=0.23  h=16  L=2  lr=0.005  wd=0.001
+  [Trial  87] blogcatalog_uniform_0.3 | acc=0.6599  (36.1s)  knn=u  k=-    dexp=2.74  p_grd=0.336  unc_rem=0.032  unc_rel=0.214  drop=0.55  h=128  L=1  lr=0.005  wd=0.001
+  [Trial  88] blogcatalog_uniform_0.3 | acc=0.3189  (31.8s)  knn=u  k=-    dexp=2.22  p_grd=0.441  unc_rem=0.202  unc_rel=0.034  drop=0.62  h=16  L=2  lr=0.001  wd=0.05
+  [Trial  89] blogcatalog_uniform_0.3 | acc=0.6121  (36.7s)  knn=u  k=-    dexp=2.78  p_grd=0.425  unc_rem=0.140  unc_rel=0.011  drop=0.50  h=32  L=3  lr=0.001  wd=0.001
+  [Trial  90] blogcatalog_uniform_0.3 | acc=0.2773  (59.4s)  knn=u  k=-    dexp=8.20  p_grd=0.198  unc_rem=0.885  unc_rel=0.195  drop=0.78  h=64  L=4  lr=0.005  wd=0.05
+  [Trial  91] blogcatalog_uniform_0.3 | acc=0.4247  (46.5s)  knn=u  k=-    dexp=9.26  p_grd=0.172  unc_rem=0.560  unc_rel=0.062  drop=0.77  h=64  L=2  lr=0.1  wd=0.005
+  [Trial  92] blogcatalog_uniform_0.3 | acc=0.7189  (56.3s)  knn=d  k= 18  dexp=4.91  p_grd=0.231  unc_rem=0.665  unc_rel=0.128  drop=0.60  h=32  L=2  lr=0.01  wd=5e-05
+  [Trial  93] blogcatalog_uniform_0.3 | acc=0.7027  (73.7s)  knn=d  k= 19  dexp=4.23  p_grd=0.201  unc_rem=0.551  unc_rel=0.126  drop=0.32  h=32  L=2  lr=0.0005  wd=5e-05
+  [Trial  94] blogcatalog_uniform_0.3 | acc=0.5976  (33.0s)  knn=u  k=-    dexp=7.71  p_grd=0.186  unc_rem=0.949  unc_rel=0.057  drop=0.87  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  95] blogcatalog_uniform_0.3 | acc=0.6304  (110.1s)  knn=d  k= 19  dexp=2.60  p_grd=0.326  unc_rem=0.865  unc_rel=0.396  drop=0.40  h=32  L=1  lr=0.01  wd=5e-05
+  [Trial  96] blogcatalog_uniform_0.3 | acc=0.6722  (182.6s)  knn=d  k= 15  dexp=3.24  p_grd=0.309  unc_rem=0.908  unc_rel=0.210  drop=0.80  h=32  L=2  lr=0.01  wd=0.01
+  [Trial  97] blogcatalog_uniform_0.3 | acc=0.6900  (116.3s)  knn=d  k= 23  dexp=6.55  p_grd=0.191  unc_rem=0.429  unc_rel=0.264  drop=0.50  h=32  L=2  lr=0.01  wd=5e-05
+  [Trial  98] blogcatalog_uniform_0.3 | acc=0.7078  (85.6s)  knn=d  k= 19  dexp=4.66  p_grd=0.222  unc_rem=0.641  unc_rel=0.046  drop=0.70  h=64  L=2  lr=0.01  wd=5e-05
+  [Trial  99] blogcatalog_uniform_0.3 | acc=0.7362  (197.3s)  knn=u  k=-    dexp=9.24  p_grd=0.230  unc_rem=0.915  unc_rel=0.107  drop=0.89  h=128  L=2  lr=0.005  wd=0.005
+  [Trial 100] blogcatalog_uniform_0.3 | acc=0.7172  (61.8s)  knn=u  k=-    dexp=7.46  p_grd=0.227  unc_rem=0.960  unc_rel=0.021  drop=0.81  h=128  L=2  lr=0.005  wd=0.005
+  [Trial 101] blogcatalog_uniform_0.3 | acc=0.3302  (61.7s)  knn=u  k=-    dexp=5.84  p_grd=0.249  unc_rem=0.833  unc_rel=0.172  drop=0.40  h=16  L=2  lr=0.01  wd=0.05
+  [Trial 102] blogcatalog_uniform_0.3 | acc=0.5625  (81.9s)  knn=u  k=-    dexp=9.93  p_grd=0.288  unc_rem=0.861  unc_rel=0.073  drop=0.67  h=128  L=2  lr=0.1  wd=0.001
+  [Trial 103] blogcatalog_uniform_0.3 | acc=0.4728  (69.3s)  knn=u  k=-    dexp=9.01  p_grd=0.075  unc_rem=0.457  unc_rel=0.054  drop=0.49  h=128  L=4  lr=0.005  wd=0.001
+  [Trial 104] blogcatalog_uniform_0.3 | acc=0.5305  (36.7s)  knn=u  k=-    dexp=6.33  p_grd=0.203  unc_rem=0.815  unc_rel=0.070  drop=0.70  h=16  L=4  lr=0.01  wd=5e-05
+  [Trial 105] blogcatalog_uniform_0.3 | acc=0.6854  (67.5s)  knn=u  k=-    dexp=9.76  p_grd=0.181  unc_rem=0.340  unc_rel=0.244  drop=0.27  h=128  L=2  lr=0.001  wd=0.0001
+  [Trial 106] blogcatalog_uniform_0.3 | acc=0.7126  (80.9s)  knn=s  k= 60  dexp=5.73  p_grd=0.491  unc_rem=0.221  unc_rel=0.027  drop=0.58  h=128  L=2  lr=0.001  wd=0.0005
+  [Trial 107] blogcatalog_uniform_0.3 | acc=0.2857  (59.9s)  knn=u  k=-    dexp=6.50  p_grd=0.110  unc_rem=0.701  unc_rel=0.083  drop=0.83  h=16  L=2  lr=0.01  wd=0.1
+  [Trial 108] blogcatalog_uniform_0.3 | acc=0.4488  (67.4s)  knn=u  k=-    dexp=9.59  p_grd=0.258  unc_rem=0.701  unc_rel=0.293  drop=0.77  h=128  L=3  lr=0.0001  wd=0.005
+  [Trial 109] blogcatalog_uniform_0.3 | acc=0.4016  (112.0s)  knn=d  k= 13  dexp=8.67  p_grd=0.238  unc_rem=0.844  unc_rel=0.512  drop=0.86  h=128  L=4  lr=0.005  wd=0.005
+  [Trial 110] blogcatalog_uniform_0.3 | acc=0.2080  (29.6s)  knn=u  k=-    dexp=9.43  p_grd=0.360  unc_rem=0.921  unc_rel=0.312  drop=0.89  h=128  L=2  lr=1e-05  wd=0.01
+  [Trial 111] blogcatalog_uniform_0.3 | acc=0.4380  (71.9s)  knn=u  k=-    dexp=8.59  p_grd=0.078  unc_rem=0.810  unc_rel=0.071  drop=0.87  h=16  L=3  lr=0.005  wd=0.005
+  [Trial 112] blogcatalog_uniform_0.3 | acc=0.6332  (144.9s)  knn=d  k= 23  dexp=3.60  p_grd=0.332  unc_rem=0.617  unc_rel=0.162  drop=0.63  h=32  L=2  lr=0.05  wd=0.005
+  [Trial 113] blogcatalog_uniform_0.3 | acc=0.4026  (58.2s)  knn=u  k=-    dexp=9.63  p_grd=0.144  unc_rem=0.900  unc_rel=0.273  drop=0.67  h=128  L=4  lr=0.0005  wd=0.005
+  [Trial 114] blogcatalog_uniform_0.3 | acc=0.4315  (101.4s)  knn=u  k=-    dexp=6.71  p_grd=0.084  unc_rem=0.296  unc_rel=0.096  drop=0.18  h=128  L=2  lr=0.005  wd=0.05
+  [Trial 115] blogcatalog_uniform_0.3 | acc=0.7424  (35.8s)  knn=u  k=-    dexp=5.47  p_grd=0.208  unc_rem=0.759  unc_rel=0.414  drop=0.44  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 116] blogcatalog_uniform_0.3 | acc=0.7268  (52.7s)  knn=u  k=-    dexp=4.92  p_grd=0.184  unc_rem=0.799  unc_rel=0.546  drop=0.57  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 117] blogcatalog_uniform_0.3 | acc=0.3295  (86.2s)  knn=d  k= 13  dexp=4.23  p_grd=0.106  unc_rem=0.700  unc_rel=0.640  drop=0.36  h=128  L=2  lr=0.005  wd=0.1
+  [Trial 118] blogcatalog_uniform_0.3 | acc=0.6833  (72.2s)  knn=u  k=-    dexp=5.77  p_grd=0.140  unc_rem=0.761  unc_rel=0.633  drop=0.34  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 119] blogcatalog_uniform_0.3 | acc=0.6003  (55.7s)  knn=u  k=-    dexp=8.02  p_grd=0.125  unc_rem=0.482  unc_rel=0.324  drop=0.22  h=64  L=2  lr=0.0001  wd=0.001
+  [Trial 120] blogcatalog_uniform_0.3 | acc=0.2977  (128.4s)  knn=u  k=-    dexp=5.62  p_grd=0.222  unc_rem=0.511  unc_rel=0.202  drop=0.37  h=128  L=3  lr=1e-05  wd=0.001
+  [Trial 121] blogcatalog_uniform_0.3 | acc=0.7177  (51.1s)  knn=u  k=-    dexp=8.46  p_grd=0.139  unc_rem=0.514  unc_rel=0.297  drop=0.22  h=128  L=2  lr=0.0005  wd=0.001
+  [Trial 122] blogcatalog_uniform_0.3 | acc=0.6587  (66.1s)  knn=u  k=-    dexp=5.91  p_grd=0.204  unc_rem=0.774  unc_rel=0.422  drop=0.42  h=128  L=2  lr=0.001  wd=0.01
+  [Trial 123] blogcatalog_uniform_0.3 | acc=0.7124  (70.1s)  knn=u  k=-    dexp=4.56  p_grd=0.255  unc_rem=0.730  unc_rel=0.852  drop=0.77  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 124] blogcatalog_uniform_0.3 | acc=0.7294  (98.9s)  knn=s  k= 35  dexp=9.86  p_grd=0.232  unc_rem=0.227  unc_rel=0.020  drop=0.45  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 125] blogcatalog_uniform_0.3 | acc=0.7177  (48.2s)  knn=s  k= 45  dexp=7.73  p_grd=0.367  unc_rem=0.083  unc_rel=0.056  drop=0.54  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 126] blogcatalog_uniform_0.3 | acc=0.6337  (68.3s)  knn=u  k=-    dexp=2.82  p_grd=0.499  unc_rem=0.101  unc_rel=0.103  drop=0.36  h=128  L=2  lr=0.0005  wd=0.01
+  [Trial 127] blogcatalog_uniform_0.3 | acc=0.7287  (52.7s)  knn=u  k=-    dexp=7.95  p_grd=0.164  unc_rem=0.956  unc_rel=0.181  drop=0.48  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 128] blogcatalog_uniform_0.3 | acc=0.7456  (48.7s)  knn=u  k=-    dexp=8.05  p_grd=0.201  unc_rem=0.911  unc_rel=0.279  drop=0.54  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 129] blogcatalog_uniform_0.3 | acc=0.7302  (73.3s)  knn=u  k=-    dexp=9.15  p_grd=0.163  unc_rem=0.894  unc_rel=0.035  drop=0.41  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 130] blogcatalog_uniform_0.3 | acc=0.6681  (100.1s)  knn=s  k= 35  dexp=9.65  p_grd=0.188  unc_rem=0.268  unc_rel=0.077  drop=0.30  h=32  L=3  lr=0.005  wd=0.001
+  [Trial 131] blogcatalog_uniform_0.3 | acc=0.6996  (108.8s)  knn=u  k=-    dexp=8.16  p_grd=0.116  unc_rem=0.878  unc_rel=0.205  drop=0.43  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 132] blogcatalog_uniform_0.3 | acc=0.2785  (43.0s)  knn=u  k=-    dexp=9.18  p_grd=0.101  unc_rem=0.958  unc_rel=0.184  drop=0.44  h=64  L=2  lr=1e-05  wd=0.001
+  [Trial 133] blogcatalog_uniform_0.3 | acc=0.5589  (27.5s)  knn=u  k=-    dexp=2.39  p_grd=0.101  unc_rem=0.965  unc_rel=0.536  drop=0.64  h=128  L=2  lr=0.1  wd=0.001
+  [Trial 134] blogcatalog_uniform_0.3 | acc=0.7222  (112.8s)  knn=d  k= 24  dexp=8.66  p_grd=0.336  unc_rem=0.027  unc_rel=0.172  drop=0.30  h=128  L=2  lr=0.005  wd=0.0005
+  [Trial 135] blogcatalog_uniform_0.3 | acc=0.5394  (123.2s)  knn=u  k=-    dexp=9.35  p_grd=0.109  unc_rem=0.951  unc_rel=0.077  drop=0.13  h=64  L=4  lr=0.0005  wd=0.001
+  [Trial 136] blogcatalog_uniform_0.3 | acc=0.4858  (78.3s)  knn=d  k= 24  dexp=4.55  p_grd=0.305  unc_rem=0.614  unc_rel=0.499  drop=0.41  h=128  L=2  lr=0.1  wd=0.001
+  [Trial 137] blogcatalog_uniform_0.3 | acc=0.7213  (80.1s)  knn=d  k= 24  dexp=7.03  p_grd=0.233  unc_rem=0.913  unc_rel=0.301  drop=0.63  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 138] blogcatalog_uniform_0.3 | acc=0.5604  (124.5s)  knn=s  k= 50  dexp=8.69  p_grd=0.074  unc_rem=0.172  unc_rel=0.390  drop=0.53  h=32  L=2  lr=0.005  wd=0.0001
+  [Trial 139] blogcatalog_uniform_0.3 | acc=0.5096  (72.3s)  knn=s  k= 35  dexp=9.65  p_grd=0.193  unc_rem=0.308  unc_rel=0.112  drop=0.58  h=32  L=2  lr=0.0001  wd=1e-05
+  [Trial 140] blogcatalog_uniform_0.3 | acc=0.6770  (62.7s)  knn=u  k=-    dexp=9.74  p_grd=0.109  unc_rem=0.804  unc_rel=0.212  drop=0.36  h=64  L=2  lr=0.005  wd=0.01
+  [Trial 141] blogcatalog_uniform_0.3 | acc=0.7278  (139.5s)  knn=s  k= 45  dexp=7.62  p_grd=0.168  unc_rem=0.798  unc_rel=0.129  drop=0.57  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 142] blogcatalog_uniform_0.3 | acc=0.7338  (63.6s)  knn=s  k= 45  dexp=7.89  p_grd=0.190  unc_rem=0.864  unc_rel=0.226  drop=0.79  h=64  L=2  lr=0.005  wd=0.005
+  [Trial 143] blogcatalog_uniform_0.3 | acc=0.6556  (171.9s)  knn=s  k= 45  dexp=6.99  p_grd=0.096  unc_rem=0.736  unc_rel=0.134  drop=0.65  h=64  L=2  lr=0.005  wd=0.005
+  [Trial 144] blogcatalog_uniform_0.3 | acc=0.7054  (53.1s)  knn=s  k= 50  dexp=9.80  p_grd=0.287  unc_rem=0.959  unc_rel=0.166  drop=0.87  h=64  L=2  lr=0.005  wd=0.005
+  [Trial 145] blogcatalog_uniform_0.3 | acc=0.7263  (45.5s)  knn=s  k= 40  dexp=7.97  p_grd=0.188  unc_rem=0.908  unc_rel=0.322  drop=0.62  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 146] blogcatalog_uniform_0.3 | acc=0.7217  (85.6s)  knn=u  k=-    dexp=8.14  p_grd=0.403  unc_rem=0.103  unc_rel=0.152  drop=0.30  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 147] blogcatalog_uniform_0.3 | acc=0.7364  (31.4s)  knn=u  k=-    dexp=9.06  p_grd=0.256  unc_rem=0.957  unc_rel=0.120  drop=0.21  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 148] blogcatalog_uniform_0.3 | acc=0.7431  (179.9s)  knn=u  k=-    dexp=7.75  p_grd=0.219  unc_rem=0.899  unc_rel=0.110  drop=0.13  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 149] blogcatalog_uniform_0.3 | acc=0.7273  (133.1s)  knn=u  k=-    dexp=9.97  p_grd=0.224  unc_rem=0.829  unc_rel=0.039  drop=0.24  h=64  L=2  lr=0.005  wd=0.0005
+  [Trial 150] blogcatalog_uniform_0.3 | acc=0.7241  (79.5s)  knn=u  k=-    dexp=9.09  p_grd=0.390  unc_rem=0.967  unc_rel=0.220  drop=0.21  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 151] blogcatalog_uniform_0.3 | acc=0.7023  (68.2s)  knn=u  k=-    dexp=6.20  p_grd=0.269  unc_rem=0.950  unc_rel=0.045  drop=0.15  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial 152] blogcatalog_uniform_0.3 | acc=0.2468  (40.3s)  knn=u  k=-    dexp=8.99  p_grd=0.160  unc_rem=0.826  unc_rel=0.300  drop=0.81  h=128  L=3  lr=0.005  wd=0.1
+  [Trial 153] blogcatalog_uniform_0.3 | acc=0.5813  (94.3s)  knn=u  k=-    dexp=9.25  p_grd=0.261  unc_rem=0.665  unc_rel=0.015  drop=0.79  h=16  L=2  lr=0.001  wd=0.005
+  [Trial 154] blogcatalog_uniform_0.3 | acc=0.6864  (70.2s)  knn=u  k=-    dexp=4.74  p_grd=0.250  unc_rem=0.705  unc_rel=0.100  drop=0.19  h=64  L=3  lr=0.005  wd=0.001
+  [Trial 155] blogcatalog_uniform_0.3 | acc=0.5904  (122.5s)  knn=p  k= 24  dexp=7.62  p_grd=0.216  unc_rem=0.786  unc_rel=0.139  drop=0.48  h=64  L=4  lr=0.005  wd=0.001
+  [Trial 156] blogcatalog_uniform_0.3 | acc=0.2951  (289.4s)  knn=u  k=-    dexp=6.12  p_grd=0.310  unc_rem=0.683  unc_rel=0.102  drop=0.15  h=16  L=2  lr=1e-05  wd=0.001
+  [Trial 157] blogcatalog_uniform_0.3 | acc=0.5115  (39.0s)  knn=u  k=-    dexp=9.91  p_grd=0.253  unc_rem=0.750  unc_rel=0.199  drop=0.30  h=64  L=3  lr=0.05  wd=0.001
+  [Trial 158] blogcatalog_uniform_0.3 | acc=0.7249  (64.9s)  knn=s  k= 40  dexp=9.86  p_grd=0.316  unc_rem=0.628  unc_rel=0.201  drop=0.55  h=32  L=2  lr=0.01  wd=0.001
+  [Trial 159] blogcatalog_uniform_0.3 | acc=0.6842  (54.1s)  knn=u  k=-    dexp=6.30  p_grd=0.266  unc_rem=0.637  unc_rel=0.370  drop=0.29  h=128  L=2  lr=0.005  wd=5e-05
+  [Trial 160] blogcatalog_uniform_0.3 | acc=0.6664  (76.7s)  knn=u  k=-    dexp=9.72  p_grd=0.134  unc_rem=0.958  unc_rel=0.267  drop=0.66  h=128  L=2  lr=0.05  wd=0.005
+  [Trial 161] blogcatalog_uniform_0.3 | acc=0.6996  (75.4s)  knn=s  k= 55  dexp=8.04  p_grd=0.230  unc_rem=0.189  unc_rel=0.033  drop=0.16  h=32  L=2  lr=0.001  wd=0.001
+  [Trial 162] blogcatalog_uniform_0.3 | acc=0.7239  (24.2s)  knn=u  k=-    dexp=9.08  p_grd=0.279  unc_rem=0.806  unc_rel=0.058  drop=0.29  h=64  L=2  lr=0.005  wd=0.0005
+  [Trial 163] blogcatalog_uniform_0.3 | acc=0.6359  (112.2s)  knn=u  k=-    dexp=9.37  p_grd=0.118  unc_rem=0.926  unc_rel=0.206  drop=0.19  h=64  L=1  lr=0.005  wd=0.001
+  [Trial 164] blogcatalog_uniform_0.3 | acc=0.7054  (58.6s)  knn=s  k= 35  dexp=9.68  p_grd=0.186  unc_rem=0.187  unc_rel=0.048  drop=0.41  h=32  L=2  lr=0.005  wd=5e-05
+  [Trial 165] blogcatalog_uniform_0.3 | acc=0.2460  (107.0s)  knn=u  k=-    dexp=7.02  p_grd=0.283  unc_rem=0.887  unc_rel=0.057  drop=0.45  h=128  L=4  lr=0.005  wd=0.1
+  [Trial 166] blogcatalog_uniform_0.3 | acc=0.5394  (29.8s)  knn=u  k=-    dexp=9.80  p_grd=0.084  unc_rem=0.857  unc_rel=0.016  drop=0.90  h=128  L=2  lr=0.0001  wd=0.005
+  [Trial 167] blogcatalog_uniform_0.3 | acc=0.7205  (61.1s)  knn=s  k= 45  dexp=9.86  p_grd=0.261  unc_rem=0.386  unc_rel=0.380  drop=0.52  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 168] blogcatalog_uniform_0.3 | acc=0.7162  (46.8s)  knn=u  k=-    dexp=9.09  p_grd=0.122  unc_rem=0.928  unc_rel=0.095  drop=0.55  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 169] blogcatalog_uniform_0.3 | acc=0.5404  (113.8s)  knn=s  k= 35  dexp=6.50  p_grd=0.213  unc_rem=0.516  unc_rel=0.121  drop=0.65  h=32  L=4  lr=0.005  wd=0.001
+  [Trial 170] blogcatalog_uniform_0.3 | acc=0.3557  (41.4s)  knn=s  k= 50  dexp=6.75  p_grd=0.059  unc_rem=0.844  unc_rel=0.287  drop=0.18  h=64  L=2  lr=0.005  wd=0.05
+  [Trial 171] blogcatalog_uniform_0.3 | acc=0.3670  (116.5s)  knn=u  k=-    dexp=9.37  p_grd=0.263  unc_rem=0.987  unc_rel=0.064  drop=0.15  h=128  L=2  lr=0.0001  wd=0.05
+  [Trial 172] blogcatalog_uniform_0.3 | acc=0.3336  (36.7s)  knn=p  k= 24  dexp=8.41  p_grd=0.025  unc_rem=0.757  unc_rel=0.257  drop=0.29  h=32  L=2  lr=0.0001  wd=0.001
+  [Trial 173] blogcatalog_uniform_0.3 | acc=0.7169  (49.2s)  knn=u  k=-    dexp=8.41  p_grd=0.104  unc_rem=0.887  unc_rel=0.056  drop=0.12  h=16  L=2  lr=0.005  wd=0.0005
+  [Trial 174] blogcatalog_uniform_0.3 | acc=0.6585  (69.3s)  knn=p  k= 24  dexp=9.70  p_grd=0.075  unc_rem=0.038  unc_rel=0.233  drop=0.61  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 175] blogcatalog_uniform_0.3 | acc=0.7133  (101.3s)  knn=u  k=-    dexp=6.57  p_grd=0.122  unc_rem=0.911  unc_rel=0.167  drop=0.17  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 176] blogcatalog_uniform_0.3 | acc=0.6895  (78.9s)  knn=s  k= 40  dexp=6.22  p_grd=0.347  unc_rem=0.913  unc_rel=0.179  drop=0.49  h=128  L=2  lr=0.0005  wd=0.001
+  [Trial 177] blogcatalog_uniform_0.3 | acc=0.6676  (35.9s)  knn=u  k=-    dexp=9.75  p_grd=0.310  unc_rem=0.482  unc_rel=0.097  drop=0.29  h=128  L=3  lr=0.005  wd=1e-05
+  [Trial 178] blogcatalog_uniform_0.3 | acc=0.6982  (53.5s)  knn=u  k=-    dexp=1.60  p_grd=0.311  unc_rem=0.992  unc_rel=0.265  drop=0.37  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 179] blogcatalog_uniform_0.3 | acc=0.6991  (51.6s)  knn=u  k=-    dexp=6.13  p_grd=0.203  unc_rem=0.826  unc_rel=0.480  drop=0.70  h=128  L=2  lr=0.005  wd=1e-05
+  [Trial 180] blogcatalog_uniform_0.3 | acc=0.3704  (31.7s)  knn=u  k=-    dexp=8.91  p_grd=0.255  unc_rem=0.808  unc_rel=0.132  drop=0.14  h=64  L=2  lr=0.1  wd=0.001
+  [Trial 181] blogcatalog_uniform_0.3 | acc=0.6508  (102.8s)  knn=u  k=-    dexp=7.72  p_grd=0.228  unc_rem=0.959  unc_rel=0.250  drop=0.44  h=128  L=1  lr=0.05  wd=0.001
+  [Trial 182] blogcatalog_uniform_0.3 | acc=0.7114  (125.7s)  knn=s  k= 40  dexp=5.90  p_grd=0.216  unc_rem=0.887  unc_rel=0.199  drop=0.89  h=64  L=2  lr=0.001  wd=5e-05
+  [Trial 183] blogcatalog_uniform_0.3 | acc=0.7364  (156.1s)  knn=s  k= 45  dexp=8.34  p_grd=0.229  unc_rem=0.837  unc_rel=0.277  drop=0.57  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 184] blogcatalog_uniform_0.3 | acc=0.6207  (68.4s)  knn=u  k=-    dexp=6.99  p_grd=0.323  unc_rem=0.943  unc_rel=0.435  drop=0.49  h=128  L=2  lr=0.0001  wd=0.0001
+  [Trial 185] blogcatalog_uniform_0.3 | acc=0.4548  (92.5s)  knn=s  k= 45  dexp=6.03  p_grd=0.291  unc_rem=0.530  unc_rel=0.044  drop=0.54  h=64  L=2  lr=0.005  wd=0.1
+  [Trial 186] blogcatalog_uniform_0.3 | acc=0.6604  (69.6s)  knn=s  k= 50  dexp=9.58  p_grd=0.188  unc_rem=0.273  unc_rel=0.081  drop=0.39  h=32  L=2  lr=0.0005  wd=0.001
+  [Trial 187] blogcatalog_uniform_0.3 | acc=0.7237  (27.5s)  knn=u  k=-    dexp=5.60  p_grd=0.211  unc_rem=0.837  unc_rel=0.017  drop=0.55  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 188] blogcatalog_uniform_0.3 | acc=0.6294  (48.8s)  knn=s  k= 45  dexp=9.55  p_grd=0.271  unc_rem=0.613  unc_rel=0.551  drop=0.58  h=64  L=1  lr=0.005  wd=0.001
+  [Trial 189] blogcatalog_uniform_0.3 | acc=0.3531  (122.0s)  knn=u  k=-    dexp=5.02  p_grd=0.192  unc_rem=0.827  unc_rel=0.596  drop=0.56  h=32  L=2  lr=0.005  wd=0.05
+  [Trial 190] blogcatalog_uniform_0.3 | acc=0.7386  (54.6s)  knn=u  k=-    dexp=8.67  p_grd=0.234  unc_rem=0.988  unc_rel=0.104  drop=0.42  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 191] blogcatalog_uniform_0.3 | acc=0.7309  (57.2s)  knn=u  k=-    dexp=7.30  p_grd=0.283  unc_rem=0.956  unc_rel=0.052  drop=0.33  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 192] blogcatalog_uniform_0.3 | acc=0.7217  (106.6s)  knn=u  k=-    dexp=6.91  p_grd=0.243  unc_rem=0.819  unc_rel=0.054  drop=0.34  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 193] blogcatalog_uniform_0.3 | acc=0.7225  (53.1s)  knn=d  k= 24  dexp=8.94  p_grd=0.170  unc_rem=0.885  unc_rel=0.295  drop=0.40  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 194] blogcatalog_uniform_0.3 | acc=0.4603  (57.6s)  knn=s  k= 25  dexp=8.91  p_grd=0.198  unc_rem=0.632  unc_rel=0.182  drop=0.69  h=64  L=3  lr=0.005  wd=0.01
+  [Trial 195] blogcatalog_uniform_0.3 | acc=0.6215  (79.0s)  knn=u  k=-    dexp=7.79  p_grd=0.266  unc_rem=0.999  unc_rel=0.279  drop=0.36  h=32  L=1  lr=0.005  wd=5e-05
+  [Trial 196] blogcatalog_uniform_0.3 | acc=0.3001  (68.0s)  knn=p  k= 24  dexp=9.48  p_grd=0.218  unc_rem=0.813  unc_rel=0.278  drop=0.32  h=16  L=2  lr=0.005  wd=0.1
+  [Trial 197] blogcatalog_uniform_0.3 | acc=0.7136  (114.7s)  knn=d  k= 24  dexp=8.14  p_grd=0.130  unc_rem=0.283  unc_rel=0.017  drop=0.40  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 198] blogcatalog_uniform_0.3 | acc=0.6931  (40.9s)  knn=u  k=-    dexp=8.69  p_grd=0.290  unc_rem=0.059  unc_rel=0.108  drop=0.47  h=128  L=2  lr=0.0005  wd=0.001
+  [Trial 199] blogcatalog_uniform_0.3 | acc=0.3497  (140.4s)  knn=s  k= 55  dexp=7.33  p_grd=0.315  unc_rem=0.628  unc_rel=0.154  drop=0.76  h=64  L=2  lr=0.0001  wd=0.05
+  [Trial 200] blogcatalog_uniform_0.3 | acc=0.6890  (78.6s)  knn=u  k=-    dexp=9.01  p_grd=0.138  unc_rem=0.312  unc_rel=0.088  drop=0.48  h=128  L=2  lr=0.005  wd=0.005
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (blogcatalog_uniform_0.3) Testing top-5 configs × 10 seeds...
+
+  [Retest] (blogcatalog_uniform_0.3) Config 1/5: (Trial #127, Orig Acc: 0.7456)
+           Params: {'knn_mode': 'u', 'dexp': 8.048572092817373, 'p_grd': 0.20103323551357705, 'unc_rem': 0.9105694521550048, 'unc_rel': 0.2788202770080752, 'dropout': 0.5390920407290838, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 1 | Run 1/10 | seed=3000 | Acc: 0.7465 | Mean: 0.7465 | Time: 225.3s
+    [Retest] blogcatalog | Config 1 | Run 2/10 | seed=3001 | Acc: 0.7155 | Mean: 0.7310 | Time: 82.2s
+    [Retest] blogcatalog | Config 1 | Run 3/10 | seed=3002 | Acc: 0.6869 | Mean: 0.7163 | Time: 100.5s
+    [Retest] blogcatalog | Config 1 | Run 4/10 | seed=3003 | Acc: 0.7092 | Mean: 0.7145 | Time: 38.4s
+    [Retest] blogcatalog | Config 1 | Run 5/10 | seed=3004 | Acc: 0.6794 | Mean: 0.7075 | Time: 37.5s
+    [Retest] blogcatalog | Config 1 | Run 6/10 | seed=3005 | Acc: 0.7253 | Mean: 0.7105 | Time: 69.0s
+    [Retest] blogcatalog | Config 1 | Run 7/10 | seed=3006 | Acc: 0.6941 | Mean: 0.7081 | Time: 122.3s
+    [Retest] blogcatalog | Config 1 | Run 8/10 | seed=3007 | Acc: 0.7003 | Mean: 0.7072 | Time: 43.2s
+    [Retest] blogcatalog | Config 1 | Run 9/10 | seed=3008 | Acc: 0.6943 | Mean: 0.7057 | Time: 152.7s
+    [Retest] blogcatalog | Config 1 | Run 10/10 | seed=3009 | Acc: 0.6782 | Mean: 0.7030 | Time: 115.7s
+  [Retest] Config 1: mean=0.7030 ± 0.0204
+
+  [Retest] (blogcatalog_uniform_0.3) Config 2/5: (Trial #147, Orig Acc: 0.7431)
+           Params: {'knn_mode': 'u', 'dexp': 7.749299266591004, 'p_grd': 0.21857906915715666, 'unc_rem': 0.8993920218249876, 'unc_rel': 0.1102583909374616, 'dropout': 0.13099159398559534, 'n_hidden': 64, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 2 | Run 1/10 | seed=3000 | Acc: 0.7424 | Mean: 0.7424 | Time: 49.0s
+    [Retest] blogcatalog | Config 2 | Run 2/10 | seed=3001 | Acc: 0.6984 | Mean: 0.7204 | Time: 147.8s
+    [Retest] blogcatalog | Config 2 | Run 3/10 | seed=3002 | Acc: 0.6830 | Mean: 0.7080 | Time: 64.1s
+    [Retest] blogcatalog | Config 2 | Run 4/10 | seed=3003 | Acc: 0.6936 | Mean: 0.7044 | Time: 37.5s
+    [Retest] blogcatalog | Config 2 | Run 5/10 | seed=3004 | Acc: 0.6597 | Mean: 0.6954 | Time: 61.8s
+    [Retest] blogcatalog | Config 2 | Run 6/10 | seed=3005 | Acc: 0.7287 | Mean: 0.7010 | Time: 30.4s
+    [Retest] blogcatalog | Config 2 | Run 7/10 | seed=3006 | Acc: 0.7071 | Mean: 0.7018 | Time: 168.9s
+    [Retest] blogcatalog | Config 2 | Run 8/10 | seed=3007 | Acc: 0.7018 | Mean: 0.7018 | Time: 66.8s
+    [Retest] blogcatalog | Config 2 | Run 9/10 | seed=3008 | Acc: 0.6840 | Mean: 0.6999 | Time: 64.5s
+    [Retest] blogcatalog | Config 2 | Run 10/10 | seed=3009 | Acc: 0.6780 | Mean: 0.6977 | Time: 94.7s
+  [Retest] Config 2: mean=0.6977 ± 0.0231
+
+  [Retest] (blogcatalog_uniform_0.3) Config 3/5: (Trial #114, Orig Acc: 0.7424)
+           Params: {'knn_mode': 'u', 'dexp': 5.466833145549505, 'p_grd': 0.20800710420140886, 'unc_rem': 0.7587740072130851, 'unc_rel': 0.4135496223556929, 'dropout': 0.43544574982194056, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 3 | Run 1/10 | seed=3000 | Acc: 0.7424 | Mean: 0.7424 | Time: 54.5s
+    [Retest] blogcatalog | Config 3 | Run 2/10 | seed=3001 | Acc: 0.7335 | Mean: 0.7380 | Time: 270.0s
+    [Retest] blogcatalog | Config 3 | Run 3/10 | seed=3002 | Acc: 0.6799 | Mean: 0.7186 | Time: 107.4s
+    [Retest] blogcatalog | Config 3 | Run 4/10 | seed=3003 | Acc: 0.7039 | Mean: 0.7149 | Time: 71.2s
+    [Retest] blogcatalog | Config 3 | Run 5/10 | seed=3004 | Acc: 0.6780 | Mean: 0.7076 | Time: 69.7s
+    [Retest] blogcatalog | Config 3 | Run 6/10 | seed=3005 | Acc: 0.7191 | Mean: 0.7095 | Time: 61.9s
+    [Retest] blogcatalog | Config 3 | Run 7/10 | seed=3006 | Acc: 0.7015 | Mean: 0.7083 | Time: 63.5s
+    [Retest] blogcatalog | Config 3 | Run 8/10 | seed=3007 | Acc: 0.6989 | Mean: 0.7072 | Time: 37.0s
+    [Retest] blogcatalog | Config 3 | Run 9/10 | seed=3008 | Acc: 0.6811 | Mean: 0.7043 | Time: 70.8s
+    [Retest] blogcatalog | Config 3 | Run 10/10 | seed=3009 | Acc: 0.6830 | Mean: 0.7021 | Time: 41.7s
+  [Retest] Config 3: mean=0.7021 ± 0.0219
+
+  [Retest] (blogcatalog_uniform_0.3) Config 4/5: (Trial #31, Orig Acc: 0.7391)
+           Params: {'knn_mode': 'u', 'dexp': 6.443403821876282, 'p_grd': 0.18265412137129722, 'unc_rem': 0.8464903322814749, 'unc_rel': 0.028279847579643302, 'dropout': 0.5994182208265144, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 4 | Run 1/10 | seed=3000 | Acc: 0.7391 | Mean: 0.7391 | Time: 81.3s
+    [Retest] blogcatalog | Config 4 | Run 2/10 | seed=3001 | Acc: 0.7092 | Mean: 0.7241 | Time: 109.9s
+    [Retest] blogcatalog | Config 4 | Run 3/10 | seed=3002 | Acc: 0.6770 | Mean: 0.7084 | Time: 157.3s
+    [Retest] blogcatalog | Config 4 | Run 4/10 | seed=3003 | Acc: 0.7128 | Mean: 0.7095 | Time: 39.7s
+    [Retest] blogcatalog | Config 4 | Run 5/10 | seed=3004 | Acc: 0.6729 | Mean: 0.7022 | Time: 75.8s
+    [Retest] blogcatalog | Config 4 | Run 6/10 | seed=3005 | Acc: 0.7239 | Mean: 0.7058 | Time: 88.2s
+    [Retest] blogcatalog | Config 4 | Run 7/10 | seed=3006 | Acc: 0.7056 | Mean: 0.7058 | Time: 75.4s
+    [Retest] blogcatalog | Config 4 | Run 8/10 | seed=3007 | Acc: 0.7049 | Mean: 0.7057 | Time: 112.8s
+    [Retest] blogcatalog | Config 4 | Run 9/10 | seed=3008 | Acc: 0.6931 | Mean: 0.7043 | Time: 34.0s
+    [Retest] blogcatalog | Config 4 | Run 10/10 | seed=3009 | Acc: 0.6869 | Mean: 0.7025 | Time: 32.4s
+  [Retest] Config 4: mean=0.7025 ± 0.0195
+
+  [Retest] (blogcatalog_uniform_0.3) Config 5/5: (Trial #189, Orig Acc: 0.7386)
+           Params: {'knn_mode': 'u', 'dexp': 8.666511151679272, 'p_grd': 0.2344937956663248, 'unc_rem': 0.9884495158603415, 'unc_rel': 0.10370203745465693, 'dropout': 0.4166924927816531, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 5 | Run 1/10 | seed=3000 | Acc: 0.7386 | Mean: 0.7386 | Time: 263.7s
+    [Retest] blogcatalog | Config 5 | Run 2/10 | seed=3001 | Acc: 0.7013 | Mean: 0.7199 | Time: 67.0s
+    [Retest] blogcatalog | Config 5 | Run 3/10 | seed=3002 | Acc: 0.6787 | Mean: 0.7062 | Time: 33.9s
+    [Retest] blogcatalog | Config 5 | Run 4/10 | seed=3003 | Acc: 0.6929 | Mean: 0.7029 | Time: 57.4s
+    [Retest] blogcatalog | Config 5 | Run 5/10 | seed=3004 | Acc: 0.6849 | Mean: 0.6993 | Time: 30.1s
+    [Retest] blogcatalog | Config 5 | Run 6/10 | seed=3005 | Acc: 0.7227 | Mean: 0.7032 | Time: 30.2s
+    [Retest] blogcatalog | Config 5 | Run 7/10 | seed=3006 | Acc: 0.6859 | Mean: 0.7007 | Time: 33.6s
+    [Retest] blogcatalog | Config 5 | Run 8/10 | seed=3007 | Acc: 0.7054 | Mean: 0.7013 | Time: 32.1s
+    [Retest] blogcatalog | Config 5 | Run 9/10 | seed=3008 | Acc: 0.7066 | Mean: 0.7019 | Time: 22.0s
+    [Retest] blogcatalog | Config 5 | Run 10/10 | seed=3009 | Acc: 0.6936 | Mean: 0.7011 | Time: 38.8s
+  [Retest] Config 5: mean=0.7011 ± 0.0174
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'u', 'dexp': 8.048572092817373, 'p_grd': 0.20103323551357705, 'unc_rem': 0.9105694521550048, 'unc_rel': 0.2788202770080752, 'dropout': 0.5390920407290838, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+[Optuna] Success: Best retest mean accuracy: 0.7030
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_blogcatalog_uniform_0.3.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_blogcatalog_uniform_0.3.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_blogcatalog_uniform_0.3  gpu=1  333.7 min  rc=0

@@ -1,0 +1,71 @@
+[priority] Process priority set to IDLE
+DEBUG 1: priority set
+Namespace(dataset='amazon-ratings', method='pignn', noise_type='instance', noise_rate=0.4, device='cuda:0', seed=3000, params_json='{"dropout": 0.8318517224127219, "n_hidden": 128, "n_layer": 3, "lr": 0.1, "weight_decay": 5e-05}', priority='idle')
+DEBUG 2: printed args
+DEBUG 3: dataset loaded
+DEBUG 3.1: Dataset init start
+DEBUG 3.2: prepare_data start amazon-ratings
+C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\nn\conv\gcn_conv.py:274: UserWarning: Converting sparse tensor to CSR format for more efficient processing. Consider converting your sparse tensor to CSR format beforehand to avoid repeated conversion (got 'torch.sparse_coo')
+  return spmm(adj_t, x, reduce=self.aggr)
+C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\utils\_spmm.py:71: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+  src = src.to_sparse_csr()
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 227, in run_train_thread
+    res = predictor.train()
+          ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\PIGNN_Predictor.py", line 56, in train
+    out_mi, out_product_mi = self.model_mi(features, adj)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\module\PIGNN.py", line 33, in forward
+    x = self.GCN(x, adj)
+        ^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\module\GNNs.py", line 127, in forward
+    x = layer(x, edge_index, edge_weight)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\nn\conv\gcn_conv.py", line 263, in forward
+    out = self.propagate(edge_index, x=x, edge_weight=edge_weight)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\AppData\Local\Temp\torch_geometric.nn.conv.gcn_conv_GCNConv_propagate_pjkqpl4t.py", line 162, in propagate
+    out = self.message_and_aggregate(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\nn\conv\gcn_conv.py", line 274, in message_and_aggregate
+    return spmm(adj_t, x, reduce=self.aggr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\utils\_spmm.py", line 83, in spmm
+    return torch.sparse.mm(src, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_SparseCsrCUDA__addmm)
+----Data statistics------'
+                Name: amazon-ratings
+                #Nodes 24492
+                #Edges 93050
+                #Classes 5
+                #Ave_degree 7.60
+----Split statistics------'
+                #Train samples 1224 (5.0 % of nodes)
+                #Val samples 3673 (15.0 % of nodes)
+                #Test samples 19595 (remaining)
+Current device: cpu
+[Params] Overriding from --params_json: {'dropout': 0.8318517224127219, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.1, 'weight_decay': 5e-05}
+----label noise information:------
+Instance dependent noise
+#Actual noise rate 0.40 
+FAILED during threaded execution: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_SparseCsrCUDA__addmm)

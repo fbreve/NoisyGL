@@ -1,0 +1,73 @@
+[worker] START  lnpcc_amazoncom_uniform_0.5  gpu=1
+ [Worker-86936] CRITICAL: Unable to allocate 76.3 MiB for an array with shape (13752, 5816) and data type bool
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 492, in run_pcc_thread
+    neib_list, neib_qt = build_augmented_graph(
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 338, in build_augmented_graph
+    mask_k = (np.arange(neib_list_knn.shape[1]) < neib_qt_knn[:, None]) \
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 76.3 MiB for an array with shape (13752, 5816) and data type bool
+
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-21 14:02:24
+Variants       : ['lnpcc']
+Datasets       : ['amazoncom']
+Noise          : [[0.5, 'uniform']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:1
+======================================================================
+[HPO] Loaded 160 optimized scenarios from log/hpo_db.json
+----Data statistics------'
+                Name: amazoncom
+                #Nodes 13752
+                #Edges 245861
+                #Classes 10
+                #Ave_degree 35.76
+----Split statistics------'
+                #Train samples 200 (20 nodes per class)
+                #Val samples 500 (specified)
+                #Test samples 1000 (specified)
+
+============================================================
+  lnpcc | amazoncom | uniform 0.5
+============================================================
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+  run  1/10 attempt 1 | seed=3000 | ERROR: Subprocess exception:
+Unable to allocate 76.3 MiB for an array with shape (13752, 5816) and data type bool
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 492, in run_pcc_thread
+    neib_list, neib_qt = build_augmented_graph(
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 338, in build_augmented_graph
+    mask_k = (np.arange(neib_list_knn.shape[1]) < neib_qt_knn[:, None]) \
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 76.3 MiB for an array with shape (13752, 5816) and data type bool
+ — retrying...
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:04:19] amazoncom | uniform 0.5 | lnpcc | run  1/10 | seed=3001 | acc=0.6490 | mean=0.6490 | time=88.37s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:05:47] amazoncom | uniform 0.5 | lnpcc | run  2/10 | seed=3002 | acc=0.6480 | mean=0.6485 | time=81.50s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:07:22] amazoncom | uniform 0.5 | lnpcc | run  3/10 | seed=3003 | acc=0.5980 | mean=0.6317 | time=90.01s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:09:21] amazoncom | uniform 0.5 | lnpcc | run  4/10 | seed=3004 | acc=0.5830 | mean=0.6195 | time=107.86s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:11:12] amazoncom | uniform 0.5 | lnpcc | run  5/10 | seed=3005 | acc=0.6290 | mean=0.6214 | time=106.93s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:13:11] amazoncom | uniform 0.5 | lnpcc | run  6/10 | seed=3006 | acc=0.6070 | mean=0.6190 | time=116.78s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:15:07] amazoncom | uniform 0.5 | lnpcc | run  7/10 | seed=3007 | acc=0.7320 | mean=0.6351 | time=108.43s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:16:44] amazoncom | uniform 0.5 | lnpcc | run  8/10 | seed=3008 | acc=0.4450 | mean=0.6114 | time=92.36s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:18:14] amazoncom | uniform 0.5 | lnpcc | run  9/10 | seed=3009 | acc=0.6180 | mean=0.6121 | time=83.68s
+  [HPO] Applying optimized params for amazoncom_uniform_0.5
+    [14:19:52] amazoncom | uniform 0.5 | lnpcc | run 10/10 | seed=3010 | acc=0.7380 | mean=0.6247 | time=90.03s
+  -> mean=0.6247 +/- 0.0778
+
+[OK] Partial CSV: ./log\partial\partial_lnpcc_amazoncom_uniform_0.5.csv
+End: 2026-04-21 14:19:52
+
+[worker] OK DONE  lnpcc_amazoncom_uniform_0.5  gpu=1  17.6 min  rc=0

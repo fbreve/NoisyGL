@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp.py", line 34, in <module>
+    from utils.dataloader import Dataset
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\utils\__init__.py", line 1, in <module>
+    from .dataloader import *
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\utils\dataloader.py", line 4, in <module>
+    from torch_geometric.datasets import Planetoid, Amazon, Coauthor, WikiCS, WikipediaNetwork, WebKB, Actor, \
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\__init__.py", line 14, in <module>
+    from .isinstance import is_torch_instance
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\isinstance.py", line 8, in <module>
+    import torch._dynamo
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\__init__.py", line 64, in <module>
+    torch.manual_seed = disable(torch.manual_seed)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\decorators.py", line 50, in disable
+    return DisableContext()(fn)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\eval_frame.py", line 410, in __call__
+    (filename is None or trace_rules.check(fn))
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\trace_rules.py", line 3378, in check
+    return check_verbose(obj, is_inlined_call).skipped
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\trace_rules.py", line 3361, in check_verbose
+    rule = torch._dynamo.trace_rules.lookup_inner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\trace_rules.py", line 3442, in lookup_inner
+    rule = get_torch_obj_rule_map().get(obj, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\trace_rules.py", line 2782, in get_torch_obj_rule_map
+    obj = load_object(k)
+          ^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\trace_rules.py", line 2807, in load_object
+    obj = _load_obj_from_str(x[0])
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_dynamo\trace_rules.py", line 2795, in _load_obj_from_str
+    return getattr(importlib.import_module(module), obj_name)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\distributed\_tensor\__init__.py", line 6, in <module>
+    import torch.distributed._tensor.ops
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\distributed\_tensor\ops\__init__.py", line 2, in <module>
+    from .embedding_ops import *  # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\distributed\_tensor\ops\embedding_ops.py", line 8, in <module>
+    import torch.distributed._functional_collectives as funcol
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\distributed\_functional_collectives.py", line 920, in <module>
+    _register_ops()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\distributed\_functional_collectives.py", line 911, in _register_ops
+    impl_abstract(f"c10d_functional::{op_name}")(meta_impl)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_custom_ops.py", line 253, in impl_abstract
+    return torch.library.impl_abstract(qualname, func, _stacklevel=2)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\library.py", line 448, in impl_abstract
+    source = torch._library.utils.get_source(_stacklevel + 1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\_library\utils.py", line 39, in get_source
+    frame = inspect.getframeinfo(sys._getframe(stacklevel))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\inspect.py", line 1688, in getframeinfo
+    lines, lnum = findsource(frame)
+                  ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\inspect.py", line 1071, in findsource
+    module = getmodule(object, file)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\inspect.py", line 997, in getmodule
+    os.path.realpath(f)] = module.__name__
+    ^^^^^^^^^^^^^^^^^^^
+  File "<frozen ntpath>", line 708, in realpath
+KeyboardInterrupt

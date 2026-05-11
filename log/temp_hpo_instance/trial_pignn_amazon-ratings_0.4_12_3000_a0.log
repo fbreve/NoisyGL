@@ -1,0 +1,31 @@
+[priority] Process priority set to IDLE
+DEBUG 1: priority set
+Namespace(dataset='amazon-ratings', method='pignn', noise_type='instance', noise_rate=0.4, device='cuda:0', seed=3000, params_json='{"dropout": 0.8934420506105131, "n_hidden": 128, "n_layer": 3, "lr": 0.1, "weight_decay": 5e-05}', priority='idle')
+DEBUG 2: printed args
+DEBUG 3: dataset loaded
+DEBUG 3.1: Dataset init start
+DEBUG 3.2: prepare_data start amazon-ratings
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 231, in run_train_thread
+    res = predictor.train()
+          ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\PIGNN_Predictor_Instance.py", line 57, in train
+    labels_context = labels_context + torch.eye(labels_context.shape[0]).to(self.device)
+                     ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (186100) must match the size of tensor b (2) at non-singleton dimension 1
+----Data statistics------'
+                Name: amazon-ratings
+                #Nodes 24492
+                #Edges 93050
+                #Classes 5
+                #Ave_degree 7.60
+----Split statistics------'
+                #Train samples 1224 (5.0 % of nodes)
+                #Val samples 3673 (15.0 % of nodes)
+                #Test samples 19595 (remaining)
+Current device: cpu
+[Params] Overriding from --params_json: {'dropout': 0.8934420506105131, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.1, 'weight_decay': 5e-05}
+----label noise information:------
+Instance dependent noise
+#Actual noise rate 0.40 
+FAILED during threaded execution: The size of tensor a (186100) must match the size of tensor b (2) at non-singleton dimension 1

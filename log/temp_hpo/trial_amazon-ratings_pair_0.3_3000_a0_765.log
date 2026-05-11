@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp.py", line 199, in run_train_thread
+    res = predictor.train()
+          ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 329, in train
+    train_labels, train_mask, kept, removed, changed = self._run_lnpcc()
+                                                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 200, in _run_lnpcc
+    _mtime = os.path.getmtime(spawn_lock_dir) if os.path.exists(spawn_lock_dir) else _time.time()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen genericpath>", line 55, in getmtime
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado: 'log\\spawn.lock'
+Namespace(dataset='amazon-ratings', method='lnpcc', noise_type='pair', noise_rate=0.3, device='cuda:0', seed=3000, params_json='{"knn_mode": "p", "dexp": 1.1492545947189514, "p_grd": 0.2887145918571532, "unc_rem": 0.33523183336979046, "unc_rel": 0.4954991223774365, "dropout": 0.3945495021177793, "n_hidden": 64, "n_layer": 4, "lr": 1e-05, "weight_decay": 0.0005, "k": 15}')
+----Data statistics------'
+                Name: amazon-ratings
+                #Nodes 24492
+                #Edges 93050
+                #Classes 5
+                #Ave_degree 7.60
+----Split statistics------'
+                #Train samples 1224 (5.0 % of nodes)
+                #Val samples 3673 (15.0 % of nodes)
+                #Test samples 19595 (remaining)
+Current device: cpu
+[Params] Overriding from --params_json: {'knn_mode': 'p', 'dexp': 1.1492545947189514, 'p_grd': 0.2887145918571532, 'unc_rem': 0.33523183336979046, 'unc_rel': 0.4954991223774365, 'dropout': 0.3945495021177793, 'n_hidden': 64, 'n_layer': 4, 'lr': 1e-05, 'weight_decay': 0.0005, 'k': 15}
+----label noise information:------
+Pair noise
+#Actual noise rate 0.30 
+FAILED during threaded execution: [WinError 2] O sistema não pode encontrar o arquivo especificado: 'log\\spawn.lock'

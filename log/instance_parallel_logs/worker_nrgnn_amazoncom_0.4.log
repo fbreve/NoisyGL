@@ -1,0 +1,1004 @@
+[worker] START nrgnn_amazoncom_0.4 gpu=0
+[HPO] Starting Phase 1 (Optuna) for nrgnn_amazoncom_instance_0.4...
+[I 2026-05-01 10:59:51,647] Using an existing study with name 'nrgnn_amazoncom_instance_0.4' instead of creating a new one.
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 213.2s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.595, 'valid': 0.476, 'test': 0.734}, 'wall_s': 101.87, 'cpu_s': 6.12, 'gpu_s': 95.48, 'wait_s': 213.2}
+    [Time] wall=101.9s | cpu=6.1s | gpu=95.5s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+[I 2026-05-01 11:05:12,836] Trial 43 finished with value: 0.734 and parameters: {'lr': 0.005, 'weight_decay': 0.0, 'n_hidden': 128, 'n_layer': 2, 'dropout': 0.7023510229900702, 'p_cutoff': 0.3604924896648186, 'edge_threshold': 0.18802936241839913}. Best is trial 23 with value: 0.782.
+ [Optuna] Early stopping at trial 43.
+
+[Retest] Phase 1 Finished. Validating Top 3 (10 runs each)...
+
+  [Retest] Candidate 1/3 (Trial 23, HPO_acc=0.7820)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 405.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.535, 'valid': 0.478, 'test': 0.746}, 'wall_s': 124.26, 'cpu_s': 6.48, 'gpu_s': 117.32, 'wait_s': 405.07}
+    [Time] wall=124.3s | cpu=6.5s | gpu=117.3s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 635.4s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.545, 'valid': 0.414, 'test': 0.589}, 'wall_s': 129.67, 'cpu_s': 9.62, 'gpu_s': 119.78, 'wait_s': 635.45}
+    [Time] wall=129.7s | cpu=9.6s | gpu=119.8s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1187.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.165, 'valid': 0.288, 'test': 0.46}, 'wall_s': 128.76, 'cpu_s': 9.82, 'gpu_s': 118.61, 'wait_s': 1187.13}
+    [Time] wall=128.8s | cpu=9.8s | gpu=118.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 622.2s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.475, 'valid': 0.494, 'test': 0.761}, 'wall_s': 128.35, 'cpu_s': 10.18, 'gpu_s': 117.86, 'wait_s': 622.22}
+    [Time] wall=128.4s | cpu=10.2s | gpu=117.9s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 336.9s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.43, 'valid': 0.466, 'test': 0.743}, 'wall_s': 130.43, 'cpu_s': 9.29, 'gpu_s': 120.85, 'wait_s': 336.89}
+    [Time] wall=130.4s | cpu=9.3s | gpu=120.8s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 632.3s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.52, 'valid': 0.442, 'test': 0.698}, 'wall_s': 130.77, 'cpu_s': 9.75, 'gpu_s': 120.69, 'wait_s': 632.34}
+    [Time] wall=130.8s | cpu=9.7s | gpu=120.7s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 959.4s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.445, 'valid': 0.392, 'test': 0.594}, 'wall_s': 127.01, 'cpu_s': 9.59, 'gpu_s': 117.13, 'wait_s': 959.39}
+    [Time] wall=127.0s | cpu=9.6s | gpu=117.1s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 774.2s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.465, 'valid': 0.414, 'test': 0.578}, 'wall_s': 126.46, 'cpu_s': 9.37, 'gpu_s': 116.77, 'wait_s': 774.22}
+    [Time] wall=126.5s | cpu=9.4s | gpu=116.8s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 494.7s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.325, 'valid': 0.328, 'test': 0.42}, 'wall_s': 132.22, 'cpu_s': 10.25, 'gpu_s': 121.58, 'wait_s': 494.65}
+    [Time] wall=132.2s | cpu=10.2s | gpu=121.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 483.9s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.42, 'valid': 0.3, 'test': 0.464}, 'wall_s': 316.56, 'cpu_s': 10.43, 'gpu_s': 123.11, 'wait_s': 483.85}
+    [Time] wall=316.6s | cpu=10.4s | gpu=123.1s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+  [Retest] Candidate 1 Avg: 0.6053
+
+  [Retest] Candidate 2/3 (Trial 22, HPO_acc=0.7730)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 148.2s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.565, 'valid': 0.484, 'test': 0.738}, 'wall_s': 134.15, 'cpu_s': 9.9, 'gpu_s': 123.93, 'wait_s': 148.18}
+    [Time] wall=134.1s | cpu=9.9s | gpu=123.9s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 170.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.55, 'valid': 0.408, 'test': 0.611}, 'wall_s': 134.74, 'cpu_s': 9.11, 'gpu_s': 125.28, 'wait_s': 170.07}
+    [Time] wall=134.7s | cpu=9.1s | gpu=125.3s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 481.0s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.165, 'valid': 0.258, 'test': 0.436}, 'wall_s': 130.93, 'cpu_s': 10.01, 'gpu_s': 120.59, 'wait_s': 481.03}
+    [Time] wall=130.9s | cpu=10.0s | gpu=120.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 326.4s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.485, 'valid': 0.504, 'test': 0.739}, 'wall_s': 135.64, 'cpu_s': 9.48, 'gpu_s': 125.81, 'wait_s': 326.36}
+    [Time] wall=135.6s | cpu=9.5s | gpu=125.8s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 506.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.48, 'valid': 0.462, 'test': 0.718}, 'wall_s': 129.67, 'cpu_s': 9.59, 'gpu_s': 119.73, 'wait_s': 506.06}
+    [Time] wall=129.7s | cpu=9.6s | gpu=119.7s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 818.6s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.485, 'valid': 0.436, 'test': 0.692}, 'wall_s': 126.89, 'cpu_s': 9.6, 'gpu_s': 116.98, 'wait_s': 818.57}
+    [Time] wall=126.9s | cpu=9.6s | gpu=117.0s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 138.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.445, 'valid': 0.388, 'test': 0.581}, 'wall_s': 125.92, 'cpu_s': 10.24, 'gpu_s': 115.36, 'wait_s': 138.1}
+    [Time] wall=125.9s | cpu=10.2s | gpu=115.4s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 621.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.465, 'valid': 0.426, 'test': 0.599}, 'wall_s': 128.33, 'cpu_s': 9.78, 'gpu_s': 118.24, 'wait_s': 621.06}
+    [Time] wall=128.3s | cpu=9.8s | gpu=118.2s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 482.5s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.395, 'valid': 0.36, 'test': 0.511}, 'wall_s': 128.38, 'cpu_s': 9.27, 'gpu_s': 118.8, 'wait_s': 482.47}
+    [Time] wall=128.4s | cpu=9.3s | gpu=118.8s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 473.0s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.515, 'valid': 0.406, 'test': 0.644}, 'wall_s': 124.29, 'cpu_s': 9.36, 'gpu_s': 114.63, 'wait_s': 472.99}
+    [Time] wall=124.3s | cpu=9.4s | gpu=114.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+  [Retest] Candidate 2 Avg: 0.6269
+
+  [Retest] Candidate 3/3 (Trial 31, HPO_acc=0.7690)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1152.9s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.52, 'valid': 0.484, 'test': 0.723}, 'wall_s': 128.86, 'cpu_s': 10.09, 'gpu_s': 118.43, 'wait_s': 1152.95}
+    [Time] wall=128.9s | cpu=10.1s | gpu=118.4s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 164.7s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.56, 'valid': 0.426, 'test': 0.615}, 'wall_s': 126.67, 'cpu_s': 9.81, 'gpu_s': 116.5, 'wait_s': 164.68}
+    [Time] wall=126.7s | cpu=9.8s | gpu=116.5s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 479.0s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.275, 'valid': 0.332, 'test': 0.507}, 'wall_s': 130.19, 'cpu_s': 10.27, 'gpu_s': 119.62, 'wait_s': 478.95}
+    [Time] wall=130.2s | cpu=10.3s | gpu=119.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 162.6s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.55, 'valid': 0.498, 'test': 0.754}, 'wall_s': 128.15, 'cpu_s': 10.43, 'gpu_s': 117.4, 'wait_s': 162.63}
+    [Time] wall=128.1s | cpu=10.4s | gpu=117.4s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 138.8s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.42, 'valid': 0.47, 'test': 0.731}, 'wall_s': 123.65, 'cpu_s': 10.28, 'gpu_s': 113.07, 'wait_s': 138.77}
+    [Time] wall=123.6s | cpu=10.3s | gpu=113.1s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 163.9s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.58, 'valid': 0.432, 'test': 0.708}, 'wall_s': 127.65, 'cpu_s': 8.54, 'gpu_s': 118.8, 'wait_s': 163.85}
+    [Time] wall=127.7s | cpu=8.5s | gpu=118.8s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 165.9s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.455, 'valid': 0.388, 'test': 0.61}, 'wall_s': 127.98, 'cpu_s': 9.48, 'gpu_s': 118.18, 'wait_s': 165.94}
+    [Time] wall=128.0s | cpu=9.5s | gpu=118.2s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 308.0s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.415, 'valid': 0.424, 'test': 0.591}, 'wall_s': 124.83, 'cpu_s': 10.18, 'gpu_s': 114.34, 'wait_s': 307.96}
+    [Time] wall=124.8s | cpu=10.2s | gpu=114.3s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 647.1s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.455, 'valid': 0.386, 'test': 0.587}, 'wall_s': 128.46, 'cpu_s': 9.53, 'gpu_s': 118.58, 'wait_s': 647.09}
+    [Time] wall=128.5s | cpu=9.5s | gpu=118.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 315.8s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.435, 'valid': 0.408, 'test': 0.608}, 'wall_s': 127.64, 'cpu_s': 10.28, 'gpu_s': 117.05, 'wait_s': 315.81}
+    [Time] wall=127.6s | cpu=10.3s | gpu=117.0s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+  [Retest] Candidate 3 Avg: 0.6434
+
+[Phase 2] Starting final evaluation with 10 seeds (3000-3009)...
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 484.6s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.565, 'valid': 0.478, 'test': 0.773}, 'wall_s': 124.98, 'cpu_s': 9.96, 'gpu_s': 114.65, 'wait_s': 484.59}
+    [Time] wall=125.0s | cpu=10.0s | gpu=114.6s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1119.2s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.335, 'valid': 0.3, 'test': 0.493}, 'wall_s': 126.05, 'cpu_s': 9.23, 'gpu_s': 116.48, 'wait_s': 1119.24}
+    [Time] wall=126.0s | cpu=9.2s | gpu=116.5s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 162.6s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.43, 'valid': 0.412, 'test': 0.653}, 'wall_s': 132.81, 'cpu_s': 9.76, 'gpu_s': 122.73, 'wait_s': 162.65}
+    [Time] wall=132.8s | cpu=9.8s | gpu=122.7s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 324.8s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.485, 'valid': 0.494, 'test': 0.76}, 'wall_s': 130.04, 'cpu_s': 9.71, 'gpu_s': 120.02, 'wait_s': 324.85}
+    [Time] wall=130.0s | cpu=9.7s | gpu=120.0s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.39
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 342.3s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.55, 'valid': 0.404, 'test': 0.654}, 'wall_s': 128.96, 'cpu_s': 9.58, 'gpu_s': 119.06, 'wait_s': 342.32}
+    [Time] wall=129.0s | cpu=9.6s | gpu=119.1s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 160.3s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.59, 'valid': 0.376, 'test': 0.58}, 'wall_s': 129.15, 'cpu_s': 9.55, 'gpu_s': 119.25, 'wait_s': 160.31}
+    [Time] wall=129.1s | cpu=9.6s | gpu=119.2s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 314.4s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.36, 'valid': 0.448, 'test': 0.626}, 'wall_s': 125.7, 'cpu_s': 9.48, 'gpu_s': 115.93, 'wait_s': 314.4}
+    [Time] wall=125.7s | cpu=9.5s | gpu=115.9s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 482.8s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.59, 'valid': 0.502, 'test': 0.771}, 'wall_s': 123.48, 'cpu_s': 9.12, 'gpu_s': 114.01, 'wait_s': 482.8}
+    [Time] wall=123.5s | cpu=9.1s | gpu=114.0s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 311.5s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.45, 'valid': 0.45, 'test': 0.734}, 'wall_s': 126.36, 'cpu_s': 9.7, 'gpu_s': 116.35, 'wait_s': 311.48}
+    [Time] wall=126.4s | cpu=9.7s | gpu=116.3s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazoncom...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazoncom
+    ----Data statistics------'
+    Name: amazoncom
+    #Nodes 13752
+    #Edges 245861
+    #Classes 10
+    #Ave_degree 35.76
+    ----Split statistics------'
+    #Train samples 200 (20 nodes per class)
+    #Val samples 500 (specified)
+    #Test samples 1000 (specified)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.40
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 311.9s). Training...
+    FINAL_RESULT: {'acc': {'train': 0.535, 'valid': 0.422, 'test': 0.726}, 'wall_s': 126.65, 'cpu_s': 9.9, 'gpu_s': 116.45, 'wait_s': 311.87}
+    [Time] wall=126.7s | cpu=9.9s | gpu=116.5s
+    C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py:1159: UserWarning: expandable_segments not supported on this platform (Triggered internally at ..\c10/cuda/CUDAAllocatorConfig.h:28.)
+    return t.to(
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+
+[FINAL] nrgnn_amazoncom_instance_0.4 | 0.6770 ± 0.0881

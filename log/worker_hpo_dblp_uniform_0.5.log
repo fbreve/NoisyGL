@@ -1,0 +1,296 @@
+[worker] START  hpo_dblp_uniform_0.5  gpu=0
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-20 12:50:17
+Variants       : ['lnpcc']
+Datasets       : ['dblp']
+Noise          : [[0.5, 'uniform']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+
+[HPO] Optimizing lnpcc on dblp_uniform_0.5 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: dblp_uniform_0.5  (max_trials=200, startup=20)
+  [Trial   1] dblp_uniform_0.5 | acc=0.3164  (155.5s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] dblp_uniform_0.5 | acc=0.2731  (73.8s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] dblp_uniform_0.5 | acc=0.1473  (150.0s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] dblp_uniform_0.5 | acc=0.5278  (77.0s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] dblp_uniform_0.5 | acc=0.4872  (102.5s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] dblp_uniform_0.5 | acc=0.4950  (89.8s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] dblp_uniform_0.5 | acc=0.4118  (174.1s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] dblp_uniform_0.5 | acc=0.6147  (74.8s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] dblp_uniform_0.5 | acc=0.4770  (101.5s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] dblp_uniform_0.5 | acc=0.6037  (116.3s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] dblp_uniform_0.5 | acc=0.5755  (74.4s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] dblp_uniform_0.5 | acc=0.5270  (30.8s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] dblp_uniform_0.5 | acc=0.3168  (72.4s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] dblp_uniform_0.5 | acc=0.4773  (64.5s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] dblp_uniform_0.5 | acc=0.3683  (60.9s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] dblp_uniform_0.5 | acc=0.2086  (67.9s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] dblp_uniform_0.5 | acc=0.5648  (58.9s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] dblp_uniform_0.5 | acc=0.5107  (58.6s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] dblp_uniform_0.5 | acc=0.4598  (65.7s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] dblp_uniform_0.5 | acc=0.5986  (32.9s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] dblp_uniform_0.5 | acc=0.5780  (94.9s)  knn=d  k= 22  dexp=4.21  p_grd=0.464  unc_rem=0.328  unc_rel=0.274  drop=0.74  h=64  L=3  lr=0.05  wd=1e-05
+  [Trial  22] dblp_uniform_0.5 | acc=0.3169  (39.4s)  knn=u  k=-    dexp=6.47  p_grd=0.203  unc_rem=0.919  unc_rel=0.251  drop=0.55  h=16  L=2  lr=0.01  wd=0.1
+  [Trial  23] dblp_uniform_0.5 | acc=0.5394  (85.5s)  knn=d  k= 23  dexp=4.04  p_grd=0.133  unc_rem=0.681  unc_rel=0.035  drop=0.31  h=128  L=2  lr=0.1  wd=0.005
+  [Trial  24] dblp_uniform_0.5 | acc=0.5703  (74.7s)  knn=d  k= 24  dexp=0.50  p_grd=0.135  unc_rem=0.947  unc_rel=0.174  drop=0.15  h=64  L=3  lr=0.1  wd=0.005
+  [Trial  25] dblp_uniform_0.5 | acc=0.5607  (74.8s)  knn=p  k= 16  dexp=5.54  p_grd=0.125  unc_rem=0.893  unc_rel=0.235  drop=0.63  h=16  L=3  lr=0.001  wd=5e-05
+  [Trial  26] dblp_uniform_0.5 | acc=0.5167  (72.4s)  knn=d  k= 17  dexp=5.81  p_grd=0.147  unc_rem=0.599  unc_rel=0.124  drop=0.76  h=16  L=1  lr=0.01  wd=5e-05
+  [Trial  27] dblp_uniform_0.5 | acc=0.4710  (75.5s)  knn=d  k=  1  dexp=5.08  p_grd=0.463  unc_rem=0.092  unc_rel=0.149  drop=0.76  h=64  L=1  lr=0.0001  wd=0.005
+  [Trial  28] dblp_uniform_0.5 | acc=0.5507  (105.4s)  knn=d  k= 24  dexp=3.87  p_grd=0.349  unc_rem=0.837  unc_rel=0.262  drop=0.15  h=128  L=3  lr=0.0001  wd=0.001
+  [Trial  29] dblp_uniform_0.5 | acc=0.5185  (36.7s)  knn=u  k=-    dexp=7.53  p_grd=0.113  unc_rem=0.833  unc_rel=0.046  drop=0.45  h=128  L=2  lr=0.0005  wd=5e-05
+  [Trial  30] dblp_uniform_0.5 | acc=0.6248  (79.2s)  knn=s  k= 40  dexp=0.20  p_grd=0.218  unc_rem=0.791  unc_rel=0.085  drop=0.32  h=128  L=3  lr=0.01  wd=1e-05
+  [Trial  31] dblp_uniform_0.5 | acc=0.6818  (104.2s)  knn=p  k= 24  dexp=1.25  p_grd=0.333  unc_rem=0.830  unc_rel=0.014  drop=0.41  h=128  L=3  lr=0.01  wd=1e-05
+  [Trial  32] dblp_uniform_0.5 | acc=0.6209  (73.6s)  knn=s  k= 40  dexp=1.02  p_grd=0.167  unc_rem=0.877  unc_rel=0.022  drop=0.34  h=128  L=3  lr=0.01  wd=0.001
+  [Trial  33] dblp_uniform_0.5 | acc=0.4278  (72.4s)  knn=s  k= 40  dexp=0.11  p_grd=0.216  unc_rem=0.827  unc_rel=0.106  drop=0.38  h=128  L=3  lr=0.01  wd=1e-05
+  [Trial  34] dblp_uniform_0.5 | acc=0.5587  (101.7s)  knn=p  k= 24  dexp=2.06  p_grd=0.307  unc_rem=0.704  unc_rel=0.100  drop=0.32  h=128  L=4  lr=0.1  wd=1e-05
+  [Trial  35] dblp_uniform_0.5 | acc=0.3679  (67.9s)  knn=s  k= 45  dexp=0.85  p_grd=0.160  unc_rem=0.703  unc_rel=0.047  drop=0.30  h=128  L=1  lr=0.0005  wd=0.001
+  [Trial  36] dblp_uniform_0.5 | acc=0.6015  (110.0s)  knn=p  k= 24  dexp=2.36  p_grd=0.467  unc_rem=0.856  unc_rel=0.029  drop=0.37  h=128  L=3  lr=0.01  wd=1e-05
+  [Trial  37] dblp_uniform_0.5 | acc=0.4854  (34.0s)  knn=u  k=-    dexp=5.11  p_grd=0.086  unc_rem=0.929  unc_rel=0.120  drop=0.19  h=128  L=3  lr=0.1  wd=0.0001
+  [Trial  38] dblp_uniform_0.5 | acc=0.4958  (34.8s)  knn=u  k=-    dexp=0.83  p_grd=0.115  unc_rem=0.995  unc_rel=0.020  drop=0.27  h=128  L=1  lr=0.0001  wd=0.005
+  [Trial  39] dblp_uniform_0.5 | acc=0.5233  (74.5s)  knn=s  k= 40  dexp=1.75  p_grd=0.275  unc_rem=0.682  unc_rel=0.060  drop=0.56  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  40] dblp_uniform_0.5 | acc=0.3166  (83.7s)  knn=d  k= 24  dexp=3.61  p_grd=0.190  unc_rem=0.888  unc_rel=0.035  drop=0.16  h=128  L=3  lr=0.1  wd=0.1
+  [Trial  41] dblp_uniform_0.5 | acc=0.3145  (82.9s)  knn=d  k= 24  dexp=1.36  p_grd=0.181  unc_rem=0.858  unc_rel=0.081  drop=0.50  h=16  L=4  lr=0.01  wd=0.1
+  [Trial  42] dblp_uniform_0.5 | acc=0.5837  (106.5s)  knn=d  k= 24  dexp=7.91  p_grd=0.445  unc_rem=0.347  unc_rel=0.332  drop=0.82  h=32  L=2  lr=0.05  wd=0.005
+  [Trial  43] dblp_uniform_0.5 | acc=0.6121  (76.3s)  knn=p  k= 24  dexp=2.31  p_grd=0.123  unc_rem=0.828  unc_rel=0.214  drop=0.46  h=16  L=3  lr=0.01  wd=0.001
+  [Trial  44] dblp_uniform_0.5 | acc=0.5181  (88.5s)  knn=p  k= 24  dexp=2.59  p_grd=0.152  unc_rem=0.575  unc_rel=0.027  drop=0.31  h=16  L=3  lr=0.01  wd=0.001
+  [Trial  45] dblp_uniform_0.5 | acc=0.5423  (70.6s)  knn=s  k= 40  dexp=1.87  p_grd=0.164  unc_rem=0.886  unc_rel=0.119  drop=0.29  h=64  L=3  lr=0.01  wd=0.001
+  [Trial  46] dblp_uniform_0.5 | acc=0.3647  (71.5s)  knn=s  k= 50  dexp=2.35  p_grd=0.151  unc_rem=0.894  unc_rel=0.147  drop=0.12  h=128  L=3  lr=1e-05  wd=5e-05
+  [Trial  47] dblp_uniform_0.5 | acc=0.6064  (77.1s)  knn=p  k= 24  dexp=1.23  p_grd=0.138  unc_rem=0.754  unc_rel=0.131  drop=0.73  h=16  L=3  lr=0.1  wd=0.001
+  [Trial  48] dblp_uniform_0.5 | acc=0.6362  (33.2s)  knn=u  k=-    dexp=0.19  p_grd=0.283  unc_rem=0.799  unc_rel=0.080  drop=0.39  h=32  L=3  lr=0.01  wd=5e-05
+  [Trial  49] dblp_uniform_0.5 | acc=0.6182  (38.8s)  knn=u  k=-    dexp=3.32  p_grd=0.259  unc_rem=0.994  unc_rel=0.012  drop=0.51  h=32  L=3  lr=0.1  wd=5e-05
+  [Trial  50] dblp_uniform_0.5 | acc=0.4966  (41.3s)  knn=u  k=-    dexp=1.70  p_grd=0.329  unc_rem=0.569  unc_rel=0.314  drop=0.38  h=32  L=3  lr=0.01  wd=5e-05
+  [Trial  51] dblp_uniform_0.5 | acc=0.5297  (39.8s)  knn=u  k=-    dexp=1.20  p_grd=0.328  unc_rem=0.939  unc_rel=0.226  drop=0.66  h=32  L=2  lr=0.1  wd=5e-05
+  [Trial  52] dblp_uniform_0.5 | acc=0.5019  (39.8s)  knn=u  k=-    dexp=6.33  p_grd=0.239  unc_rem=0.854  unc_rel=0.023  drop=0.55  h=32  L=3  lr=0.1  wd=5e-05
+  [Trial  53] dblp_uniform_0.5 | acc=0.4639  (77.2s)  knn=s  k= 40  dexp=0.96  p_grd=0.331  unc_rem=0.818  unc_rel=0.196  drop=0.14  h=16  L=1  lr=0.01  wd=0.01
+  [Trial  54] dblp_uniform_0.5 | acc=0.5058  (34.6s)  knn=u  k=-    dexp=0.62  p_grd=0.136  unc_rem=0.575  unc_rel=0.029  drop=0.59  h=32  L=3  lr=0.0005  wd=0.005
+  [Trial  55] dblp_uniform_0.5 | acc=0.3166  (41.0s)  knn=u  k=-    dexp=0.45  p_grd=0.320  unc_rem=0.989  unc_rel=0.044  drop=0.20  h=32  L=3  lr=0.1  wd=0.05
+  [Trial  56] dblp_uniform_0.5 | acc=0.5777  (95.3s)  knn=p  k= 24  dexp=0.60  p_grd=0.273  unc_rem=0.862  unc_rel=0.046  drop=0.26  h=128  L=2  lr=0.01  wd=0.001
+  [Trial  57] dblp_uniform_0.5 | acc=0.4937  (41.4s)  knn=u  k=-    dexp=0.51  p_grd=0.286  unc_rem=0.807  unc_rel=0.151  drop=0.54  h=64  L=3  lr=0.001  wd=5e-05
+  [Trial  58] dblp_uniform_0.5 | acc=0.5453  (86.5s)  knn=s  k= 60  dexp=1.05  p_grd=0.266  unc_rem=0.870  unc_rel=0.073  drop=0.54  h=32  L=3  lr=0.005  wd=5e-05
+  [Trial  59] dblp_uniform_0.5 | acc=0.6099  (39.1s)  knn=u  k=-    dexp=3.68  p_grd=0.272  unc_rem=0.778  unc_rel=0.192  drop=0.49  h=16  L=3  lr=0.1  wd=0.005
+  [Trial  60] dblp_uniform_0.5 | acc=0.6120  (38.8s)  knn=u  k=-    dexp=2.50  p_grd=0.174  unc_rem=0.967  unc_rel=0.273  drop=0.66  h=32  L=3  lr=0.1  wd=1e-05
+  [Trial  61] dblp_uniform_0.5 | acc=0.6537  (86.5s)  knn=d  k= 15  dexp=3.96  p_grd=0.245  unc_rem=0.797  unc_rel=0.146  drop=0.10  h=128  L=4  lr=0.005  wd=0.005
+  [Trial  62] dblp_uniform_0.5 | acc=0.3166  (83.4s)  knn=d  k= 14  dexp=5.67  p_grd=0.217  unc_rem=0.758  unc_rel=0.099  drop=0.22  h=128  L=4  lr=0.005  wd=0.05
+  [Trial  63] dblp_uniform_0.5 | acc=0.5243  (82.9s)  knn=d  k= 15  dexp=4.29  p_grd=0.304  unc_rem=0.984  unc_rel=0.146  drop=0.14  h=16  L=2  lr=0.005  wd=0.005
+  [Trial  64] dblp_uniform_0.5 | acc=0.5862  (86.6s)  knn=d  k= 17  dexp=4.16  p_grd=0.386  unc_rem=0.746  unc_rel=0.220  drop=0.26  h=128  L=4  lr=0.005  wd=0.005
+  [Trial  65] dblp_uniform_0.5 | acc=0.6097  (75.9s)  knn=p  k= 13  dexp=1.29  p_grd=0.182  unc_rem=0.915  unc_rel=0.157  drop=0.14  h=128  L=3  lr=0.005  wd=0.005
+  [Trial  66] dblp_uniform_0.5 | acc=0.4800  (67.8s)  knn=s  k= 35  dexp=0.05  p_grd=0.125  unc_rem=0.670  unc_rel=0.107  drop=0.43  h=128  L=3  lr=0.0001  wd=0.001
+  [Trial  67] dblp_uniform_0.5 | acc=0.4237  (78.2s)  knn=d  k= 17  dexp=2.61  p_grd=0.182  unc_rem=0.854  unc_rel=0.465  drop=0.23  h=128  L=4  lr=0.05  wd=0.01
+  [Trial  68] dblp_uniform_0.5 | acc=0.6048  (72.4s)  knn=p  k= 11  dexp=0.10  p_grd=0.298  unc_rem=0.643  unc_rel=0.029  drop=0.67  h=128  L=3  lr=0.01  wd=0.001
+  [Trial  69] dblp_uniform_0.5 | acc=0.6315  (75.6s)  knn=s  k= 50  dexp=1.41  p_grd=0.201  unc_rem=0.781  unc_rel=0.060  drop=0.19  h=128  L=4  lr=0.01  wd=0.005
+  [Trial  70] dblp_uniform_0.5 | acc=0.5011  (79.2s)  knn=s  k= 25  dexp=2.21  p_grd=0.274  unc_rem=0.832  unc_rel=0.357  drop=0.26  h=128  L=4  lr=0.01  wd=0.0001
+  [Trial  71] dblp_uniform_0.5 | acc=0.4529  (70.9s)  knn=s  k= 25  dexp=1.65  p_grd=0.244  unc_rem=0.930  unc_rel=0.048  drop=0.15  h=128  L=4  lr=0.01  wd=0.005
+  [Trial  72] dblp_uniform_0.5 | acc=0.5135  (35.7s)  knn=u  k=-    dexp=3.90  p_grd=0.386  unc_rem=0.907  unc_rel=0.086  drop=0.41  h=32  L=3  lr=0.001  wd=0.01
+  [Trial  73] dblp_uniform_0.5 | acc=0.5160  (77.7s)  knn=s  k= 25  dexp=2.49  p_grd=0.076  unc_rem=0.501  unc_rel=0.352  drop=0.18  h=128  L=2  lr=0.01  wd=0.005
+  [Trial  74] dblp_uniform_0.5 | acc=0.5608  (76.1s)  knn=s  k= 50  dexp=0.98  p_grd=0.175  unc_rem=0.986  unc_rel=0.075  drop=0.47  h=128  L=3  lr=0.05  wd=0.0005
+  [Trial  75] dblp_uniform_0.5 | acc=0.6285  (78.9s)  knn=d  k= 18  dexp=2.85  p_grd=0.076  unc_rem=0.954  unc_rel=0.114  drop=0.27  h=128  L=3  lr=0.0005  wd=0.005
+  [Trial  76] dblp_uniform_0.5 | acc=0.4443  (72.2s)  knn=d  k= 18  dexp=3.69  p_grd=0.017  unc_rem=0.646  unc_rel=0.299  drop=0.27  h=128  L=3  lr=0.0005  wd=0.01
+  [Trial  77] dblp_uniform_0.5 | acc=0.5593  (112.3s)  knn=d  k= 25  dexp=0.09  p_grd=0.376  unc_rem=0.686  unc_rel=0.103  drop=0.27  h=32  L=4  lr=0.01  wd=5e-05
+  [Trial  78] dblp_uniform_0.5 | acc=0.5802  (76.2s)  knn=d  k= 19  dexp=2.35  p_grd=0.041  unc_rem=0.690  unc_rel=0.077  drop=0.46  h=128  L=3  lr=0.001  wd=0.005
+  [Trial  79] dblp_uniform_0.5 | acc=0.6330  (90.2s)  knn=p  k= 18  dexp=1.95  p_grd=0.239  unc_rem=0.986  unc_rel=0.093  drop=0.67  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial  80] dblp_uniform_0.5 | acc=0.6432  (74.8s)  knn=p  k= 15  dexp=1.92  p_grd=0.246  unc_rem=0.948  unc_rel=0.304  drop=0.77  h=64  L=4  lr=0.005  wd=1e-05
+  [Trial  81] dblp_uniform_0.5 | acc=0.6388  (88.2s)  knn=p  k= 18  dexp=1.65  p_grd=0.259  unc_rem=0.867  unc_rel=0.383  drop=0.49  h=64  L=4  lr=0.005  wd=1e-05
+  [Trial  82] dblp_uniform_0.5 | acc=0.3431  (82.7s)  knn=p  k= 18  dexp=1.19  p_grd=0.209  unc_rem=0.985  unc_rel=0.170  drop=0.86  h=64  L=1  lr=1e-05  wd=1e-05
+  [Trial  83] dblp_uniform_0.5 | acc=0.6334  (88.8s)  knn=p  k= 18  dexp=1.02  p_grd=0.294  unc_rem=0.886  unc_rel=0.209  drop=0.66  h=64  L=4  lr=0.01  wd=0.0005
+  [Trial  84] dblp_uniform_0.5 | acc=0.5683  (80.4s)  knn=p  k= 18  dexp=3.74  p_grd=0.244  unc_rem=0.947  unc_rel=0.287  drop=0.75  h=64  L=4  lr=0.005  wd=1e-05
+  [Trial  85] dblp_uniform_0.5 | acc=0.6664  (85.8s)  knn=p  k= 18  dexp=0.57  p_grd=0.325  unc_rem=0.983  unc_rel=0.131  drop=0.61  h=64  L=4  lr=0.01  wd=5e-05
+  [Trial  86] dblp_uniform_0.5 | acc=0.5393  (76.4s)  knn=p  k= 15  dexp=1.93  p_grd=0.326  unc_rem=0.990  unc_rel=0.159  drop=0.73  h=64  L=4  lr=0.01  wd=5e-05
+  [Trial  87] dblp_uniform_0.5 | acc=0.6752  (83.5s)  knn=p  k= 18  dexp=2.97  p_grd=0.188  unc_rem=0.936  unc_rel=0.126  drop=0.76  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial  88] dblp_uniform_0.5 | acc=0.6677  (83.0s)  knn=p  k= 18  dexp=0.58  p_grd=0.219  unc_rem=0.894  unc_rel=0.039  drop=0.88  h=128  L=3  lr=0.0005  wd=1e-05
+  [Trial  89] dblp_uniform_0.5 | acc=0.5886  (74.2s)  knn=p  k= 19  dexp=0.88  p_grd=0.092  unc_rem=0.828  unc_rel=0.047  drop=0.88  h=128  L=1  lr=0.0005  wd=0.1
+  [Trial  90] dblp_uniform_0.5 | acc=0.4477  (75.5s)  knn=d  k= 15  dexp=1.20  p_grd=0.097  unc_rem=0.754  unc_rel=0.115  drop=0.79  h=128  L=3  lr=0.0005  wd=1e-05
+  [Trial  91] dblp_uniform_0.5 | acc=0.5613  (113.5s)  knn=p  k= 19  dexp=1.55  p_grd=0.431  unc_rem=0.898  unc_rel=0.125  drop=0.46  h=64  L=2  lr=0.0005  wd=0.0005
+  [Trial  92] dblp_uniform_0.5 | acc=0.3165  (102.4s)  knn=p  k= 18  dexp=1.28  p_grd=0.324  unc_rem=0.817  unc_rel=0.400  drop=0.47  h=64  L=4  lr=0.005  wd=0.05
+  [Trial  93] dblp_uniform_0.5 | acc=0.3516  (73.6s)  knn=p  k= 19  dexp=1.58  p_grd=0.117  unc_rem=0.977  unc_rel=0.151  drop=0.68  h=128  L=3  lr=1e-05  wd=1e-05
+  [Trial  94] dblp_uniform_0.5 | acc=0.6338  (77.7s)  knn=p  k= 15  dexp=1.42  p_grd=0.266  unc_rem=0.866  unc_rel=0.185  drop=0.81  h=128  L=2  lr=0.01  wd=1e-05
+  [Trial  95] dblp_uniform_0.5 | acc=0.5767  (86.1s)  knn=p  k= 14  dexp=5.40  p_grd=0.197  unc_rem=0.877  unc_rel=0.422  drop=0.84  h=128  L=2  lr=0.01  wd=1e-05
+  [Trial  96] dblp_uniform_0.5 | acc=0.6076  (77.3s)  knn=p  k= 14  dexp=3.29  p_grd=0.164  unc_rem=0.873  unc_rel=0.571  drop=0.36  h=16  L=4  lr=0.005  wd=1e-05
+  [Trial  97] dblp_uniform_0.5 | acc=0.6275  (89.6s)  knn=p  k= 15  dexp=2.04  p_grd=0.222  unc_rem=0.861  unc_rel=0.040  drop=0.45  h=64  L=4  lr=0.05  wd=0.0005
+  [Trial  98] dblp_uniform_0.5 | acc=0.5040  (80.8s)  knn=p  k= 19  dexp=0.48  p_grd=0.214  unc_rem=0.909  unc_rel=0.204  drop=0.87  h=128  L=2  lr=0.0005  wd=1e-05
+  [Trial  99] dblp_uniform_0.5 | acc=0.3254  (38.6s)  knn=u  k=-    dexp=2.28  p_grd=0.113  unc_rem=0.990  unc_rel=0.111  drop=0.84  h=128  L=2  lr=0.01  wd=0.05
+  [Trial 100] dblp_uniform_0.5 | acc=0.6057  (89.5s)  knn=p  k= 15  dexp=1.23  p_grd=0.432  unc_rem=0.830  unc_rel=0.137  drop=0.27  h=64  L=4  lr=0.0001  wd=5e-05
+  [Trial 101] dblp_uniform_0.5 | acc=0.3522  (90.3s)  knn=p  k= 19  dexp=0.51  p_grd=0.335  unc_rem=0.674  unc_rel=0.462  drop=0.76  h=64  L=4  lr=0.0005  wd=0.0005
+  [Trial 102] dblp_uniform_0.5 | acc=0.5505  (47.9s)  knn=u  k=-    dexp=4.69  p_grd=0.251  unc_rem=0.782  unc_rel=0.202  drop=0.82  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial 103] dblp_uniform_0.5 | acc=0.6411  (92.4s)  knn=p  k= 17  dexp=1.06  p_grd=0.289  unc_rem=0.858  unc_rel=0.334  drop=0.67  h=128  L=3  lr=0.001  wd=5e-05
+  [Trial 104] dblp_uniform_0.5 | acc=0.3162  (75.9s)  knn=d  k= 15  dexp=0.64  p_grd=0.164  unc_rem=0.889  unc_rel=0.496  drop=0.66  h=64  L=4  lr=0.005  wd=0.1
+  [Trial 105] dblp_uniform_0.5 | acc=0.4577  (43.7s)  knn=u  k=-    dexp=2.00  p_grd=0.325  unc_rem=0.820  unc_rel=0.497  drop=0.50  h=64  L=4  lr=0.01  wd=0.001
+  [Trial 106] dblp_uniform_0.5 | acc=0.6468  (91.6s)  knn=d  k= 16  dexp=1.28  p_grd=0.285  unc_rem=0.856  unc_rel=0.287  drop=0.72  h=64  L=4  lr=0.01  wd=0.0005
+  [Trial 107] dblp_uniform_0.5 | acc=0.4064  (74.6s)  knn=d  k= 11  dexp=1.70  p_grd=0.188  unc_rem=0.767  unc_rel=0.247  drop=0.87  h=64  L=1  lr=0.01  wd=0.0005
+  [Trial 108] dblp_uniform_0.5 | acc=0.6326  (80.6s)  knn=d  k= 15  dexp=2.86  p_grd=0.466  unc_rem=0.856  unc_rel=0.290  drop=0.72  h=128  L=4  lr=0.01  wd=0.0005
+  [Trial 109] dblp_uniform_0.5 | acc=0.5577  (78.7s)  knn=p  k= 15  dexp=0.02  p_grd=0.280  unc_rem=0.943  unc_rel=0.581  drop=0.53  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial 110] dblp_uniform_0.5 | acc=0.4941  (38.9s)  knn=u  k=-    dexp=0.73  p_grd=0.199  unc_rem=0.781  unc_rel=0.078  drop=0.32  h=32  L=3  lr=0.01  wd=0.0005
+  [Trial 111] dblp_uniform_0.5 | acc=0.5603  (72.8s)  knn=p  k= 16  dexp=1.18  p_grd=0.156  unc_rem=0.652  unc_rel=0.207  drop=0.90  h=32  L=3  lr=0.0001  wd=1e-05
+  [Trial 112] dblp_uniform_0.5 | acc=0.6324  (86.0s)  knn=p  k= 19  dexp=1.87  p_grd=0.280  unc_rem=0.939  unc_rel=0.292  drop=0.53  h=16  L=4  lr=0.01  wd=0.0005
+  [Trial 113] dblp_uniform_0.5 | acc=0.5007  (44.5s)  knn=u  k=-    dexp=1.56  p_grd=0.208  unc_rem=0.767  unc_rel=0.222  drop=0.72  h=64  L=4  lr=0.1  wd=0.0005
+  [Trial 114] dblp_uniform_0.5 | acc=0.6425  (104.5s)  knn=p  k= 19  dexp=1.46  p_grd=0.330  unc_rem=0.943  unc_rel=0.367  drop=0.62  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 115] dblp_uniform_0.5 | acc=0.5624  (96.4s)  knn=p  k= 20  dexp=2.41  p_grd=0.403  unc_rem=0.972  unc_rel=0.436  drop=0.55  h=64  L=3  lr=0.01  wd=0.005
+  [Trial 116] dblp_uniform_0.5 | acc=0.4765  (76.7s)  knn=p  k= 16  dexp=2.08  p_grd=0.283  unc_rem=0.949  unc_rel=0.495  drop=0.37  h=64  L=3  lr=1e-05  wd=0.0005
+  [Trial 117] dblp_uniform_0.5 | acc=0.3158  (89.1s)  knn=p  k= 20  dexp=1.58  p_grd=0.282  unc_rem=0.983  unc_rel=0.106  drop=0.83  h=128  L=3  lr=0.0005  wd=0.05
+  [Trial 118] dblp_uniform_0.5 | acc=0.3167  (83.6s)  knn=d  k= 16  dexp=0.73  p_grd=0.340  unc_rem=0.824  unc_rel=0.026  drop=0.66  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial 119] dblp_uniform_0.5 | acc=0.4432  (98.4s)  knn=p  k= 12  dexp=1.41  p_grd=0.342  unc_rem=0.757  unc_rel=0.225  drop=0.61  h=128  L=3  lr=0.001  wd=5e-05
+  [Trial 120] dblp_uniform_0.5 | acc=0.3479  (89.0s)  knn=p  k= 20  dexp=1.14  p_grd=0.172  unc_rem=0.977  unc_rel=0.491  drop=0.51  h=64  L=4  lr=0.0005  wd=1e-05
+  [Trial 121] dblp_uniform_0.5 | acc=0.5981  (79.6s)  knn=s  k=  5  dexp=5.62  p_grd=0.336  unc_rem=0.871  unc_rel=0.287  drop=0.77  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 122] dblp_uniform_0.5 | acc=0.6130  (42.8s)  knn=u  k=-    dexp=4.59  p_grd=0.293  unc_rem=0.901  unc_rel=0.141  drop=0.43  h=64  L=4  lr=0.005  wd=1e-05
+  [Trial 123] dblp_uniform_0.5 | acc=0.4724  (77.1s)  knn=p  k= 17  dexp=1.04  p_grd=0.194  unc_rem=0.743  unc_rel=0.095  drop=0.55  h=128  L=2  lr=0.01  wd=1e-05
+  [Trial 124] dblp_uniform_0.5 | acc=0.5356  (90.2s)  knn=d  k= 18  dexp=2.78  p_grd=0.285  unc_rem=0.883  unc_rel=0.392  drop=0.72  h=64  L=4  lr=0.01  wd=0.0001
+  [Trial 125] dblp_uniform_0.5 | acc=0.5222  (91.3s)  knn=p  k= 20  dexp=1.16  p_grd=0.240  unc_rem=0.933  unc_rel=0.574  drop=0.83  h=64  L=3  lr=0.1  wd=0.0005
+  [Trial 126] dblp_uniform_0.5 | acc=0.3162  (84.2s)  knn=p  k= 16  dexp=1.06  p_grd=0.306  unc_rem=0.870  unc_rel=0.169  drop=0.49  h=16  L=3  lr=0.05  wd=0.1
+  [Trial 127] dblp_uniform_0.5 | acc=0.5448  (38.3s)  knn=u  k=-    dexp=1.55  p_grd=0.119  unc_rem=0.625  unc_rel=0.014  drop=0.53  h=32  L=4  lr=0.01  wd=5e-05
+  [Trial 128] dblp_uniform_0.5 | acc=0.4275  (82.4s)  knn=p  k= 17  dexp=3.12  p_grd=0.352  unc_rem=0.885  unc_rel=0.326  drop=0.74  h=128  L=1  lr=0.005  wd=0.0005
+  [Trial 129] dblp_uniform_0.5 | acc=0.4044  (103.7s)  knn=p  k= 20  dexp=2.00  p_grd=0.401  unc_rem=0.894  unc_rel=0.218  drop=0.74  h=128  L=4  lr=1e-05  wd=1e-05
+  [Trial 130] dblp_uniform_0.5 | acc=0.4870  (75.4s)  knn=p  k= 16  dexp=1.15  p_grd=0.226  unc_rem=0.827  unc_rel=0.069  drop=0.31  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial 131] dblp_uniform_0.5 | acc=0.4913  (95.6s)  knn=p  k= 20  dexp=1.45  p_grd=0.385  unc_rem=0.812  unc_rel=0.399  drop=0.84  h=32  L=3  lr=0.01  wd=0.0005
+  [Trial 132] dblp_uniform_0.5 | acc=0.6364  (77.9s)  knn=p  k= 17  dexp=2.49  p_grd=0.197  unc_rem=0.974  unc_rel=0.166  drop=0.50  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial 133] dblp_uniform_0.5 | acc=0.6499  (86.6s)  knn=d  k= 16  dexp=1.94  p_grd=0.137  unc_rem=0.865  unc_rel=0.245  drop=0.11  h=128  L=4  lr=0.005  wd=0.005
+  [Trial 134] dblp_uniform_0.5 | acc=0.5454  (76.4s)  knn=d  k= 13  dexp=2.97  p_grd=0.135  unc_rem=0.813  unc_rel=0.092  drop=0.11  h=128  L=4  lr=0.0001  wd=0.005
+  [Trial 135] dblp_uniform_0.5 | acc=0.6181  (40.0s)  knn=u  k=-    dexp=2.41  p_grd=0.136  unc_rem=0.861  unc_rel=0.342  drop=0.13  h=128  L=4  lr=0.005  wd=0.005
+  [Trial 136] dblp_uniform_0.5 | acc=0.5257  (70.0s)  knn=d  k= 16  dexp=2.55  p_grd=0.082  unc_rem=0.762  unc_rel=0.313  drop=0.20  h=128  L=1  lr=0.005  wd=0.005
+  [Trial 137] dblp_uniform_0.5 | acc=0.5656  (81.9s)  knn=p  k= 14  dexp=3.42  p_grd=0.086  unc_rem=0.940  unc_rel=0.092  drop=0.29  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial 138] dblp_uniform_0.5 | acc=0.3170  (82.0s)  knn=d  k= 16  dexp=1.14  p_grd=0.103  unc_rem=0.777  unc_rel=0.468  drop=0.25  h=128  L=4  lr=0.005  wd=0.1
+  [Trial 139] dblp_uniform_0.5 | acc=0.5324  (75.3s)  knn=d  k= 17  dexp=4.67  p_grd=0.186  unc_rem=0.768  unc_rel=0.464  drop=0.30  h=32  L=4  lr=0.005  wd=0.005
+  [Trial 140] dblp_uniform_0.5 | acc=0.5003  (73.7s)  knn=p  k= 13  dexp=0.45  p_grd=0.143  unc_rem=0.989  unc_rel=0.012  drop=0.89  h=32  L=3  lr=0.0005  wd=0.001
+  [Trial 141] dblp_uniform_0.5 | acc=0.6424  (83.2s)  knn=p  k= 17  dexp=2.80  p_grd=0.256  unc_rem=0.940  unc_rel=0.322  drop=0.54  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 142] dblp_uniform_0.5 | acc=0.6435  (77.6s)  knn=p  k= 17  dexp=3.35  p_grd=0.210  unc_rem=0.939  unc_rel=0.297  drop=0.36  h=64  L=3  lr=0.01  wd=5e-05
+  [Trial 143] dblp_uniform_0.5 | acc=0.6401  (81.5s)  knn=p  k= 19  dexp=0.46  p_grd=0.214  unc_rem=0.838  unc_rel=0.699  drop=0.82  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 144] dblp_uniform_0.5 | acc=0.6166  (91.2s)  knn=p  k= 20  dexp=1.04  p_grd=0.331  unc_rem=0.761  unc_rel=0.947  drop=0.85  h=32  L=3  lr=0.001  wd=0.01
+  [Trial 145] dblp_uniform_0.5 | acc=0.6470  (75.4s)  knn=d  k= 19  dexp=0.28  p_grd=0.208  unc_rem=0.866  unc_rel=0.751  drop=0.85  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 146] dblp_uniform_0.5 | acc=0.6457  (91.0s)  knn=d  k= 21  dexp=1.98  p_grd=0.166  unc_rem=0.627  unc_rel=0.788  drop=0.86  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 147] dblp_uniform_0.5 | acc=0.3862  (91.0s)  knn=d  k= 21  dexp=1.94  p_grd=0.166  unc_rem=0.718  unc_rel=0.663  drop=0.83  h=32  L=3  lr=1e-05  wd=5e-05
+  [Trial 148] dblp_uniform_0.5 | acc=0.6627  (90.1s)  knn=p  k= 21  dexp=0.97  p_grd=0.242  unc_rem=0.786  unc_rel=0.568  drop=0.77  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 149] dblp_uniform_0.5 | acc=0.6043  (82.0s)  knn=p  k= 22  dexp=3.80  p_grd=0.051  unc_rem=0.947  unc_rel=0.319  drop=0.58  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 150] dblp_uniform_0.5 | acc=0.6056  (79.9s)  knn=p  k= 21  dexp=6.32  p_grd=0.159  unc_rem=0.730  unc_rel=0.298  drop=0.25  h=64  L=3  lr=0.01  wd=5e-05
+  [Trial 151] dblp_uniform_0.5 | acc=0.4433  (85.5s)  knn=p  k= 21  dexp=0.37  p_grd=0.305  unc_rem=0.870  unc_rel=0.216  drop=0.40  h=64  L=1  lr=0.01  wd=0.0001
+  [Trial 152] dblp_uniform_0.5 | acc=0.6189  (82.3s)  knn=p  k= 20  dexp=2.43  p_grd=0.189  unc_rem=0.672  unc_rel=0.629  drop=0.77  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 153] dblp_uniform_0.5 | acc=0.5857  (85.0s)  knn=p  k= 21  dexp=2.07  p_grd=0.206  unc_rem=0.895  unc_rel=0.596  drop=0.81  h=32  L=3  lr=0.0001  wd=5e-05
+  [Trial 154] dblp_uniform_0.5 | acc=0.5932  (101.2s)  knn=d  k= 18  dexp=2.26  p_grd=0.283  unc_rem=0.335  unc_rel=0.828  drop=0.79  h=32  L=3  lr=0.001  wd=0.0005
+  [Trial 155] dblp_uniform_0.5 | acc=0.5664  (101.7s)  knn=d  k= 18  dexp=0.96  p_grd=0.220  unc_rem=0.912  unc_rel=0.788  drop=0.82  h=32  L=3  lr=0.001  wd=0.005
+  [Trial 156] dblp_uniform_0.5 | acc=0.5486  (129.2s)  knn=p  k= 21  dexp=1.10  p_grd=0.246  unc_rem=0.631  unc_rel=0.927  drop=0.56  h=32  L=3  lr=0.05  wd=5e-05
+  [Trial 157] dblp_uniform_0.5 | acc=0.5269  (58.2s)  knn=u  k=-    dexp=0.75  p_grd=0.198  unc_rem=0.859  unc_rel=0.524  drop=0.74  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 158] dblp_uniform_0.5 | acc=0.3995  (85.6s)  knn=d  k= 18  dexp=0.63  p_grd=0.098  unc_rem=0.584  unc_rel=0.911  drop=0.75  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 159] dblp_uniform_0.5 | acc=0.6285  (79.7s)  knn=d  k= 18  dexp=0.61  p_grd=0.119  unc_rem=0.672  unc_rel=0.025  drop=0.12  h=128  L=4  lr=0.005  wd=5e-05
+  [Trial 160] dblp_uniform_0.5 | acc=0.6437  (92.8s)  knn=p  k= 21  dexp=2.33  p_grd=0.184  unc_rem=0.956  unc_rel=0.491  drop=0.38  h=64  L=3  lr=0.01  wd=5e-05
+  [Trial 161] dblp_uniform_0.5 | acc=0.4225  (96.6s)  knn=d  k= 23  dexp=0.48  p_grd=0.308  unc_rem=0.725  unc_rel=0.658  drop=0.81  h=64  L=3  lr=0.001  wd=5e-05
+  [Trial 162] dblp_uniform_0.5 | acc=0.6074  (98.9s)  knn=p  k= 21  dexp=2.61  p_grd=0.336  unc_rem=0.910  unc_rel=0.140  drop=0.29  h=64  L=3  lr=0.01  wd=5e-05
+  [Trial 163] dblp_uniform_0.5 | acc=0.5212  (75.8s)  knn=d  k= 21  dexp=0.01  p_grd=0.218  unc_rem=0.912  unc_rel=0.658  drop=0.71  h=32  L=2  lr=0.001  wd=5e-05
+  [Trial 164] dblp_uniform_0.5 | acc=0.6146  (77.2s)  knn=p  k= 18  dexp=1.75  p_grd=0.201  unc_rem=0.901  unc_rel=0.641  drop=0.39  h=64  L=3  lr=0.0005  wd=5e-05
+  [Trial 165] dblp_uniform_0.5 | acc=0.2762  (78.2s)  knn=p  k= 17  dexp=0.08  p_grd=0.100  unc_rem=0.953  unc_rel=0.781  drop=0.49  h=16  L=3  lr=0.01  wd=5e-05
+  [Trial 166] dblp_uniform_0.5 | acc=0.3694  (74.6s)  knn=p  k= 22  dexp=2.73  p_grd=0.076  unc_rem=0.868  unc_rel=0.479  drop=0.55  h=64  L=1  lr=1e-05  wd=5e-05
+  [Trial 167] dblp_uniform_0.5 | acc=0.3397  (72.2s)  knn=s  k= 30  dexp=1.18  p_grd=0.272  unc_rem=0.986  unc_rel=0.284  drop=0.83  h=64  L=4  lr=0.001  wd=1e-05
+  [Trial 168] dblp_uniform_0.5 | acc=0.3577  (88.7s)  knn=p  k= 17  dexp=0.57  p_grd=0.077  unc_rem=0.702  unc_rel=0.577  drop=0.86  h=16  L=3  lr=0.001  wd=5e-05
+  [Trial 169] dblp_uniform_0.5 | acc=0.6099  (100.4s)  knn=p  k= 19  dexp=1.22  p_grd=0.173  unc_rem=0.723  unc_rel=0.066  drop=0.85  h=128  L=3  lr=0.05  wd=1e-05
+  [Trial 170] dblp_uniform_0.5 | acc=0.6324  (82.1s)  knn=d  k= 16  dexp=1.13  p_grd=0.239  unc_rem=0.823  unc_rel=0.360  drop=0.44  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 171] dblp_uniform_0.5 | acc=0.5648  (99.8s)  knn=p  k= 21  dexp=1.76  p_grd=0.403  unc_rem=0.932  unc_rel=0.161  drop=0.72  h=64  L=3  lr=0.01  wd=0.0005
+  [Trial 172] dblp_uniform_0.5 | acc=0.4465  (74.5s)  knn=s  k= 30  dexp=1.55  p_grd=0.371  unc_rem=0.814  unc_rel=0.858  drop=0.77  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 173] dblp_uniform_0.5 | acc=0.3715  (80.3s)  knn=p  k= 18  dexp=0.45  p_grd=0.325  unc_rem=0.784  unc_rel=0.576  drop=0.71  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 174] dblp_uniform_0.5 | acc=0.3250  (92.2s)  knn=p  k= 17  dexp=1.84  p_grd=0.233  unc_rem=0.666  unc_rel=0.177  drop=0.34  h=128  L=3  lr=0.01  wd=0.05
+  [Trial 175] dblp_uniform_0.5 | acc=0.6337  (71.3s)  knn=s  k=  5  dexp=2.23  p_grd=0.182  unc_rem=0.989  unc_rel=0.487  drop=0.44  h=64  L=4  lr=0.01  wd=5e-05
+  [Trial 176] dblp_uniform_0.5 | acc=0.5681  (81.7s)  knn=p  k= 18  dexp=2.22  p_grd=0.334  unc_rem=0.643  unc_rel=0.044  drop=0.33  h=32  L=3  lr=0.01  wd=1e-05
+  [Trial 177] dblp_uniform_0.5 | acc=0.2975  (91.0s)  knn=p  k= 15  dexp=1.31  p_grd=0.348  unc_rem=0.978  unc_rel=0.438  drop=0.59  h=128  L=3  lr=0.0001  wd=0.0005
+  [Trial 178] dblp_uniform_0.5 | acc=0.6176  (78.0s)  knn=p  k= 20  dexp=1.83  p_grd=0.109  unc_rem=0.848  unc_rel=0.452  drop=0.40  h=64  L=2  lr=0.1  wd=5e-05
+  [Trial 179] dblp_uniform_0.5 | acc=0.5958  (86.1s)  knn=d  k= 17  dexp=3.25  p_grd=0.217  unc_rem=0.653  unc_rel=0.180  drop=0.19  h=64  L=4  lr=0.005  wd=0.001
+  [Trial 180] dblp_uniform_0.5 | acc=0.4992  (100.5s)  knn=s  k= 30  dexp=1.79  p_grd=0.291  unc_rem=0.585  unc_rel=0.634  drop=0.51  h=64  L=4  lr=0.005  wd=1e-05
+  [Trial 181] dblp_uniform_0.5 | acc=0.3166  (106.6s)  knn=p  k= 14  dexp=1.63  p_grd=0.266  unc_rem=0.866  unc_rel=0.643  drop=0.12  h=64  L=3  lr=0.01  wd=0.05
+  [Trial 182] dblp_uniform_0.5 | acc=0.5611  (96.1s)  knn=d  k= 17  dexp=0.08  p_grd=0.164  unc_rem=0.761  unc_rel=0.065  drop=0.10  h=32  L=4  lr=0.005  wd=0.005
+  [Trial 183] dblp_uniform_0.5 | acc=0.3115  (88.2s)  knn=p  k= 18  dexp=4.52  p_grd=0.023  unc_rem=0.685  unc_rel=0.225  drop=0.79  h=128  L=1  lr=0.001  wd=1e-05
+  [Trial 184] dblp_uniform_0.5 | acc=0.6344  (97.4s)  knn=p  k= 16  dexp=1.38  p_grd=0.307  unc_rem=0.888  unc_rel=0.070  drop=0.90  h=128  L=3  lr=0.0005  wd=1e-05
+  [Trial 185] dblp_uniform_0.5 | acc=0.6720  (86.8s)  knn=d  k= 21  dexp=2.24  p_grd=0.180  unc_rem=0.992  unc_rel=0.479  drop=0.34  h=128  L=4  lr=0.001  wd=0.005
+  [Trial 186] dblp_uniform_0.5 | acc=0.6369  (79.5s)  knn=d  k= 22  dexp=1.48  p_grd=0.175  unc_rem=0.909  unc_rel=0.407  drop=0.41  h=128  L=4  lr=0.001  wd=0.005
+  [Trial 187] dblp_uniform_0.5 | acc=0.5253  (74.6s)  knn=p  k= 22  dexp=1.08  p_grd=0.124  unc_rem=0.764  unc_rel=0.357  drop=0.38  h=64  L=3  lr=0.01  wd=5e-05
+  [Trial 188] dblp_uniform_0.5 | acc=0.5569  (80.6s)  knn=p  k= 21  dexp=1.47  p_grd=0.226  unc_rem=0.817  unc_rel=0.273  drop=0.54  h=32  L=1  lr=0.0005  wd=5e-05
+  [Trial 189] dblp_uniform_0.5 | acc=0.3022  (80.2s)  knn=d  k= 20  dexp=0.60  p_grd=0.210  unc_rem=0.723  unc_rel=0.459  drop=0.73  h=64  L=4  lr=0.01  wd=0.0005
+  [Trial 190] dblp_uniform_0.5 | acc=0.6599  (77.3s)  knn=d  k= 20  dexp=2.99  p_grd=0.167  unc_rem=0.999  unc_rel=0.115  drop=0.19  h=128  L=4  lr=0.005  wd=0.005
+  [Trial 191] dblp_uniform_0.5 | acc=0.6382  (82.1s)  knn=d  k= 22  dexp=3.15  p_grd=0.197  unc_rem=0.885  unc_rel=0.121  drop=0.18  h=128  L=4  lr=0.005  wd=0.005
+  [Trial 192] dblp_uniform_0.5 | acc=0.5874  (73.4s)  knn=p  k= 20  dexp=4.60  p_grd=0.177  unc_rem=0.942  unc_rel=0.553  drop=0.76  h=32  L=3  lr=0.001  wd=0.001
+  [Trial 193] dblp_uniform_0.5 | acc=0.6413  (83.9s)  knn=d  k= 19  dexp=0.15  p_grd=0.298  unc_rem=0.993  unc_rel=0.671  drop=0.66  h=32  L=3  lr=0.05  wd=5e-05
+  [Trial 194] dblp_uniform_0.5 | acc=0.6261  (76.5s)  knn=d  k= 20  dexp=3.92  p_grd=0.128  unc_rem=0.790  unc_rel=0.742  drop=0.89  h=128  L=3  lr=0.001  wd=0.0005
+  [Trial 195] dblp_uniform_0.5 | acc=0.5737  (86.5s)  knn=d  k= 22  dexp=2.76  p_grd=0.290  unc_rem=0.971  unc_rel=0.636  drop=0.38  h=128  L=1  lr=0.001  wd=0.05
+  [Trial 196] dblp_uniform_0.5 | acc=0.6365  (78.4s)  knn=d  k= 19  dexp=1.61  p_grd=0.156  unc_rem=0.962  unc_rel=0.826  drop=0.80  h=32  L=3  lr=0.1  wd=5e-05
+  [Trial 197] dblp_uniform_0.5 | acc=0.5762  (79.4s)  knn=d  k= 19  dexp=3.10  p_grd=0.155  unc_rem=0.854  unc_rel=0.507  drop=0.56  h=32  L=3  lr=0.05  wd=5e-05
+  [Trial 198] dblp_uniform_0.5 | acc=0.6323  (72.8s)  knn=d  k= 14  dexp=0.62  p_grd=0.307  unc_rem=0.771  unc_rel=0.647  drop=0.54  h=32  L=3  lr=0.01  wd=0.001
+  [Trial 199] dblp_uniform_0.5 | acc=0.6068  (80.9s)  knn=p  k= 19  dexp=2.50  p_grd=0.157  unc_rem=0.875  unc_rel=0.436  drop=0.77  h=32  L=4  lr=0.005  wd=0.0005
+  [Trial 200] dblp_uniform_0.5 | acc=0.5724  (97.9s)  knn=p  k= 23  dexp=4.44  p_grd=0.336  unc_rem=0.610  unc_rel=0.515  drop=0.59  h=64  L=3  lr=0.01  wd=0.0005
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (dblp_uniform_0.5) Testing top-5 configs × 10 seeds...
+
+  [Retest] (dblp_uniform_0.5) Config 1/5: (Trial #30, Orig Acc: 0.6818)
+           Params: {'knn_mode': 'p', 'k': 24, 'dexp': 1.2484342850277141, 'p_grd': 0.3333912331845107, 'unc_rem': 0.8302395707546453, 'unc_rel': 0.013744360997406987, 'dropout': 0.413337038131782, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.01, 'weight_decay': 1e-05}
+    [Retest] dblp | Config 1 | Run 1/10 | seed=3000 | Acc: 0.6818 | Mean: 0.6818 | Time: 101.2s
+    [Retest] dblp | Config 1 | Run 2/10 | seed=3001 | Acc: 0.5694 | Mean: 0.6256 | Time: 100.6s
+    [Retest] dblp | Config 1 | Run 3/10 | seed=3002 | Acc: 0.5344 | Mean: 0.5952 | Time: 101.7s
+    [Retest] dblp | Config 1 | Run 4/10 | seed=3003 | Acc: 0.7103 | Mean: 0.6240 | Time: 110.5s
+    [Retest] dblp | Config 1 | Run 5/10 | seed=3004 | Acc: 0.6681 | Mean: 0.6328 | Time: 105.0s
+    [Retest] dblp | Config 1 | Run 6/10 | seed=3005 | Acc: 0.7127 | Mean: 0.6461 | Time: 102.1s
+    [Retest] dblp | Config 1 | Run 7/10 | seed=3006 | Acc: 0.6921 | Mean: 0.6527 | Time: 107.2s
+    [Retest] dblp | Config 1 | Run 8/10 | seed=3007 | Acc: 0.6050 | Mean: 0.6467 | Time: 104.6s
+    [Retest] dblp | Config 1 | Run 9/10 | seed=3008 | Acc: 0.6492 | Mean: 0.6470 | Time: 103.3s
+    [Retest] dblp | Config 1 | Run 10/10 | seed=3009 | Acc: 0.5613 | Mean: 0.6384 | Time: 118.5s
+  [Retest] Config 1: mean=0.6384 ± 0.0625
+
+  [Retest] (dblp_uniform_0.5) Config 2/5: (Trial #86, Orig Acc: 0.6752)
+           Params: {'knn_mode': 'p', 'k': 18, 'dexp': 2.973423306290634, 'p_grd': 0.1882280664049575, 'unc_rem': 0.9355590371335148, 'unc_rel': 0.12569275771377766, 'dropout': 0.759072192421663, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 1e-05}
+    [Retest] dblp | Config 2 | Run 1/10 | seed=3000 | Acc: 0.6752 | Mean: 0.6752 | Time: 82.6s
+    [Retest] dblp | Config 2 | Run 2/10 | seed=3001 | Acc: 0.6306 | Mean: 0.6529 | Time: 79.3s
+    [Retest] dblp | Config 2 | Run 3/10 | seed=3002 | Acc: 0.5530 | Mean: 0.6196 | Time: 87.3s
+    [Retest] dblp | Config 2 | Run 4/10 | seed=3003 | Acc: 0.6636 | Mean: 0.6306 | Time: 82.7s
+    [Retest] dblp | Config 2 | Run 5/10 | seed=3004 | Acc: 0.6457 | Mean: 0.6336 | Time: 81.9s
+    [Retest] dblp | Config 2 | Run 6/10 | seed=3005 | Acc: 0.6740 | Mean: 0.6404 | Time: 78.0s
+    [Retest] dblp | Config 2 | Run 7/10 | seed=3006 | Acc: 0.7119 | Mean: 0.6506 | Time: 80.1s
+    [Retest] dblp | Config 2 | Run 8/10 | seed=3007 | Acc: 0.5931 | Mean: 0.6434 | Time: 76.9s
+    [Retest] dblp | Config 2 | Run 9/10 | seed=3008 | Acc: 0.6205 | Mean: 0.6408 | Time: 72.7s
+    [Retest] dblp | Config 2 | Run 10/10 | seed=3009 | Acc: 0.6012 | Mean: 0.6369 | Time: 83.9s
+  [Retest] Config 2: mean=0.6369 ± 0.0445
+
+  [Retest] (dblp_uniform_0.5) Config 3/5: (Trial #184, Orig Acc: 0.6720)
+           Params: {'knn_mode': 'd', 'k': 21, 'dexp': 2.240572062749329, 'p_grd': 0.17989810487488794, 'unc_rem': 0.9922155720921321, 'unc_rel': 0.479276681631185, 'dropout': 0.3395515856377962, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 0.005}
+    [Retest] dblp | Config 3 | Run 1/10 | seed=3000 | Acc: 0.6720 | Mean: 0.6720 | Time: 93.8s
+    [Retest] dblp | Config 3 | Run 2/10 | seed=3001 | Acc: 0.5577 | Mean: 0.6149 | Time: 101.1s
+    [Retest] dblp | Config 3 | Run 3/10 | seed=3002 | Acc: 0.5573 | Mean: 0.5957 | Time: 85.1s
+    [Retest] dblp | Config 3 | Run 4/10 | seed=3003 | Acc: 0.6100 | Mean: 0.5992 | Time: 91.7s
+    [Retest] dblp | Config 3 | Run 5/10 | seed=3004 | Acc: 0.6052 | Mean: 0.6004 | Time: 96.5s
+    [Retest] dblp | Config 3 | Run 6/10 | seed=3005 | Acc: 0.6199 | Mean: 0.6037 | Time: 98.1s
+    [Retest] dblp | Config 3 | Run 7/10 | seed=3006 | Acc: 0.6584 | Mean: 0.6115 | Time: 111.8s
+    [Retest] dblp | Config 3 | Run 8/10 | seed=3007 | Acc: 0.5179 | Mean: 0.5998 | Time: 95.6s
+    [Retest] dblp | Config 3 | Run 9/10 | seed=3008 | Acc: 0.5713 | Mean: 0.5966 | Time: 84.0s
+    [Retest] dblp | Config 3 | Run 10/10 | seed=3009 | Acc: 0.6601 | Mean: 0.6030 | Time: 82.3s
+  [Retest] Config 3: mean=0.6030 ± 0.0488
+
+  [Retest] (dblp_uniform_0.5) Config 4/5: (Trial #87, Orig Acc: 0.6677)
+           Params: {'knn_mode': 'p', 'k': 18, 'dexp': 0.581953590757601, 'p_grd': 0.21888618883807387, 'unc_rem': 0.8936014492776375, 'unc_rel': 0.03908404478541977, 'dropout': 0.875606957979566, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.0005, 'weight_decay': 1e-05}
+    [Retest] dblp | Config 4 | Run 1/10 | seed=3000 | Acc: 0.6677 | Mean: 0.6677 | Time: 78.2s
+    [Retest] dblp | Config 4 | Run 2/10 | seed=3001 | Acc: 0.5936 | Mean: 0.6306 | Time: 77.3s
+    [Retest] dblp | Config 4 | Run 3/10 | seed=3002 | Acc: 0.4532 | Mean: 0.5715 | Time: 74.8s
+    [Retest] dblp | Config 4 | Run 4/10 | seed=3003 | Acc: 0.4664 | Mean: 0.5452 | Time: 75.7s
+    [Retest] dblp | Config 4 | Run 5/10 | seed=3004 | Acc: 0.6147 | Mean: 0.5591 | Time: 74.6s
+    [Retest] dblp | Config 4 | Run 6/10 | seed=3005 | Acc: 0.5598 | Mean: 0.5592 | Time: 72.6s
+    [Retest] dblp | Config 4 | Run 7/10 | seed=3006 | Acc: 0.6126 | Mean: 0.5668 | Time: 72.7s
+    [Retest] dblp | Config 4 | Run 8/10 | seed=3007 | Acc: 0.4943 | Mean: 0.5578 | Time: 74.0s
+    [Retest] dblp | Config 4 | Run 9/10 | seed=3008 | Acc: 0.5161 | Mean: 0.5532 | Time: 70.9s
+    [Retest] dblp | Config 4 | Run 10/10 | seed=3009 | Acc: 0.6561 | Mean: 0.5634 | Time: 75.7s
+  [Retest] Config 4: mean=0.5634 ± 0.0735
+
+  [Retest] (dblp_uniform_0.5) Config 5/5: (Trial #84, Orig Acc: 0.6664)
+           Params: {'knn_mode': 'p', 'k': 18, 'dexp': 0.5743938440645724, 'p_grd': 0.32466180850616694, 'unc_rem': 0.9826425294597662, 'unc_rel': 0.13124841244540114, 'dropout': 0.6141656540968926, 'n_hidden': 64, 'n_layer': 4, 'lr': 0.01, 'weight_decay': 5e-05}
+    [Retest] dblp | Config 5 | Run 1/10 | seed=3000 | Acc: 0.6664 | Mean: 0.6664 | Time: 73.7s
+    [Retest] dblp | Config 5 | Run 2/10 | seed=3001 | Acc: 0.4522 | Mean: 0.5593 | Time: 81.0s
+    [Retest] dblp | Config 5 | Run 3/10 | seed=3002 | Acc: 0.5565 | Mean: 0.5584 | Time: 79.4s
+    [Retest] dblp | Config 5 | Run 4/10 | seed=3003 | Acc: 0.6146 | Mean: 0.5724 | Time: 81.4s
+    [Retest] dblp | Config 5 | Run 5/10 | seed=3004 | Acc: 0.6697 | Mean: 0.5919 | Time: 79.3s
+    [Retest] dblp | Config 5 | Run 6/10 | seed=3005 | Acc: 0.4982 | Mean: 0.5763 | Time: 79.8s
+    [Retest] dblp | Config 5 | Run 7/10 | seed=3006 | Acc: 0.6900 | Mean: 0.5925 | Time: 90.5s
+    [Retest] dblp | Config 5 | Run 8/10 | seed=3007 | Acc: 0.5902 | Mean: 0.5922 | Time: 76.5s
+    [Retest] dblp | Config 5 | Run 9/10 | seed=3008 | Acc: 0.6121 | Mean: 0.5944 | Time: 88.8s
+    [Retest] dblp | Config 5 | Run 10/10 | seed=3009 | Acc: 0.6262 | Mean: 0.5976 | Time: 91.0s
+  [Retest] Config 5: mean=0.5976 ± 0.0725
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'p', 'k': 24, 'dexp': 1.2484342850277141, 'p_grd': 0.3333912331845107, 'unc_rem': 0.8302395707546453, 'unc_rel': 0.013744360997406987, 'dropout': 0.413337038131782, 'n_hidden': 128, 'n_layer': 3, 'lr': 0.01, 'weight_decay': 1e-05}
+[Optuna] Success: Best retest mean accuracy: 0.6384
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_dblp_uniform_0.5.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_dblp_uniform_0.5.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_dblp_uniform_0.5  gpu=0  337.3 min  rc=0

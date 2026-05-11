@@ -1,0 +1,85 @@
+[worker] START  lnpcc_flickr_uniform_0.2  gpu=0
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-21 14:32:54
+Variants       : ['lnpcc']
+Datasets       : ['flickr']
+Noise          : [[0.2, 'uniform']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+[HPO] Loaded 160 optimized scenarios from log/hpo_db.json
+----Data statistics------'
+                Name: flickr
+                #Nodes 7575
+                #Edges 239738
+                #Classes 9
+                #Ave_degree 63.30
+----Split statistics------'
+                #Train samples 378 (5.0 % of nodes)
+                #Val samples 1136 (15.0 % of nodes)
+                #Test samples 6061 (remaining)
+
+============================================================
+  lnpcc | flickr | uniform 0.2
+============================================================
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:35:08] flickr | uniform 0.2 | lnpcc | run  1/10 | seed=3000 | acc=0.5590 | mean=0.5590 | time=127.51s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:37:17] flickr | uniform 0.2 | lnpcc | run  2/10 | seed=3001 | acc=0.5115 | mean=0.5352 | time=122.36s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:39:45] flickr | uniform 0.2 | lnpcc | run  3/10 | seed=3002 | acc=0.5695 | mean=0.5467 | time=138.98s
+ [Worker-85024] CRITICAL: Unable to allocate 2.73 MiB for an array with shape (7575, 378) and data type uint8
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 512, in run_pcc_thread
+    _ = lnpcc.fit_predict(
+        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 283, in fit_predict
+    self.part = self.__genParticles()
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 396, in __genParticles
+    dist_table = np.full(
+                 ^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 2.73 MiB for an array with shape (7575, 378) and data type uint8
+
+  [HPO] Applying optimized params for flickr_uniform_0.2
+  run  4/10 attempt 4 | seed=3003 | ERROR: Subprocess exception:
+Unable to allocate 2.73 MiB for an array with shape (7575, 378) and data type uint8
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 512, in run_pcc_thread
+    _ = lnpcc.fit_predict(
+        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 283, in fit_predict
+    self.part = self.__genParticles()
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 396, in __genParticles
+    dist_table = np.full(
+                 ^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 2.73 MiB for an array with shape (7575, 378) and data type uint8
+ — retrying...
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:43:45] flickr | uniform 0.2 | lnpcc | run  4/10 | seed=3004 | acc=0.5255 | mean=0.5414 | time=126.00s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:46:07] flickr | uniform 0.2 | lnpcc | run  5/10 | seed=3005 | acc=0.5362 | mean=0.5403 | time=129.25s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:49:47] flickr | uniform 0.2 | lnpcc | run  6/10 | seed=3006 | acc=0.5572 | mean=0.5431 | time=205.77s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:52:09] flickr | uniform 0.2 | lnpcc | run  7/10 | seed=3007 | acc=0.5468 | mean=0.5437 | time=135.39s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [14:56:46] flickr | uniform 0.2 | lnpcc | run  8/10 | seed=3008 | acc=0.5473 | mean=0.5441 | time=274.13s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [15:01:21] flickr | uniform 0.2 | lnpcc | run  9/10 | seed=3009 | acc=0.5519 | mean=0.5450 | time=270.95s
+  [HPO] Applying optimized params for flickr_uniform_0.2
+    [15:09:14] flickr | uniform 0.2 | lnpcc | run 10/10 | seed=3010 | acc=0.5593 | mean=0.5464 | time=469.34s
+  -> mean=0.5464 +/- 0.0166
+
+[OK] Partial CSV: ./log\partial\partial_lnpcc_flickr_uniform_0.2.csv
+End: 2026-04-21 15:09:14
+
+[worker] OK DONE  lnpcc_flickr_uniform_0.2  gpu=0  36.7 min  rc=0

@@ -1,0 +1,95 @@
+[priority] Process priority set to IDLE
+Namespace(dataset='amazon-ratings', method='lnpcc', noise_type='instance', noise_rate=0.3, device='cuda:0', seed=3002, params_json='{"knn_mode": "s", "k": 40, "dexp": 8.698666218210116, "p_grd": 0.4503273603904403, "unc_rem": 0.9817934623404562, "unc_rel": 0.8065524564056845, "dropout": 0.32432922600487546, "n_hidden": 64, "n_layer": 4, "lr": 0.0005, "weight_decay": 0.001}', priority='idle')
+[GPU] Slot acquired for cuda:0
+DEBUG 3.1: Dataset init start
+DEBUG 3.2: prepare_data start amazon-ratings
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor_Instance.py", line 238, in _lnpcc_worker_func
+    _ = lnpcc.fit_predict(slabel, p_grd=p_grd, dexp=dexp, delta_v=delta_v, n_repeats=n_repeats, max_iter=max_iter, es_chk=es_chk, uniform_labeled=uniform_labeled)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 285, in fit_predict
+    self.__labelPropagation()
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 350, in __labelPropagation
+    success = self._propagate_backend(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc.py", line 134, in _propagate_backend
+    lnpcc_propagate_cython(neib_list, neib_qt,
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\multiprocessing\process.py", line 330, in _bootstrap
+    traceback.print_exc()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\traceback.py", line 180, in print_exc
+    print_exception(*sys.exc_info(), limit=limit, file=file, chain=chain)
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\traceback.py", line 124, in print_exception
+    te = TracebackException(type(value), value, tb, limit=limit, compact=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\traceback.py", line 728, in __init__
+    self.stack = StackSummary._extract_from_extended_frame_gen(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\traceback.py", line 433, in _extract_from_extended_frame_gen
+    f.line
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\traceback.py", line 318, in line
+    self._line = linecache.getline(self.filename, self.lineno)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\linecache.py", line 30, in getline
+    lines = getlines(filename, module_globals)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\linecache.py", line 136, in updatecache
+    with tokenize.open(fullname) as fp:
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\tokenize.py", line 396, in open
+    buffer = _builtin_open(filename, 'rb')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 236, in run_train_thread
+    res = predictor.train()
+          ^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor_Instance.py", line 184, in train
+    output, loss_train, acc_train = self.get_prediction(self.feats, self.edge_index, self.edge_weight, train_labels, train_mask)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py", line 184, in get_prediction
+    loss = self.loss_fn(output[mask], label[mask])
+                        ~~~~~~^^^^^^
+IndexError: The shape of the mask [1224] at index 0 does not match the shape of the indexed tensor [24492, 5] at index 0
+----Data statistics------'
+                Name: amazon-ratings
+                #Nodes 24492
+                #Edges 93050
+                #Classes 5
+                #Ave_degree 7.60
+----Split statistics------'
+                #Train samples 1224 (5.0 % of nodes)
+                #Val samples 3673 (15.0 % of nodes)
+                #Test samples 19595 (remaining)
+[Params] Overriding from --params_json: {'knn_mode': 's', 'k': 40, 'dexp': 8.698666218210116, 'p_grd': 0.4503273603904403, 'unc_rem': 0.9817934623404562, 'unc_rel': 0.8065524564056845, 'dropout': 0.32432922600487546, 'n_hidden': 64, 'n_layer': 4, 'lr': 0.0005, 'weight_decay': 0.001}
+----label noise information:------
+Instance dependent noise
+#Actual noise rate 0.31 
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 260, in <module>
+    train_thread.join()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\threading.py", line 1119, in join
+    self._wait_for_tstate_lock()
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\threading.py", line 1139, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

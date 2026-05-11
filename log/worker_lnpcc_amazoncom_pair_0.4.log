@@ -1,0 +1,107 @@
+[worker] START  lnpcc_amazoncom_pair_0.4  gpu=1
+ [Worker-94360] CRITICAL: Unable to allocate 314. MiB for an array with shape (13752, 2992) and data type int64
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 491, in run_pcc_thread
+    neib_list_edge, neib_qt_edge = build_graph_from_edge_index(n_nodes, edge_index_np)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 289, in build_graph_from_edge_index
+    neib_list = np.full((num_nodes, max(max_deg, 1)), -1, dtype=np.int64)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 314. MiB for an array with shape (13752, 2992) and data type int64
+
+ [Worker-99684] CRITICAL: Unable to allocate 634. MiB for an array with shape (13752, 6039) and data type int64
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 492, in run_pcc_thread
+    neib_list, neib_qt = build_augmented_graph(
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 375, in build_augmented_graph
+    nl = np.full((n_nodes, max_d), -1, dtype=np.int64)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 634. MiB for an array with shape (13752, 6039) and data type int64
+
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-21 14:02:25
+Variants       : ['lnpcc']
+Datasets       : ['amazoncom']
+Noise          : [[0.4, 'pair']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:1
+======================================================================
+[HPO] Loaded 160 optimized scenarios from log/hpo_db.json
+----Data statistics------'
+                Name: amazoncom
+                #Nodes 13752
+                #Edges 245861
+                #Classes 10
+                #Ave_degree 35.76
+----Split statistics------'
+                #Train samples 200 (20 nodes per class)
+                #Val samples 500 (specified)
+                #Test samples 1000 (specified)
+
+============================================================
+  lnpcc | amazoncom | pair 0.4
+============================================================
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+  run  1/10 attempt 1 | seed=3000 | ERROR: Subprocess exception:
+Unable to allocate 314. MiB for an array with shape (13752, 2992) and data type int64
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 491, in run_pcc_thread
+    neib_list_edge, neib_qt_edge = build_graph_from_edge_index(n_nodes, edge_index_np)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 289, in build_graph_from_edge_index
+    neib_list = np.full((num_nodes, max(max_deg, 1)), -1, dtype=np.int64)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 314. MiB for an array with shape (13752, 2992) and data type int64
+ — retrying...
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+  run  1/10 attempt 2 | seed=3001 | ERROR: Subprocess exception:
+Unable to allocate 634. MiB for an array with shape (13752, 6039) and data type int64
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 492, in run_pcc_thread
+    neib_list, neib_qt = build_augmented_graph(
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 375, in build_augmented_graph
+    nl = np.full((n_nodes, max_d), -1, dtype=np.int64)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 634. MiB for an array with shape (13752, 6039) and data type int64
+ — retrying...
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:05:11] amazoncom | pair 0.4 | lnpcc | run  1/10 | seed=3002 | acc=0.3510 | mean=0.3510 | time=115.65s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:06:52] amazoncom | pair 0.4 | lnpcc | run  2/10 | seed=3003 | acc=0.3400 | mean=0.3455 | time=99.09s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:08:53] amazoncom | pair 0.4 | lnpcc | run  3/10 | seed=3004 | acc=0.3590 | mean=0.3500 | time=116.42s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:11:00] amazoncom | pair 0.4 | lnpcc | run  4/10 | seed=3005 | acc=0.6140 | mean=0.4160 | time=121.05s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:13:03] amazoncom | pair 0.4 | lnpcc | run  5/10 | seed=3006 | acc=0.5500 | mean=0.4428 | time=118.95s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:15:28] amazoncom | pair 0.4 | lnpcc | run  6/10 | seed=3007 | acc=0.4690 | mean=0.4472 | time=141.74s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:17:36] amazoncom | pair 0.4 | lnpcc | run  7/10 | seed=3008 | acc=0.4390 | mean=0.4460 | time=124.33s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:19:23] amazoncom | pair 0.4 | lnpcc | run  8/10 | seed=3009 | acc=0.3100 | mean=0.4290 | time=105.13s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:21:24] amazoncom | pair 0.4 | lnpcc | run  9/10 | seed=3010 | acc=0.3960 | mean=0.4253 | time=118.20s
+  [HPO] Applying optimized params for amazoncom_pair_0.4
+    [14:23:37] amazoncom | pair 0.4 | lnpcc | run 10/10 | seed=3011 | acc=0.4210 | mean=0.4249 | time=130.50s
+  -> mean=0.4249 +/- 0.0920
+
+[OK] Partial CSV: ./log\partial\partial_lnpcc_amazoncom_pair_0.4.csv
+End: 2026-04-21 14:23:37
+
+[worker] OK DONE  lnpcc_amazoncom_pair_0.4  gpu=1  21.4 min  rc=0

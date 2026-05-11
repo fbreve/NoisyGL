@@ -1,0 +1,990 @@
+[worker] START nrgnn_amazon-ratings_0.5 gpu=0
+[HPO] Starting Phase 1 (Optuna) for nrgnn_amazon-ratings_instance_0.5...
+[I 2026-04-28 02:39:16,079] Using an existing study with name 'nrgnn_amazon-ratings_instance_0.5' instead of creating a new one.
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 835.2s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2581699346405229, 'valid': 0.2417642254288048, 'test': 0.3708088798162797}, 'wall_s': 236.99, 'cpu_s': 12.29, 'gpu_s': 224.38, 'wait_s': 835.18}
+    [Time] wall=237.0s | cpu=12.3s | gpu=224.4s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+[I 2026-04-28 02:57:16,678] Trial 44 finished with value: 0.3708088798162797 and parameters: {'lr': 0.001, 'weight_decay': 0.01, 'n_hidden': 64, 'n_layer': 3, 'dropout': 0.11777960606131371, 'p_cutoff': 0.2554804690452944, 'edge_threshold': 0.0946211639515898}. Best is trial 32 with value: 0.3709619800969635.
+ [Optuna] Early stopping at trial 44.
+
+[Retest] Phase 1 Finished. Validating Top 3 (10 runs each)...
+
+  [Retest] Candidate 1/3 (Trial 32, HPO_acc=0.3710)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 440.0s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2681731554587531, 'test': 0.36800204133707576}, 'wall_s': 238.9, 'cpu_s': 12.61, 'gpu_s': 225.95, 'wait_s': 440.01}
+    [Time] wall=238.9s | cpu=12.6s | gpu=225.9s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 357.6s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2647058823529412, 'valid': 0.29812142662673563, 'test': 0.36351109977034957}, 'wall_s': 226.73, 'cpu_s': 11.89, 'gpu_s': 214.55, 'wait_s': 357.64}
+    [Time] wall=226.7s | cpu=11.9s | gpu=214.6s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 536.3s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.28104575163398693, 'valid': 0.267356384426899, 'test': 0.3677468742026027}, 'wall_s': 226.1, 'cpu_s': 11.71, 'gpu_s': 214.11, 'wait_s': 536.29}
+    [Time] wall=226.1s | cpu=11.7s | gpu=214.1s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1690.4s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.24918300653594772, 'valid': 0.2632725292676286, 'test': 0.3673896402143404}, 'wall_s': 228.79, 'cpu_s': 12.7, 'gpu_s': 215.81, 'wait_s': 1690.38}
+    [Time] wall=228.8s | cpu=12.7s | gpu=215.8s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 175.9s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.23937908496732027, 'valid': 0.25428804791723386, 'test': 0.09701454452666497}, 'wall_s': 229.83, 'cpu_s': 12.03, 'gpu_s': 217.47, 'wait_s': 175.86}
+    [Time] wall=229.8s | cpu=12.0s | gpu=217.5s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1392.3s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.3104575163398693, 'valid': 0.30193302477538797, 'test': 0.26695585608573613}, 'wall_s': 236.08, 'cpu_s': 12.85, 'gpu_s': 222.92, 'wait_s': 1392.34}
+    [Time] wall=236.1s | cpu=12.8s | gpu=222.9s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 419.9s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.24183006535947713, 'valid': 0.24612033759869317, 'test': 0.3341158458790508}, 'wall_s': 230.69, 'cpu_s': 12.23, 'gpu_s': 218.15, 'wait_s': 419.85}
+    [Time] wall=230.7s | cpu=12.2s | gpu=218.2s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 605.1s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2662673563844269, 'test': 0.2679765246236285}, 'wall_s': 230.87, 'cpu_s': 11.8, 'gpu_s': 218.77, 'wait_s': 605.07}
+    [Time] wall=230.9s | cpu=11.8s | gpu=218.8s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 596.7s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2610944731826845, 'test': 0.3664710385302373}, 'wall_s': 230.77, 'cpu_s': 13.08, 'gpu_s': 217.4, 'wait_s': 596.71}
+    [Time] wall=230.8s | cpu=13.1s | gpu=217.4s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 174.9s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2875816993464052, 'valid': 0.278791178872856, 'test': 0.3709619800969635}, 'wall_s': 230.6, 'cpu_s': 12.56, 'gpu_s': 217.68, 'wait_s': 174.89}
+    [Time] wall=230.6s | cpu=12.6s | gpu=217.7s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+  [Retest] Candidate 1 Avg: 0.3170
+
+  [Retest] Candidate 2/3 (Trial 33, HPO_acc=0.3710)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 177.8s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2681731554587531, 'test': 0.36800204133707576}, 'wall_s': 230.77, 'cpu_s': 12.52, 'gpu_s': 217.91, 'wait_s': 177.82}
+    [Time] wall=230.8s | cpu=12.5s | gpu=217.9s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 233.4s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.26633986928104575, 'valid': 0.29812142662673563, 'test': 0.3635621331972442}, 'wall_s': 237.12, 'cpu_s': 12.17, 'gpu_s': 224.66, 'wait_s': 233.4}
+    [Time] wall=237.1s | cpu=12.2s | gpu=224.7s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 541.9s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.28104575163398693, 'valid': 0.267356384426899, 'test': 0.3677468742026027}, 'wall_s': 231.07, 'cpu_s': 11.82, 'gpu_s': 218.97, 'wait_s': 541.92}
+    [Time] wall=231.1s | cpu=11.8s | gpu=219.0s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1036.4s). Training...
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 179.7s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.23447712418300654, 'valid': 0.2523822488429077, 'test': 0.09252360295993876}, 'wall_s': 222.53, 'cpu_s': 12.08, 'gpu_s': 210.16, 'wait_s': 179.72}
+    [Time] wall=222.5s | cpu=12.1s | gpu=210.2s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1490.3s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.3104575163398693, 'valid': 0.30193302477538797, 'test': 0.26695585608573613}, 'wall_s': 220.32, 'cpu_s': 11.21, 'gpu_s': 208.82, 'wait_s': 1490.31}
+    [Time] wall=220.3s | cpu=11.2s | gpu=208.8s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 405.6s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2434640522875817, 'valid': 0.2455758235774571, 'test': 0.3332482776218423}, 'wall_s': 221.99, 'cpu_s': 11.74, 'gpu_s': 209.96, 'wait_s': 405.62}
+    [Time] wall=222.0s | cpu=11.7s | gpu=210.0s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 410.2s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2657228423631908, 'test': 0.2684868588925746}, 'wall_s': 226.8, 'cpu_s': 12.71, 'gpu_s': 213.79, 'wait_s': 410.18}
+    [Time] wall=226.8s | cpu=12.7s | gpu=213.8s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 673.8s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2679738562091503, 'valid': 0.2610944731826845, 'test': 0.36657310538402654}, 'wall_s': 232.46, 'cpu_s': 12.08, 'gpu_s': 220.1, 'wait_s': 673.81}
+    [Time] wall=232.5s | cpu=12.1s | gpu=220.1s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1348.7s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2875816993464052, 'valid': 0.278791178872856, 'test': 0.3709619800969635}, 'wall_s': 223.77, 'cpu_s': 12.05, 'gpu_s': 211.46, 'wait_s': 1348.66}
+    [Time] wall=223.8s | cpu=12.1s | gpu=211.5s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+  [Retest] Candidate 2 Avg: 0.3109
+
+  [Retest] Candidate 3/3 (Trial 28, HPO_acc=0.3709)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 582.8s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2681731554587531, 'test': 0.36800204133707576}, 'wall_s': 220.49, 'cpu_s': 11.56, 'gpu_s': 208.69, 'wait_s': 582.83}
+    [Time] wall=220.5s | cpu=11.6s | gpu=208.7s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 763.5s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    [ERROR] range object index out of range
+    Traceback (most recent call last):
+    File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\single_exp_instance.py", line 183, in run_train
+    res = predictor.train()
+    ^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\NRGNN_Predictor_Instance.py", line 112, in train
+    = self.get_prediction(features, edge_index, self.noisy_label, self.train_mask)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\NRGNN_Predictor_Instance.py", line 57, in get_prediction
+    representations, rec_loss = self.estimator(edge_index, features)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\module\NRGNN.py", line 28, in forward
+    rec_loss = self.reconstruct_loss(edge_index, representations)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\module\NRGNN.py", line 43, in reconstruct_loss
+    randn = utils.negative_sampling(edge_index, num_nodes=num_nodes, num_neg_samples=self.conf.model['n_n'] * num_nodes)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\utils\_negative_sampling.py", line 111, in negative_sampling
+    rnd = sample(population, sample_size, device='cpu')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\torch_geometric\utils\_negative_sampling.py", line 329, in sample
+    return torch.tensor(random.sample(range(population), k), device=device)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\random.py", line 477, in sample
+    result[i] = population[j]
+    ~~~~~~~~~~^^^
+    IndexError: range object index out of range
+    
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1253.5s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.28104575163398693, 'valid': 0.267356384426899, 'test': 0.3677468742026027}, 'wall_s': 222.53, 'cpu_s': 12.19, 'gpu_s': 210.08, 'wait_s': 1253.48}
+    [Time] wall=222.5s | cpu=12.2s | gpu=210.1s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 411.3s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.24918300653594772, 'valid': 0.2632725292676286, 'test': 0.36698137279918347}, 'wall_s': 228.39, 'cpu_s': 11.98, 'gpu_s': 216.14, 'wait_s': 411.25}
+    [Time] wall=228.4s | cpu=12.0s | gpu=216.1s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 770.4s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2361111111111111, 'valid': 0.25210999183228966, 'test': 0.09303393722888492}, 'wall_s': 249.1, 'cpu_s': 12.15, 'gpu_s': 236.64, 'wait_s': 770.42}
+    [Time] wall=249.1s | cpu=12.1s | gpu=236.6s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1072.3s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.3104575163398693, 'valid': 0.30193302477538797, 'test': 0.2667517223781577}, 'wall_s': 230.04, 'cpu_s': 11.92, 'gpu_s': 217.84, 'wait_s': 1072.31}
+    [Time] wall=230.0s | cpu=11.9s | gpu=217.8s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 352.8s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2426470588235294, 'valid': 0.2466648516199292, 'test': 0.33488134728247004}, 'wall_s': 225.68, 'cpu_s': 12.79, 'gpu_s': 212.56, 'wait_s': 352.78}
+    [Time] wall=225.7s | cpu=12.8s | gpu=212.6s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1028.3s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2630718954248366, 'valid': 0.2659950993738089, 'test': 0.26853789231946923}, 'wall_s': 232.85, 'cpu_s': 13.13, 'gpu_s': 219.39, 'wait_s': 1028.32}
+    [Time] wall=232.9s | cpu=13.1s | gpu=219.4s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 2036.4s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2696078431372549, 'valid': 0.2610944731826845, 'test': 0.3664200051033427}, 'wall_s': 227.18, 'cpu_s': 12.16, 'gpu_s': 214.75, 'wait_s': 2036.36}
+    [Time] wall=227.2s | cpu=12.2s | gpu=214.7s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 474.7s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2875816993464052, 'valid': 0.278518921862238, 'test': 0.3708599132431743}, 'wall_s': 222.04, 'cpu_s': 12.53, 'gpu_s': 209.26, 'wait_s': 474.67}
+    [Time] wall=222.0s | cpu=12.5s | gpu=209.3s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+  [Retest] Candidate 3 Avg: 0.3115
+
+[Phase 2] Starting final evaluation with 10 seeds (3000-3009)...
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 472.6s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2508169934640523, 'valid': 0.24040294037571466, 'test': 0.3709619800969635}, 'wall_s': 225.05, 'cpu_s': 12.54, 'gpu_s': 212.25, 'wait_s': 472.62}
+    [Time] wall=225.1s | cpu=12.5s | gpu=212.3s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 476.8s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.25735294117647056, 'valid': 0.25537707595970593, 'test': 0.36320489920898186}, 'wall_s': 233.72, 'cpu_s': 12.93, 'gpu_s': 220.5, 'wait_s': 476.8}
+    [Time] wall=233.7s | cpu=12.9s | gpu=220.5s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 666.6s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.21241830065359477, 'valid': 0.2371358562482984, 'test': 0.2845623883643787}, 'wall_s': 226.4, 'cpu_s': 12.32, 'gpu_s': 213.81, 'wait_s': 666.56}
+    [Time] wall=226.4s | cpu=12.3s | gpu=213.8s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 230.6s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.30310457516339867, 'valid': 0.30057173972229784, 'test': 0.3632559326358765}, 'wall_s': 224.42, 'cpu_s': 12.03, 'gpu_s': 212.09, 'wait_s': 230.62}
+    [Time] wall=224.4s | cpu=12.0s | gpu=212.1s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 232.2s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.3137254901960784, 'valid': 0.30737816498774845, 'test': 0.3664200051033427}, 'wall_s': 227.6, 'cpu_s': 11.39, 'gpu_s': 215.94, 'wait_s': 232.16}
+    [Time] wall=227.6s | cpu=11.4s | gpu=215.9s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.49
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 1819.8s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.26715686274509803, 'valid': 0.27225701061802343, 'test': 0.36795100791018115}, 'wall_s': 235.67, 'cpu_s': 13.33, 'gpu_s': 222.01, 'wait_s': 1819.84}
+    [Time] wall=235.7s | cpu=13.3s | gpu=222.0s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 238.0s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.27450980392156865, 'valid': 0.2613667301933025, 'test': 0.34590456749170706}, 'wall_s': 235.43, 'cpu_s': 11.87, 'gpu_s': 223.3, 'wait_s': 238.04}
+    [Time] wall=235.4s | cpu=11.9s | gpu=223.3s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 731.5s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.255718954248366, 'valid': 0.25156547781105365, 'test': 0.3240112273539168}, 'wall_s': 264.45, 'cpu_s': 12.25, 'gpu_s': 220.92, 'wait_s': 731.49}
+    [Time] wall=264.4s | cpu=12.3s | gpu=220.9s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 247.2s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.28104575163398693, 'valid': 0.2766131227879118, 'test': 0.3657565705537127}, 'wall_s': 233.99, 'cpu_s': 12.12, 'gpu_s': 221.58, 'wait_s': 247.17}
+    [Time] wall=234.0s | cpu=12.1s | gpu=221.6s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+    [CPU] Loading amazon-ratings...
+    DEBUG 3.1: Dataset init start
+    DEBUG 3.2: prepare_data start amazon-ratings
+    ----Data statistics------'
+    Name: amazon-ratings
+    #Nodes 24492
+    #Edges 93050
+    #Classes 5
+    #Ave_degree 7.60
+    ----Split statistics------'
+    #Train samples 1224 (5.0 % of nodes)
+    #Val samples 3673 (15.0 % of nodes)
+    #Test samples 19595 (remaining)
+    ----label noise information:------
+    Instance dependent noise
+    #Actual noise rate 0.50
+    [cuda:0] Waiting for GPU slot...
+    [cuda:0] Slot acquired (waited 478.2s). Training...
+    [NRGNN] Large dataset detected (24492 nodes). Using sampled similarity search.
+    FINAL_RESULT: {'acc': {'train': 0.2834967320261438, 'valid': 0.29213177239313914, 'test': 0.3680530747639704}, 'wall_s': 233.84, 'cpu_s': 12.45, 'gpu_s': 221.1, 'wait_s': 478.18}
+    [Time] wall=233.8s | cpu=12.5s | gpu=221.1s
+    C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\Base_Predictor.py:144: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at ..\aten\src\ATen\SparseCsrTensorImpl.cpp:55.)
+    self.adj_csr = self.adj.to_sparse_csr().to(self.device)
+
+[FINAL] nrgnn_amazon-ratings_instance_0.5 | 0.3520 ± 0.0262

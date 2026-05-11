@@ -1,0 +1,95 @@
+[worker] START  lnpcc_flickr_pair_0.1  gpu=0
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-21 14:36:25
+Variants       : ['lnpcc']
+Datasets       : ['flickr']
+Noise          : [[0.1, 'pair']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+[HPO] Loaded 160 optimized scenarios from log/hpo_db.json
+----Data statistics------'
+                Name: flickr
+                #Nodes 7575
+                #Edges 239738
+                #Classes 9
+                #Ave_degree 63.30
+----Split statistics------'
+                #Train samples 378 (5.0 % of nodes)
+                #Val samples 1136 (15.0 % of nodes)
+                #Test samples 6061 (remaining)
+
+============================================================
+  lnpcc | flickr | pair 0.1
+============================================================
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:38:20] flickr | pair 0.1 | lnpcc | run  1/10 | seed=3000 | acc=0.5846 | mean=0.5846 | time=103.26s
+ [Worker-93308] CRITICAL: bad allocation
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 490, in run_pcc_thread
+    neib_list_knn, neib_qt_knn = build_knn_graph(feats_std, k_nn=k, n_jobs=n_jobs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 211, in build_knn_graph
+    indices = nbrs.kneighbors(data, return_distance=False)[:, 1:]  # (n_nodes, k_nn)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\sklearn\neighbors\_base.py", line 862, in kneighbors
+    results = ArgKmin.compute(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\sklearn\metrics\_pairwise_distances_reduction\_dispatcher.py", line 289, in compute
+    return ArgKmin32.compute(
+           ^^^^^^^^^^^^^^^^^^
+  File "sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx", line 550, in sklearn.metrics._pairwise_distances_reduction._argkmin.ArgKmin32.compute
+  File "sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx", line 568, in sklearn.metrics._pairwise_distances_reduction._argkmin.ArgKmin32.compute
+  File "sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx", line 839, in sklearn.metrics._pairwise_distances_reduction._argkmin.EuclideanArgKmin32.__init__
+  File "sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx", line 634, in sklearn.metrics._pairwise_distances_reduction._middle_term_computer.MiddleTermComputer32.get_for
+  File "sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx", line 802, in sklearn.metrics._pairwise_distances_reduction._middle_term_computer.DenseDenseMiddleTermComputer32.__init__
+MemoryError: bad allocation
+
+  [HPO] Applying optimized params for flickr_pair_0.1
+  run  2/10 attempt 2 | seed=3001 | ERROR: Subprocess exception:
+bad allocation
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 490, in run_pcc_thread
+    neib_list_knn, neib_qt_knn = build_knn_graph(feats_std, k_nn=k, n_jobs=n_jobs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 211, in build_knn_graph
+    indices = nbrs.kneighbors(data, return_distance=False)[:, 1:]  # (n_nodes, k_nn)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\sklearn\neighbors\_base.py", line 862, in kneighbors
+    results = ArgKmin.compute(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\sklearn\metrics\_pairwise_distances_reduction\_dispatcher.py", line 289, in compute
+    return ArgKmin32.compute(
+           ^^^^^^^^^^^^^^^^^^
+  File "sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx", line 550, in sklearn.metrics._pairwise_distances_reduction._argkmin.ArgKmin32.compute
+  File "sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx", line 568, in sklearn.metrics._pairwise_distances_reduction._argkmin.ArgKmin32.compute
+  File "sklearn/metrics/_pairwise_distances_reduction/_argkmin.pyx", line 839, in sklearn.metrics._pairwise_distances_reduction._argkmin.EuclideanArgKmin32.__init__
+  File "sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx", line 634, in sklearn.metrics._pairwise_distances_reduction._middle_term_computer.MiddleTermComputer32.get_for
+  File "sklearn/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx", line 802, in sklearn.metrics._pairwise_distances_reduction._middle_term_computer.DenseDenseMiddleTermComputer32.__init__
+MemoryError: bad allocation
+ — retrying...
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:40:20] flickr | pair 0.1 | lnpcc | run  2/10 | seed=3002 | acc=0.5674 | mean=0.5760 | time=85.18s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:41:57] flickr | pair 0.1 | lnpcc | run  3/10 | seed=3003 | acc=0.5770 | mean=0.5763 | time=93.62s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:43:23] flickr | pair 0.1 | lnpcc | run  4/10 | seed=3004 | acc=0.5662 | mean=0.5738 | time=78.88s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:45:25] flickr | pair 0.1 | lnpcc | run  5/10 | seed=3005 | acc=0.5633 | mean=0.5717 | time=116.73s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:47:19] flickr | pair 0.1 | lnpcc | run  6/10 | seed=3006 | acc=0.5717 | mean=0.5717 | time=101.88s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:49:39] flickr | pair 0.1 | lnpcc | run  7/10 | seed=3007 | acc=0.5626 | mean=0.5704 | time=112.40s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:51:46] flickr | pair 0.1 | lnpcc | run  8/10 | seed=3008 | acc=0.5765 | mean=0.5712 | time=123.74s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:54:32] flickr | pair 0.1 | lnpcc | run  9/10 | seed=3009 | acc=0.5506 | mean=0.5689 | time=161.16s
+  [HPO] Applying optimized params for flickr_pair_0.1
+    [14:59:29] flickr | pair 0.1 | lnpcc | run 10/10 | seed=3010 | acc=0.5750 | mean=0.5695 | time=288.50s
+  -> mean=0.5695 +/- 0.0091
+
+[OK] Partial CSV: ./log\partial\partial_lnpcc_flickr_pair_0.1.csv
+End: 2026-04-21 14:59:29
+
+[worker] OK DONE  lnpcc_flickr_pair_0.1  gpu=0  23.3 min  rc=0

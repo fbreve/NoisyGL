@@ -1,0 +1,296 @@
+[worker] START  hpo_amazoncom_random_0.3  gpu=1
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-19 01:57:06
+Variants       : ['lnpcc']
+Datasets       : ['amazoncom']
+Noise          : [[0.3, 'random']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:1
+======================================================================
+
+[HPO] Optimizing lnpcc on amazoncom_random_0.3 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: amazoncom_random_0.3  (max_trials=200, startup=20)
+  [Trial   1] amazoncom_random_0.3 | acc=0.3820  (118.4s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] amazoncom_random_0.3 | acc=0.2480  (107.6s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] amazoncom_random_0.3 | acc=0.4170  (83.7s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] amazoncom_random_0.3 | acc=0.7330  (104.0s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] amazoncom_random_0.3 | acc=0.7800  (110.8s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] amazoncom_random_0.3 | acc=0.7570  (106.2s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] amazoncom_random_0.3 | acc=0.5030  (90.8s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] amazoncom_random_0.3 | acc=0.2940  (79.7s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] amazoncom_random_0.3 | acc=0.6530  (117.9s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] amazoncom_random_0.3 | acc=0.3820  (148.7s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] amazoncom_random_0.3 | acc=0.2430  (102.4s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] amazoncom_random_0.3 | acc=0.7180  (78.5s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] amazoncom_random_0.3 | acc=0.1650  (76.3s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] amazoncom_random_0.3 | acc=0.7150  (105.2s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] amazoncom_random_0.3 | acc=0.2310  (131.6s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] amazoncom_random_0.3 | acc=0.1300  (132.9s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] amazoncom_random_0.3 | acc=0.7410  (92.6s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] amazoncom_random_0.3 | acc=0.7050  (138.4s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] amazoncom_random_0.3 | acc=0.7270  (117.3s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] amazoncom_random_0.3 | acc=0.3160  (65.0s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] amazoncom_random_0.3 | acc=0.7540  (83.2s)  knn=s  k= 45  dexp=9.02  p_grd=0.352  unc_rem=0.575  unc_rel=0.731  drop=0.34  h=32  L=1  lr=0.1  wd=0.01
+  [Trial  22] amazoncom_random_0.3 | acc=0.7330  (71.1s)  knn=s  k= 45  dexp=9.75  p_grd=0.355  unc_rem=0.670  unc_rel=0.615  drop=0.36  h=32  L=1  lr=0.001  wd=0.01
+  [Trial  23] amazoncom_random_0.3 | acc=0.7660  (74.4s)  knn=u  k=-    dexp=9.15  p_grd=0.472  unc_rem=0.469  unc_rel=0.861  drop=0.45  h=64  L=4  lr=0.001  wd=0.001
+  [Trial  24] amazoncom_random_0.3 | acc=0.7720  (66.2s)  knn=u  k=-    dexp=8.51  p_grd=0.429  unc_rem=0.622  unc_rel=0.930  drop=0.64  h=64  L=4  lr=0.001  wd=0.001
+  [Trial  25] amazoncom_random_0.3 | acc=0.7790  (93.7s)  knn=u  k=-    dexp=9.68  p_grd=0.472  unc_rem=0.810  unc_rel=0.747  drop=0.54  h=64  L=4  lr=0.001  wd=0.001
+  [Trial  26] amazoncom_random_0.3 | acc=0.5860  (69.0s)  knn=u  k=-    dexp=10.00  p_grd=0.378  unc_rem=0.853  unc_rel=0.590  drop=0.68  h=16  L=4  lr=0.005  wd=0.001
+  [Trial  27] amazoncom_random_0.3 | acc=0.3760  (66.5s)  knn=u  k=-    dexp=7.31  p_grd=0.405  unc_rem=0.845  unc_rel=0.809  drop=0.59  h=64  L=1  lr=0.0001  wd=1e-05
+  [Trial  28] amazoncom_random_0.3 | acc=0.2840  (86.6s)  knn=u  k=-    dexp=4.58  p_grd=0.317  unc_rem=0.392  unc_rel=0.967  drop=0.59  h=64  L=2  lr=0.1  wd=0.001
+  [Trial  29] amazoncom_random_0.3 | acc=0.7920  (84.4s)  knn=u  k=-    dexp=8.88  p_grd=0.468  unc_rem=0.734  unc_rel=0.847  drop=0.57  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  30] amazoncom_random_0.3 | acc=0.7510  (90.5s)  knn=p  k=  2  dexp=9.39  p_grd=0.448  unc_rem=0.480  unc_rel=0.960  drop=0.66  h=32  L=2  lr=0.001  wd=5e-05
+  [Trial  31] amazoncom_random_0.3 | acc=0.7800  (63.9s)  knn=u  k=-    dexp=8.29  p_grd=0.440  unc_rem=0.911  unc_rel=0.533  drop=0.43  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  32] amazoncom_random_0.3 | acc=0.5160  (65.9s)  knn=u  k=-    dexp=8.19  p_grd=0.464  unc_rem=0.827  unc_rel=0.594  drop=0.51  h=32  L=3  lr=0.05  wd=5e-05
+  [Trial  33] amazoncom_random_0.3 | acc=0.7330  (83.7s)  knn=p  k=  2  dexp=9.30  p_grd=0.405  unc_rem=0.834  unc_rel=0.269  drop=0.40  h=64  L=3  lr=0.001  wd=5e-05
+  [Trial  34] amazoncom_random_0.3 | acc=0.7470  (86.2s)  knn=u  k=-    dexp=6.61  p_grd=0.300  unc_rem=0.992  unc_rel=0.281  drop=0.35  h=32  L=3  lr=0.001  wd=0.005
+  [Trial  35] amazoncom_random_0.3 | acc=0.6360  (78.0s)  knn=u  k=-    dexp=9.54  p_grd=0.442  unc_rem=0.439  unc_rel=0.840  drop=0.70  h=16  L=3  lr=0.001  wd=5e-05
+  [Trial  36] amazoncom_random_0.3 | acc=0.7290  (95.9s)  knn=d  k=  7  dexp=7.42  p_grd=0.472  unc_rem=0.799  unc_rel=0.560  drop=0.46  h=32  L=1  lr=0.001  wd=5e-05
+  [Trial  37] amazoncom_random_0.3 | acc=0.7700  (74.3s)  knn=u  k=-    dexp=4.34  p_grd=0.492  unc_rem=0.615  unc_rel=0.984  drop=0.57  h=32  L=3  lr=0.001  wd=0.0005
+  [Trial  38] amazoncom_random_0.3 | acc=0.7450  (68.3s)  knn=u  k=-    dexp=9.74  p_grd=0.390  unc_rem=0.933  unc_rel=0.850  drop=0.31  h=64  L=2  lr=0.001  wd=5e-05
+  [Trial  39] amazoncom_random_0.3 | acc=0.0460  (84.2s)  knn=d  k=  7  dexp=7.09  p_grd=0.363  unc_rem=0.177  unc_rel=0.858  drop=0.44  h=128  L=4  lr=1e-05  wd=0.001
+  [Trial  40] amazoncom_random_0.3 | acc=0.2770  (122.2s)  knn=u  k=-    dexp=9.52  p_grd=0.478  unc_rem=0.874  unc_rel=0.934  drop=0.69  h=32  L=4  lr=0.1  wd=5e-05
+  [Trial  41] amazoncom_random_0.3 | acc=0.6490  (115.1s)  knn=d  k= 24  dexp=9.98  p_grd=0.382  unc_rem=0.791  unc_rel=0.975  drop=0.62  h=32  L=3  lr=0.01  wd=0.05
+  [Trial  42] amazoncom_random_0.3 | acc=0.7710  (81.6s)  knn=p  k=  1  dexp=8.32  p_grd=0.434  unc_rem=0.872  unc_rel=0.630  drop=0.68  h=64  L=4  lr=0.01  wd=0.001
+  [Trial  43] amazoncom_random_0.3 | acc=0.7680  (73.2s)  knn=u  k=-    dexp=7.44  p_grd=0.302  unc_rem=0.387  unc_rel=0.899  drop=0.85  h=64  L=4  lr=0.005  wd=0.001
+  [Trial  44] amazoncom_random_0.3 | acc=0.7560  (71.3s)  knn=u  k=-    dexp=8.20  p_grd=0.464  unc_rem=0.659  unc_rel=0.476  drop=0.61  h=32  L=2  lr=0.001  wd=0.0001
+  [Trial  45] amazoncom_random_0.3 | acc=0.7780  (104.9s)  knn=u  k=-    dexp=8.56  p_grd=0.399  unc_rem=0.864  unc_rel=0.723  drop=0.71  h=32  L=3  lr=0.001  wd=0.005
+  [Trial  46] amazoncom_random_0.3 | acc=0.2330  (109.3s)  knn=u  k=-    dexp=6.57  p_grd=0.309  unc_rem=0.895  unc_rel=0.775  drop=0.70  h=32  L=3  lr=0.1  wd=0.005
+  [Trial  47] amazoncom_random_0.3 | acc=0.7590  (70.4s)  knn=u  k=-    dexp=9.32  p_grd=0.388  unc_rem=0.735  unc_rel=0.726  drop=0.23  h=32  L=3  lr=0.001  wd=0.0005
+  [Trial  48] amazoncom_random_0.3 | acc=0.7670  (82.5s)  knn=u  k=-    dexp=9.30  p_grd=0.489  unc_rem=0.836  unc_rel=0.921  drop=0.69  h=32  L=3  lr=0.001  wd=1e-05
+  [Trial  49] amazoncom_random_0.3 | acc=0.2470  (226.3s)  knn=p  k= 17  dexp=9.12  p_grd=0.325  unc_rem=0.827  unc_rel=0.838  drop=0.82  h=16  L=3  lr=0.05  wd=0.005
+  [Trial  50] amazoncom_random_0.3 | acc=0.7400  (68.7s)  knn=u  k=-    dexp=8.62  p_grd=0.482  unc_rem=0.711  unc_rel=0.951  drop=0.39  h=32  L=1  lr=0.005  wd=5e-05
+  [Trial  51] amazoncom_random_0.3 | acc=0.0740  (81.5s)  knn=u  k=-    dexp=9.45  p_grd=0.381  unc_rem=0.712  unc_rel=0.643  drop=0.82  h=32  L=3  lr=1e-05  wd=0.001
+  [Trial  52] amazoncom_random_0.3 | acc=0.7380  (104.8s)  knn=d  k= 13  dexp=9.58  p_grd=0.233  unc_rem=0.606  unc_rel=0.761  drop=0.37  h=32  L=4  lr=0.001  wd=0.001
+  [Trial  53] amazoncom_random_0.3 | acc=0.3410  (98.6s)  knn=u  k=-    dexp=9.50  p_grd=0.445  unc_rem=0.766  unc_rel=0.430  drop=0.42  h=64  L=4  lr=0.1  wd=0.005
+  [Trial  54] amazoncom_random_0.3 | acc=0.7100  (110.1s)  knn=u  k=-    dexp=9.43  p_grd=0.427  unc_rem=0.791  unc_rel=0.859  drop=0.57  h=128  L=2  lr=0.0001  wd=0.005
+  [Trial  55] amazoncom_random_0.3 | acc=0.7530  (72.8s)  knn=u  k=-    dexp=8.30  p_grd=0.497  unc_rem=0.918  unc_rel=0.715  drop=0.78  h=128  L=4  lr=0.001  wd=0.0001
+  [Trial  56] amazoncom_random_0.3 | acc=0.7620  (126.5s)  knn=s  k= 35  dexp=9.18  p_grd=0.434  unc_rem=0.727  unc_rel=0.960  drop=0.62  h=64  L=4  lr=0.0005  wd=0.01
+  [Trial  57] amazoncom_random_0.3 | acc=0.7730  (97.5s)  knn=u  k=-    dexp=8.81  p_grd=0.404  unc_rem=0.994  unc_rel=0.821  drop=0.62  h=64  L=4  lr=0.001  wd=0.005
+  [Trial  58] amazoncom_random_0.3 | acc=0.6870  (60.5s)  knn=u  k=-    dexp=7.98  p_grd=0.236  unc_rem=0.381  unc_rel=0.872  drop=0.40  h=64  L=1  lr=0.001  wd=0.1
+  [Trial  59] amazoncom_random_0.3 | acc=0.7700  (135.2s)  knn=u  k=-    dexp=7.98  p_grd=0.364  unc_rem=0.996  unc_rel=0.661  drop=0.61  h=64  L=4  lr=0.001  wd=0.005
+  [Trial  60] amazoncom_random_0.3 | acc=0.7240  (147.1s)  knn=s  k= 35  dexp=8.74  p_grd=0.375  unc_rem=0.945  unc_rel=0.578  drop=0.37  h=128  L=3  lr=0.0001  wd=5e-05
+  [Trial  61] amazoncom_random_0.3 | acc=0.7220  (74.3s)  knn=u  k=-    dexp=7.72  p_grd=0.373  unc_rem=0.959  unc_rel=0.992  drop=0.67  h=64  L=3  lr=0.0005  wd=0.0005
+  [Trial  62] amazoncom_random_0.3 | acc=0.7050  (85.7s)  knn=u  k=-    dexp=5.50  p_grd=0.474  unc_rem=0.742  unc_rel=0.659  drop=0.34  h=16  L=3  lr=0.001  wd=5e-05
+  [Trial  63] amazoncom_random_0.3 | acc=0.7670  (139.0s)  knn=u  k=-    dexp=9.85  p_grd=0.370  unc_rem=0.706  unc_rel=0.617  drop=0.67  h=32  L=3  lr=0.001  wd=0.005
+  [Trial  64] amazoncom_random_0.3 | acc=0.7430  (55.9s)  knn=u  k=-    dexp=7.31  p_grd=0.256  unc_rem=0.172  unc_rel=0.686  drop=0.77  h=64  L=3  lr=0.001  wd=0.001
+  [Trial  65] amazoncom_random_0.3 | acc=0.7280  (59.8s)  knn=u  k=-    dexp=8.65  p_grd=0.461  unc_rem=0.961  unc_rel=0.559  drop=0.70  h=64  L=1  lr=0.001  wd=0.001
+  [Trial  66] amazoncom_random_0.3 | acc=0.7570  (112.2s)  knn=s  k= 50  dexp=8.85  p_grd=0.209  unc_rem=0.106  unc_rel=0.596  drop=0.41  h=64  L=4  lr=0.001  wd=0.001
+  [Trial  67] amazoncom_random_0.3 | acc=0.7390  (83.7s)  knn=s  k= 60  dexp=7.22  p_grd=0.370  unc_rem=0.504  unc_rel=0.753  drop=0.56  h=64  L=2  lr=0.001  wd=0.001
+  [Trial  68] amazoncom_random_0.3 | acc=0.7590  (118.0s)  knn=d  k= 18  dexp=9.45  p_grd=0.407  unc_rem=0.701  unc_rel=0.657  drop=0.85  h=64  L=4  lr=0.001  wd=0.001
+  [Trial  69] amazoncom_random_0.3 | acc=0.7570  (87.2s)  knn=d  k= 13  dexp=7.29  p_grd=0.281  unc_rem=0.768  unc_rel=0.796  drop=0.73  h=32  L=2  lr=0.001  wd=0.005
+  [Trial  70] amazoncom_random_0.3 | acc=0.7790  (102.7s)  knn=d  k= 18  dexp=8.79  p_grd=0.393  unc_rem=0.718  unc_rel=0.953  drop=0.45  h=64  L=4  lr=0.001  wd=0.0001
+  [Trial  71] amazoncom_random_0.3 | acc=0.7780  (186.5s)  knn=s  k= 40  dexp=8.35  p_grd=0.457  unc_rem=0.870  unc_rel=0.808  drop=0.60  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  72] amazoncom_random_0.3 | acc=0.7620  (126.9s)  knn=d  k= 24  dexp=8.97  p_grd=0.392  unc_rem=0.774  unc_rel=0.936  drop=0.27  h=64  L=4  lr=0.001  wd=0.0001
+  [Trial  73] amazoncom_random_0.3 | acc=0.0660  (89.7s)  knn=d  k= 24  dexp=9.85  p_grd=0.406  unc_rem=0.532  unc_rel=0.966  drop=0.56  h=32  L=4  lr=1e-05  wd=0.0001
+  [Trial  74] amazoncom_random_0.3 | acc=0.7870  (127.4s)  knn=s  k= 40  dexp=7.19  p_grd=0.497  unc_rem=0.921  unc_rel=0.724  drop=0.59  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial  75] amazoncom_random_0.3 | acc=0.2140  (109.8s)  knn=s  k= 40  dexp=7.08  p_grd=0.376  unc_rem=0.974  unc_rel=0.560  drop=0.67  h=32  L=3  lr=0.05  wd=0.0001
+  [Trial  76] amazoncom_random_0.3 | acc=0.6590  (167.4s)  knn=s  k= 35  dexp=6.24  p_grd=0.450  unc_rem=0.851  unc_rel=0.811  drop=0.78  h=16  L=3  lr=0.001  wd=0.01
+  [Trial  77] amazoncom_random_0.3 | acc=0.7850  (226.0s)  knn=s  k= 45  dexp=7.45  p_grd=0.442  unc_rem=0.764  unc_rel=0.597  drop=0.66  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  78] amazoncom_random_0.3 | acc=0.1650  (109.2s)  knn=s  k= 50  dexp=8.67  p_grd=0.421  unc_rem=0.603  unc_rel=0.410  drop=0.66  h=32  L=3  lr=0.1  wd=5e-05
+  [Trial  79] amazoncom_random_0.3 | acc=0.7470  (90.9s)  knn=u  k=-    dexp=7.52  p_grd=0.318  unc_rem=0.880  unc_rel=0.656  drop=0.51  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial  80] amazoncom_random_0.3 | acc=0.7760  (165.6s)  knn=p  k= 24  dexp=5.99  p_grd=0.441  unc_rem=0.754  unc_rel=0.517  drop=0.53  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial  81] amazoncom_random_0.3 | acc=0.3030  (72.2s)  knn=s  k= 50  dexp=6.68  p_grd=0.488  unc_rem=0.750  unc_rel=0.703  drop=0.53  h=32  L=4  lr=0.0001  wd=0.001
+  [Trial  82] amazoncom_random_0.3 | acc=0.7270  (75.6s)  knn=s  k= 40  dexp=8.03  p_grd=0.285  unc_rem=0.934  unc_rel=0.828  drop=0.75  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  83] amazoncom_random_0.3 | acc=0.6480  (89.0s)  knn=u  k=-    dexp=4.91  p_grd=0.371  unc_rem=0.340  unc_rel=0.664  drop=0.47  h=64  L=4  lr=0.0001  wd=0.001
+  [Trial  84] amazoncom_random_0.3 | acc=0.7520  (76.9s)  knn=s  k= 40  dexp=7.69  p_grd=0.454  unc_rem=0.831  unc_rel=0.334  drop=0.88  h=128  L=3  lr=0.001  wd=5e-05
+  [Trial  85] amazoncom_random_0.3 | acc=0.4100  (85.5s)  knn=s  k= 40  dexp=8.14  p_grd=0.462  unc_rem=0.856  unc_rel=0.716  drop=0.41  h=32  L=3  lr=0.1  wd=1e-05
+  [Trial  86] amazoncom_random_0.3 | acc=0.7870  (77.2s)  knn=s  k= 35  dexp=8.78  p_grd=0.491  unc_rem=0.791  unc_rel=0.634  drop=0.76  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial  87] amazoncom_random_0.3 | acc=0.7800  (110.7s)  knn=s  k= 30  dexp=6.70  p_grd=0.494  unc_rem=0.633  unc_rel=0.789  drop=0.66  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial  88] amazoncom_random_0.3 | acc=0.7420  (70.4s)  knn=s  k= 30  dexp=6.19  p_grd=0.383  unc_rem=0.642  unc_rel=0.782  drop=0.59  h=32  L=3  lr=0.005  wd=0.0005
+  [Trial  89] amazoncom_random_0.3 | acc=0.7740  (76.9s)  knn=s  k= 30  dexp=4.27  p_grd=0.447  unc_rem=0.601  unc_rel=0.857  drop=0.67  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial  90] amazoncom_random_0.3 | acc=0.7800  (145.6s)  knn=s  k= 35  dexp=9.92  p_grd=0.491  unc_rem=0.735  unc_rel=0.789  drop=0.81  h=32  L=3  lr=0.005  wd=0.001
+  [Trial  91] amazoncom_random_0.3 | acc=0.7400  (93.6s)  knn=s  k= 35  dexp=9.89  p_grd=0.394  unc_rem=0.972  unc_rel=0.537  drop=0.70  h=64  L=3  lr=0.005  wd=0.001
+  [Trial  92] amazoncom_random_0.3 | acc=0.7910  (132.7s)  knn=u  k=-    dexp=8.53  p_grd=0.463  unc_rem=0.932  unc_rel=0.366  drop=0.41  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  93] amazoncom_random_0.3 | acc=0.7710  (90.9s)  knn=u  k=-    dexp=9.15  p_grd=0.411  unc_rem=0.903  unc_rel=0.342  drop=0.42  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  94] amazoncom_random_0.3 | acc=0.6070  (99.7s)  knn=s  k= 35  dexp=9.36  p_grd=0.439  unc_rem=0.756  unc_rel=0.673  drop=0.87  h=32  L=3  lr=0.005  wd=0.05
+  [Trial  95] amazoncom_random_0.3 | acc=0.6410  (94.2s)  knn=d  k= 24  dexp=8.41  p_grd=0.349  unc_rem=0.811  unc_rel=0.596  drop=0.49  h=16  L=3  lr=0.005  wd=5e-05
+  [Trial  96] amazoncom_random_0.3 | acc=0.7740  (84.4s)  knn=s  k= 45  dexp=9.37  p_grd=0.497  unc_rem=0.692  unc_rel=0.809  drop=0.82  h=32  L=3  lr=0.001  wd=0.001
+  [Trial  97] amazoncom_random_0.3 | acc=0.5450  (62.2s)  knn=s  k= 35  dexp=6.20  p_grd=0.475  unc_rem=0.497  unc_rel=0.826  drop=0.74  h=16  L=3  lr=0.0005  wd=0.0001
+  [Trial  98] amazoncom_random_0.3 | acc=0.7570  (186.7s)  knn=s  k= 45  dexp=8.05  p_grd=0.473  unc_rem=0.796  unc_rel=0.784  drop=0.63  h=64  L=3  lr=0.01  wd=0.0001
+  [Trial  99] amazoncom_random_0.3 | acc=0.7720  (72.1s)  knn=s  k= 35  dexp=9.07  p_grd=0.453  unc_rem=0.977  unc_rel=0.877  drop=0.52  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 100] amazoncom_random_0.3 | acc=0.1810  (183.0s)  knn=u  k=-    dexp=7.07  p_grd=0.484  unc_rem=0.601  unc_rel=0.864  drop=0.43  h=128  L=3  lr=0.005  wd=0.1
+  [Trial 101] amazoncom_random_0.3 | acc=0.7530  (213.3s)  knn=s  k= 35  dexp=6.35  p_grd=0.459  unc_rem=0.586  unc_rel=0.424  drop=0.61  h=32  L=4  lr=0.001  wd=0.005
+  [Trial 102] amazoncom_random_0.3 | acc=0.6220  (81.5s)  knn=u  k=-    dexp=8.89  p_grd=0.409  unc_rem=0.036  unc_rel=0.874  drop=0.51  h=32  L=4  lr=0.001  wd=0.05
+  [Trial 103] amazoncom_random_0.3 | acc=0.0840  (95.4s)  knn=s  k= 30  dexp=7.09  p_grd=0.484  unc_rem=0.631  unc_rel=0.703  drop=0.74  h=32  L=3  lr=1e-05  wd=0.0001
+  [Trial 104] amazoncom_random_0.3 | acc=0.7770  (83.8s)  knn=p  k= 24  dexp=7.29  p_grd=0.432  unc_rem=0.556  unc_rel=0.950  drop=0.65  h=64  L=4  lr=0.001  wd=0.0001
+  [Trial 105] amazoncom_random_0.3 | acc=0.7550  (102.0s)  knn=s  k= 45  dexp=9.27  p_grd=0.414  unc_rem=0.982  unc_rel=0.492  drop=0.60  h=32  L=4  lr=0.001  wd=0.0001
+  [Trial 106] amazoncom_random_0.3 | acc=0.7590  (90.6s)  knn=s  k= 30  dexp=9.86  p_grd=0.371  unc_rem=0.743  unc_rel=0.973  drop=0.82  h=32  L=3  lr=0.005  wd=0.001
+  [Trial 107] amazoncom_random_0.3 | acc=0.7580  (76.4s)  knn=s  k= 40  dexp=9.65  p_grd=0.463  unc_rem=0.873  unc_rel=0.744  drop=0.40  h=32  L=3  lr=0.0005  wd=0.0001
+  [Trial 108] amazoncom_random_0.3 | acc=0.6800  (82.6s)  knn=s  k= 50  dexp=8.97  p_grd=0.492  unc_rem=0.683  unc_rel=0.461  drop=0.68  h=16  L=3  lr=0.001  wd=0.0001
+  [Trial 109] amazoncom_random_0.3 | acc=0.6150  (226.2s)  knn=p  k= 24  dexp=9.01  p_grd=0.291  unc_rem=0.247  unc_rel=0.790  drop=0.48  h=64  L=4  lr=0.0001  wd=0.005
+  [Trial 110] amazoncom_random_0.3 | acc=0.7280  (65.2s)  knn=s  k= 35  dexp=8.18  p_grd=0.479  unc_rem=0.506  unc_rel=0.853  drop=0.44  h=64  L=1  lr=0.001  wd=0.0001
+  [Trial 111] amazoncom_random_0.3 | acc=0.5340  (97.5s)  knn=d  k= 24  dexp=6.08  p_grd=0.466  unc_rem=0.841  unc_rel=0.741  drop=0.48  h=16  L=4  lr=0.001  wd=0.05
+  [Trial 112] amazoncom_random_0.3 | acc=0.5820  (259.9s)  knn=u  k=-    dexp=7.63  p_grd=0.466  unc_rem=0.346  unc_rel=0.753  drop=0.64  h=32  L=3  lr=0.0001  wd=5e-05
+  [Trial 113] amazoncom_random_0.3 | acc=0.3820  (52.0s)  knn=u  k=-    dexp=6.52  p_grd=0.301  unc_rem=0.539  unc_rel=0.880  drop=0.46  h=64  L=4  lr=0.1  wd=0.01
+  [Trial 114] amazoncom_random_0.3 | acc=0.7750  (265.1s)  knn=d  k= 17  dexp=8.31  p_grd=0.485  unc_rem=0.669  unc_rel=0.807  drop=0.66  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial 115] amazoncom_random_0.3 | acc=0.7760  (167.0s)  knn=u  k=-    dexp=7.91  p_grd=0.435  unc_rem=0.612  unc_rel=0.872  drop=0.44  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 116] amazoncom_random_0.3 | acc=0.7270  (71.1s)  knn=u  k=-    dexp=8.87  p_grd=0.331  unc_rem=0.311  unc_rel=0.777  drop=0.39  h=64  L=3  lr=0.0005  wd=0.001
+  [Trial 117] amazoncom_random_0.3 | acc=0.0710  (78.1s)  knn=u  k=-    dexp=7.52  p_grd=0.465  unc_rem=0.853  unc_rel=0.501  drop=0.31  h=32  L=3  lr=1e-05  wd=0.05
+  [Trial 118] amazoncom_random_0.3 | acc=0.7800  (94.5s)  knn=s  k= 45  dexp=8.21  p_grd=0.478  unc_rem=0.974  unc_rel=0.652  drop=0.61  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial 119] amazoncom_random_0.3 | acc=0.7190  (125.5s)  knn=d  k= 24  dexp=9.23  p_grd=0.424  unc_rem=0.564  unc_rel=0.846  drop=0.80  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 120] amazoncom_random_0.3 | acc=0.7790  (60.5s)  knn=s  k= 50  dexp=7.32  p_grd=0.432  unc_rem=0.964  unc_rel=0.718  drop=0.48  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial 121] amazoncom_random_0.3 | acc=0.7280  (63.0s)  knn=s  k= 45  dexp=8.99  p_grd=0.471  unc_rem=0.715  unc_rel=0.899  drop=0.80  h=32  L=1  lr=0.001  wd=0.0001
+  [Trial 122] amazoncom_random_0.3 | acc=0.7850  (182.2s)  knn=u  k=-    dexp=9.88  p_grd=0.406  unc_rem=0.782  unc_rel=0.568  drop=0.40  h=64  L=4  lr=0.001  wd=0.001
+  [Trial 123] amazoncom_random_0.3 | acc=0.7390  (138.2s)  knn=u  k=-    dexp=9.50  p_grd=0.496  unc_rem=0.895  unc_rel=0.298  drop=0.29  h=32  L=2  lr=0.01  wd=5e-05
+  [Trial 124] amazoncom_random_0.3 | acc=0.6260  (87.2s)  knn=u  k=-    dexp=6.67  p_grd=0.202  unc_rem=0.489  unc_rel=0.885  drop=0.76  h=16  L=4  lr=0.001  wd=0.001
+  [Trial 125] amazoncom_random_0.3 | acc=0.7600  (138.7s)  knn=u  k=-    dexp=9.93  p_grd=0.306  unc_rem=0.869  unc_rel=0.480  drop=0.52  h=64  L=4  lr=0.01  wd=0.001
+  [Trial 126] amazoncom_random_0.3 | acc=0.6530  (143.3s)  knn=s  k= 45  dexp=4.70  p_grd=0.479  unc_rem=0.854  unc_rel=0.515  drop=0.63  h=32  L=3  lr=0.001  wd=0.05
+  [Trial 127] amazoncom_random_0.3 | acc=0.7770  (88.4s)  knn=s  k= 60  dexp=9.43  p_grd=0.427  unc_rem=0.773  unc_rel=0.530  drop=0.80  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial 128] amazoncom_random_0.3 | acc=0.7420  (240.4s)  knn=u  k=-    dexp=9.95  p_grd=0.425  unc_rem=0.966  unc_rel=0.555  drop=0.47  h=64  L=3  lr=0.001  wd=0.01
+  [Trial 129] amazoncom_random_0.3 | acc=0.7610  (83.0s)  knn=d  k= 24  dexp=7.81  p_grd=0.344  unc_rem=0.473  unc_rel=0.701  drop=0.50  h=64  L=4  lr=0.0005  wd=0.0001
+  [Trial 130] amazoncom_random_0.3 | acc=0.7070  (99.4s)  knn=d  k= 24  dexp=9.31  p_grd=0.385  unc_rem=0.752  unc_rel=0.364  drop=0.22  h=64  L=4  lr=0.0001  wd=0.001
+  [Trial 131] amazoncom_random_0.3 | acc=0.7750  (96.6s)  knn=u  k=-    dexp=8.98  p_grd=0.386  unc_rem=0.806  unc_rel=0.653  drop=0.29  h=64  L=4  lr=0.001  wd=0.001
+  [Trial 132] amazoncom_random_0.3 | acc=0.2200  (57.6s)  knn=u  k=-    dexp=7.22  p_grd=0.475  unc_rem=0.923  unc_rel=0.786  drop=0.49  h=64  L=4  lr=1e-05  wd=0.001
+  [Trial 133] amazoncom_random_0.3 | acc=0.7720  (74.4s)  knn=s  k= 55  dexp=6.48  p_grd=0.450  unc_rem=0.988  unc_rel=0.702  drop=0.52  h=32  L=3  lr=0.001  wd=0.0001
+  [Trial 134] amazoncom_random_0.3 | acc=0.7650  (128.7s)  knn=d  k= 24  dexp=9.78  p_grd=0.391  unc_rem=0.836  unc_rel=0.916  drop=0.61  h=64  L=4  lr=0.001  wd=1e-05
+  [Trial 135] amazoncom_random_0.3 | acc=0.4390  (116.5s)  knn=u  k=-    dexp=9.36  p_grd=0.332  unc_rem=0.382  unc_rel=0.778  drop=0.61  h=64  L=4  lr=0.05  wd=0.001
+  [Trial 136] amazoncom_random_0.3 | acc=0.7240  (134.7s)  knn=s  k= 50  dexp=7.75  p_grd=0.426  unc_rem=0.876  unc_rel=0.954  drop=0.24  h=32  L=1  lr=0.001  wd=0.0001
+  [Trial 137] amazoncom_random_0.3 | acc=0.6660  (115.5s)  knn=s  k= 50  dexp=7.84  p_grd=0.423  unc_rem=0.915  unc_rel=0.565  drop=0.51  h=64  L=4  lr=0.001  wd=0.05
+  [Trial 138] amazoncom_random_0.3 | acc=0.7570  (109.8s)  knn=u  k=-    dexp=8.61  p_grd=0.407  unc_rem=0.993  unc_rel=0.152  drop=0.25  h=32  L=3  lr=0.0005  wd=0.01
+  [Trial 139] amazoncom_random_0.3 | acc=0.1490  (44.9s)  knn=u  k=-    dexp=8.76  p_grd=0.463  unc_rem=0.935  unc_rel=0.919  drop=0.68  h=16  L=3  lr=0.01  wd=5e-05
+  [Trial 140] amazoncom_random_0.3 | acc=0.7390  (73.6s)  knn=u  k=-    dexp=7.10  p_grd=0.226  unc_rem=0.155  unc_rel=0.845  drop=0.35  h=64  L=4  lr=0.001  wd=0.001
+  [Trial 141] amazoncom_random_0.3 | acc=0.7600  (67.2s)  knn=u  k=-    dexp=9.93  p_grd=0.436  unc_rem=0.877  unc_rel=0.755  drop=0.62  h=32  L=4  lr=0.001  wd=0.001
+  [Trial 142] amazoncom_random_0.3 | acc=0.4220  (88.2s)  knn=d  k= 24  dexp=9.40  p_grd=0.401  unc_rem=0.673  unc_rel=0.879  drop=0.45  h=16  L=4  lr=0.01  wd=0.0001
+  [Trial 143] amazoncom_random_0.3 | acc=0.1930  (73.2s)  knn=s  k= 45  dexp=9.19  p_grd=0.500  unc_rem=0.906  unc_rel=0.608  drop=0.47  h=32  L=3  lr=0.0001  wd=0.1
+  [Trial 144] amazoncom_random_0.3 | acc=0.7640  (177.5s)  knn=d  k= 24  dexp=8.63  p_grd=0.279  unc_rem=0.888  unc_rel=0.923  drop=0.55  h=32  L=4  lr=0.001  wd=0.0001
+  [Trial 145] amazoncom_random_0.3 | acc=0.7390  (106.1s)  knn=s  k= 40  dexp=9.90  p_grd=0.459  unc_rem=0.669  unc_rel=0.449  drop=0.81  h=32  L=4  lr=0.0005  wd=0.001
+  [Trial 146] amazoncom_random_0.3 | acc=0.3530  (60.9s)  knn=u  k=-    dexp=7.74  p_grd=0.420  unc_rem=0.948  unc_rel=0.599  drop=0.74  h=32  L=3  lr=0.001  wd=0.1
+  [Trial 147] amazoncom_random_0.3 | acc=0.7600  (78.1s)  knn=d  k= 24  dexp=7.99  p_grd=0.414  unc_rem=0.681  unc_rel=0.435  drop=0.76  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 148] amazoncom_random_0.3 | acc=0.0700  (74.9s)  knn=s  k= 40  dexp=4.70  p_grd=0.371  unc_rem=0.847  unc_rel=0.402  drop=0.66  h=32  L=3  lr=1e-05  wd=5e-05
+  [Trial 149] amazoncom_random_0.3 | acc=0.7730  (205.7s)  knn=s  k= 50  dexp=9.10  p_grd=0.499  unc_rem=0.722  unc_rel=0.862  drop=0.77  h=128  L=3  lr=0.001  wd=0.0001
+  [Trial 150] amazoncom_random_0.3 | acc=0.7550  (145.5s)  knn=u  k=-    dexp=9.15  p_grd=0.348  unc_rem=0.786  unc_rel=0.859  drop=0.63  h=32  L=3  lr=0.0005  wd=5e-05
+  [Trial 151] amazoncom_random_0.3 | acc=0.7130  (103.6s)  knn=p  k= 18  dexp=8.01  p_grd=0.445  unc_rem=0.874  unc_rel=0.583  drop=0.82  h=32  L=3  lr=0.01  wd=0.0001
+  [Trial 152] amazoncom_random_0.3 | acc=0.7940  (100.3s)  knn=s  k= 40  dexp=8.07  p_grd=0.481  unc_rem=0.922  unc_rel=0.835  drop=0.60  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 153] amazoncom_random_0.3 | acc=0.6110  (129.9s)  knn=u  k=-    dexp=8.49  p_grd=0.351  unc_rem=0.887  unc_rel=0.792  drop=0.47  h=32  L=3  lr=0.0001  wd=0.0001
+  [Trial 154] amazoncom_random_0.3 | acc=0.5330  (142.3s)  knn=s  k= 40  dexp=9.21  p_grd=0.457  unc_rem=0.527  unc_rel=0.491  drop=0.76  h=16  L=3  lr=0.005  wd=0.001
+  [Trial 155] amazoncom_random_0.3 | acc=0.7790  (101.1s)  knn=u  k=-    dexp=5.87  p_grd=0.383  unc_rem=0.378  unc_rel=0.858  drop=0.55  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 156] amazoncom_random_0.3 | acc=0.3820  (52.6s)  knn=u  k=-    dexp=5.49  p_grd=0.436  unc_rem=0.441  unc_rel=0.795  drop=0.46  h=128  L=4  lr=0.05  wd=0.0001
+  [Trial 157] amazoncom_random_0.3 | acc=0.7790  (110.2s)  knn=u  k=-    dexp=7.85  p_grd=0.365  unc_rem=0.208  unc_rel=0.520  drop=0.60  h=64  L=4  lr=0.001  wd=0.001
+  [Trial 158] amazoncom_random_0.3 | acc=0.7820  (113.6s)  knn=u  k=-    dexp=5.42  p_grd=0.454  unc_rem=0.301  unc_rel=0.846  drop=0.57  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 159] amazoncom_random_0.3 | acc=0.7540  (83.1s)  knn=d  k= 24  dexp=4.29  p_grd=0.408  unc_rem=0.391  unc_rel=0.796  drop=0.70  h=128  L=4  lr=0.001  wd=0.005
+  [Trial 160] amazoncom_random_0.3 | acc=0.7330  (52.7s)  knn=u  k=-    dexp=7.78  p_grd=0.415  unc_rem=0.033  unc_rel=0.938  drop=0.53  h=64  L=2  lr=0.001  wd=0.001
+  [Trial 161] amazoncom_random_0.3 | acc=0.7680  (147.7s)  knn=u  k=-    dexp=8.70  p_grd=0.406  unc_rem=0.809  unc_rel=0.502  drop=0.31  h=64  L=4  lr=0.005  wd=0.0001
+  [Trial 162] amazoncom_random_0.3 | acc=0.7450  (62.9s)  knn=u  k=-    dexp=6.86  p_grd=0.342  unc_rem=0.484  unc_rel=0.845  drop=0.47  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 163] amazoncom_random_0.3 | acc=0.7390  (90.6s)  knn=u  k=-    dexp=6.81  p_grd=0.341  unc_rem=0.584  unc_rel=0.867  drop=0.40  h=64  L=4  lr=0.001  wd=5e-05
+  [Trial 164] amazoncom_random_0.3 | acc=0.6440  (62.8s)  knn=u  k=-    dexp=4.78  p_grd=0.266  unc_rem=0.474  unc_rel=0.884  drop=0.75  h=128  L=4  lr=0.0001  wd=0.001
+  [Trial 165] amazoncom_random_0.3 | acc=0.0830  (77.6s)  knn=p  k= 24  dexp=9.13  p_grd=0.469  unc_rem=0.888  unc_rel=0.802  drop=0.59  h=32  L=3  lr=1e-05  wd=5e-05
+  [Trial 166] amazoncom_random_0.3 | acc=0.6650  (92.8s)  knn=d  k= 24  dexp=6.53  p_grd=0.487  unc_rem=0.582  unc_rel=0.907  drop=0.48  h=64  L=4  lr=0.0001  wd=0.0001
+  [Trial 167] amazoncom_random_0.3 | acc=0.7070  (87.8s)  knn=s  k= 15  dexp=5.29  p_grd=0.436  unc_rem=0.932  unc_rel=0.783  drop=0.68  h=32  L=1  lr=0.1  wd=0.0001
+  [Trial 168] amazoncom_random_0.3 | acc=0.7790  (69.4s)  knn=u  k=-    dexp=5.24  p_grd=0.491  unc_rem=0.902  unc_rel=0.504  drop=0.51  h=32  L=3  lr=0.0005  wd=5e-05
+  [Trial 169] amazoncom_random_0.3 | acc=0.7440  (71.7s)  knn=u  k=-    dexp=4.26  p_grd=0.414  unc_rem=0.336  unc_rel=0.620  drop=0.67  h=128  L=2  lr=0.001  wd=1e-05
+  [Trial 170] amazoncom_random_0.3 | acc=0.7820  (69.5s)  knn=u  k=-    dexp=6.65  p_grd=0.413  unc_rem=0.346  unc_rel=0.627  drop=0.74  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 171] amazoncom_random_0.3 | acc=0.7560  (54.9s)  knn=u  k=-    dexp=5.48  p_grd=0.350  unc_rem=0.311  unc_rel=0.508  drop=0.66  h=128  L=4  lr=0.0005  wd=0.0005
+  [Trial 172] amazoncom_random_0.3 | acc=0.6600  (79.1s)  knn=s  k= 40  dexp=6.70  p_grd=0.402  unc_rem=0.741  unc_rel=0.794  drop=0.63  h=32  L=2  lr=0.001  wd=0.1
+  [Trial 173] amazoncom_random_0.3 | acc=0.7470  (143.2s)  knn=u  k=-    dexp=4.35  p_grd=0.406  unc_rem=0.251  unc_rel=0.710  drop=0.77  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 174] amazoncom_random_0.3 | acc=0.7810  (202.7s)  knn=u  k=-    dexp=7.44  p_grd=0.480  unc_rem=0.515  unc_rel=0.855  drop=0.89  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 175] amazoncom_random_0.3 | acc=0.7290  (52.8s)  knn=s  k= 40  dexp=7.10  p_grd=0.430  unc_rem=0.770  unc_rel=0.518  drop=0.67  h=16  L=1  lr=0.001  wd=5e-05
+  [Trial 176] amazoncom_random_0.3 | acc=0.7810  (94.8s)  knn=u  k=-    dexp=7.22  p_grd=0.424  unc_rem=0.489  unc_rel=0.774  drop=0.75  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 177] amazoncom_random_0.3 | acc=0.7630  (57.0s)  knn=u  k=-    dexp=3.81  p_grd=0.445  unc_rem=0.623  unc_rel=0.904  drop=0.68  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 178] amazoncom_random_0.3 | acc=0.7340  (167.0s)  knn=u  k=-    dexp=7.80  p_grd=0.448  unc_rem=0.550  unc_rel=0.778  drop=0.82  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 179] amazoncom_random_0.3 | acc=0.3520  (58.8s)  knn=u  k=-    dexp=8.31  p_grd=0.419  unc_rem=0.345  unc_rel=0.978  drop=0.89  h=128  L=4  lr=0.05  wd=0.01
+  [Trial 180] amazoncom_random_0.3 | acc=0.7540  (113.7s)  knn=s  k= 35  dexp=5.87  p_grd=0.473  unc_rem=0.480  unc_rel=0.973  drop=0.80  h=128  L=4  lr=0.001  wd=1e-05
+  [Trial 181] amazoncom_random_0.3 | acc=0.1410  (50.3s)  knn=u  k=-    dexp=9.34  p_grd=0.337  unc_rem=0.617  unc_rel=0.526  drop=0.36  h=64  L=4  lr=1e-05  wd=0.1
+  [Trial 182] amazoncom_random_0.3 | acc=0.3320  (67.2s)  knn=d  k= 24  dexp=6.55  p_grd=0.194  unc_rem=0.672  unc_rel=0.858  drop=0.47  h=64  L=4  lr=0.001  wd=0.1
+  [Trial 183] amazoncom_random_0.3 | acc=0.7560  (61.2s)  knn=u  k=-    dexp=7.61  p_grd=0.419  unc_rem=0.313  unc_rel=0.456  drop=0.66  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 184] amazoncom_random_0.3 | acc=0.7440  (61.1s)  knn=s  k= 25  dexp=5.10  p_grd=0.489  unc_rem=0.914  unc_rel=0.812  drop=0.70  h=32  L=3  lr=0.01  wd=5e-05
+  [Trial 185] amazoncom_random_0.3 | acc=0.3820  (240.9s)  knn=u  k=-    dexp=7.93  p_grd=0.413  unc_rem=0.830  unc_rel=0.624  drop=0.22  h=32  L=3  lr=0.1  wd=5e-05
+  [Trial 186] amazoncom_random_0.3 | acc=0.7700  (148.5s)  knn=p  k= 24  dexp=9.00  p_grd=0.479  unc_rem=0.901  unc_rel=0.616  drop=0.83  h=32  L=3  lr=0.005  wd=0.001
+  [Trial 187] amazoncom_random_0.3 | acc=0.7660  (67.1s)  knn=s  k= 50  dexp=9.87  p_grd=0.500  unc_rem=0.890  unc_rel=0.452  drop=0.63  h=32  L=3  lr=0.005  wd=0.0001
+  [Trial 188] amazoncom_random_0.3 | acc=0.7670  (67.0s)  knn=d  k= 24  dexp=9.01  p_grd=0.416  unc_rem=0.178  unc_rel=0.823  drop=0.37  h=64  L=4  lr=0.001  wd=0.0001
+  [Trial 189] amazoncom_random_0.3 | acc=0.7290  (54.5s)  knn=d  k= 24  dexp=6.87  p_grd=0.330  unc_rem=0.829  unc_rel=0.831  drop=0.63  h=64  L=1  lr=0.001  wd=0.0001
+  [Trial 190] amazoncom_random_0.3 | acc=0.7400  (49.6s)  knn=s  k= 40  dexp=8.45  p_grd=0.457  unc_rem=0.950  unc_rel=0.267  drop=0.52  h=32  L=2  lr=0.001  wd=5e-05
+  [Trial 191] amazoncom_random_0.3 | acc=0.7790  (127.5s)  knn=u  k=-    dexp=9.66  p_grd=0.489  unc_rem=0.659  unc_rel=0.543  drop=0.46  h=64  L=4  lr=0.001  wd=1e-05
+  [Trial 192] amazoncom_random_0.3 | acc=0.7620  (56.1s)  knn=s  k= 45  dexp=5.06  p_grd=0.384  unc_rem=0.321  unc_rel=0.778  drop=0.39  h=128  L=4  lr=0.001  wd=0.0005
+  [Trial 193] amazoncom_random_0.3 | acc=0.6290  (69.6s)  knn=u  k=-    dexp=8.23  p_grd=0.471  unc_rem=0.721  unc_rel=0.523  drop=0.70  h=64  L=4  lr=0.0001  wd=0.001
+  [Trial 194] amazoncom_random_0.3 | acc=0.7130  (187.6s)  knn=u  k=-    dexp=4.16  p_grd=0.453  unc_rem=0.355  unc_rel=0.872  drop=0.52  h=128  L=3  lr=0.0001  wd=0.001
+  [Trial 195] amazoncom_random_0.3 | acc=0.4320  (70.2s)  knn=u  k=-    dexp=7.84  p_grd=0.486  unc_rem=0.750  unc_rel=0.811  drop=0.50  h=16  L=4  lr=0.001  wd=0.1
+  [Trial 196] amazoncom_random_0.3 | acc=0.7140  (128.8s)  knn=u  k=-    dexp=9.89  p_grd=0.453  unc_rem=0.438  unc_rel=0.999  drop=0.75  h=128  L=1  lr=0.1  wd=0.0005
+  [Trial 197] amazoncom_random_0.3 | acc=0.3820  (54.7s)  knn=u  k=-    dexp=5.74  p_grd=0.488  unc_rem=0.416  unc_rel=0.709  drop=0.57  h=128  L=4  lr=0.1  wd=0.005
+  [Trial 198] amazoncom_random_0.3 | acc=0.1570  (61.3s)  knn=u  k=-    dexp=5.18  p_grd=0.485  unc_rem=0.441  unc_rel=0.790  drop=0.53  h=128  L=4  lr=0.001  wd=0.1
+  [Trial 199] amazoncom_random_0.3 | acc=0.7870  (134.5s)  knn=s  k= 35  dexp=8.45  p_grd=0.458  unc_rem=0.571  unc_rel=0.691  drop=0.65  h=32  L=3  lr=0.001  wd=0.01
+  [Trial 200] amazoncom_random_0.3 | acc=0.7680  (250.5s)  knn=u  k=-    dexp=7.90  p_grd=0.486  unc_rem=0.779  unc_rel=0.596  drop=0.66  h=64  L=4  lr=0.001  wd=0.001
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (amazoncom_random_0.3) Testing top-5 configs × 10 seeds...
+
+  [Retest] (amazoncom_random_0.3) Config 1/5: (Trial #151, Orig Acc: 0.7940)
+           Params: {'knn_mode': 's', 'k': 40, 'dexp': 8.065595312902763, 'p_grd': 0.4813615850297654, 'unc_rem': 0.9221815356291341, 'unc_rel': 0.8349141320777747, 'dropout': 0.5967522277795908, 'n_hidden': 32, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 5e-05}
+    [Retest] amazoncom | Config 1 | Run 1/10 | seed=3000 | Acc: 0.7940 | Mean: 0.7940 | Time: 70.4s
+    [Retest] amazoncom | Config 1 | Run 2/10 | seed=3001 | Acc: 0.7470 | Mean: 0.7705 | Time: 49.8s
+    [Retest] amazoncom | Config 1 | Run 3/10 | seed=3002 | Acc: 0.7600 | Mean: 0.7670 | Time: 61.7s
+    [Retest] amazoncom | Config 1 | Run 4/10 | seed=3003 | Acc: 0.7020 | Mean: 0.7508 | Time: 105.1s
+    [Retest] amazoncom | Config 1 | Run 5/10 | seed=3004 | Acc: 0.6660 | Mean: 0.7338 | Time: 176.6s
+    [Retest] amazoncom | Config 1 | Run 6/10 | seed=3005 | Acc: 0.7260 | Mean: 0.7325 | Time: 109.5s
+    [Retest] amazoncom | Config 1 | Run 7/10 | seed=3006 | Acc: 0.8010 | Mean: 0.7423 | Time: 51.7s
+    [Retest] amazoncom | Config 1 | Run 8/10 | seed=3007 | Acc: 0.7760 | Mean: 0.7465 | Time: 191.3s
+    [Retest] amazoncom | Config 1 | Run 9/10 | seed=3008 | Acc: 0.7020 | Mean: 0.7416 | Time: 141.6s
+    [Retest] amazoncom | Config 1 | Run 10/10 | seed=3009 | Acc: 0.7430 | Mean: 0.7417 | Time: 142.0s
+  [Retest] Config 1: mean=0.7417 ± 0.0411
+
+  [Retest] (amazoncom_random_0.3) Config 2/5: (Trial #28, Orig Acc: 0.7920)
+           Params: {'knn_mode': 'u', 'dexp': 8.881959101206073, 'p_grd': 0.4684519549100594, 'unc_rem': 0.7341541463212925, 'unc_rel': 0.8466774236063088, 'dropout': 0.5681849625804445, 'n_hidden': 32, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 5e-05}
+    [Retest] amazoncom | Config 2 | Run 1/10 | seed=3000 | Acc: 0.7920 | Mean: 0.7920 | Time: 53.5s
+    [Retest] amazoncom | Config 2 | Run 2/10 | seed=3001 | Acc: 0.7510 | Mean: 0.7715 | Time: 241.5s
+    [Retest] amazoncom | Config 2 | Run 3/10 | seed=3002 | Acc: 0.7480 | Mean: 0.7637 | Time: 40.0s
+    [Retest] amazoncom | Config 2 | Run 4/10 | seed=3003 | Acc: 0.7270 | Mean: 0.7545 | Time: 70.8s
+    [Retest] amazoncom | Config 2 | Run 5/10 | seed=3004 | Acc: 0.6820 | Mean: 0.7400 | Time: 48.4s
+    [Retest] amazoncom | Config 2 | Run 6/10 | seed=3005 | Acc: 0.7150 | Mean: 0.7358 | Time: 59.8s
+    [Retest] amazoncom | Config 2 | Run 7/10 | seed=3006 | Acc: 0.8060 | Mean: 0.7459 | Time: 77.9s
+    [Retest] amazoncom | Config 2 | Run 8/10 | seed=3007 | Acc: 0.7780 | Mean: 0.7499 | Time: 49.8s
+    [Retest] amazoncom | Config 2 | Run 9/10 | seed=3008 | Acc: 0.6870 | Mean: 0.7429 | Time: 144.5s
+    [Retest] amazoncom | Config 2 | Run 10/10 | seed=3009 | Acc: 0.7520 | Mean: 0.7438 | Time: 92.5s
+  [Retest] Config 2: mean=0.7438 ± 0.0396
+
+  [Retest] (amazoncom_random_0.3) Config 3/5: (Trial #91, Orig Acc: 0.7910)
+           Params: {'knn_mode': 'u', 'dexp': 8.533914277200392, 'p_grd': 0.4632988620679741, 'unc_rem': 0.9323864991378086, 'unc_rel': 0.36557437590674624, 'dropout': 0.4127093830675484, 'n_hidden': 32, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 5e-05}
+    [Retest] amazoncom | Config 3 | Run 1/10 | seed=3000 | Acc: 0.7910 | Mean: 0.7910 | Time: 84.9s
+    [Retest] amazoncom | Config 3 | Run 2/10 | seed=3001 | Acc: 0.7500 | Mean: 0.7705 | Time: 40.7s
+    [Retest] amazoncom | Config 3 | Run 3/10 | seed=3002 | Acc: 0.7400 | Mean: 0.7603 | Time: 72.0s
+    [Retest] amazoncom | Config 3 | Run 4/10 | seed=3003 | Acc: 0.7100 | Mean: 0.7477 | Time: 53.5s
+    [Retest] amazoncom | Config 3 | Run 5/10 | seed=3004 | Acc: 0.6820 | Mean: 0.7346 | Time: 66.2s
+    [Retest] amazoncom | Config 3 | Run 6/10 | seed=3005 | Acc: 0.7450 | Mean: 0.7363 | Time: 55.4s
+    [Retest] amazoncom | Config 3 | Run 7/10 | seed=3006 | Acc: 0.7760 | Mean: 0.7420 | Time: 49.8s
+    [Retest] amazoncom | Config 3 | Run 8/10 | seed=3007 | Acc: 0.7770 | Mean: 0.7464 | Time: 78.3s
+    [Retest] amazoncom | Config 3 | Run 9/10 | seed=3008 | Acc: 0.7030 | Mean: 0.7416 | Time: 60.7s
+    [Retest] amazoncom | Config 3 | Run 10/10 | seed=3009 | Acc: 0.7480 | Mean: 0.7422 | Time: 68.6s
+  [Retest] Config 3: mean=0.7422 ± 0.0332
+
+  [Retest] (amazoncom_random_0.3) Config 4/5: (Trial #73, Orig Acc: 0.7870)
+           Params: {'knn_mode': 's', 'k': 40, 'dexp': 7.193493969454229, 'p_grd': 0.4970188438186571, 'unc_rem': 0.9211930597130623, 'unc_rel': 0.7243745921362773, 'dropout': 0.5861498756502088, 'n_hidden': 32, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 0.0001}
+    [Retest] amazoncom | Config 4 | Run 1/10 | seed=3000 | Acc: 0.7870 | Mean: 0.7870 | Time: 53.6s
+    [Retest] amazoncom | Config 4 | Run 2/10 | seed=3001 | Acc: 0.7530 | Mean: 0.7700 | Time: 96.6s
+    [Retest] amazoncom | Config 4 | Run 3/10 | seed=3002 | Acc: 0.7430 | Mean: 0.7610 | Time: 144.9s
+    [Retest] amazoncom | Config 4 | Run 4/10 | seed=3003 | Acc: 0.7050 | Mean: 0.7470 | Time: 116.1s
+    [Retest] amazoncom | Config 4 | Run 5/10 | seed=3004 | Acc: 0.6810 | Mean: 0.7338 | Time: 70.6s
+    [Retest] amazoncom | Config 4 | Run 6/10 | seed=3005 | Acc: 0.7240 | Mean: 0.7322 | Time: 55.6s
+    [Retest] amazoncom | Config 4 | Run 7/10 | seed=3006 | Acc: 0.8080 | Mean: 0.7430 | Time: 67.5s
+    [Retest] amazoncom | Config 4 | Run 8/10 | seed=3007 | Acc: 0.7820 | Mean: 0.7479 | Time: 67.0s
+    [Retest] amazoncom | Config 4 | Run 9/10 | seed=3008 | Acc: 0.6980 | Mean: 0.7423 | Time: 218.3s
+    [Retest] amazoncom | Config 4 | Run 10/10 | seed=3009 | Acc: 0.7540 | Mean: 0.7435 | Time: 227.7s
+  [Retest] Config 4: mean=0.7435 ± 0.0395
+
+  [Retest] (amazoncom_random_0.3) Config 5/5: (Trial #85, Orig Acc: 0.7870)
+           Params: {'knn_mode': 's', 'k': 35, 'dexp': 8.781480320046867, 'p_grd': 0.4908302018718578, 'unc_rem': 0.7906335298105869, 'unc_rel': 0.6340419737117625, 'dropout': 0.7560288402784265, 'n_hidden': 32, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 0.0001}
+    [Retest] amazoncom | Config 5 | Run 1/10 | seed=3000 | Acc: 0.7840 | Mean: 0.7840 | Time: 72.1s
+    [Retest] amazoncom | Config 5 | Run 2/10 | seed=3001 | Acc: 0.7490 | Mean: 0.7665 | Time: 80.2s
+    [Retest] amazoncom | Config 5 | Run 3/10 | seed=3002 | Acc: 0.7590 | Mean: 0.7640 | Time: 69.4s
+    [Retest] amazoncom | Config 5 | Run 4/10 | seed=3003 | Acc: 0.5650 | Mean: 0.7142 | Time: 44.7s
+    [Retest] amazoncom | Config 5 | Run 5/10 | seed=3004 | Acc: 0.6890 | Mean: 0.7092 | Time: 68.6s
+    [Retest] amazoncom | Config 5 | Run 6/10 | seed=3005 | Acc: 0.7320 | Mean: 0.7130 | Time: 132.1s
+    [Retest] amazoncom | Config 5 | Run 7/10 | seed=3006 | Acc: 0.7910 | Mean: 0.7241 | Time: 73.9s
+    [Retest] amazoncom | Config 5 | Run 8/10 | seed=3007 | Acc: 0.7840 | Mean: 0.7316 | Time: 163.7s
+    [Retest] amazoncom | Config 5 | Run 9/10 | seed=3008 | Acc: 0.6710 | Mean: 0.7249 | Time: 48.7s
+    [Retest] amazoncom | Config 5 | Run 10/10 | seed=3009 | Acc: 0.7470 | Mean: 0.7271 | Time: 114.6s
+  [Retest] Config 5: mean=0.7271 ± 0.0658
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'u', 'dexp': 8.881959101206073, 'p_grd': 0.4684519549100594, 'unc_rem': 0.7341541463212925, 'unc_rel': 0.8466774236063088, 'dropout': 0.5681849625804445, 'n_hidden': 32, 'n_layer': 3, 'lr': 0.001, 'weight_decay': 5e-05}
+[Optuna] Success: Best retest mean accuracy: 0.7438
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_amazoncom_random_0.3.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_amazoncom_random_0.3.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_amazoncom_random_0.3  gpu=1  420.2 min  rc=0

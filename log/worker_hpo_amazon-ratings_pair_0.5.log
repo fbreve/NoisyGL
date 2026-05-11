@@ -1,0 +1,296 @@
+[worker] START  hpo_amazon-ratings_pair_0.5  gpu=1
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-17 16:58:40
+Variants       : ['lnpcc']
+Datasets       : ['amazon-ratings']
+Noise          : [[0.5, 'pair']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:1
+======================================================================
+
+[HPO] Optimizing lnpcc on amazon-ratings_pair_0.5 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: amazon-ratings_pair_0.5  (max_trials=200, startup=20)
+  [Trial   1] amazon-ratings_pair_0.5 | acc=0.2668  (145.5s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] amazon-ratings_pair_0.5 | acc=0.2638  (84.9s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] amazon-ratings_pair_0.5 | acc=0.2365  (77.7s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] amazon-ratings_pair_0.5 | acc=0.3782  (70.3s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] amazon-ratings_pair_0.5 | acc=0.3866  (75.9s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] amazon-ratings_pair_0.5 | acc=0.3432  (63.6s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] amazon-ratings_pair_0.5 | acc=0.2891  (90.9s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] amazon-ratings_pair_0.5 | acc=0.3729  (84.4s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] amazon-ratings_pair_0.5 | acc=0.3774  (98.1s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] amazon-ratings_pair_0.5 | acc=0.3103  (198.5s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] amazon-ratings_pair_0.5 | acc=0.3720  (105.3s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] amazon-ratings_pair_0.5 | acc=0.3720  (78.1s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] amazon-ratings_pair_0.5 | acc=0.3223  (123.2s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] amazon-ratings_pair_0.5 | acc=0.3644  (73.1s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] amazon-ratings_pair_0.5 | acc=0.3018  (84.9s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] amazon-ratings_pair_0.5 | acc=0.3315  (100.5s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] amazon-ratings_pair_0.5 | acc=0.3760  (73.0s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] amazon-ratings_pair_0.5 | acc=0.3239  (73.8s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] amazon-ratings_pair_0.5 | acc=0.3390  (113.2s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] amazon-ratings_pair_0.5 | acc=0.3490  (45.2s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] amazon-ratings_pair_0.5 | acc=0.3866  (97.5s)  knn=u  k=-    dexp=7.15  p_grd=0.305  unc_rem=0.422  unc_rel=0.592  drop=0.53  h=64  L=4  lr=0.001  wd=0.0001
+  [Trial  22] amazon-ratings_pair_0.5 | acc=0.3914  (713.9s)  knn=p  k= 23  dexp=6.91  p_grd=0.353  unc_rem=0.525  unc_rel=0.766  drop=0.57  h=64  L=4  lr=0.001  wd=0.001
+  [Trial  23] amazon-ratings_pair_0.5 | acc=0.3928  (96.8s)  knn=u  k=-    dexp=7.17  p_grd=0.361  unc_rem=0.372  unc_rel=0.556  drop=0.52  h=64  L=4  lr=0.001  wd=0.0001
+  [Trial  24] amazon-ratings_pair_0.5 | acc=0.3894  (103.6s)  knn=p  k= 24  dexp=7.02  p_grd=0.332  unc_rem=0.555  unc_rel=0.711  drop=0.68  h=64  L=4  lr=0.0005  wd=0.001
+  [Trial  25] amazon-ratings_pair_0.5 | acc=0.3839  (118.8s)  knn=p  k= 24  dexp=5.61  p_grd=0.275  unc_rem=0.692  unc_rel=0.762  drop=0.68  h=64  L=4  lr=0.0005  wd=0.0005
+  [Trial  26] amazon-ratings_pair_0.5 | acc=0.3596  (123.2s)  knn=d  k= 22  dexp=7.16  p_grd=0.335  unc_rem=0.699  unc_rel=0.552  drop=0.53  h=16  L=4  lr=0.0005  wd=0.001
+  [Trial  27] amazon-ratings_pair_0.5 | acc=0.3928  (119.5s)  knn=p  k= 24  dexp=7.28  p_grd=0.363  unc_rem=0.328  unc_rel=0.694  drop=0.65  h=128  L=4  lr=0.0005  wd=5e-05
+  [Trial  28] amazon-ratings_pair_0.5 | acc=0.3891  (131.6s)  knn=p  k= 24  dexp=3.09  p_grd=0.428  unc_rem=0.336  unc_rel=0.639  drop=0.58  h=128  L=4  lr=0.0005  wd=5e-05
+  [Trial  29] amazon-ratings_pair_0.5 | acc=0.3460  (94.9s)  knn=p  k= 19  dexp=9.30  p_grd=0.358  unc_rem=0.377  unc_rel=0.888  drop=0.79  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  30] amazon-ratings_pair_0.5 | acc=0.3895  (120.6s)  knn=p  k= 24  dexp=9.76  p_grd=0.343  unc_rem=0.152  unc_rel=0.503  drop=0.69  h=128  L=4  lr=0.0005  wd=1e-05
+  [Trial  31] amazon-ratings_pair_0.5 | acc=0.2661  (132.5s)  knn=p  k= 18  dexp=6.08  p_grd=0.432  unc_rem=0.569  unc_rel=0.844  drop=0.35  h=64  L=2  lr=0.05  wd=0.1
+  [Trial  32] amazon-ratings_pair_0.5 | acc=0.3817  (112.5s)  knn=p  k= 24  dexp=8.62  p_grd=0.293  unc_rem=0.113  unc_rel=0.338  drop=0.59  h=128  L=4  lr=0.01  wd=1e-05
+  [Trial  33] amazon-ratings_pair_0.5 | acc=0.2697  (102.8s)  knn=p  k= 24  dexp=8.67  p_grd=0.342  unc_rem=0.372  unc_rel=0.292  drop=0.79  h=128  L=4  lr=0.0005  wd=0.05
+  [Trial  34] amazon-ratings_pair_0.5 | acc=0.2711  (138.2s)  knn=d  k= 24  dexp=7.27  p_grd=0.277  unc_rem=0.310  unc_rel=0.731  drop=0.44  h=128  L=4  lr=1e-05  wd=5e-05
+  [Trial  35] amazon-ratings_pair_0.5 | acc=0.3220  (140.1s)  knn=p  k= 24  dexp=9.33  p_grd=0.422  unc_rem=0.306  unc_rel=0.573  drop=0.62  h=128  L=2  lr=0.0005  wd=5e-05
+  [Trial  36] amazon-ratings_pair_0.5 | acc=0.2657  (160.7s)  knn=p  k= 19  dexp=9.06  p_grd=0.249  unc_rem=0.142  unc_rel=0.504  drop=0.76  h=128  L=3  lr=0.001  wd=0.1
+  [Trial  37] amazon-ratings_pair_0.5 | acc=0.3272  (120.4s)  knn=p  k= 24  dexp=5.98  p_grd=0.478  unc_rem=0.675  unc_rel=0.802  drop=0.43  h=128  L=1  lr=0.001  wd=0.001
+  [Trial  38] amazon-ratings_pair_0.5 | acc=0.3654  (138.7s)  knn=p  k= 18  dexp=8.21  p_grd=0.416  unc_rem=0.307  unc_rel=0.535  drop=0.44  h=64  L=4  lr=0.0001  wd=0.1
+  [Trial  39] amazon-ratings_pair_0.5 | acc=0.3890  (101.0s)  knn=d  k= 19  dexp=9.52  p_grd=0.323  unc_rem=0.324  unc_rel=0.586  drop=0.77  h=128  L=4  lr=0.005  wd=0.0001
+  [Trial  40] amazon-ratings_pair_0.5 | acc=0.3916  (89.2s)  knn=u  k=-    dexp=8.59  p_grd=0.339  unc_rem=0.162  unc_rel=0.393  drop=0.81  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  41] amazon-ratings_pair_0.5 | acc=0.3874  (85.0s)  knn=u  k=-    dexp=7.48  p_grd=0.288  unc_rem=0.534  unc_rel=0.315  drop=0.73  h=32  L=4  lr=0.001  wd=1e-05
+  [Trial  42] amazon-ratings_pair_0.5 | acc=0.2764  (130.2s)  knn=s  k= 45  dexp=9.43  p_grd=0.465  unc_rem=0.055  unc_rel=0.611  drop=0.84  h=128  L=4  lr=0.0001  wd=1e-05
+  [Trial  43] amazon-ratings_pair_0.5 | acc=0.3815  (72.1s)  knn=u  k=-    dexp=7.66  p_grd=0.300  unc_rem=0.056  unc_rel=0.718  drop=0.78  h=32  L=4  lr=0.0005  wd=0.001
+  [Trial  44] amazon-ratings_pair_0.5 | acc=0.3125  (107.8s)  knn=u  k=-    dexp=9.51  p_grd=0.374  unc_rem=0.321  unc_rel=0.576  drop=0.72  h=32  L=1  lr=0.0005  wd=1e-05
+  [Trial  45] amazon-ratings_pair_0.5 | acc=0.3949  (113.3s)  knn=u  k=-    dexp=6.47  p_grd=0.412  unc_rem=0.088  unc_rel=0.199  drop=0.73  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  46] amazon-ratings_pair_0.5 | acc=0.3832  (90.8s)  knn=u  k=-    dexp=5.89  p_grd=0.494  unc_rem=0.267  unc_rel=0.272  drop=0.63  h=32  L=4  lr=0.01  wd=1e-05
+  [Trial  47] amazon-ratings_pair_0.5 | acc=0.3437  (70.0s)  knn=u  k=-    dexp=6.82  p_grd=0.356  unc_rem=0.088  unc_rel=0.107  drop=0.77  h=64  L=4  lr=0.0001  wd=1e-05
+  [Trial  48] amazon-ratings_pair_0.5 | acc=0.3110  (68.8s)  knn=u  k=-    dexp=5.26  p_grd=0.348  unc_rem=0.185  unc_rel=0.128  drop=0.82  h=32  L=4  lr=0.0005  wd=0.005
+  [Trial  49] amazon-ratings_pair_0.5 | acc=0.3943  (115.4s)  knn=p  k= 15  dexp=5.77  p_grd=0.378  unc_rem=0.481  unc_rel=0.791  drop=0.52  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial  50] amazon-ratings_pair_0.5 | acc=0.3424  (70.2s)  knn=p  k=  1  dexp=4.13  p_grd=0.327  unc_rem=0.588  unc_rel=0.960  drop=0.65  h=32  L=1  lr=0.001  wd=1e-05
+  [Trial  51] amazon-ratings_pair_0.5 | acc=0.3742  (102.8s)  knn=d  k= 13  dexp=8.07  p_grd=0.396  unc_rem=0.706  unc_rel=0.891  drop=0.45  h=32  L=4  lr=0.1  wd=5e-05
+  [Trial  52] amazon-ratings_pair_0.5 | acc=0.3784  (94.5s)  knn=p  k= 16  dexp=7.37  p_grd=0.420  unc_rem=0.407  unc_rel=0.573  drop=0.47  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial  53] amazon-ratings_pair_0.5 | acc=0.3905  (114.2s)  knn=s  k= 35  dexp=7.00  p_grd=0.443  unc_rem=0.019  unc_rel=0.104  drop=0.57  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  54] amazon-ratings_pair_0.5 | acc=0.3866  (86.0s)  knn=s  k= 40  dexp=3.51  p_grd=0.426  unc_rem=0.497  unc_rel=0.810  drop=0.60  h=32  L=4  lr=0.01  wd=5e-05
+  [Trial  55] amazon-ratings_pair_0.5 | acc=0.3595  (152.3s)  knn=p  k= 14  dexp=6.97  p_grd=0.441  unc_rem=0.637  unc_rel=0.798  drop=0.46  h=64  L=4  lr=0.001  wd=0.005
+  [Trial  56] amazon-ratings_pair_0.5 | acc=0.3739  (118.0s)  knn=u  k=-    dexp=8.90  p_grd=0.491  unc_rem=0.117  unc_rel=0.227  drop=0.78  h=32  L=3  lr=0.05  wd=1e-05
+  [Trial  57] amazon-ratings_pair_0.5 | acc=0.3851  (92.6s)  knn=p  k= 18  dexp=3.37  p_grd=0.370  unc_rem=0.577  unc_rel=0.988  drop=0.46  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial  58] amazon-ratings_pair_0.5 | acc=0.3625  (97.1s)  knn=p  k=  8  dexp=8.47  p_grd=0.378  unc_rem=0.161  unc_rel=0.959  drop=0.60  h=32  L=4  lr=0.05  wd=5e-05
+  [Trial  59] amazon-ratings_pair_0.5 | acc=0.2823  (98.1s)  knn=u  k=-    dexp=9.57  p_grd=0.450  unc_rem=0.208  unc_rel=0.603  drop=0.90  h=32  L=4  lr=0.1  wd=0.05
+  [Trial  60] amazon-ratings_pair_0.5 | acc=0.3512  (102.4s)  knn=s  k= 60  dexp=6.82  p_grd=0.465  unc_rem=0.521  unc_rel=0.546  drop=0.59  h=64  L=4  lr=1e-05  wd=0.01
+  [Trial  61] amazon-ratings_pair_0.5 | acc=0.3886  (93.2s)  knn=u  k=-    dexp=7.17  p_grd=0.409  unc_rem=0.178  unc_rel=0.617  drop=0.58  h=128  L=4  lr=0.001  wd=5e-05
+  [Trial  62] amazon-ratings_pair_0.5 | acc=0.3898  (118.0s)  knn=s  k= 35  dexp=8.23  p_grd=0.323  unc_rem=0.071  unc_rel=0.035  drop=0.58  h=32  L=4  lr=0.0005  wd=0.0001
+  [Trial  63] amazon-ratings_pair_0.5 | acc=0.3863  (84.6s)  knn=s  k= 40  dexp=4.91  p_grd=0.294  unc_rem=0.205  unc_rel=0.104  drop=0.64  h=32  L=4  lr=0.005  wd=1e-05
+  [Trial  64] amazon-ratings_pair_0.5 | acc=0.3144  (93.0s)  knn=s  k= 35  dexp=7.87  p_grd=0.326  unc_rem=0.495  unc_rel=0.810  drop=0.59  h=64  L=1  lr=0.001  wd=0.001
+  [Trial  65] amazon-ratings_pair_0.5 | acc=0.3843  (124.1s)  knn=u  k=-    dexp=7.94  p_grd=0.480  unc_rem=0.026  unc_rel=0.098  drop=0.50  h=128  L=4  lr=0.0005  wd=1e-05
+  [Trial  66] amazon-ratings_pair_0.5 | acc=0.3760  (124.6s)  knn=s  k= 35  dexp=7.97  p_grd=0.460  unc_rem=0.111  unc_rel=0.206  drop=0.49  h=32  L=2  lr=0.0005  wd=1e-05
+  [Trial  67] amazon-ratings_pair_0.5 | acc=0.2758  (124.6s)  knn=p  k= 24  dexp=8.54  p_grd=0.279  unc_rem=0.490  unc_rel=0.669  drop=0.71  h=128  L=4  lr=0.1  wd=5e-05
+  [Trial  68] amazon-ratings_pair_0.5 | acc=0.2163  (119.0s)  knn=p  k= 24  dexp=6.92  p_grd=0.365  unc_rem=0.571  unc_rel=0.681  drop=0.42  h=32  L=4  lr=1e-05  wd=0.001
+  [Trial  69] amazon-ratings_pair_0.5 | acc=0.3588  (50.3s)  knn=u  k=-    dexp=8.00  p_grd=0.194  unc_rem=0.097  unc_rel=0.372  drop=0.87  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  70] amazon-ratings_pair_0.5 | acc=0.3977  (116.2s)  knn=s  k= 35  dexp=5.70  p_grd=0.485  unc_rem=0.202  unc_rel=0.087  drop=0.74  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  71] amazon-ratings_pair_0.5 | acc=0.3831  (92.2s)  knn=s  k= 45  dexp=6.54  p_grd=0.379  unc_rem=0.269  unc_rel=0.135  drop=0.72  h=128  L=3  lr=0.001  wd=1e-05
+  [Trial  72] amazon-ratings_pair_0.5 | acc=0.3875  (126.1s)  knn=s  k= 35  dexp=4.86  p_grd=0.485  unc_rem=0.322  unc_rel=0.285  drop=0.84  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  73] amazon-ratings_pair_0.5 | acc=0.2134  (132.2s)  knn=s  k= 35  dexp=5.85  p_grd=0.447  unc_rem=0.105  unc_rel=0.093  drop=0.86  h=32  L=4  lr=1e-05  wd=0.001
+  [Trial  74] amazon-ratings_pair_0.5 | acc=0.3687  (187.4s)  knn=u  k=-    dexp=6.00  p_grd=0.357  unc_rem=0.143  unc_rel=0.058  drop=0.54  h=32  L=3  lr=0.0005  wd=1e-05
+  [Trial  75] amazon-ratings_pair_0.5 | acc=0.3653  (79.1s)  knn=u  k=-    dexp=7.61  p_grd=0.332  unc_rem=0.100  unc_rel=0.713  drop=0.70  h=64  L=2  lr=0.05  wd=0.0001
+  [Trial  76] amazon-ratings_pair_0.5 | acc=0.3867  (184.7s)  knn=p  k= 24  dexp=6.59  p_grd=0.403  unc_rem=0.332  unc_rel=0.662  drop=0.61  h=128  L=3  lr=0.0005  wd=0.0001
+  [Trial  77] amazon-ratings_pair_0.5 | acc=0.3824  (118.5s)  knn=d  k= 24  dexp=5.67  p_grd=0.357  unc_rem=0.226  unc_rel=0.650  drop=0.24  h=64  L=2  lr=0.001  wd=0.0001
+  [Trial  78] amazon-ratings_pair_0.5 | acc=0.3490  (111.0s)  knn=p  k= 23  dexp=6.86  p_grd=0.241  unc_rem=0.352  unc_rel=0.802  drop=0.56  h=64  L=4  lr=0.001  wd=0.01
+  [Trial  79] amazon-ratings_pair_0.5 | acc=0.3850  (69.1s)  knn=u  k=-    dexp=9.74  p_grd=0.313  unc_rem=0.086  unc_rel=0.442  drop=0.82  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  80] amazon-ratings_pair_0.5 | acc=0.3895  (120.6s)  knn=p  k= 24  dexp=5.81  p_grd=0.416  unc_rem=0.065  unc_rel=0.050  drop=0.52  h=32  L=4  lr=0.0005  wd=1e-05
+  [Trial  81] amazon-ratings_pair_0.5 | acc=0.3741  (94.1s)  knn=s  k= 35  dexp=5.95  p_grd=0.332  unc_rem=0.162  unc_rel=0.349  drop=0.48  h=16  L=4  lr=0.0005  wd=1e-05
+  [Trial  82] amazon-ratings_pair_0.5 | acc=0.3838  (79.5s)  knn=s  k= 35  dexp=8.68  p_grd=0.183  unc_rem=0.026  unc_rel=0.098  drop=0.51  h=32  L=4  lr=0.0005  wd=0.0001
+  [Trial  83] amazon-ratings_pair_0.5 | acc=0.3627  (99.3s)  knn=s  k= 35  dexp=9.14  p_grd=0.317  unc_rem=0.095  unc_rel=0.178  drop=0.65  h=64  L=4  lr=0.0001  wd=0.0001
+  [Trial  84] amazon-ratings_pair_0.5 | acc=0.3879  (113.3s)  knn=p  k= 24  dexp=3.55  p_grd=0.350  unc_rem=0.264  unc_rel=0.504  drop=0.61  h=32  L=4  lr=0.001  wd=0.0005
+  [Trial  85] amazon-ratings_pair_0.5 | acc=0.3835  (111.6s)  knn=s  k= 45  dexp=4.20  p_grd=0.464  unc_rem=0.151  unc_rel=0.078  drop=0.74  h=32  L=3  lr=0.01  wd=0.0001
+  [Trial  86] amazon-ratings_pair_0.5 | acc=0.3975  (125.9s)  knn=s  k= 35  dexp=9.32  p_grd=0.432  unc_rem=0.100  unc_rel=0.085  drop=0.75  h=32  L=4  lr=0.0005  wd=0.0001
+  [Trial  87] amazon-ratings_pair_0.5 | acc=0.3617  (126.1s)  knn=d  k= 24  dexp=5.61  p_grd=0.463  unc_rem=0.018  unc_rel=0.021  drop=0.90  h=32  L=2  lr=0.0005  wd=1e-05
+  [Trial  88] amazon-ratings_pair_0.5 | acc=0.2055  (120.3s)  knn=s  k= 35  dexp=9.27  p_grd=0.482  unc_rem=0.140  unc_rel=0.054  drop=0.59  h=32  L=4  lr=1e-05  wd=1e-05
+  [Trial  89] amazon-ratings_pair_0.5 | acc=0.3867  (135.6s)  knn=d  k= 24  dexp=9.84  p_grd=0.496  unc_rem=0.072  unc_rel=0.012  drop=0.84  h=64  L=4  lr=0.0005  wd=0.0001
+  [Trial  90] amazon-ratings_pair_0.5 | acc=0.3859  (96.1s)  knn=s  k= 50  dexp=8.98  p_grd=0.424  unc_rem=0.529  unc_rel=0.113  drop=0.75  h=16  L=4  lr=0.0005  wd=0.0001
+  [Trial  91] amazon-ratings_pair_0.5 | acc=0.3004  (95.8s)  knn=s  k= 35  dexp=8.23  p_grd=0.462  unc_rem=0.170  unc_rel=0.221  drop=0.64  h=32  L=1  lr=0.0001  wd=0.0001
+  [Trial  92] amazon-ratings_pair_0.5 | acc=0.3802  (87.1s)  knn=s  k= 35  dexp=8.52  p_grd=0.408  unc_rem=0.382  unc_rel=0.031  drop=0.68  h=32  L=3  lr=0.0005  wd=0.0001
+  [Trial  93] amazon-ratings_pair_0.5 | acc=0.3748  (104.4s)  knn=s  k= 35  dexp=9.83  p_grd=0.444  unc_rem=0.029  unc_rel=0.211  drop=0.85  h=32  L=4  lr=0.05  wd=0.0001
+  [Trial  94] amazon-ratings_pair_0.5 | acc=0.3955  (103.2s)  knn=s  k= 35  dexp=9.23  p_grd=0.409  unc_rem=0.150  unc_rel=0.340  drop=0.71  h=32  L=4  lr=0.0005  wd=5e-05
+  [Trial  95] amazon-ratings_pair_0.5 | acc=0.3673  (90.2s)  knn=s  k= 45  dexp=8.79  p_grd=0.404  unc_rem=0.242  unc_rel=0.579  drop=0.69  h=32  L=4  lr=0.0005  wd=0.1
+  [Trial  96] amazon-ratings_pair_0.5 | acc=0.3829  (118.9s)  knn=p  k= 24  dexp=8.79  p_grd=0.327  unc_rem=0.484  unc_rel=0.794  drop=0.66  h=64  L=3  lr=0.001  wd=0.001
+  [Trial  97] amazon-ratings_pair_0.5 | acc=0.3835  (116.1s)  knn=p  k= 24  dexp=4.75  p_grd=0.378  unc_rem=0.699  unc_rel=0.563  drop=0.43  h=16  L=4  lr=0.005  wd=5e-05
+  [Trial  98] amazon-ratings_pair_0.5 | acc=0.3898  (85.8s)  knn=s  k= 35  dexp=7.62  p_grd=0.326  unc_rem=0.242  unc_rel=0.253  drop=0.75  h=32  L=4  lr=0.0005  wd=5e-05
+  [Trial  99] amazon-ratings_pair_0.5 | acc=0.3905  (174.8s)  knn=p  k= 24  dexp=7.24  p_grd=0.466  unc_rem=0.592  unc_rel=0.714  drop=0.70  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 100] amazon-ratings_pair_0.5 | acc=0.3895  (128.1s)  knn=p  k= 24  dexp=7.63  p_grd=0.470  unc_rem=0.543  unc_rel=0.902  drop=0.58  h=128  L=4  lr=0.0005  wd=5e-05
+  [Trial 101] amazon-ratings_pair_0.5 | acc=0.2949  (115.2s)  knn=s  k= 40  dexp=4.48  p_grd=0.499  unc_rem=0.128  unc_rel=0.332  drop=0.55  h=32  L=3  lr=0.0005  wd=0.005
+  [Trial 102] amazon-ratings_pair_0.5 | acc=0.3940  (139.1s)  knn=p  k= 24  dexp=6.37  p_grd=0.475  unc_rem=0.705  unc_rel=0.855  drop=0.76  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 103] amazon-ratings_pair_0.5 | acc=0.3926  (130.4s)  knn=p  k= 24  dexp=6.71  p_grd=0.384  unc_rem=0.298  unc_rel=0.955  drop=0.55  h=64  L=4  lr=0.005  wd=0.001
+  [Trial 104] amazon-ratings_pair_0.5 | acc=0.2657  (113.1s)  knn=s  k= 10  dexp=5.62  p_grd=0.445  unc_rem=0.464  unc_rel=0.076  drop=0.60  h=32  L=4  lr=0.05  wd=0.1
+  [Trial 105] amazon-ratings_pair_0.5 | acc=0.3825  (127.8s)  knn=p  k= 18  dexp=7.45  p_grd=0.450  unc_rem=0.383  unc_rel=0.806  drop=0.44  h=64  L=4  lr=0.005  wd=0.001
+  [Trial 106] amazon-ratings_pair_0.5 | acc=0.3026  (120.1s)  knn=p  k= 20  dexp=6.92  p_grd=0.380  unc_rem=0.846  unc_rel=0.762  drop=0.85  h=32  L=4  lr=0.1  wd=0.0005
+  [Trial 107] amazon-ratings_pair_0.5 | acc=0.3469  (119.3s)  knn=p  k= 24  dexp=4.10  p_grd=0.374  unc_rem=0.375  unc_rel=0.965  drop=0.48  h=128  L=4  lr=0.1  wd=0.001
+  [Trial 108] amazon-ratings_pair_0.5 | acc=0.3673  (95.7s)  knn=p  k= 24  dexp=8.60  p_grd=0.199  unc_rem=0.308  unc_rel=0.989  drop=0.69  h=64  L=4  lr=0.005  wd=1e-05
+  [Trial 109] amazon-ratings_pair_0.5 | acc=0.3851  (73.3s)  knn=u  k=-    dexp=8.81  p_grd=0.430  unc_rem=0.743  unc_rel=0.589  drop=0.51  h=16  L=4  lr=0.001  wd=0.0001
+  [Trial 110] amazon-ratings_pair_0.5 | acc=0.3867  (124.1s)  knn=p  k= 14  dexp=5.15  p_grd=0.396  unc_rem=0.399  unc_rel=0.633  drop=0.54  h=64  L=4  lr=0.001  wd=0.001
+  [Trial 111] amazon-ratings_pair_0.5 | acc=0.3666  (166.9s)  knn=p  k= 20  dexp=6.08  p_grd=0.171  unc_rem=0.209  unc_rel=0.721  drop=0.42  h=16  L=4  lr=0.0005  wd=5e-05
+  [Trial 112] amazon-ratings_pair_0.5 | acc=0.3816  (106.2s)  knn=s  k= 30  dexp=8.25  p_grd=0.404  unc_rem=0.291  unc_rel=0.983  drop=0.70  h=16  L=4  lr=0.005  wd=0.001
+  [Trial 113] amazon-ratings_pair_0.5 | acc=0.3182  (311.4s)  knn=p  k= 24  dexp=7.81  p_grd=0.477  unc_rem=0.579  unc_rel=0.976  drop=0.85  h=32  L=4  lr=0.05  wd=0.01
+  [Trial 114] amazon-ratings_pair_0.5 | acc=0.3663  (121.1s)  knn=p  k= 24  dexp=6.15  p_grd=0.426  unc_rem=0.105  unc_rel=0.978  drop=0.46  h=64  L=1  lr=0.1  wd=0.001
+  [Trial 115] amazon-ratings_pair_0.5 | acc=0.3647  (87.6s)  knn=u  k=-    dexp=8.07  p_grd=0.395  unc_rem=0.452  unc_rel=0.167  drop=0.88  h=32  L=2  lr=0.0005  wd=0.0005
+  [Trial 116] amazon-ratings_pair_0.5 | acc=0.3801  (97.8s)  knn=u  k=-    dexp=9.48  p_grd=0.470  unc_rem=0.122  unc_rel=0.562  drop=0.40  h=64  L=4  lr=0.1  wd=0.0001
+  [Trial 117] amazon-ratings_pair_0.5 | acc=0.2688  (129.8s)  knn=s  k= 35  dexp=6.19  p_grd=0.451  unc_rem=0.169  unc_rel=0.051  drop=0.84  h=128  L=4  lr=0.0005  wd=0.05
+  [Trial 118] amazon-ratings_pair_0.5 | acc=0.3255  (118.7s)  knn=s  k= 35  dexp=7.90  p_grd=0.493  unc_rem=0.074  unc_rel=0.086  drop=0.73  h=32  L=4  lr=0.0005  wd=0.01
+  [Trial 119] amazon-ratings_pair_0.5 | acc=0.3729  (128.9s)  knn=p  k= 24  dexp=4.10  p_grd=0.429  unc_rem=0.049  unc_rel=0.791  drop=0.58  h=64  L=4  lr=0.005  wd=0.0005
+  [Trial 120] amazon-ratings_pair_0.5 | acc=0.3769  (100.8s)  knn=p  k= 24  dexp=5.95  p_grd=0.254  unc_rem=0.180  unc_rel=0.794  drop=0.78  h=128  L=4  lr=0.0005  wd=5e-05
+  [Trial 121] amazon-ratings_pair_0.5 | acc=0.3603  (127.3s)  knn=p  k= 24  dexp=6.49  p_grd=0.467  unc_rem=0.990  unc_rel=0.999  drop=0.82  h=32  L=2  lr=0.001  wd=1e-05
+  [Trial 122] amazon-ratings_pair_0.5 | acc=0.3639  (79.0s)  knn=u  k=-    dexp=9.16  p_grd=0.272  unc_rem=0.399  unc_rel=0.343  drop=0.70  h=32  L=4  lr=0.0001  wd=0.001
+  [Trial 123] amazon-ratings_pair_0.5 | acc=0.3363  (120.3s)  knn=p  k= 24  dexp=6.46  p_grd=0.439  unc_rem=0.439  unc_rel=0.799  drop=0.57  h=32  L=4  lr=0.1  wd=5e-05
+  [Trial 124] amazon-ratings_pair_0.5 | acc=0.3939  (121.4s)  knn=d  k= 24  dexp=5.86  p_grd=0.418  unc_rem=0.859  unc_rel=0.769  drop=0.72  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 125] amazon-ratings_pair_0.5 | acc=0.3895  (125.6s)  knn=d  k= 24  dexp=5.70  p_grd=0.444  unc_rem=0.726  unc_rel=0.959  drop=0.72  h=64  L=4  lr=0.001  wd=5e-05
+  [Trial 126] amazon-ratings_pair_0.5 | acc=0.3900  (103.8s)  knn=d  k= 20  dexp=3.77  p_grd=0.402  unc_rem=0.612  unc_rel=0.768  drop=0.57  h=32  L=3  lr=0.001  wd=0.001
+  [Trial 127] amazon-ratings_pair_0.5 | acc=0.3945  (121.8s)  knn=d  k= 24  dexp=5.48  p_grd=0.415  unc_rem=0.851  unc_rel=0.561  drop=0.84  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 128] amazon-ratings_pair_0.5 | acc=0.2197  (125.1s)  knn=d  k= 20  dexp=5.41  p_grd=0.385  unc_rem=0.931  unc_rel=0.458  drop=0.83  h=32  L=4  lr=1e-05  wd=5e-05
+  [Trial 129] amazon-ratings_pair_0.5 | acc=0.3947  (118.7s)  knn=d  k= 21  dexp=5.49  p_grd=0.387  unc_rem=0.623  unc_rel=0.572  drop=0.69  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 130] amazon-ratings_pair_0.5 | acc=0.3977  (103.9s)  knn=d  k= 20  dexp=8.75  p_grd=0.402  unc_rem=0.985  unc_rel=0.774  drop=0.71  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 131] amazon-ratings_pair_0.5 | acc=0.2735  (89.1s)  knn=u  k=-    dexp=6.16  p_grd=0.409  unc_rem=0.959  unc_rel=0.904  drop=0.81  h=32  L=4  lr=0.001  wd=0.05
+  [Trial 132] amazon-ratings_pair_0.5 | acc=0.2660  (125.7s)  knn=d  k= 19  dexp=7.68  p_grd=0.380  unc_rem=0.927  unc_rel=0.839  drop=0.81  h=16  L=4  lr=0.001  wd=0.01
+  [Trial 133] amazon-ratings_pair_0.5 | acc=0.3905  (109.6s)  knn=d  k= 20  dexp=9.74  p_grd=0.325  unc_rem=0.818  unc_rel=0.709  drop=0.75  h=32  L=4  lr=0.001  wd=0.0005
+  [Trial 134] amazon-ratings_pair_0.5 | acc=0.3821  (106.4s)  knn=d  k= 14  dexp=7.54  p_grd=0.415  unc_rem=0.929  unc_rel=0.778  drop=0.67  h=32  L=3  lr=0.001  wd=5e-05
+  [Trial 135] amazon-ratings_pair_0.5 | acc=0.3670  (116.8s)  knn=p  k= 20  dexp=3.58  p_grd=0.475  unc_rem=0.956  unc_rel=0.920  drop=0.86  h=32  L=4  lr=0.0001  wd=5e-05
+  [Trial 136] amazon-ratings_pair_0.5 | acc=0.3957  (125.5s)  knn=d  k= 20  dexp=4.11  p_grd=0.499  unc_rem=0.859  unc_rel=0.649  drop=0.72  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 137] amazon-ratings_pair_0.5 | acc=0.2657  (116.6s)  knn=d  k= 20  dexp=4.54  p_grd=0.436  unc_rem=0.775  unc_rel=0.693  drop=0.86  h=32  L=4  lr=0.05  wd=0.1
+  [Trial 138] amazon-ratings_pair_0.5 | acc=0.3729  (113.0s)  knn=d  k= 16  dexp=0.51  p_grd=0.466  unc_rem=0.862  unc_rel=0.834  drop=0.68  h=32  L=4  lr=0.001  wd=0.005
+  [Trial 139] amazon-ratings_pair_0.5 | acc=0.3918  (118.6s)  knn=d  k= 20  dexp=3.64  p_grd=0.422  unc_rem=0.810  unc_rel=0.799  drop=0.62  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 140] amazon-ratings_pair_0.5 | acc=0.3249  (94.9s)  knn=d  k= 20  dexp=5.13  p_grd=0.290  unc_rem=0.770  unc_rel=0.659  drop=0.77  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial 141] amazon-ratings_pair_0.5 | acc=0.3972  (125.6s)  knn=u  k=-    dexp=5.12  p_grd=0.494  unc_rem=0.674  unc_rel=0.487  drop=0.81  h=32  L=4  lr=0.001  wd=0.001
+  [Trial 142] amazon-ratings_pair_0.5 | acc=0.3913  (129.5s)  knn=d  k= 24  dexp=3.71  p_grd=0.483  unc_rem=0.337  unc_rel=0.341  drop=0.63  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 143] amazon-ratings_pair_0.5 | acc=0.3966  (131.6s)  knn=d  k= 21  dexp=7.66  p_grd=0.466  unc_rem=0.873  unc_rel=0.154  drop=0.90  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 144] amazon-ratings_pair_0.5 | acc=0.3944  (94.2s)  knn=u  k=-    dexp=7.87  p_grd=0.415  unc_rem=0.738  unc_rel=0.090  drop=0.82  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 145] amazon-ratings_pair_0.5 | acc=0.3831  (95.6s)  knn=u  k=-    dexp=6.74  p_grd=0.495  unc_rem=0.752  unc_rel=0.487  drop=0.86  h=32  L=4  lr=0.0005  wd=0.001
+  [Trial 146] amazon-ratings_pair_0.5 | acc=0.3781  (87.9s)  knn=u  k=-    dexp=8.79  p_grd=0.448  unc_rem=0.845  unc_rel=0.205  drop=0.84  h=32  L=2  lr=0.001  wd=5e-05
+  [Trial 147] amazon-ratings_pair_0.5 | acc=0.3425  (100.3s)  knn=d  k= 16  dexp=8.46  p_grd=0.386  unc_rem=0.746  unc_rel=0.033  drop=0.83  h=32  L=4  lr=0.001  wd=0.005
+  [Trial 148] amazon-ratings_pair_0.5 | acc=0.2657  (91.6s)  knn=d  k= 17  dexp=6.06  p_grd=0.344  unc_rem=0.689  unc_rel=0.436  drop=0.63  h=32  L=4  lr=0.01  wd=0.05
+  [Trial 149] amazon-ratings_pair_0.5 | acc=0.3981  (91.8s)  knn=u  k=-    dexp=7.65  p_grd=0.447  unc_rem=0.812  unc_rel=0.136  drop=0.74  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 150] amazon-ratings_pair_0.5 | acc=0.3965  (134.6s)  knn=p  k= 20  dexp=7.20  p_grd=0.487  unc_rem=0.758  unc_rel=0.190  drop=0.82  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 151] amazon-ratings_pair_0.5 | acc=0.3969  (94.7s)  knn=p  k= 18  dexp=9.32  p_grd=0.441  unc_rem=0.711  unc_rel=0.168  drop=0.82  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 152] amazon-ratings_pair_0.5 | acc=0.2672  (96.7s)  knn=p  k= 17  dexp=7.25  p_grd=0.369  unc_rem=0.875  unc_rel=0.204  drop=0.74  h=128  L=4  lr=1e-05  wd=0.001
+  [Trial 153] amazon-ratings_pair_0.5 | acc=0.3966  (82.7s)  knn=u  k=-    dexp=6.28  p_grd=0.450  unc_rem=0.772  unc_rel=0.104  drop=0.61  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 154] amazon-ratings_pair_0.5 | acc=0.3836  (93.1s)  knn=u  k=-    dexp=8.46  p_grd=0.470  unc_rem=0.947  unc_rel=0.112  drop=0.66  h=128  L=4  lr=0.001  wd=0.0001
+  [Trial 155] amazon-ratings_pair_0.5 | acc=0.3566  (107.2s)  knn=s  k=  5  dexp=9.77  p_grd=0.478  unc_rem=0.810  unc_rel=0.198  drop=0.84  h=16  L=4  lr=0.001  wd=0.001
+  [Trial 156] amazon-ratings_pair_0.5 | acc=0.3889  (88.3s)  knn=u  k=-    dexp=6.70  p_grd=0.481  unc_rem=0.645  unc_rel=0.117  drop=0.66  h=128  L=4  lr=0.005  wd=0.001
+  [Trial 157] amazon-ratings_pair_0.5 | acc=0.3978  (99.6s)  knn=p  k= 18  dexp=9.61  p_grd=0.451  unc_rem=0.472  unc_rel=0.213  drop=0.75  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 158] amazon-ratings_pair_0.5 | acc=0.3921  (112.9s)  knn=p  k= 19  dexp=9.03  p_grd=0.397  unc_rem=0.602  unc_rel=0.021  drop=0.43  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 159] amazon-ratings_pair_0.5 | acc=0.3953  (113.2s)  knn=p  k= 18  dexp=8.08  p_grd=0.441  unc_rem=0.817  unc_rel=0.391  drop=0.89  h=128  L=3  lr=0.001  wd=0.001
+  [Trial 160] amazon-ratings_pair_0.5 | acc=0.3932  (108.8s)  knn=p  k= 18  dexp=6.94  p_grd=0.478  unc_rem=0.742  unc_rel=0.390  drop=0.76  h=128  L=3  lr=0.001  wd=0.001
+  [Trial 161] amazon-ratings_pair_0.5 | acc=0.3945  (75.3s)  knn=u  k=-    dexp=5.85  p_grd=0.384  unc_rem=0.827  unc_rel=0.363  drop=0.65  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 162] amazon-ratings_pair_0.5 | acc=0.3931  (138.0s)  knn=p  k= 17  dexp=8.94  p_grd=0.481  unc_rem=0.539  unc_rel=0.110  drop=0.83  h=128  L=4  lr=0.001  wd=5e-05
+  [Trial 163] amazon-ratings_pair_0.5 | acc=0.3965  (93.4s)  knn=u  k=-    dexp=4.14  p_grd=0.497  unc_rem=0.779  unc_rel=0.722  drop=0.78  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 164] amazon-ratings_pair_0.5 | acc=0.3998  (138.1s)  knn=d  k= 19  dexp=4.14  p_grd=0.464  unc_rem=0.866  unc_rel=0.103  drop=0.89  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 165] amazon-ratings_pair_0.5 | acc=0.3903  (116.1s)  knn=d  k= 18  dexp=4.76  p_grd=0.483  unc_rem=0.895  unc_rel=0.012  drop=0.67  h=64  L=4  lr=0.001  wd=5e-05
+  [Trial 166] amazon-ratings_pair_0.5 | acc=0.3993  (83.2s)  knn=u  k=-    dexp=4.83  p_grd=0.437  unc_rem=0.530  unc_rel=0.821  drop=0.66  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 167] amazon-ratings_pair_0.5 | acc=0.3979  (74.9s)  knn=u  k=-    dexp=2.92  p_grd=0.454  unc_rem=0.569  unc_rel=0.801  drop=0.63  h=128  L=4  lr=0.0005  wd=0.001
+  [Trial 168] amazon-ratings_pair_0.5 | acc=0.3026  (96.9s)  knn=p  k= 17  dexp=9.40  p_grd=0.310  unc_rem=0.684  unc_rel=0.082  drop=0.79  h=128  L=2  lr=0.001  wd=0.05
+  [Trial 169] amazon-ratings_pair_0.5 | acc=0.3798  (66.9s)  knn=u  k=-    dexp=4.75  p_grd=0.321  unc_rem=0.425  unc_rel=0.747  drop=0.87  h=32  L=4  lr=0.001  wd=0.001
+  [Trial 170] amazon-ratings_pair_0.5 | acc=0.3948  (97.0s)  knn=u  k=-    dexp=4.86  p_grd=0.378  unc_rem=0.593  unc_rel=0.933  drop=0.85  h=128  L=4  lr=0.0005  wd=0.001
+  [Trial 171] amazon-ratings_pair_0.5 | acc=0.3930  (75.6s)  knn=u  k=-    dexp=2.13  p_grd=0.442  unc_rem=0.663  unc_rel=0.733  drop=0.82  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 172] amazon-ratings_pair_0.5 | acc=0.2093  (103.1s)  knn=d  k= 18  dexp=7.88  p_grd=0.499  unc_rem=0.914  unc_rel=0.082  drop=0.89  h=32  L=4  lr=1e-05  wd=0.0005
+  [Trial 173] amazon-ratings_pair_0.5 | acc=0.3733  (82.9s)  knn=u  k=-    dexp=4.43  p_grd=0.491  unc_rem=0.473  unc_rel=0.386  drop=0.62  h=32  L=2  lr=0.001  wd=0.001
+  [Trial 174] amazon-ratings_pair_0.5 | acc=0.3956  (116.1s)  knn=p  k= 17  dexp=9.18  p_grd=0.477  unc_rem=0.384  unc_rel=0.289  drop=0.77  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 175] amazon-ratings_pair_0.5 | acc=0.3764  (97.5s)  knn=p  k= 16  dexp=7.00  p_grd=0.496  unc_rem=0.491  unc_rel=0.304  drop=0.78  h=128  L=4  lr=0.05  wd=0.001
+  [Trial 176] amazon-ratings_pair_0.5 | acc=0.3931  (98.7s)  knn=p  k= 18  dexp=10.00  p_grd=0.426  unc_rem=0.291  unc_rel=0.436  drop=0.86  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 177] amazon-ratings_pair_0.5 | acc=0.3803  (106.5s)  knn=p  k= 18  dexp=8.77  p_grd=0.405  unc_rem=0.852  unc_rel=0.268  drop=0.72  h=64  L=4  lr=0.001  wd=1e-05
+  [Trial 178] amazon-ratings_pair_0.5 | acc=0.3869  (106.3s)  knn=p  k= 19  dexp=9.54  p_grd=0.381  unc_rem=0.874  unc_rel=0.438  drop=0.89  h=32  L=4  lr=0.001  wd=0.001
+  [Trial 179] amazon-ratings_pair_0.5 | acc=0.3958  (109.2s)  knn=p  k= 16  dexp=8.41  p_grd=0.464  unc_rem=0.898  unc_rel=0.210  drop=0.76  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 180] amazon-ratings_pair_0.5 | acc=0.3906  (80.6s)  knn=d  k= 13  dexp=4.12  p_grd=0.309  unc_rem=0.996  unc_rel=0.081  drop=0.90  h=32  L=4  lr=0.001  wd=5e-05
+  [Trial 181] amazon-ratings_pair_0.5 | acc=0.3937  (82.2s)  knn=u  k=-    dexp=6.64  p_grd=0.348  unc_rem=0.495  unc_rel=0.837  drop=0.58  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 182] amazon-ratings_pair_0.5 | acc=0.3977  (93.4s)  knn=d  k= 15  dexp=5.27  p_grd=0.443  unc_rem=0.676  unc_rel=0.015  drop=0.89  h=32  L=4  lr=0.05  wd=5e-05
+  [Trial 183] amazon-ratings_pair_0.5 | acc=0.3099  (94.7s)  knn=d  k= 14  dexp=5.17  p_grd=0.489  unc_rem=0.906  unc_rel=0.099  drop=0.86  h=32  L=1  lr=0.05  wd=5e-05
+  [Trial 184] amazon-ratings_pair_0.5 | acc=0.2675  (111.6s)  knn=p  k= 15  dexp=8.09  p_grd=0.410  unc_rem=0.994  unc_rel=0.183  drop=0.84  h=128  L=4  lr=0.001  wd=0.05
+  [Trial 185] amazon-ratings_pair_0.5 | acc=0.3684  (124.5s)  knn=d  k= 15  dexp=2.73  p_grd=0.452  unc_rem=0.746  unc_rel=0.020  drop=0.88  h=32  L=4  lr=0.001  wd=0.1
+  [Trial 186] amazon-ratings_pair_0.5 | acc=0.3697  (107.8s)  knn=d  k= 16  dexp=5.22  p_grd=0.358  unc_rem=0.505  unc_rel=0.013  drop=0.69  h=32  L=4  lr=0.05  wd=5e-05
+  [Trial 187] amazon-ratings_pair_0.5 | acc=0.3783  (93.6s)  knn=u  k=-    dexp=3.76  p_grd=0.435  unc_rem=0.762  unc_rel=0.702  drop=0.48  h=128  L=4  lr=0.0005  wd=0.0001
+  [Trial 188] amazon-ratings_pair_0.5 | acc=0.3974  (110.5s)  knn=p  k= 19  dexp=8.53  p_grd=0.480  unc_rem=0.897  unc_rel=0.035  drop=0.86  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 189] amazon-ratings_pair_0.5 | acc=0.3538  (114.5s)  knn=p  k= 19  dexp=6.95  p_grd=0.434  unc_rem=0.963  unc_rel=0.064  drop=0.89  h=128  L=1  lr=0.01  wd=0.001
+  [Trial 190] amazon-ratings_pair_0.5 | acc=0.3510  (142.5s)  knn=p  k= 19  dexp=9.71  p_grd=0.473  unc_rem=0.442  unc_rel=0.356  drop=0.59  h=128  L=4  lr=0.0001  wd=0.0001
+  [Trial 191] amazon-ratings_pair_0.5 | acc=0.3846  (83.0s)  knn=u  k=-    dexp=1.60  p_grd=0.400  unc_rem=0.186  unc_rel=0.781  drop=0.75  h=128  L=4  lr=0.0005  wd=1e-05
+  [Trial 192] amazon-ratings_pair_0.5 | acc=0.3871  (126.6s)  knn=s  k=  5  dexp=8.24  p_grd=0.485  unc_rem=0.191  unc_rel=0.447  drop=0.63  h=128  L=4  lr=0.0005  wd=5e-05
+  [Trial 193] amazon-ratings_pair_0.5 | acc=0.3911  (117.4s)  knn=p  k= 16  dexp=6.57  p_grd=0.384  unc_rem=0.830  unc_rel=0.113  drop=0.84  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 194] amazon-ratings_pair_0.5 | acc=0.2735  (86.5s)  knn=u  k=-    dexp=7.61  p_grd=0.380  unc_rem=0.591  unc_rel=0.012  drop=0.43  h=128  L=1  lr=1e-05  wd=0.001
+  [Trial 195] amazon-ratings_pair_0.5 | acc=0.3930  (162.2s)  knn=d  k= 20  dexp=8.43  p_grd=0.383  unc_rem=0.367  unc_rel=0.026  drop=0.75  h=128  L=4  lr=0.001  wd=0.001
+  [Trial 196] amazon-ratings_pair_0.5 | acc=0.3347  (60.3s)  knn=u  k=-    dexp=1.08  p_grd=0.280  unc_rem=0.591  unc_rel=0.644  drop=0.49  h=128  L=1  lr=0.0005  wd=0.001
+  [Trial 197] amazon-ratings_pair_0.5 | acc=0.3930  (144.0s)  knn=u  k=-    dexp=5.51  p_grd=0.499  unc_rem=0.749  unc_rel=0.403  drop=0.65  h=32  L=4  lr=0.001  wd=0.001
+  [Trial 198] amazon-ratings_pair_0.5 | acc=0.3756  (139.6s)  knn=s  k= 10  dexp=9.52  p_grd=0.272  unc_rem=0.176  unc_rel=0.561  drop=0.78  h=32  L=2  lr=0.1  wd=5e-05
+  [Trial 199] amazon-ratings_pair_0.5 | acc=0.2073  (172.6s)  knn=d  k= 19  dexp=9.47  p_grd=0.367  unc_rem=0.984  unc_rel=0.807  drop=0.59  h=32  L=4  lr=1e-05  wd=5e-05
+  [Trial 200] amazon-ratings_pair_0.5 | acc=0.3984  (139.4s)  knn=u  k=-    dexp=8.39  p_grd=0.483  unc_rem=0.581  unc_rel=0.044  drop=0.80  h=128  L=4  lr=0.001  wd=0.001
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (amazon-ratings_pair_0.5) Testing top-5 configs × 10 seeds...
+
+  [Retest] (amazon-ratings_pair_0.5) Config 1/5: (Trial #163, Orig Acc: 0.3998)
+           Params: {'knn_mode': 'd', 'k': 19, 'dexp': 4.1424790037562165, 'p_grd': 0.46372238029018553, 'unc_rem': 0.8662418784096982, 'unc_rel': 0.10302293491360101, 'dropout': 0.892664441251451, 'n_hidden': 32, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 5e-05}
+    [Retest] amazon-ratings | Config 1 | Run 1/10 | seed=3000 | Acc: 0.3906 | Mean: 0.3906 | Time: 125.7s
+    [Retest] amazon-ratings | Config 1 | Run 2/10 | seed=3001 | Acc: 0.3993 | Mean: 0.3949 | Time: 113.3s
+    [Retest] amazon-ratings | Config 1 | Run 3/10 | seed=3002 | Acc: 0.3470 | Mean: 0.3790 | Time: 119.9s
+    [Retest] amazon-ratings | Config 1 | Run 4/10 | seed=3003 | Acc: 0.3700 | Mean: 0.3767 | Time: 108.7s
+    [Retest] amazon-ratings | Config 1 | Run 5/10 | seed=3004 | Acc: 0.3050 | Mean: 0.3624 | Time: 120.9s
+    [Retest] amazon-ratings | Config 1 | Run 6/10 | seed=3005 | Acc: 0.3812 | Mean: 0.3655 | Time: 224.8s
+    [Retest] amazon-ratings | Config 1 | Run 7/10 | seed=3006 | Acc: 0.2861 | Mean: 0.3542 | Time: 119.3s
+    [Retest] amazon-ratings | Config 1 | Run 8/10 | seed=3007 | Acc: 0.3257 | Mean: 0.3506 | Time: 120.6s
+    [Retest] amazon-ratings | Config 1 | Run 9/10 | seed=3008 | Acc: 0.3808 | Mean: 0.3540 | Time: 132.9s
+    [Retest] amazon-ratings | Config 1 | Run 10/10 | seed=3009 | Acc: 0.2884 | Mean: 0.3474 | Time: 144.7s
+  [Retest] Config 1: mean=0.3474 ± 0.0410
+
+  [Retest] (amazon-ratings_pair_0.5) Config 2/5: (Trial #165, Orig Acc: 0.3993)
+           Params: {'knn_mode': 'u', 'dexp': 4.831657919135184, 'p_grd': 0.43746242506535116, 'unc_rem': 0.5295039339022274, 'unc_rel': 0.8205776349828311, 'dropout': 0.6618305716494085, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 0.001}
+    [Retest] amazon-ratings | Config 2 | Run 1/10 | seed=3000 | Acc: 0.3993 | Mean: 0.3993 | Time: 100.8s
+    [Retest] amazon-ratings | Config 2 | Run 2/10 | seed=3001 | Acc: 0.4005 | Mean: 0.3999 | Time: 96.9s
+    [Retest] amazon-ratings | Config 2 | Run 3/10 | seed=3002 | Acc: 0.3658 | Mean: 0.3885 | Time: 83.9s
+    [Retest] amazon-ratings | Config 2 | Run 4/10 | seed=3003 | Acc: 0.3750 | Mean: 0.3852 | Time: 96.0s
+    [Retest] amazon-ratings | Config 2 | Run 5/10 | seed=3004 | Acc: 0.3609 | Mean: 0.3803 | Time: 86.9s
+    [Retest] amazon-ratings | Config 2 | Run 6/10 | seed=3005 | Acc: 0.3906 | Mean: 0.3820 | Time: 87.6s
+    [Retest] amazon-ratings | Config 2 | Run 7/10 | seed=3006 | Acc: 0.3410 | Mean: 0.3762 | Time: 87.6s
+    [Retest] amazon-ratings | Config 2 | Run 8/10 | seed=3007 | Acc: 0.3848 | Mean: 0.3772 | Time: 111.0s
+    [Retest] amazon-ratings | Config 2 | Run 9/10 | seed=3008 | Acc: 0.3793 | Mean: 0.3775 | Time: 91.0s
+    [Retest] amazon-ratings | Config 2 | Run 10/10 | seed=3009 | Acc: 0.3686 | Mean: 0.3766 | Time: 91.6s
+  [Retest] Config 2: mean=0.3766 ± 0.0175
+
+  [Retest] (amazon-ratings_pair_0.5) Config 3/5: (Trial #199, Orig Acc: 0.3984)
+           Params: {'knn_mode': 'u', 'dexp': 8.394873978504604, 'p_grd': 0.4825003209391227, 'unc_rem': 0.5812499859861753, 'unc_rel': 0.044094145334921286, 'dropout': 0.8045571670651228, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 0.001}
+    [Retest] amazon-ratings | Config 3 | Run 1/10 | seed=3000 | Acc: 0.3984 | Mean: 0.3984 | Time: 138.0s
+    [Retest] amazon-ratings | Config 3 | Run 2/10 | seed=3001 | Acc: 0.3996 | Mean: 0.3990 | Time: 112.6s
+    [Retest] amazon-ratings | Config 3 | Run 3/10 | seed=3002 | Acc: 0.3621 | Mean: 0.3867 | Time: 100.1s
+    [Retest] amazon-ratings | Config 3 | Run 4/10 | seed=3003 | Acc: 0.3633 | Mean: 0.3808 | Time: 91.7s
+    [Retest] amazon-ratings | Config 3 | Run 5/10 | seed=3004 | Acc: 0.3456 | Mean: 0.3738 | Time: 105.6s
+    [Retest] amazon-ratings | Config 3 | Run 6/10 | seed=3005 | Acc: 0.3893 | Mean: 0.3764 | Time: 98.7s
+    [Retest] amazon-ratings | Config 3 | Run 7/10 | seed=3006 | Acc: 0.3555 | Mean: 0.3734 | Time: 95.8s
+    [Retest] amazon-ratings | Config 3 | Run 8/10 | seed=3007 | Acc: 0.3665 | Mean: 0.3725 | Time: 96.1s
+    [Retest] amazon-ratings | Config 3 | Run 9/10 | seed=3008 | Acc: 0.3775 | Mean: 0.3731 | Time: 93.7s
+    [Retest] amazon-ratings | Config 3 | Run 10/10 | seed=3009 | Acc: 0.3780 | Mean: 0.3736 | Time: 91.1s
+  [Retest] Config 3: mean=0.3736 ± 0.0172
+
+  [Retest] (amazon-ratings_pair_0.5) Config 4/5: (Trial #148, Orig Acc: 0.3981)
+           Params: {'knn_mode': 'u', 'dexp': 7.650035564230075, 'p_grd': 0.44669674007155397, 'unc_rem': 0.81223097739503, 'unc_rel': 0.13621100053328888, 'dropout': 0.7368097580099159, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 0.001}
+    [Retest] amazon-ratings | Config 4 | Run 1/10 | seed=3000 | Acc: 0.3982 | Mean: 0.3982 | Time: 119.4s
+    [Retest] amazon-ratings | Config 4 | Run 2/10 | seed=3001 | Acc: 0.3918 | Mean: 0.3950 | Time: 98.3s
+    [Retest] amazon-ratings | Config 4 | Run 3/10 | seed=3002 | Acc: 0.3640 | Mean: 0.3847 | Time: 107.1s
+    [Retest] amazon-ratings | Config 4 | Run 4/10 | seed=3003 | Acc: 0.3525 | Mean: 0.3766 | Time: 101.0s
+    [Retest] amazon-ratings | Config 4 | Run 5/10 | seed=3004 | Acc: 0.3283 | Mean: 0.3670 | Time: 114.0s
+    [Retest] amazon-ratings | Config 4 | Run 6/10 | seed=3005 | Acc: 0.3801 | Mean: 0.3692 | Time: 98.7s
+    [Retest] amazon-ratings | Config 4 | Run 7/10 | seed=3006 | Acc: 0.3587 | Mean: 0.3677 | Time: 93.7s
+    [Retest] amazon-ratings | Config 4 | Run 8/10 | seed=3007 | Acc: 0.3722 | Mean: 0.3682 | Time: 95.1s
+    [Retest] amazon-ratings | Config 4 | Run 9/10 | seed=3008 | Acc: 0.3787 | Mean: 0.3694 | Time: 96.0s
+    [Retest] amazon-ratings | Config 4 | Run 10/10 | seed=3009 | Acc: 0.3772 | Mean: 0.3702 | Time: 97.0s
+  [Retest] Config 4: mean=0.3702 ± 0.0193
+
+  [Retest] (amazon-ratings_pair_0.5) Config 5/5: (Trial #166, Orig Acc: 0.3979)
+           Params: {'knn_mode': 'u', 'dexp': 2.923353336399437, 'p_grd': 0.4536541835502581, 'unc_rem': 0.5691794871124202, 'unc_rel': 0.80099205365562, 'dropout': 0.633282211624898, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.0005, 'weight_decay': 0.001}
+    [Retest] amazon-ratings | Config 5 | Run 1/10 | seed=3000 | Acc: 0.3979 | Mean: 0.3979 | Time: 81.0s
+    [Retest] amazon-ratings | Config 5 | Run 2/10 | seed=3001 | Acc: 0.3912 | Mean: 0.3945 | Time: 89.8s
+    [Retest] amazon-ratings | Config 5 | Run 3/10 | seed=3002 | Acc: 0.3579 | Mean: 0.3823 | Time: 92.7s
+    [Retest] amazon-ratings | Config 5 | Run 4/10 | seed=3003 | Acc: 0.3656 | Mean: 0.3781 | Time: 82.1s
+    [Retest] amazon-ratings | Config 5 | Run 5/10 | seed=3004 | Acc: 0.3142 | Mean: 0.3653 | Time: 90.6s
+    [Retest] amazon-ratings | Config 5 | Run 6/10 | seed=3005 | Acc: 0.3757 | Mean: 0.3671 | Time: 79.3s
+    [Retest] amazon-ratings | Config 5 | Run 7/10 | seed=3006 | Acc: 0.3288 | Mean: 0.3616 | Time: 73.7s
+    [Retest] amazon-ratings | Config 5 | Run 8/10 | seed=3007 | Acc: 0.3829 | Mean: 0.3643 | Time: 79.3s
+    [Retest] amazon-ratings | Config 5 | Run 9/10 | seed=3008 | Acc: 0.3742 | Mean: 0.3654 | Time: 85.0s
+    [Retest] amazon-ratings | Config 5 | Run 10/10 | seed=3009 | Acc: 0.3549 | Mean: 0.3643 | Time: 83.5s
+  [Retest] Config 5: mean=0.3643 ± 0.0251
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'u', 'dexp': 4.831657919135184, 'p_grd': 0.43746242506535116, 'unc_rem': 0.5295039339022274, 'unc_rel': 0.8205776349828311, 'dropout': 0.6618305716494085, 'n_hidden': 128, 'n_layer': 4, 'lr': 0.001, 'weight_decay': 0.001}
+[Optuna] Success: Best retest mean accuracy: 0.3766
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_amazon-ratings_pair_0.5.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_amazon-ratings_pair_0.5.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_amazon-ratings_pair_0.5  gpu=1  460.1 min  rc=0

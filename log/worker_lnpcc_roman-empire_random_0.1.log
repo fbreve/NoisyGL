@@ -1,0 +1,79 @@
+[worker] START  lnpcc_roman-empire_random_0.1  gpu=0
+ [Worker-12572] CRITICAL: Unable to allocate 556. MiB for an array with shape (22662, 3213) and data type int64
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 490, in run_pcc_thread
+    neib_list_knn, neib_qt_knn = build_knn_graph(feats_std, k_nn=k, n_jobs=n_jobs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 228, in build_knn_graph
+    neib_list = np.full((n_nodes, max_deg), -1, dtype=np.int64)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 556. MiB for an array with shape (22662, 3213) and data type int64
+
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-21 14:02:24
+Variants       : ['lnpcc']
+Datasets       : ['roman-empire']
+Noise          : [[0.1, 'random']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+[HPO] Loaded 160 optimized scenarios from log/hpo_db.json
+----Data statistics------'
+                Name: roman-empire
+                #Nodes 22662
+                #Edges 32927
+                #Classes 18
+                #Ave_degree 2.91
+----Split statistics------'
+                #Train samples 1133 (5.0 % of nodes)
+                #Val samples 3399 (15.0 % of nodes)
+                #Test samples 18130 (remaining)
+
+============================================================
+  lnpcc | roman-empire | random 0.1
+============================================================
+  [HPO] Applying optimized params for roman-empire_random_0.1
+  run  1/10 attempt 1 | seed=3000 | ERROR: Subprocess exception:
+Unable to allocate 556. MiB for an array with shape (22662, 3213) and data type int64
+Traceback (most recent call last):
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\NoisyGL\predictor\LNPCC_Predictor.py", line 490, in run_pcc_thread
+    neib_list_knn, neib_qt_knn = build_knn_graph(feats_std, k_nn=k, n_jobs=n_jobs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\Documents\Acadêmico\Simulações\Python\GCN+LNPCC\lnpcc_graph.py", line 228, in build_knn_graph
+    neib_list = np.full((n_nodes, max_deg), -1, dtype=np.int64)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fbrev\anaconda3\envs\noisygl\Lib\site-packages\numpy\core\numeric.py", line 329, in full
+    a = empty(shape, dtype, order)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 556. MiB for an array with shape (22662, 3213) and data type int64
+ — retrying...
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [14:10:27] roman-empire | random 0.1 | lnpcc | run  1/10 | seed=3001 | acc=0.3953 | mean=0.3953 | time=457.74s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [14:20:41] roman-empire | random 0.1 | lnpcc | run  2/10 | seed=3002 | acc=0.4136 | mean=0.4045 | time=613.74s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [14:29:16] roman-empire | random 0.1 | lnpcc | run  3/10 | seed=3003 | acc=0.4024 | mean=0.4038 | time=514.78s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [14:39:55] roman-empire | random 0.1 | lnpcc | run  4/10 | seed=3004 | acc=0.4106 | mean=0.4055 | time=636.57s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [14:48:55] roman-empire | random 0.1 | lnpcc | run  5/10 | seed=3005 | acc=0.4002 | mean=0.4044 | time=536.02s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [14:57:13] roman-empire | random 0.1 | lnpcc | run  6/10 | seed=3006 | acc=0.4071 | mean=0.4049 | time=497.72s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [15:06:26] roman-empire | random 0.1 | lnpcc | run  7/10 | seed=3007 | acc=0.4031 | mean=0.4046 | time=551.89s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [15:17:52] roman-empire | random 0.1 | lnpcc | run  8/10 | seed=3008 | acc=0.4034 | mean=0.4045 | time=685.80s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [15:26:01] roman-empire | random 0.1 | lnpcc | run  9/10 | seed=3009 | acc=0.3934 | mean=0.4033 | time=488.48s
+  [HPO] Applying optimized params for roman-empire_random_0.1
+    [15:35:13] roman-empire | random 0.1 | lnpcc | run 10/10 | seed=3010 | acc=0.4005 | mean=0.4030 | time=547.99s
+  -> mean=0.4030 +/- 0.0059
+
+[OK] Partial CSV: ./log\partial\partial_lnpcc_roman-empire_random_0.1.csv
+End: 2026-04-21 15:35:13
+
+[worker] OK DONE  lnpcc_roman-empire_random_0.1  gpu=0  93.0 min  rc=0

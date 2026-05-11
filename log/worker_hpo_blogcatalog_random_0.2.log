@@ -1,0 +1,296 @@
+[worker] START  hpo_blogcatalog_random_0.2  gpu=0
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-20 02:07:37
+Variants       : ['lnpcc']
+Datasets       : ['blogcatalog']
+Noise          : [[0.2, 'random']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:0
+======================================================================
+
+[HPO] Optimizing lnpcc on blogcatalog_random_0.2 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: blogcatalog_random_0.2  (max_trials=200, startup=20)
+  [Trial   1] blogcatalog_random_0.2 | acc=0.2263  (195.2s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] blogcatalog_random_0.2 | acc=0.1987  (74.0s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] blogcatalog_random_0.2 | acc=0.1671  (111.1s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] blogcatalog_random_0.2 | acc=0.6635  (41.2s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] blogcatalog_random_0.2 | acc=0.6032  (27.3s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] blogcatalog_random_0.2 | acc=0.6643  (38.6s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] blogcatalog_random_0.2 | acc=0.4346  (81.6s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] blogcatalog_random_0.2 | acc=0.3163  (52.8s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] blogcatalog_random_0.2 | acc=0.6979  (135.4s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] blogcatalog_random_0.2 | acc=0.3935  (75.8s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] blogcatalog_random_0.2 | acc=0.4105  (55.7s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] blogcatalog_random_0.2 | acc=0.6433  (65.6s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] blogcatalog_random_0.2 | acc=0.2460  (92.3s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] blogcatalog_random_0.2 | acc=0.6296  (67.9s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] blogcatalog_random_0.2 | acc=0.4454  (78.7s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] blogcatalog_random_0.2 | acc=0.1758  (430.3s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] blogcatalog_random_0.2 | acc=0.4548  (89.1s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] blogcatalog_random_0.2 | acc=0.5399  (81.1s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] blogcatalog_random_0.2 | acc=0.6282  (44.5s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] blogcatalog_random_0.2 | acc=0.6970  (52.5s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] blogcatalog_random_0.2 | acc=0.6876  (88.1s)  knn=u  k=-    dexp=6.27  p_grd=0.160  unc_rem=0.801  unc_rel=0.098  drop=0.63  h=64  L=2  lr=0.01  wd=5e-05
+  [Trial  22] blogcatalog_random_0.2 | acc=0.7035  (51.9s)  knn=p  k= 23  dexp=8.50  p_grd=0.268  unc_rem=0.954  unc_rel=0.078  drop=0.64  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  23] blogcatalog_random_0.2 | acc=0.7071  (55.7s)  knn=d  k= 24  dexp=8.28  p_grd=0.346  unc_rem=0.639  unc_rel=0.069  drop=0.62  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  24] blogcatalog_random_0.2 | acc=0.6712  (59.0s)  knn=p  k= 24  dexp=8.14  p_grd=0.254  unc_rem=0.868  unc_rel=0.153  drop=0.73  h=32  L=2  lr=0.0005  wd=1e-05
+  [Trial  25] blogcatalog_random_0.2 | acc=0.6902  (273.0s)  knn=p  k= 24  dexp=6.83  p_grd=0.461  unc_rem=0.989  unc_rel=0.211  drop=0.53  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial  26] blogcatalog_random_0.2 | acc=0.7150  (65.1s)  knn=d  k= 24  dexp=6.90  p_grd=0.364  unc_rem=0.699  unc_rel=0.279  drop=0.70  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  27] blogcatalog_random_0.2 | acc=0.4529  (100.9s)  knn=d  k= 24  dexp=7.56  p_grd=0.392  unc_rem=0.432  unc_rel=0.065  drop=0.72  h=32  L=1  lr=0.0001  wd=0.005
+  [Trial  28] blogcatalog_random_0.2 | acc=0.1994  (42.6s)  knn=d  k= 24  dexp=9.52  p_grd=0.320  unc_rem=0.728  unc_rel=0.078  drop=0.53  h=32  L=4  lr=0.0005  wd=0.1
+  [Trial  29] blogcatalog_random_0.2 | acc=0.7318  (73.7s)  knn=d  k= 24  dexp=9.08  p_grd=0.196  unc_rem=0.511  unc_rel=0.142  drop=0.52  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  30] blogcatalog_random_0.2 | acc=0.6876  (43.3s)  knn=d  k= 24  dexp=9.75  p_grd=0.094  unc_rem=0.668  unc_rel=0.120  drop=0.64  h=32  L=2  lr=0.005  wd=0.005
+  [Trial  31] blogcatalog_random_0.2 | acc=0.7011  (51.4s)  knn=d  k= 19  dexp=5.43  p_grd=0.240  unc_rem=0.831  unc_rel=0.304  drop=0.88  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  32] blogcatalog_random_0.2 | acc=0.7063  (74.8s)  knn=d  k= 24  dexp=8.29  p_grd=0.151  unc_rem=0.392  unc_rel=0.081  drop=0.43  h=32  L=2  lr=0.01  wd=5e-05
+  [Trial  33] blogcatalog_random_0.2 | acc=0.4634  (55.6s)  knn=d  k= 24  dexp=8.82  p_grd=0.121  unc_rem=0.409  unc_rel=0.245  drop=0.26  h=32  L=2  lr=0.01  wd=0.05
+  [Trial  34] blogcatalog_random_0.2 | acc=0.4413  (48.5s)  knn=s  k= 45  dexp=9.85  p_grd=0.348  unc_rem=0.286  unc_rel=0.116  drop=0.56  h=32  L=2  lr=0.1  wd=0.005
+  [Trial  35] blogcatalog_random_0.2 | acc=0.6169  (192.9s)  knn=d  k= 24  dexp=9.26  p_grd=0.347  unc_rem=0.551  unc_rel=0.396  drop=0.44  h=32  L=3  lr=0.01  wd=0.005
+  [Trial  36] blogcatalog_random_0.2 | acc=0.6782  (67.8s)  knn=d  k= 24  dexp=7.95  p_grd=0.292  unc_rem=0.396  unc_rel=0.076  drop=0.68  h=32  L=2  lr=0.01  wd=0.01
+  [Trial  37] blogcatalog_random_0.2 | acc=0.3997  (36.7s)  knn=s  k= 40  dexp=6.29  p_grd=0.156  unc_rem=0.335  unc_rel=0.188  drop=0.52  h=32  L=2  lr=1e-05  wd=5e-05
+  [Trial  38] blogcatalog_random_0.2 | acc=0.6501  (49.3s)  knn=p  k= 19  dexp=9.32  p_grd=0.071  unc_rem=0.480  unc_rel=0.128  drop=0.53  h=32  L=1  lr=0.01  wd=0.005
+  [Trial  39] blogcatalog_random_0.2 | acc=0.5491  (69.0s)  knn=p  k= 20  dexp=9.80  p_grd=0.134  unc_rem=0.413  unc_rel=0.067  drop=0.31  h=64  L=2  lr=0.0001  wd=5e-05
+  [Trial  40] blogcatalog_random_0.2 | acc=0.5859  (74.9s)  knn=d  k= 24  dexp=4.75  p_grd=0.359  unc_rem=0.590  unc_rel=0.226  drop=0.64  h=16  L=2  lr=0.001  wd=0.005
+  [Trial  41] blogcatalog_random_0.2 | acc=0.6729  (54.7s)  knn=d  k= 19  dexp=8.31  p_grd=0.107  unc_rem=0.474  unc_rel=0.082  drop=0.36  h=128  L=3  lr=0.01  wd=0.0001
+  [Trial  42] blogcatalog_random_0.2 | acc=0.6121  (92.5s)  knn=d  k= 24  dexp=7.35  p_grd=0.467  unc_rem=0.718  unc_rel=0.464  drop=0.67  h=32  L=2  lr=0.05  wd=5e-05
+  [Trial  43] blogcatalog_random_0.2 | acc=0.7044  (64.5s)  knn=d  k= 24  dexp=9.29  p_grd=0.201  unc_rem=0.261  unc_rel=0.022  drop=0.44  h=32  L=2  lr=0.001  wd=5e-05
+  [Trial  44] blogcatalog_random_0.2 | acc=0.6989  (79.0s)  knn=d  k= 24  dexp=8.95  p_grd=0.191  unc_rem=0.392  unc_rel=0.085  drop=0.44  h=128  L=2  lr=0.001  wd=5e-05
+  [Trial  45] blogcatalog_random_0.2 | acc=0.5529  (48.8s)  knn=d  k= 24  dexp=8.18  p_grd=0.257  unc_rem=0.106  unc_rel=0.046  drop=0.36  h=32  L=4  lr=0.001  wd=1e-05
+  [Trial  46] blogcatalog_random_0.2 | acc=0.7128  (89.0s)  knn=d  k= 24  dexp=6.34  p_grd=0.485  unc_rem=0.599  unc_rel=0.202  drop=0.69  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  47] blogcatalog_random_0.2 | acc=0.7263  (68.3s)  knn=d  k= 20  dexp=7.48  p_grd=0.414  unc_rem=0.702  unc_rel=0.079  drop=0.50  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  48] blogcatalog_random_0.2 | acc=0.7051  (92.2s)  knn=s  k= 35  dexp=5.49  p_grd=0.427  unc_rem=0.483  unc_rel=0.379  drop=0.69  h=32  L=2  lr=0.01  wd=0.005
+  [Trial  49] blogcatalog_random_0.2 | acc=0.4678  (51.5s)  knn=d  k= 19  dexp=5.88  p_grd=0.406  unc_rem=0.834  unc_rel=0.141  drop=0.51  h=32  L=2  lr=0.005  wd=0.05
+  [Trial  50] blogcatalog_random_0.2 | acc=0.4714  (122.0s)  knn=d  k= 19  dexp=8.20  p_grd=0.466  unc_rem=0.683  unc_rel=0.080  drop=0.46  h=32  L=2  lr=0.1  wd=0.005
+  [Trial  51] blogcatalog_random_0.2 | acc=0.6332  (36.1s)  knn=u  k=-    dexp=5.72  p_grd=0.202  unc_rem=0.579  unc_rel=0.040  drop=0.55  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  52] blogcatalog_random_0.2 | acc=0.7107  (90.9s)  knn=u  k=-    dexp=7.52  p_grd=0.474  unc_rem=0.633  unc_rel=0.148  drop=0.79  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  53] blogcatalog_random_0.2 | acc=0.6484  (81.3s)  knn=u  k=-    dexp=6.64  p_grd=0.448  unc_rem=0.521  unc_rel=0.090  drop=0.79  h=64  L=1  lr=0.01  wd=0.001
+  [Trial  54] blogcatalog_random_0.2 | acc=0.4545  (62.2s)  knn=u  k=-    dexp=8.79  p_grd=0.459  unc_rem=0.676  unc_rel=0.249  drop=0.84  h=32  L=2  lr=0.01  wd=0.05
+  [Trial  55] blogcatalog_random_0.2 | acc=0.7186  (95.9s)  knn=u  k=-    dexp=6.31  p_grd=0.389  unc_rem=0.759  unc_rel=0.363  drop=0.63  h=16  L=2  lr=0.005  wd=0.001
+  [Trial  56] blogcatalog_random_0.2 | acc=0.7085  (35.8s)  knn=u  k=-    dexp=5.52  p_grd=0.366  unc_rem=0.551  unc_rel=0.323  drop=0.78  h=16  L=2  lr=0.005  wd=0.001
+  [Trial  57] blogcatalog_random_0.2 | acc=0.7160  (53.7s)  knn=u  k=-    dexp=3.11  p_grd=0.402  unc_rem=0.839  unc_rel=0.141  drop=0.88  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  58] blogcatalog_random_0.2 | acc=0.7114  (39.3s)  knn=u  k=-    dexp=2.73  p_grd=0.392  unc_rem=0.972  unc_rel=0.171  drop=0.84  h=16  L=2  lr=0.01  wd=0.005
+  [Trial  59] blogcatalog_random_0.2 | acc=0.7160  (75.7s)  knn=d  k= 16  dexp=8.42  p_grd=0.499  unc_rem=0.529  unc_rel=0.155  drop=0.58  h=64  L=2  lr=0.005  wd=0.001
+  [Trial  60] blogcatalog_random_0.2 | acc=0.5354  (94.7s)  knn=d  k= 15  dexp=9.48  p_grd=0.347  unc_rem=0.557  unc_rel=0.157  drop=0.62  h=64  L=2  lr=0.0001  wd=0.001
+  [Trial  61] blogcatalog_random_0.2 | acc=0.6982  (89.4s)  knn=u  k=-    dexp=2.72  p_grd=0.415  unc_rem=0.851  unc_rel=0.019  drop=0.82  h=32  L=2  lr=0.001  wd=0.001
+  [Trial  62] blogcatalog_random_0.2 | acc=0.5685  (95.5s)  knn=u  k=-    dexp=1.50  p_grd=0.467  unc_rem=0.719  unc_rel=0.060  drop=0.82  h=32  L=4  lr=0.01  wd=5e-05
+  [Trial  63] blogcatalog_random_0.2 | acc=0.6304  (290.7s)  knn=d  k= 16  dexp=8.73  p_grd=0.428  unc_rem=0.429  unc_rel=0.060  drop=0.69  h=64  L=1  lr=0.005  wd=5e-05
+  [Trial  64] blogcatalog_random_0.2 | acc=0.7306  (84.5s)  knn=u  k=-    dexp=2.09  p_grd=0.394  unc_rem=0.843  unc_rel=0.577  drop=0.85  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  65] blogcatalog_random_0.2 | acc=0.7299  (34.4s)  knn=u  k=-    dexp=2.82  p_grd=0.347  unc_rem=0.718  unc_rel=0.748  drop=0.79  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  66] blogcatalog_random_0.2 | acc=0.6996  (86.7s)  knn=u  k=-    dexp=2.02  p_grd=0.288  unc_rem=0.782  unc_rel=0.503  drop=0.87  h=32  L=2  lr=0.01  wd=0.001
+  [Trial  67] blogcatalog_random_0.2 | acc=0.7133  (48.9s)  knn=s  k= 55  dexp=9.20  p_grd=0.433  unc_rem=0.685  unc_rel=0.141  drop=0.52  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  68] blogcatalog_random_0.2 | acc=0.7167  (56.8s)  knn=d  k= 14  dexp=7.12  p_grd=0.473  unc_rem=0.327  unc_rel=0.306  drop=0.37  h=64  L=2  lr=0.005  wd=0.001
+  [Trial  69] blogcatalog_random_0.2 | acc=0.7090  (119.4s)  knn=d  k= 11  dexp=9.57  p_grd=0.333  unc_rem=0.105  unc_rel=0.162  drop=0.32  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial  70] blogcatalog_random_0.2 | acc=0.7350  (49.5s)  knn=u  k=-    dexp=2.48  p_grd=0.336  unc_rem=0.543  unc_rel=0.910  drop=0.56  h=64  L=2  lr=0.01  wd=0.001
+  [Trial  71] blogcatalog_random_0.2 | acc=0.7143  (29.2s)  knn=u  k=-    dexp=2.48  p_grd=0.427  unc_rem=0.577  unc_rel=0.966  drop=0.63  h=64  L=2  lr=0.01  wd=0.001
+  [Trial  72] blogcatalog_random_0.2 | acc=0.2232  (118.7s)  knn=s  k= 40  dexp=2.01  p_grd=0.380  unc_rem=0.876  unc_rel=0.571  drop=0.85  h=32  L=4  lr=0.01  wd=0.05
+  [Trial  73] blogcatalog_random_0.2 | acc=0.4606  (48.1s)  knn=u  k=-    dexp=3.79  p_grd=0.387  unc_rem=0.715  unc_rel=0.508  drop=0.84  h=32  L=3  lr=0.0005  wd=0.01
+  [Trial  74] blogcatalog_random_0.2 | acc=0.5418  (131.4s)  knn=d  k=  7  dexp=4.91  p_grd=0.428  unc_rem=0.220  unc_rel=0.489  drop=0.14  h=64  L=2  lr=0.0001  wd=0.001
+  [Trial  75] blogcatalog_random_0.2 | acc=0.2835  (132.1s)  knn=u  k=-    dexp=1.63  p_grd=0.415  unc_rem=0.950  unc_rel=0.774  drop=0.67  h=32  L=2  lr=1e-05  wd=1e-05
+  [Trial  76] blogcatalog_random_0.2 | acc=0.6534  (95.5s)  knn=u  k=-    dexp=2.23  p_grd=0.291  unc_rem=0.566  unc_rel=0.959  drop=0.87  h=32  L=2  lr=0.001  wd=0.005
+  [Trial  77] blogcatalog_random_0.2 | acc=0.7217  (77.9s)  knn=u  k=-    dexp=3.93  p_grd=0.439  unc_rem=0.340  unc_rel=0.021  drop=0.27  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  78] blogcatalog_random_0.2 | acc=0.7446  (56.9s)  knn=u  k=-    dexp=2.24  p_grd=0.441  unc_rem=0.300  unc_rel=0.139  drop=0.30  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  79] blogcatalog_random_0.2 | acc=0.7275  (47.9s)  knn=u  k=-    dexp=5.65  p_grd=0.404  unc_rem=0.404  unc_rel=0.033  drop=0.29  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  80] blogcatalog_random_0.2 | acc=0.7275  (67.6s)  knn=u  k=-    dexp=3.62  p_grd=0.433  unc_rem=0.177  unc_rel=0.194  drop=0.19  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  81] blogcatalog_random_0.2 | acc=0.6657  (195.2s)  knn=u  k=-    dexp=1.40  p_grd=0.326  unc_rem=0.152  unc_rel=0.455  drop=0.13  h=128  L=2  lr=0.005  wd=0.0001
+  [Trial  82] blogcatalog_random_0.2 | acc=0.6688  (63.9s)  knn=u  k=-    dexp=5.07  p_grd=0.415  unc_rem=0.393  unc_rel=0.040  drop=0.18  h=32  L=3  lr=0.005  wd=0.001
+  [Trial  83] blogcatalog_random_0.2 | acc=0.7189  (46.9s)  knn=p  k= 12  dexp=1.57  p_grd=0.357  unc_rem=0.503  unc_rel=0.190  drop=0.32  h=32  L=2  lr=0.005  wd=0.001
+  [Trial  84] blogcatalog_random_0.2 | acc=0.1787  (130.6s)  knn=u  k=-    dexp=1.85  p_grd=0.432  unc_rem=0.282  unc_rel=0.167  drop=0.44  h=32  L=4  lr=1e-05  wd=0.001
+  [Trial  85] blogcatalog_random_0.2 | acc=0.7239  (43.9s)  knn=u  k=-    dexp=3.06  p_grd=0.426  unc_rem=0.328  unc_rel=0.032  drop=0.54  h=32  L=2  lr=0.005  wd=0.0005
+  [Trial  86] blogcatalog_random_0.2 | acc=0.7181  (50.5s)  knn=u  k=-    dexp=6.67  p_grd=0.425  unc_rem=0.228  unc_rel=0.264  drop=0.68  h=32  L=2  lr=0.005  wd=0.0005
+  [Trial  87] blogcatalog_random_0.2 | acc=0.6582  (67.2s)  knn=d  k=  1  dexp=2.00  p_grd=0.405  unc_rem=0.497  unc_rel=0.224  drop=0.63  h=32  L=1  lr=0.005  wd=0.0005
+  [Trial  88] blogcatalog_random_0.2 | acc=0.6573  (39.7s)  knn=u  k=-    dexp=2.90  p_grd=0.429  unc_rem=0.121  unc_rel=0.201  drop=0.18  h=128  L=3  lr=0.01  wd=0.001
+  [Trial  89] blogcatalog_random_0.2 | acc=0.3206  (54.2s)  knn=u  k=-    dexp=3.87  p_grd=0.460  unc_rem=0.379  unc_rel=0.134  drop=0.44  h=16  L=2  lr=0.01  wd=0.05
+  [Trial  90] blogcatalog_random_0.2 | acc=0.7080  (39.0s)  knn=u  k=-    dexp=3.81  p_grd=0.436  unc_rem=0.313  unc_rel=0.246  drop=0.56  h=64  L=2  lr=0.005  wd=5e-05
+  [Trial  91] blogcatalog_random_0.2 | acc=0.6491  (51.8s)  knn=u  k=-    dexp=3.25  p_grd=0.378  unc_rem=0.914  unc_rel=0.854  drop=0.89  h=128  L=3  lr=0.01  wd=0.001
+  [Trial  92] blogcatalog_random_0.2 | acc=0.7213  (61.8s)  knn=s  k= 60  dexp=3.83  p_grd=0.375  unc_rem=0.177  unc_rel=0.020  drop=0.23  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  93] blogcatalog_random_0.2 | acc=0.7383  (181.4s)  knn=u  k=-    dexp=2.57  p_grd=0.454  unc_rem=0.053  unc_rel=0.348  drop=0.13  h=16  L=2  lr=0.005  wd=0.001
+  [Trial  94] blogcatalog_random_0.2 | acc=0.6397  (62.5s)  knn=u  k=-    dexp=1.92  p_grd=0.359  unc_rem=0.051  unc_rel=0.336  drop=0.12  h=16  L=3  lr=0.005  wd=0.001
+  [Trial  95] blogcatalog_random_0.2 | acc=0.6679  (135.6s)  knn=u  k=-    dexp=1.21  p_grd=0.481  unc_rem=0.211  unc_rel=0.462  drop=0.21  h=16  L=2  lr=0.005  wd=0.01
+  [Trial  96] blogcatalog_random_0.2 | acc=0.5038  (51.1s)  knn=u  k=-    dexp=3.67  p_grd=0.482  unc_rem=0.197  unc_rel=0.247  drop=0.22  h=32  L=1  lr=0.1  wd=0.1
+  [Trial  97] blogcatalog_random_0.2 | acc=0.5493  (104.2s)  knn=u  k=-    dexp=0.71  p_grd=0.084  unc_rem=0.619  unc_rel=0.932  drop=0.58  h=64  L=2  lr=0.01  wd=0.001
+  [Trial  98] blogcatalog_random_0.2 | acc=0.6739  (38.8s)  knn=s  k= 40  dexp=9.80  p_grd=0.096  unc_rem=0.588  unc_rel=0.225  drop=0.43  h=64  L=2  lr=0.01  wd=0.005
+  [Trial  99] blogcatalog_random_0.2 | acc=0.5101  (162.0s)  knn=u  k=-    dexp=2.15  p_grd=0.385  unc_rem=0.101  unc_rel=0.252  drop=0.32  h=16  L=2  lr=0.05  wd=0.001
+  [Trial 100] blogcatalog_random_0.2 | acc=0.6219  (68.1s)  knn=u  k=-    dexp=1.81  p_grd=0.421  unc_rem=0.148  unc_rel=0.098  drop=0.39  h=32  L=4  lr=0.005  wd=0.0005
+  [Trial 101] blogcatalog_random_0.2 | acc=0.5185  (106.9s)  knn=u  k=-    dexp=3.90  p_grd=0.428  unc_rem=0.155  unc_rel=0.501  drop=0.28  h=128  L=2  lr=0.1  wd=0.001
+  [Trial 102] blogcatalog_random_0.2 | acc=0.6975  (95.4s)  knn=u  k=-    dexp=0.93  p_grd=0.458  unc_rem=0.398  unc_rel=0.259  drop=0.42  h=32  L=2  lr=0.005  wd=1e-05
+  [Trial 103] blogcatalog_random_0.2 | acc=0.4449  (37.7s)  knn=u  k=-    dexp=0.93  p_grd=0.395  unc_rem=0.224  unc_rel=0.266  drop=0.17  h=32  L=2  lr=0.0001  wd=0.001
+  [Trial 104] blogcatalog_random_0.2 | acc=0.4007  (41.6s)  knn=u  k=-    dexp=3.10  p_grd=0.392  unc_rem=0.392  unc_rel=0.058  drop=0.50  h=32  L=2  lr=1e-05  wd=0.0005
+  [Trial 105] blogcatalog_random_0.2 | acc=0.7008  (90.6s)  knn=u  k=-    dexp=5.46  p_grd=0.308  unc_rem=0.480  unc_rel=0.120  drop=0.22  h=32  L=2  lr=0.001  wd=0.001
+  [Trial 106] blogcatalog_random_0.2 | acc=0.7280  (39.5s)  knn=u  k=-    dexp=7.14  p_grd=0.248  unc_rem=0.341  unc_rel=0.391  drop=0.18  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 107] blogcatalog_random_0.2 | acc=0.4637  (41.3s)  knn=u  k=-    dexp=7.39  p_grd=0.243  unc_rem=0.208  unc_rel=0.365  drop=0.29  h=128  L=2  lr=0.005  wd=0.05
+  [Trial 108] blogcatalog_random_0.2 | acc=0.6462  (25.0s)  knn=u  k=-    dexp=5.76  p_grd=0.248  unc_rem=0.349  unc_rel=0.419  drop=0.31  h=128  L=1  lr=0.005  wd=0.001
+  [Trial 109] blogcatalog_random_0.2 | acc=0.6792  (84.6s)  knn=d  k= 17  dexp=2.08  p_grd=0.349  unc_rem=0.535  unc_rel=0.640  drop=0.72  h=32  L=2  lr=0.05  wd=0.001
+  [Trial 110] blogcatalog_random_0.2 | acc=0.6542  (98.6s)  knn=d  k=  5  dexp=7.84  p_grd=0.333  unc_rem=0.440  unc_rel=0.284  drop=0.54  h=32  L=2  lr=0.0005  wd=0.001
+  [Trial 111] blogcatalog_random_0.2 | acc=0.6513  (157.1s)  knn=u  k=-    dexp=2.90  p_grd=0.445  unc_rem=0.852  unc_rel=0.892  drop=0.72  h=32  L=1  lr=0.01  wd=0.0005
+  [Trial 112] blogcatalog_random_0.2 | acc=0.6679  (312.1s)  knn=d  k= 18  dexp=6.91  p_grd=0.427  unc_rem=0.642  unc_rel=0.214  drop=0.50  h=32  L=3  lr=0.005  wd=0.001
+  [Trial 113] blogcatalog_random_0.2 | acc=0.6270  (44.4s)  knn=s  k= 50  dexp=2.79  p_grd=0.390  unc_rem=0.222  unc_rel=0.564  drop=0.13  h=16  L=2  lr=0.0005  wd=0.001
+  [Trial 114] blogcatalog_random_0.2 | acc=0.7246  (81.7s)  knn=u  k=-    dexp=2.37  p_grd=0.444  unc_rem=0.323  unc_rel=0.011  drop=0.31  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 115] blogcatalog_random_0.2 | acc=0.5984  (126.9s)  knn=d  k= 11  dexp=2.67  p_grd=0.494  unc_rem=0.345  unc_rel=0.172  drop=0.15  h=128  L=2  lr=0.1  wd=0.0001
+  [Trial 116] blogcatalog_random_0.2 | acc=0.7234  (46.0s)  knn=p  k= 19  dexp=7.91  p_grd=0.370  unc_rem=0.444  unc_rel=0.620  drop=0.17  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 117] blogcatalog_random_0.2 | acc=0.7169  (34.7s)  knn=u  k=-    dexp=7.69  p_grd=0.148  unc_rem=0.582  unc_rel=0.225  drop=0.16  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 118] blogcatalog_random_0.2 | acc=0.3295  (64.0s)  knn=u  k=-    dexp=2.86  p_grd=0.467  unc_rem=0.010  unc_rel=0.085  drop=0.18  h=128  L=2  lr=0.005  wd=0.05
+  [Trial 119] blogcatalog_random_0.2 | acc=0.7205  (65.3s)  knn=u  k=-    dexp=2.48  p_grd=0.446  unc_rem=0.510  unc_rel=0.591  drop=0.81  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial 120] blogcatalog_random_0.2 | acc=0.7189  (69.8s)  knn=u  k=-    dexp=2.99  p_grd=0.318  unc_rem=0.258  unc_rel=0.196  drop=0.48  h=128  L=2  lr=0.005  wd=0.0005
+  [Trial 121] blogcatalog_random_0.2 | acc=0.3422  (54.8s)  knn=d  k= 15  dexp=8.94  p_grd=0.354  unc_rem=0.943  unc_rel=0.114  drop=0.70  h=32  L=2  lr=1e-05  wd=0.001
+  [Trial 122] blogcatalog_random_0.2 | acc=0.7328  (78.7s)  knn=p  k= 19  dexp=3.90  p_grd=0.310  unc_rem=0.807  unc_rel=0.970  drop=0.66  h=32  L=2  lr=0.01  wd=0.001
+  [Trial 123] blogcatalog_random_0.2 | acc=0.6604  (50.5s)  knn=p  k= 20  dexp=6.09  p_grd=0.367  unc_rem=0.720  unc_rel=0.869  drop=0.74  h=32  L=2  lr=0.05  wd=0.0005
+  [Trial 124] blogcatalog_random_0.2 | acc=0.6645  (65.8s)  knn=p  k= 20  dexp=3.39  p_grd=0.365  unc_rem=0.777  unc_rel=0.881  drop=0.42  h=32  L=2  lr=0.0005  wd=0.001
+  [Trial 125] blogcatalog_random_0.2 | acc=0.7268  (62.4s)  knn=p  k= 19  dexp=4.76  p_grd=0.098  unc_rem=0.960  unc_rel=0.904  drop=0.70  h=32  L=2  lr=0.01  wd=0.001
+  [Trial 126] blogcatalog_random_0.2 | acc=0.7215  (63.4s)  knn=p  k= 19  dexp=2.58  p_grd=0.125  unc_rem=0.671  unc_rel=0.991  drop=0.67  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 127] blogcatalog_random_0.2 | acc=0.7201  (207.6s)  knn=p  k= 20  dexp=4.90  p_grd=0.405  unc_rem=0.585  unc_rel=0.928  drop=0.70  h=32  L=2  lr=0.01  wd=0.001
+  [Trial 128] blogcatalog_random_0.2 | acc=0.7157  (129.3s)  knn=p  k= 20  dexp=5.67  p_grd=0.043  unc_rem=0.923  unc_rel=0.933  drop=0.80  h=32  L=2  lr=0.01  wd=0.001
+  [Trial 129] blogcatalog_random_0.2 | acc=0.5945  (74.4s)  knn=p  k= 17  dexp=4.85  p_grd=0.218  unc_rem=0.900  unc_rel=0.741  drop=0.66  h=32  L=2  lr=0.001  wd=0.01
+  [Trial 130] blogcatalog_random_0.2 | acc=0.7299  (100.6s)  knn=u  k=-    dexp=5.85  p_grd=0.416  unc_rem=0.023  unc_rel=0.218  drop=0.16  h=16  L=2  lr=0.005  wd=0.001
+  [Trial 131] blogcatalog_random_0.2 | acc=0.7419  (46.6s)  knn=u  k=-    dexp=2.60  p_grd=0.315  unc_rem=0.577  unc_rel=0.802  drop=0.71  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 132] blogcatalog_random_0.2 | acc=0.7268  (29.3s)  knn=u  k=-    dexp=8.00  p_grd=0.323  unc_rem=0.107  unc_rel=0.256  drop=0.29  h=16  L=2  lr=0.005  wd=0.001
+  [Trial 133] blogcatalog_random_0.2 | acc=0.6549  (96.4s)  knn=u  k=-    dexp=6.90  p_grd=0.434  unc_rem=0.136  unc_rel=0.108  drop=0.11  h=16  L=2  lr=0.001  wd=0.001
+  [Trial 134] blogcatalog_random_0.2 | acc=0.6354  (48.7s)  knn=p  k= 14  dexp=1.64  p_grd=0.184  unc_rem=0.731  unc_rel=0.977  drop=0.72  h=32  L=1  lr=0.01  wd=1e-05
+  [Trial 135] blogcatalog_random_0.2 | acc=0.2140  (83.8s)  knn=d  k= 21  dexp=8.63  p_grd=0.176  unc_rem=0.462  unc_rel=0.019  drop=0.52  h=32  L=4  lr=0.0001  wd=0.005
+  [Trial 136] blogcatalog_random_0.2 | acc=0.1912  (55.7s)  knn=u  k=-    dexp=6.97  p_grd=0.234  unc_rem=0.045  unc_rel=0.294  drop=0.33  h=16  L=3  lr=1e-05  wd=0.001
+  [Trial 137] blogcatalog_random_0.2 | acc=0.7434  (48.0s)  knn=u  k=-    dexp=2.83  p_grd=0.303  unc_rem=0.445  unc_rel=0.843  drop=0.65  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 138] blogcatalog_random_0.2 | acc=0.6898  (172.5s)  knn=s  k= 15  dexp=3.13  p_grd=0.172  unc_rem=0.806  unc_rel=0.839  drop=0.66  h=32  L=2  lr=0.01  wd=0.0001
+  [Trial 139] blogcatalog_random_0.2 | acc=0.7112  (38.4s)  knn=u  k=-    dexp=2.61  p_grd=0.323  unc_rem=0.341  unc_rel=0.922  drop=0.63  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 140] blogcatalog_random_0.2 | acc=0.3312  (70.4s)  knn=p  k= 20  dexp=3.49  p_grd=0.193  unc_rem=0.896  unc_rel=0.797  drop=0.75  h=128  L=2  lr=0.01  wd=0.1
+  [Trial 141] blogcatalog_random_0.2 | acc=0.7273  (149.0s)  knn=s  k= 35  dexp=2.48  p_grd=0.315  unc_rem=0.550  unc_rel=0.757  drop=0.81  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 142] blogcatalog_random_0.2 | acc=0.7314  (65.4s)  knn=p  k= 24  dexp=4.13  p_grd=0.464  unc_rem=0.093  unc_rel=0.129  drop=0.13  h=16  L=2  lr=0.005  wd=0.001
+  [Trial 143] blogcatalog_random_0.2 | acc=0.7391  (161.3s)  knn=s  k= 35  dexp=3.00  p_grd=0.283  unc_rem=0.459  unc_rel=0.808  drop=0.50  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 144] blogcatalog_random_0.2 | acc=0.7032  (53.3s)  knn=d  k= 24  dexp=1.42  p_grd=0.211  unc_rem=0.333  unc_rel=0.606  drop=0.47  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 145] blogcatalog_random_0.2 | acc=0.4262  (88.7s)  knn=p  k= 24  dexp=2.32  p_grd=0.462  unc_rem=0.280  unc_rel=0.052  drop=0.15  h=16  L=2  lr=0.1  wd=0.001
+  [Trial 146] blogcatalog_random_0.2 | acc=0.7006  (171.5s)  knn=p  k= 24  dexp=1.07  p_grd=0.498  unc_rem=0.062  unc_rel=0.337  drop=0.32  h=16  L=2  lr=0.005  wd=0.001
+  [Trial 147] blogcatalog_random_0.2 | acc=0.7323  (25.0s)  knn=u  k=-    dexp=9.63  p_grd=0.213  unc_rem=0.439  unc_rel=0.492  drop=0.71  h=32  L=2  lr=0.01  wd=0.005
+  [Trial 148] blogcatalog_random_0.2 | acc=0.7345  (44.9s)  knn=s  k= 35  dexp=4.83  p_grd=0.191  unc_rem=0.912  unc_rel=0.706  drop=0.25  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 149] blogcatalog_random_0.2 | acc=0.7126  (24.8s)  knn=u  k=-    dexp=9.81  p_grd=0.288  unc_rem=0.477  unc_rel=0.562  drop=0.73  h=32  L=2  lr=0.01  wd=0.005
+  [Trial 150] blogcatalog_random_0.2 | acc=0.5344  (108.6s)  knn=u  k=-    dexp=1.85  p_grd=0.223  unc_rem=0.738  unc_rel=0.843  drop=0.60  h=32  L=4  lr=0.005  wd=0.001
+  [Trial 151] blogcatalog_random_0.2 | acc=0.7287  (66.1s)  knn=s  k= 35  dexp=5.74  p_grd=0.192  unc_rem=0.958  unc_rel=0.921  drop=0.24  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 152] blogcatalog_random_0.2 | acc=0.7376  (52.0s)  knn=s  k= 35  dexp=3.47  p_grd=0.210  unc_rem=0.904  unc_rel=0.497  drop=0.29  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 153] blogcatalog_random_0.2 | acc=0.6037  (96.2s)  knn=s  k= 35  dexp=4.08  p_grd=0.036  unc_rem=0.885  unc_rel=0.643  drop=0.22  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 154] blogcatalog_random_0.2 | acc=0.7369  (121.8s)  knn=s  k= 35  dexp=6.73  p_grd=0.201  unc_rem=0.815  unc_rel=0.747  drop=0.29  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 155] blogcatalog_random_0.2 | acc=0.7225  (72.1s)  knn=s  k= 35  dexp=3.11  p_grd=0.287  unc_rem=0.751  unc_rel=0.532  drop=0.35  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 156] blogcatalog_random_0.2 | acc=0.7143  (86.8s)  knn=d  k= 24  dexp=9.92  p_grd=0.198  unc_rem=0.580  unc_rel=0.030  drop=0.36  h=32  L=2  lr=0.01  wd=0.005
+  [Trial 157] blogcatalog_random_0.2 | acc=0.5455  (50.9s)  knn=p  k= 24  dexp=4.47  p_grd=0.420  unc_rem=0.159  unc_rel=0.090  drop=0.18  h=16  L=4  lr=0.005  wd=0.0001
+  [Trial 158] blogcatalog_random_0.2 | acc=0.6277  (58.7s)  knn=p  k= 24  dexp=5.30  p_grd=0.467  unc_rem=0.155  unc_rel=0.255  drop=0.17  h=16  L=3  lr=0.005  wd=0.001
+  [Trial 159] blogcatalog_random_0.2 | acc=0.7198  (39.3s)  knn=u  k=-    dexp=4.12  p_grd=0.490  unc_rem=0.898  unc_rel=0.586  drop=0.83  h=16  L=2  lr=0.01  wd=0.001
+  [Trial 160] blogcatalog_random_0.2 | acc=0.7278  (121.5s)  knn=u  k=-    dexp=1.94  p_grd=0.456  unc_rem=0.841  unc_rel=0.703  drop=0.66  h=32  L=2  lr=0.005  wd=0.001
+  [Trial 161] blogcatalog_random_0.2 | acc=0.3692  (50.0s)  knn=u  k=-    dexp=4.31  p_grd=0.370  unc_rem=0.648  unc_rel=0.800  drop=0.74  h=32  L=3  lr=0.05  wd=0.001
+  [Trial 162] blogcatalog_random_0.2 | acc=0.7326  (38.9s)  knn=u  k=-    dexp=4.90  p_grd=0.228  unc_rem=0.550  unc_rel=0.534  drop=0.47  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 163] blogcatalog_random_0.2 | acc=0.7376  (33.2s)  knn=u  k=-    dexp=5.96  p_grd=0.177  unc_rem=0.258  unc_rel=0.398  drop=0.64  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 164] blogcatalog_random_0.2 | acc=0.6282  (66.9s)  knn=u  k=-    dexp=4.83  p_grd=0.120  unc_rem=0.248  unc_rel=0.351  drop=0.82  h=64  L=3  lr=0.01  wd=0.001
+  [Trial 165] blogcatalog_random_0.2 | acc=0.7379  (50.0s)  knn=s  k= 40  dexp=3.73  p_grd=0.294  unc_rem=0.152  unc_rel=0.955  drop=0.64  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 166] blogcatalog_random_0.2 | acc=0.7290  (61.1s)  knn=u  k=-    dexp=4.78  p_grd=0.250  unc_rem=0.511  unc_rel=0.534  drop=0.30  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 167] blogcatalog_random_0.2 | acc=0.3405  (93.0s)  knn=s  k= 45  dexp=4.88  p_grd=0.342  unc_rem=0.164  unc_rel=0.901  drop=0.64  h=64  L=3  lr=0.1  wd=0.001
+  [Trial 168] blogcatalog_random_0.2 | acc=0.7042  (50.5s)  knn=u  k=-    dexp=6.63  p_grd=0.169  unc_rem=0.072  unc_rel=0.514  drop=0.53  h=64  L=2  lr=0.001  wd=0.001
+  [Trial 169] blogcatalog_random_0.2 | acc=0.7169  (35.5s)  knn=s  k= 40  dexp=4.75  p_grd=0.306  unc_rem=0.037  unc_rel=0.956  drop=0.82  h=64  L=2  lr=0.01  wd=1e-05
+  [Trial 170] blogcatalog_random_0.2 | acc=0.7085  (194.6s)  knn=s  k= 35  dexp=3.17  p_grd=0.165  unc_rem=0.272  unc_rel=0.788  drop=0.62  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 171] blogcatalog_random_0.2 | acc=0.6544  (43.8s)  knn=u  k=-    dexp=4.07  p_grd=0.278  unc_rem=0.612  unc_rel=0.885  drop=0.39  h=64  L=3  lr=0.001  wd=0.001
+  [Trial 172] blogcatalog_random_0.2 | acc=0.3290  (107.4s)  knn=u  k=-    dexp=4.13  p_grd=0.150  unc_rem=0.549  unc_rel=0.492  drop=0.66  h=64  L=2  lr=0.01  wd=0.05
+  [Trial 173] blogcatalog_random_0.2 | acc=0.6474  (69.5s)  knn=u  k=-    dexp=0.80  p_grd=0.387  unc_rem=0.721  unc_rel=0.933  drop=0.75  h=32  L=2  lr=0.01  wd=0.01
+  [Trial 174] blogcatalog_random_0.2 | acc=0.7386  (78.1s)  knn=p  k= 24  dexp=2.80  p_grd=0.437  unc_rem=0.386  unc_rel=0.906  drop=0.51  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 175] blogcatalog_random_0.2 | acc=0.7232  (64.4s)  knn=p  k= 24  dexp=4.91  p_grd=0.403  unc_rem=0.583  unc_rel=0.775  drop=0.48  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 176] blogcatalog_random_0.2 | acc=0.6046  (34.3s)  knn=u  k=-    dexp=0.21  p_grd=0.276  unc_rem=0.112  unc_rel=0.981  drop=0.47  h=64  L=2  lr=0.01  wd=0.005
+  [Trial 177] blogcatalog_random_0.2 | acc=0.6864  (125.8s)  knn=p  k= 24  dexp=6.50  p_grd=0.494  unc_rem=0.196  unc_rel=0.157  drop=0.12  h=32  L=2  lr=0.005  wd=0.01
+  [Trial 178] blogcatalog_random_0.2 | acc=0.7172  (222.0s)  knn=p  k= 24  dexp=5.33  p_grd=0.393  unc_rem=0.054  unc_rel=0.020  drop=0.33  h=16  L=2  lr=0.005  wd=0.005
+  [Trial 179] blogcatalog_random_0.2 | acc=0.7138  (53.1s)  knn=s  k= 35  dexp=7.61  p_grd=0.101  unc_rem=0.790  unc_rel=0.435  drop=0.37  h=128  L=2  lr=0.005  wd=0.001
+  [Trial 180] blogcatalog_random_0.2 | acc=0.7032  (343.9s)  knn=p  k= 24  dexp=5.69  p_grd=0.489  unc_rem=0.061  unc_rel=0.984  drop=0.54  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial 181] blogcatalog_random_0.2 | acc=0.7059  (116.9s)  knn=s  k= 35  dexp=1.51  p_grd=0.307  unc_rem=0.362  unc_rel=0.715  drop=0.39  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 182] blogcatalog_random_0.2 | acc=0.6087  (98.0s)  knn=s  k= 40  dexp=3.23  p_grd=0.221  unc_rem=0.971  unc_rel=0.376  drop=0.30  h=128  L=2  lr=0.0001  wd=0.001
+  [Trial 183] blogcatalog_random_0.2 | acc=0.7273  (29.9s)  knn=u  k=-    dexp=8.89  p_grd=0.210  unc_rem=0.499  unc_rel=0.456  drop=0.71  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 184] blogcatalog_random_0.2 | acc=0.7032  (195.5s)  knn=u  k=-    dexp=2.97  p_grd=0.264  unc_rem=0.342  unc_rel=0.892  drop=0.40  h=64  L=2  lr=0.005  wd=1e-05
+  [Trial 185] blogcatalog_random_0.2 | acc=0.7061  (73.6s)  knn=p  k= 24  dexp=2.42  p_grd=0.459  unc_rem=0.422  unc_rel=0.897  drop=0.62  h=64  L=2  lr=0.005  wd=0.0001
+  [Trial 186] blogcatalog_random_0.2 | acc=0.5782  (57.9s)  knn=s  k= 45  dexp=6.09  p_grd=0.197  unc_rem=0.895  unc_rel=0.627  drop=0.18  h=128  L=2  lr=0.1  wd=1e-05
+  [Trial 187] blogcatalog_random_0.2 | acc=0.6448  (51.9s)  knn=u  k=-    dexp=3.71  p_grd=0.398  unc_rem=0.462  unc_rel=0.945  drop=0.69  h=64  L=1  lr=0.005  wd=0.001
+  [Trial 188] blogcatalog_random_0.2 | acc=0.7246  (51.7s)  knn=p  k= 24  dexp=3.59  p_grd=0.430  unc_rem=0.229  unc_rel=0.047  drop=0.19  h=16  L=2  lr=0.005  wd=0.001
+  [Trial 189] blogcatalog_random_0.2 | acc=0.6938  (21.7s)  knn=u  k=-    dexp=2.74  p_grd=0.352  unc_rem=0.106  unc_rel=0.798  drop=0.23  h=16  L=2  lr=0.005  wd=0.001
+  [Trial 190] blogcatalog_random_0.2 | acc=0.7472  (45.1s)  knn=s  k= 35  dexp=2.99  p_grd=0.463  unc_rem=0.055  unc_rel=0.774  drop=0.42  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 191] blogcatalog_random_0.2 | acc=0.7246  (50.0s)  knn=s  k= 35  dexp=4.81  p_grd=0.346  unc_rem=0.152  unc_rel=0.637  drop=0.25  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 192] blogcatalog_random_0.2 | acc=0.6544  (73.4s)  knn=s  k= 35  dexp=3.04  p_grd=0.226  unc_rem=0.842  unc_rel=0.896  drop=0.11  h=64  L=4  lr=0.005  wd=5e-05
+  [Trial 193] blogcatalog_random_0.2 | acc=0.6510  (109.1s)  knn=d  k= 24  dexp=8.69  p_grd=0.168  unc_rem=0.185  unc_rel=0.336  drop=0.51  h=32  L=1  lr=0.01  wd=0.005
+  [Trial 194] blogcatalog_random_0.2 | acc=0.6650  (231.5s)  knn=p  k= 24  dexp=0.55  p_grd=0.372  unc_rem=0.011  unc_rel=0.739  drop=0.62  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 195] blogcatalog_random_0.2 | acc=0.7181  (85.8s)  knn=u  k=-    dexp=6.61  p_grd=0.157  unc_rem=0.297  unc_rel=0.352  drop=0.55  h=128  L=2  lr=0.01  wd=0.0005
+  [Trial 196] blogcatalog_random_0.2 | acc=0.6821  (84.0s)  knn=s  k= 35  dexp=0.20  p_grd=0.470  unc_rem=0.190  unc_rel=0.650  drop=0.41  h=64  L=2  lr=0.01  wd=0.001
+  [Trial 197] blogcatalog_random_0.2 | acc=0.7160  (47.9s)  knn=d  k= 24  dexp=8.66  p_grd=0.221  unc_rem=0.428  unc_rel=0.512  drop=0.48  h=128  L=2  lr=0.01  wd=0.005
+  [Trial 198] blogcatalog_random_0.2 | acc=0.7181  (47.3s)  knn=s  k= 35  dexp=5.88  p_grd=0.491  unc_rem=0.415  unc_rel=0.823  drop=0.48  h=16  L=2  lr=0.01  wd=0.001
+  [Trial 199] blogcatalog_random_0.2 | acc=0.2915  (212.2s)  knn=s  k= 45  dexp=2.62  p_grd=0.343  unc_rem=0.310  unc_rel=0.761  drop=0.59  h=64  L=3  lr=0.01  wd=0.05
+  [Trial 200] blogcatalog_random_0.2 | acc=0.5936  (55.7s)  knn=s  k= 35  dexp=3.35  p_grd=0.484  unc_rem=0.261  unc_rel=0.865  drop=0.35  h=64  L=4  lr=0.0005  wd=0.001
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (blogcatalog_random_0.2) Testing top-5 configs × 10 seeds...
+
+  [Retest] (blogcatalog_random_0.2) Config 1/5: (Trial #189, Orig Acc: 0.7472)
+           Params: {'knn_mode': 's', 'k': 35, 'dexp': 2.9867988438798236, 'p_grd': 0.46327738589633055, 'unc_rem': 0.05535503122489395, 'unc_rel': 0.774486372593957, 'dropout': 0.4249138123208497, 'n_hidden': 64, 'n_layer': 2, 'lr': 0.01, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 1 | Run 1/10 | seed=3000 | Acc: 0.7470 | Mean: 0.7470 | Time: 63.2s
+    [Retest] blogcatalog | Config 1 | Run 2/10 | seed=3001 | Acc: 0.7191 | Mean: 0.7330 | Time: 54.7s
+    [Retest] blogcatalog | Config 1 | Run 3/10 | seed=3002 | Acc: 0.6715 | Mean: 0.7125 | Time: 44.7s
+    [Retest] blogcatalog | Config 1 | Run 4/10 | seed=3003 | Acc: 0.7340 | Mean: 0.7179 | Time: 93.3s
+    [Retest] blogcatalog | Config 1 | Run 5/10 | seed=3004 | Acc: 0.7213 | Mean: 0.7186 | Time: 63.7s
+    [Retest] blogcatalog | Config 1 | Run 6/10 | seed=3005 | Acc: 0.7391 | Mean: 0.7220 | Time: 105.8s
+    [Retest] blogcatalog | Config 1 | Run 7/10 | seed=3006 | Acc: 0.6924 | Mean: 0.7178 | Time: 75.3s
+    [Retest] blogcatalog | Config 1 | Run 8/10 | seed=3007 | Acc: 0.7220 | Mean: 0.7183 | Time: 46.9s
+    [Retest] blogcatalog | Config 1 | Run 9/10 | seed=3008 | Acc: 0.7290 | Mean: 0.7195 | Time: 65.3s
+    [Retest] blogcatalog | Config 1 | Run 10/10 | seed=3009 | Acc: 0.7027 | Mean: 0.7178 | Time: 74.5s
+  [Retest] Config 1: mean=0.7178 ± 0.0218
+
+  [Retest] (blogcatalog_random_0.2) Config 2/5: (Trial #77, Orig Acc: 0.7446)
+           Params: {'knn_mode': 'u', 'dexp': 2.2417602577581164, 'p_grd': 0.4414876434890451, 'unc_rem': 0.3000682806064059, 'unc_rel': 0.1387693901276435, 'dropout': 0.3023050475025355, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 2 | Run 1/10 | seed=3000 | Acc: 0.7446 | Mean: 0.7446 | Time: 28.3s
+    [Retest] blogcatalog | Config 2 | Run 2/10 | seed=3001 | Acc: 0.7321 | Mean: 0.7383 | Time: 107.4s
+    [Retest] blogcatalog | Config 2 | Run 3/10 | seed=3002 | Acc: 0.6806 | Mean: 0.7191 | Time: 55.7s
+    [Retest] blogcatalog | Config 2 | Run 4/10 | seed=3003 | Acc: 0.7193 | Mean: 0.7192 | Time: 73.1s
+    [Retest] blogcatalog | Config 2 | Run 5/10 | seed=3004 | Acc: 0.6958 | Mean: 0.7145 | Time: 161.5s
+    [Retest] blogcatalog | Config 2 | Run 6/10 | seed=3005 | Acc: 0.7417 | Mean: 0.7190 | Time: 70.2s
+    [Retest] blogcatalog | Config 2 | Run 7/10 | seed=3006 | Acc: 0.6996 | Mean: 0.7162 | Time: 74.4s
+    [Retest] blogcatalog | Config 2 | Run 8/10 | seed=3007 | Acc: 0.7253 | Mean: 0.7174 | Time: 59.6s
+    [Retest] blogcatalog | Config 2 | Run 9/10 | seed=3008 | Acc: 0.7280 | Mean: 0.7186 | Time: 74.8s
+    [Retest] blogcatalog | Config 2 | Run 10/10 | seed=3009 | Acc: 0.7100 | Mean: 0.7177 | Time: 28.5s
+  [Retest] Config 2: mean=0.7177 ± 0.0198
+
+  [Retest] (blogcatalog_random_0.2) Config 3/5: (Trial #136, Orig Acc: 0.7434)
+           Params: {'knn_mode': 'u', 'dexp': 2.8337152794807148, 'p_grd': 0.30278095340203814, 'unc_rem': 0.4450466949659292, 'unc_rel': 0.843125463553652, 'dropout': 0.6549058721427384, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 3 | Run 1/10 | seed=3000 | Acc: 0.7434 | Mean: 0.7434 | Time: 22.6s
+    [Retest] blogcatalog | Config 3 | Run 2/10 | seed=3001 | Acc: 0.7290 | Mean: 0.7362 | Time: 191.9s
+    [Retest] blogcatalog | Config 3 | Run 3/10 | seed=3002 | Acc: 0.6700 | Mean: 0.7141 | Time: 54.6s
+    [Retest] blogcatalog | Config 3 | Run 4/10 | seed=3003 | Acc: 0.7131 | Mean: 0.7139 | Time: 71.6s
+    [Retest] blogcatalog | Config 3 | Run 5/10 | seed=3004 | Acc: 0.7076 | Mean: 0.7126 | Time: 124.3s
+    [Retest] blogcatalog | Config 3 | Run 6/10 | seed=3005 | Acc: 0.7487 | Mean: 0.7186 | Time: 94.6s
+    [Retest] blogcatalog | Config 3 | Run 7/10 | seed=3006 | Acc: 0.6910 | Mean: 0.7147 | Time: 30.9s
+    [Retest] blogcatalog | Config 3 | Run 8/10 | seed=3007 | Acc: 0.7136 | Mean: 0.7145 | Time: 39.1s
+    [Retest] blogcatalog | Config 3 | Run 9/10 | seed=3008 | Acc: 0.7292 | Mean: 0.7162 | Time: 69.4s
+    [Retest] blogcatalog | Config 3 | Run 10/10 | seed=3009 | Acc: 0.6866 | Mean: 0.7132 | Time: 39.1s
+  [Retest] Config 3: mean=0.7132 ± 0.0240
+
+  [Retest] (blogcatalog_random_0.2) Config 4/5: (Trial #130, Orig Acc: 0.7419)
+           Params: {'knn_mode': 'u', 'dexp': 2.6034331124678287, 'p_grd': 0.3147969066628347, 'unc_rem': 0.5772303753567349, 'unc_rel': 0.801772371666605, 'dropout': 0.7068868211852024, 'n_hidden': 32, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 4 | Run 1/10 | seed=3000 | Acc: 0.7419 | Mean: 0.7419 | Time: 216.5s
+    [Retest] blogcatalog | Config 4 | Run 2/10 | seed=3001 | Acc: 0.7071 | Mean: 0.7245 | Time: 51.0s
+    [Retest] blogcatalog | Config 4 | Run 3/10 | seed=3002 | Acc: 0.6222 | Mean: 0.6904 | Time: 76.9s
+    [Retest] blogcatalog | Config 4 | Run 4/10 | seed=3003 | Acc: 0.7054 | Mean: 0.6941 | Time: 127.2s
+    [Retest] blogcatalog | Config 4 | Run 5/10 | seed=3004 | Acc: 0.6809 | Mean: 0.6915 | Time: 188.9s
+    [Retest] blogcatalog | Config 4 | Run 6/10 | seed=3005 | Acc: 0.7314 | Mean: 0.6981 | Time: 48.9s
+    [Retest] blogcatalog | Config 4 | Run 7/10 | seed=3006 | Acc: 0.7071 | Mean: 0.6994 | Time: 69.3s
+    [Retest] blogcatalog | Config 4 | Run 8/10 | seed=3007 | Acc: 0.7037 | Mean: 0.6999 | Time: 57.4s
+    [Retest] blogcatalog | Config 4 | Run 9/10 | seed=3008 | Acc: 0.7150 | Mean: 0.7016 | Time: 31.2s
+    [Retest] blogcatalog | Config 4 | Run 10/10 | seed=3009 | Acc: 0.6573 | Mean: 0.6972 | Time: 27.5s
+  [Retest] Config 4: mean=0.6972 ± 0.0336
+
+  [Retest] (blogcatalog_random_0.2) Config 5/5: (Trial #142, Orig Acc: 0.7391)
+           Params: {'knn_mode': 's', 'k': 35, 'dexp': 2.9957282475605043, 'p_grd': 0.28307634965450396, 'unc_rem': 0.4588406381865813, 'unc_rel': 0.8084703398772414, 'dropout': 0.49805238846980215, 'n_hidden': 64, 'n_layer': 2, 'lr': 0.005, 'weight_decay': 0.001}
+    [Retest] blogcatalog | Config 5 | Run 1/10 | seed=3000 | Acc: 0.7391 | Mean: 0.7391 | Time: 191.5s
+    [Retest] blogcatalog | Config 5 | Run 2/10 | seed=3001 | Acc: 0.7244 | Mean: 0.7317 | Time: 88.3s
+    [Retest] blogcatalog | Config 5 | Run 3/10 | seed=3002 | Acc: 0.6554 | Mean: 0.7063 | Time: 67.9s
+    [Retest] blogcatalog | Config 5 | Run 4/10 | seed=3003 | Acc: 0.6886 | Mean: 0.7018 | Time: 83.3s
+    [Retest] blogcatalog | Config 5 | Run 5/10 | seed=3004 | Acc: 0.7131 | Mean: 0.7041 | Time: 76.1s
+    [Retest] blogcatalog | Config 5 | Run 6/10 | seed=3005 | Acc: 0.7424 | Mean: 0.7105 | Time: 191.7s
+    [Retest] blogcatalog | Config 5 | Run 7/10 | seed=3006 | Acc: 0.6890 | Mean: 0.7074 | Time: 202.8s
+    [Retest] blogcatalog | Config 5 | Run 8/10 | seed=3007 | Acc: 0.7066 | Mean: 0.7073 | Time: 35.3s
+    [Retest] blogcatalog | Config 5 | Run 9/10 | seed=3008 | Acc: 0.7071 | Mean: 0.7073 | Time: 171.6s
+    [Retest] blogcatalog | Config 5 | Run 10/10 | seed=3009 | Acc: 0.6765 | Mean: 0.7042 | Time: 85.6s
+  [Retest] Config 5: mean=0.7042 ± 0.0261
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 's', 'k': 35, 'dexp': 2.9867988438798236, 'p_grd': 0.46327738589633055, 'unc_rem': 0.05535503122489395, 'unc_rel': 0.774486372593957, 'dropout': 0.4249138123208497, 'n_hidden': 64, 'n_layer': 2, 'lr': 0.01, 'weight_decay': 0.001}
+[Optuna] Success: Best retest mean accuracy: 0.7178
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_blogcatalog_random_0.2.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_blogcatalog_random_0.2.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_blogcatalog_random_0.2  gpu=0  350.5 min  rc=0

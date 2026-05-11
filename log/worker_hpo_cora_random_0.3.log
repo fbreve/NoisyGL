@@ -1,0 +1,296 @@
+[worker] START  hpo_cora_random_0.3  gpu=1
+======================================================================
+GCN + LN-PCC -- NoisyGL Benchmark (Unified)
+Start          : 2026-04-20 23:39:22
+Variants       : ['lnpcc']
+Datasets       : ['cora']
+Noise          : [[0.3, 'random']]
+Runs           : 10  (seeds 3000..3009)
+Device         : cuda:1
+======================================================================
+
+[HPO] Optimizing lnpcc on cora_random_0.3 (max_trials=200, max_k_same=60)
+
+[Optuna] Scenario: cora_random_0.3  (max_trials=200, startup=20)
+  [Trial   1] cora_random_0.3 | acc=0.3030  (42.2s)  knn=d  k= 14  dexp=7.40  p_grd=0.421  unc_rem=0.161  unc_rel=0.537  drop=0.52  h=128  L=3  lr=0.1  wd=0.05
+  [Trial   2] cora_random_0.3 | acc=0.1730  (32.7s)  knn=d  k= 17  dexp=0.88  p_grd=0.193  unc_rem=0.850  unc_rel=0.092  drop=0.89  h=128  L=3  lr=1e-05  wd=0.1
+  [Trial   3] cora_random_0.3 | acc=0.1220  (29.3s)  knn=s  k= 60  dexp=4.63  p_grd=0.375  unc_rem=0.959  unc_rel=0.839  drop=0.11  h=16  L=4  lr=1e-05  wd=0.1
+  [Trial   4] cora_random_0.3 | acc=0.6400  (23.5s)  knn=s  k= 20  dexp=3.86  p_grd=0.215  unc_rem=0.881  unc_rel=0.612  drop=0.58  h=32  L=3  lr=0.005  wd=0.001
+  [Trial   5] cora_random_0.3 | acc=0.6330  (27.7s)  knn=u  k=-    dexp=8.18  p_grd=0.344  unc_rem=0.346  unc_rel=0.828  drop=0.50  h=64  L=4  lr=0.001  wd=0.001
+  [Trial   6] cora_random_0.3 | acc=0.6160  (26.3s)  knn=s  k= 60  dexp=9.63  p_grd=0.431  unc_rem=0.779  unc_rel=0.683  drop=0.44  h=32  L=1  lr=0.1  wd=0.01
+  [Trial   7] cora_random_0.3 | acc=0.1560  (33.5s)  knn=d  k= 22  dexp=8.98  p_grd=0.186  unc_rem=0.562  unc_rel=0.930  drop=0.36  h=32  L=3  lr=0.0001  wd=0.005
+  [Trial   8] cora_random_0.3 | acc=0.6860  (36.4s)  knn=d  k= 15  dexp=2.27  p_grd=0.167  unc_rem=0.876  unc_rel=0.021  drop=0.20  h=128  L=3  lr=0.1  wd=0.005
+  [Trial   9] cora_random_0.3 | acc=0.6370  (25.8s)  knn=p  k= 21  dexp=7.05  p_grd=0.405  unc_rem=0.819  unc_rel=0.209  drop=0.56  h=32  L=2  lr=0.01  wd=1e-05
+  [Trial  10] cora_random_0.3 | acc=0.6790  (33.8s)  knn=d  k= 23  dexp=5.37  p_grd=0.494  unc_rem=0.196  unc_rel=0.286  drop=0.68  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  11] cora_random_0.3 | acc=0.4860  (42.1s)  knn=s  k= 10  dexp=6.60  p_grd=0.444  unc_rem=0.958  unc_rel=0.876  drop=0.66  h=16  L=4  lr=0.05  wd=1e-05
+  [Trial  12] cora_random_0.3 | acc=0.5860  (21.7s)  knn=u  k=-    dexp=8.76  p_grd=0.091  unc_rem=0.305  unc_rel=0.438  drop=0.14  h=64  L=3  lr=0.001  wd=0.0001
+  [Trial  13] cora_random_0.3 | acc=0.1580  (29.1s)  knn=p  k=  9  dexp=7.90  p_grd=0.228  unc_rem=0.196  unc_rel=0.065  drop=0.88  h=16  L=4  lr=0.1  wd=0.005
+  [Trial  14] cora_random_0.3 | acc=0.6180  (28.7s)  knn=s  k= 20  dexp=4.82  p_grd=0.311  unc_rem=0.084  unc_rel=0.251  drop=0.17  h=32  L=2  lr=0.0005  wd=0.005
+  [Trial  15] cora_random_0.3 | acc=0.3680  (27.1s)  knn=d  k=  5  dexp=1.73  p_grd=0.294  unc_rem=0.145  unc_rel=0.870  drop=0.67  h=32  L=1  lr=0.0001  wd=0.001
+  [Trial  16] cora_random_0.3 | acc=0.2060  (44.6s)  knn=p  k= 15  dexp=1.15  p_grd=0.289  unc_rem=0.335  unc_rel=0.495  drop=0.39  h=64  L=4  lr=1e-05  wd=0.0005
+  [Trial  17] cora_random_0.3 | acc=0.6360  (28.9s)  knn=p  k= 10  dexp=8.27  p_grd=0.189  unc_rem=0.042  unc_rel=0.304  drop=0.53  h=32  L=4  lr=0.005  wd=0.005
+  [Trial  18] cora_random_0.3 | acc=0.6370  (25.7s)  knn=d  k=  3  dexp=2.21  p_grd=0.206  unc_rem=0.616  unc_rel=0.167  drop=0.40  h=64  L=3  lr=0.005  wd=0.01
+  [Trial  19] cora_random_0.3 | acc=0.5200  (30.8s)  knn=p  k= 13  dexp=3.83  p_grd=0.476  unc_rem=0.774  unc_rel=0.043  drop=0.57  h=128  L=1  lr=0.001  wd=5e-05
+  [Trial  20] cora_random_0.3 | acc=0.6410  (25.7s)  knn=u  k=-    dexp=6.93  p_grd=0.170  unc_rem=0.841  unc_rel=0.089  drop=0.61  h=16  L=2  lr=0.01  wd=5e-05
+  [Trial  21] cora_random_0.3 | acc=0.6850  (31.9s)  knn=d  k= 22  dexp=4.21  p_grd=0.464  unc_rem=0.328  unc_rel=0.274  drop=0.74  h=64  L=3  lr=0.05  wd=1e-05
+  [Trial  22] cora_random_0.3 | acc=0.6380  (31.9s)  knn=d  k= 24  dexp=3.64  p_grd=0.457  unc_rem=0.256  unc_rel=0.257  drop=0.49  h=64  L=3  lr=0.05  wd=0.005
+  [Trial  23] cora_random_0.3 | acc=0.6140  (24.8s)  knn=d  k= 24  dexp=4.04  p_grd=0.133  unc_rem=0.681  unc_rel=0.035  drop=0.31  h=128  L=2  lr=0.1  wd=0.005
+  [Trial  24] cora_random_0.3 | acc=0.5600  (25.0s)  knn=d  k= 24  dexp=0.50  p_grd=0.135  unc_rem=0.947  unc_rel=0.174  drop=0.15  h=64  L=3  lr=0.1  wd=0.005
+  [Trial  25] cora_random_0.3 | acc=0.6190  (30.1s)  knn=p  k= 18  dexp=3.00  p_grd=0.376  unc_rem=0.478  unc_rel=0.367  drop=0.73  h=64  L=3  lr=0.001  wd=1e-05
+  [Trial  26] cora_random_0.3 | acc=0.5630  (58.5s)  knn=d  k= 18  dexp=3.27  p_grd=0.395  unc_rem=0.152  unc_rel=0.225  drop=0.83  h=64  L=1  lr=0.05  wd=1e-05
+  [Trial  27] cora_random_0.3 | acc=0.3880  (33.5s)  knn=d  k= 24  dexp=5.73  p_grd=0.489  unc_rem=0.302  unc_rel=0.195  drop=0.64  h=16  L=4  lr=0.0005  wd=1e-05
+  [Trial  28] cora_random_0.3 | acc=0.6500  (26.9s)  knn=s  k= 45  dexp=5.10  p_grd=0.480  unc_rem=0.194  unc_rel=0.506  drop=0.81  h=64  L=3  lr=0.005  wd=5e-05
+  [Trial  29] cora_random_0.3 | acc=0.5840  (31.1s)  knn=p  k= 17  dexp=1.49  p_grd=0.200  unc_rem=0.918  unc_rel=0.171  drop=0.13  h=128  L=3  lr=0.05  wd=0.0001
+  [Trial  30] cora_random_0.3 | acc=0.6330  (28.3s)  knn=d  k= 20  dexp=7.12  p_grd=0.235  unc_rem=0.937  unc_rel=0.255  drop=0.15  h=128  L=3  lr=0.1  wd=0.0005
+  [Trial  31] cora_random_0.3 | acc=0.4340  (32.3s)  knn=d  k= 24  dexp=6.62  p_grd=0.482  unc_rem=0.325  unc_rel=0.164  drop=0.65  h=64  L=3  lr=0.0001  wd=0.01
+  [Trial  32] cora_random_0.3 | acc=0.5210  (30.1s)  knn=s  k= 45  dexp=5.49  p_grd=0.472  unc_rem=0.236  unc_rel=0.367  drop=0.86  h=16  L=3  lr=0.005  wd=5e-05
+  [Trial  33] cora_random_0.3 | acc=0.1830  (36.0s)  knn=d  k= 24  dexp=4.08  p_grd=0.457  unc_rem=0.646  unc_rel=0.314  drop=0.84  h=128  L=3  lr=0.05  wd=0.1
+  [Trial  34] cora_random_0.3 | acc=0.0720  (30.3s)  knn=s  k= 40  dexp=5.06  p_grd=0.313  unc_rem=0.344  unc_rel=0.554  drop=0.64  h=64  L=3  lr=1e-05  wd=0.05
+  [Trial  35] cora_random_0.3 | acc=0.6490  (32.9s)  knn=p  k= 24  dexp=6.92  p_grd=0.484  unc_rem=0.367  unc_rel=0.591  drop=0.81  h=64  L=3  lr=0.005  wd=0.001
+  [Trial  36] cora_random_0.3 | acc=0.2970  (30.0s)  knn=d  k= 14  dexp=0.91  p_grd=0.046  unc_rem=0.892  unc_rel=0.028  drop=0.49  h=128  L=3  lr=0.1  wd=1e-05
+  [Trial  37] cora_random_0.3 | acc=0.6200  (34.8s)  knn=s  k= 40  dexp=4.74  p_grd=0.489  unc_rem=0.126  unc_rel=0.122  drop=0.76  h=64  L=3  lr=0.0005  wd=0.005
+  [Trial  38] cora_random_0.3 | acc=0.6080  (36.9s)  knn=d  k= 24  dexp=2.23  p_grd=0.286  unc_rem=0.946  unc_rel=0.187  drop=0.13  h=128  L=1  lr=0.1  wd=0.001
+  [Trial  39] cora_random_0.3 | acc=0.6110  (33.7s)  knn=d  k= 24  dexp=4.44  p_grd=0.383  unc_rem=0.030  unc_rel=0.474  drop=0.71  h=64  L=3  lr=0.001  wd=5e-05
+  [Trial  40] cora_random_0.3 | acc=0.6560  (28.7s)  knn=s  k= 50  dexp=4.56  p_grd=0.401  unc_rem=0.451  unc_rel=0.553  drop=0.83  h=64  L=4  lr=0.05  wd=5e-05
+  [Trial  41] cora_random_0.3 | acc=0.1850  (48.5s)  knn=d  k= 17  dexp=2.20  p_grd=0.472  unc_rem=0.374  unc_rel=0.603  drop=0.69  h=64  L=4  lr=0.05  wd=0.05
+  [Trial  42] cora_random_0.3 | acc=0.6730  (27.8s)  knn=d  k= 25  dexp=7.91  p_grd=0.445  unc_rem=0.347  unc_rel=0.332  drop=0.82  h=32  L=2  lr=0.05  wd=0.005
+  [Trial  43] cora_random_0.3 | acc=0.6480  (26.5s)  knn=d  k= 24  dexp=6.64  p_grd=0.364  unc_rem=0.333  unc_rel=0.125  drop=0.76  h=32  L=2  lr=0.05  wd=0.005
+  [Trial  44] cora_random_0.3 | acc=0.6580  (28.1s)  knn=s  k= 20  dexp=6.84  p_grd=0.334  unc_rem=0.346  unc_rel=0.469  drop=0.84  h=64  L=4  lr=0.05  wd=0.01
+  [Trial  45] cora_random_0.3 | acc=0.6340  (29.6s)  knn=d  k= 19  dexp=8.87  p_grd=0.373  unc_rem=0.433  unc_rel=0.413  drop=0.84  h=32  L=3  lr=0.005  wd=0.005
+  [Trial  46] cora_random_0.3 | acc=0.6270  (25.5s)  knn=s  k= 20  dexp=2.63  p_grd=0.123  unc_rem=0.739  unc_rel=0.026  drop=0.29  h=16  L=3  lr=0.1  wd=0.0001
+  [Trial  47] cora_random_0.3 | acc=0.4250  (25.1s)  knn=s  k= 20  dexp=8.30  p_grd=0.245  unc_rem=0.278  unc_rel=0.596  drop=0.81  h=64  L=4  lr=0.0005  wd=0.01
+  [Trial  48] cora_random_0.3 | acc=0.5270  (26.9s)  knn=d  k= 20  dexp=6.69  p_grd=0.148  unc_rem=0.379  unc_rel=0.408  drop=0.81  h=64  L=2  lr=0.05  wd=0.01
+  [Trial  49] cora_random_0.3 | acc=0.6870  (31.9s)  knn=d  k= 20  dexp=6.41  p_grd=0.492  unc_rem=0.020  unc_rel=0.424  drop=0.62  h=64  L=2  lr=0.05  wd=0.001
+  [Trial  50] cora_random_0.3 | acc=0.6930  (48.0s)  knn=d  k= 13  dexp=5.45  p_grd=0.491  unc_rem=0.048  unc_rel=0.491  drop=0.78  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  51] cora_random_0.3 | acc=0.7390  (31.5s)  knn=d  k= 12  dexp=4.94  p_grd=0.432  unc_rem=0.062  unc_rel=0.726  drop=0.80  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  52] cora_random_0.3 | acc=0.7050  (28.5s)  knn=d  k= 12  dexp=6.07  p_grd=0.399  unc_rem=0.132  unc_rel=0.943  drop=0.76  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  53] cora_random_0.3 | acc=0.7480  (36.2s)  knn=d  k= 12  dexp=5.08  p_grd=0.479  unc_rem=0.279  unc_rel=0.881  drop=0.80  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  54] cora_random_0.3 | acc=0.7390  (32.2s)  knn=p  k= 11  dexp=4.02  p_grd=0.485  unc_rem=0.068  unc_rel=0.961  drop=0.64  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  55] cora_random_0.3 | acc=0.1780  (35.8s)  knn=d  k= 10  dexp=5.65  p_grd=0.446  unc_rem=0.120  unc_rel=0.847  drop=0.88  h=128  L=2  lr=1e-05  wd=0.001
+  [Trial  56] cora_random_0.3 | acc=0.7590  (29.9s)  knn=p  k= 11  dexp=2.85  p_grd=0.450  unc_rem=0.156  unc_rel=0.609  drop=0.66  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  57] cora_random_0.3 | acc=0.6940  (32.7s)  knn=p  k= 10  dexp=4.26  p_grd=0.489  unc_rem=0.260  unc_rel=0.750  drop=0.71  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial  58] cora_random_0.3 | acc=0.7370  (29.1s)  knn=p  k=  8  dexp=3.15  p_grd=0.362  unc_rem=0.198  unc_rel=0.829  drop=0.51  h=128  L=2  lr=0.05  wd=1e-05
+  [Trial  59] cora_random_0.3 | acc=0.6590  (39.6s)  knn=p  k=  8  dexp=5.21  p_grd=0.272  unc_rem=0.193  unc_rel=0.955  drop=0.54  h=16  L=2  lr=0.05  wd=1e-05
+  [Trial  60] cora_random_0.3 | acc=0.2100  (29.3s)  knn=p  k= 11  dexp=1.14  p_grd=0.321  unc_rem=0.115  unc_rel=0.835  drop=0.54  h=128  L=2  lr=1e-05  wd=1e-05
+  [Trial  61] cora_random_0.3 | acc=0.6690  (29.8s)  knn=p  k=  6  dexp=3.50  p_grd=0.487  unc_rem=0.227  unc_rel=0.591  drop=0.58  h=128  L=3  lr=0.01  wd=0.001
+  [Trial  62] cora_random_0.3 | acc=0.7400  (31.4s)  knn=p  k= 10  dexp=1.71  p_grd=0.452  unc_rem=0.342  unc_rel=0.802  drop=0.71  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial  63] cora_random_0.3 | acc=0.6700  (36.5s)  knn=d  k= 11  dexp=1.55  p_grd=0.474  unc_rem=0.354  unc_rel=0.992  drop=0.84  h=32  L=2  lr=0.05  wd=0.001
+  [Trial  64] cora_random_0.3 | acc=0.5940  (44.5s)  knn=p  k= 11  dexp=5.21  p_grd=0.416  unc_rem=0.036  unc_rel=0.862  drop=0.68  h=128  L=4  lr=0.05  wd=0.001
+  [Trial  65] cora_random_0.3 | acc=0.4670  (29.2s)  knn=d  k=  7  dexp=7.02  p_grd=0.479  unc_rem=0.427  unc_rel=0.837  drop=0.60  h=128  L=2  lr=0.0001  wd=0.01
+  [Trial  66] cora_random_0.3 | acc=0.7370  (33.7s)  knn=d  k= 12  dexp=2.63  p_grd=0.312  unc_rem=0.075  unc_rel=0.968  drop=0.71  h=128  L=2  lr=0.05  wd=0.005
+  [Trial  67] cora_random_0.3 | acc=0.6920  (26.1s)  knn=s  k=  5  dexp=2.08  p_grd=0.249  unc_rem=0.343  unc_rel=0.872  drop=0.69  h=128  L=2  lr=0.05  wd=0.005
+  [Trial  68] cora_random_0.3 | acc=0.6920  (30.2s)  knn=d  k= 12  dexp=2.68  p_grd=0.361  unc_rem=0.062  unc_rel=0.915  drop=0.85  h=16  L=2  lr=0.05  wd=0.005
+  [Trial  69] cora_random_0.3 | acc=0.6570  (28.3s)  knn=u  k=-    dexp=6.10  p_grd=0.499  unc_rem=0.140  unc_rel=0.872  drop=0.42  h=128  L=2  lr=0.005  wd=0.001
+  [Trial  70] cora_random_0.3 | acc=0.6590  (35.5s)  knn=p  k=  9  dexp=3.67  p_grd=0.384  unc_rem=0.128  unc_rel=0.741  drop=0.51  h=128  L=3  lr=0.05  wd=1e-05
+  [Trial  71] cora_random_0.3 | acc=0.6850  (35.6s)  knn=u  k=-    dexp=0.35  p_grd=0.380  unc_rem=0.541  unc_rel=0.933  drop=0.42  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial  72] cora_random_0.3 | acc=0.7010  (31.0s)  knn=u  k=-    dexp=2.20  p_grd=0.243  unc_rem=0.013  unc_rel=0.870  drop=0.74  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  73] cora_random_0.3 | acc=0.5770  (34.5s)  knn=d  k= 13  dexp=4.95  p_grd=0.495  unc_rem=0.345  unc_rel=0.922  drop=0.71  h=128  L=1  lr=0.05  wd=5e-05
+  [Trial  74] cora_random_0.3 | acc=0.7440  (35.7s)  knn=p  k= 13  dexp=2.93  p_grd=0.373  unc_rem=0.165  unc_rel=0.928  drop=0.22  h=128  L=2  lr=0.05  wd=5e-05
+  [Trial  75] cora_random_0.3 | acc=0.5970  (31.2s)  knn=p  k= 13  dexp=3.99  p_grd=0.303  unc_rem=0.160  unc_rel=0.826  drop=0.31  h=128  L=2  lr=0.1  wd=0.001
+  [Trial  76] cora_random_0.3 | acc=0.7040  (30.7s)  knn=p  k=  9  dexp=3.78  p_grd=0.474  unc_rem=0.274  unc_rel=0.885  drop=0.36  h=128  L=2  lr=0.05  wd=5e-05
+  [Trial  77] cora_random_0.3 | acc=0.7140  (30.1s)  knn=p  k= 13  dexp=2.75  p_grd=0.468  unc_rem=0.197  unc_rel=0.341  drop=0.46  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  78] cora_random_0.3 | acc=0.2940  (30.4s)  knn=d  k=  9  dexp=7.47  p_grd=0.470  unc_rem=0.675  unc_rel=0.911  drop=0.84  h=128  L=2  lr=0.05  wd=0.1
+  [Trial  79] cora_random_0.3 | acc=0.6700  (36.1s)  knn=d  k= 14  dexp=1.91  p_grd=0.351  unc_rem=0.252  unc_rel=0.829  drop=0.44  h=64  L=2  lr=0.0001  wd=0.005
+  [Trial  80] cora_random_0.3 | acc=0.5670  (38.0s)  knn=p  k= 10  dexp=1.95  p_grd=0.376  unc_rem=0.027  unc_rel=0.779  drop=0.13  h=16  L=2  lr=0.001  wd=5e-05
+  [Trial  81] cora_random_0.3 | acc=0.5960  (33.2s)  knn=p  k= 14  dexp=0.21  p_grd=0.381  unc_rem=0.492  unc_rel=0.708  drop=0.61  h=128  L=2  lr=0.001  wd=0.0005
+  [Trial  82] cora_random_0.3 | acc=0.6530  (35.6s)  knn=p  k= 13  dexp=2.43  p_grd=0.447  unc_rem=0.385  unc_rel=0.349  drop=0.48  h=32  L=2  lr=0.05  wd=1e-05
+  [Trial  83] cora_random_0.3 | acc=0.6860  (49.8s)  knn=p  k= 13  dexp=2.64  p_grd=0.496  unc_rem=0.532  unc_rel=0.494  drop=0.47  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  84] cora_random_0.3 | acc=0.5420  (53.7s)  knn=p  k= 11  dexp=2.88  p_grd=0.408  unc_rem=0.150  unc_rel=0.182  drop=0.45  h=128  L=4  lr=0.05  wd=0.0001
+  [Trial  85] cora_random_0.3 | acc=0.6260  (34.5s)  knn=p  k= 14  dexp=3.31  p_grd=0.340  unc_rem=0.159  unc_rel=0.999  drop=0.26  h=128  L=4  lr=0.0001  wd=5e-05
+  [Trial  86] cora_random_0.3 | acc=0.5320  (35.0s)  knn=p  k=  9  dexp=3.81  p_grd=0.469  unc_rem=0.094  unc_rel=0.393  drop=0.53  h=128  L=2  lr=0.0001  wd=0.001
+  [Trial  87] cora_random_0.3 | acc=0.6260  (32.9s)  knn=p  k= 14  dexp=4.50  p_grd=0.439  unc_rem=0.130  unc_rel=0.954  drop=0.56  h=128  L=2  lr=0.0005  wd=0.001
+  [Trial  88] cora_random_0.3 | acc=0.6760  (39.1s)  knn=d  k= 10  dexp=2.56  p_grd=0.463  unc_rem=0.051  unc_rel=0.951  drop=0.60  h=128  L=2  lr=0.01  wd=0.01
+  [Trial  89] cora_random_0.3 | acc=0.6250  (38.8s)  knn=d  k= 12  dexp=0.65  p_grd=0.316  unc_rem=0.158  unc_rel=0.815  drop=0.76  h=128  L=4  lr=0.05  wd=0.005
+  [Trial  90] cora_random_0.3 | acc=0.6860  (29.4s)  knn=p  k=  7  dexp=1.08  p_grd=0.495  unc_rem=0.052  unc_rel=0.920  drop=0.60  h=128  L=2  lr=0.05  wd=0.0001
+  [Trial  91] cora_random_0.3 | acc=0.4240  (30.8s)  knn=p  k= 15  dexp=0.65  p_grd=0.170  unc_rem=0.205  unc_rel=0.709  drop=0.23  h=128  L=2  lr=0.05  wd=5e-05
+  [Trial  92] cora_random_0.3 | acc=0.7330  (24.8s)  knn=u  k=-    dexp=5.45  p_grd=0.499  unc_rem=0.324  unc_rel=0.964  drop=0.72  h=128  L=2  lr=0.05  wd=0.001
+  [Trial  93] cora_random_0.3 | acc=0.6800  (29.5s)  knn=d  k= 11  dexp=1.83  p_grd=0.466  unc_rem=0.059  unc_rel=0.481  drop=0.28  h=16  L=2  lr=0.05  wd=0.001
+  [Trial  94] cora_random_0.3 | acc=0.6870  (26.2s)  knn=u  k=-    dexp=4.59  p_grd=0.387  unc_rem=0.174  unc_rel=0.860  drop=0.54  h=16  L=3  lr=0.05  wd=0.001
+  [Trial  95] cora_random_0.3 | acc=0.6650  (23.3s)  knn=u  k=-    dexp=7.74  p_grd=0.476  unc_rem=0.592  unc_rel=0.744  drop=0.68  h=32  L=2  lr=0.05  wd=0.001
+  [Trial  96] cora_random_0.3 | acc=0.6050  (28.6s)  knn=p  k=  2  dexp=3.22  p_grd=0.484  unc_rem=0.232  unc_rel=0.839  drop=0.59  h=128  L=1  lr=0.1  wd=0.1
+  [Trial  97] cora_random_0.3 | acc=0.5360  (40.5s)  knn=u  k=-    dexp=5.59  p_grd=0.431  unc_rem=0.530  unc_rel=0.748  drop=0.78  h=128  L=2  lr=0.0001  wd=0.001
+  [Trial  98] cora_random_0.3 | acc=0.6820  (32.7s)  knn=p  k= 11  dexp=2.22  p_grd=0.486  unc_rem=0.081  unc_rel=0.770  drop=0.64  h=64  L=2  lr=0.05  wd=0.001
+  [Trial  99] cora_random_0.3 | acc=0.7210  (31.5s)  knn=p  k= 14  dexp=1.19  p_grd=0.337  unc_rem=0.131  unc_rel=0.959  drop=0.25  h=128  L=3  lr=0.05  wd=5e-05
+  [Trial 100] cora_random_0.3 | acc=0.4640  (35.1s)  knn=p  k= 15  dexp=0.20  p_grd=0.378  unc_rem=0.187  unc_rel=0.932  drop=0.12  h=64  L=2  lr=0.05  wd=0.05
+  [Trial 101] cora_random_0.3 | acc=0.6480  (27.5s)  knn=d  k=  9  dexp=3.35  p_grd=0.270  unc_rem=0.169  unc_rel=0.951  drop=0.65  h=128  L=3  lr=0.005  wd=0.005
+  [Trial 102] cora_random_0.3 | acc=0.6580  (37.6s)  knn=p  k= 15  dexp=2.77  p_grd=0.275  unc_rem=0.322  unc_rel=0.907  drop=0.33  h=64  L=3  lr=0.05  wd=5e-05
+  [Trial 103] cora_random_0.3 | acc=0.6580  (34.6s)  knn=d  k= 13  dexp=1.39  p_grd=0.359  unc_rem=0.167  unc_rel=0.889  drop=0.37  h=128  L=2  lr=0.05  wd=1e-05
+  [Trial 104] cora_random_0.3 | acc=0.6840  (40.9s)  knn=u  k=-    dexp=3.32  p_grd=0.437  unc_rem=0.383  unc_rel=0.755  drop=0.78  h=128  L=2  lr=0.05  wd=1e-05
+  [Trial 105] cora_random_0.3 | acc=0.6300  (33.5s)  knn=s  k= 55  dexp=3.41  p_grd=0.329  unc_rem=0.119  unc_rel=0.967  drop=0.21  h=128  L=3  lr=0.05  wd=5e-05
+  [Trial 106] cora_random_0.3 | acc=0.1410  (35.8s)  knn=u  k=-    dexp=4.83  p_grd=0.453  unc_rem=0.354  unc_rel=0.871  drop=0.81  h=64  L=4  lr=1e-05  wd=0.001
+  [Trial 107] cora_random_0.3 | acc=0.5470  (38.6s)  knn=p  k= 12  dexp=0.88  p_grd=0.368  unc_rem=0.427  unc_rel=0.957  drop=0.71  h=128  L=4  lr=0.05  wd=0.0005
+  [Trial 108] cora_random_0.3 | acc=0.5310  (37.4s)  knn=p  k= 11  dexp=0.78  p_grd=0.334  unc_rem=0.184  unc_rel=0.888  drop=0.36  h=128  L=1  lr=0.01  wd=5e-05
+  [Trial 109] cora_random_0.3 | acc=0.5830  (34.0s)  knn=u  k=-    dexp=6.16  p_grd=0.463  unc_rem=0.411  unc_rel=0.967  drop=0.67  h=128  L=1  lr=0.05  wd=0.001
+  [Trial 110] cora_random_0.3 | acc=0.2560  (31.8s)  knn=p  k= 15  dexp=0.47  p_grd=0.368  unc_rem=0.050  unc_rel=0.850  drop=0.17  h=128  L=3  lr=1e-05  wd=5e-05
+  [Trial 111] cora_random_0.3 | acc=0.6610  (29.3s)  knn=p  k=  7  dexp=2.28  p_grd=0.423  unc_rem=0.223  unc_rel=0.856  drop=0.63  h=32  L=2  lr=0.1  wd=0.0005
+  [Trial 112] cora_random_0.3 | acc=0.6470  (28.6s)  knn=p  k= 12  dexp=2.78  p_grd=0.420  unc_rem=0.409  unc_rel=0.162  drop=0.40  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 113] cora_random_0.3 | acc=0.7080  (47.3s)  knn=d  k= 12  dexp=5.15  p_grd=0.323  unc_rem=0.234  unc_rel=0.849  drop=0.89  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 114] cora_random_0.3 | acc=0.7110  (22.7s)  knn=u  k=-    dexp=5.67  p_grd=0.497  unc_rem=0.266  unc_rel=0.938  drop=0.75  h=64  L=2  lr=0.05  wd=0.001
+  [Trial 115] cora_random_0.3 | acc=0.6890  (27.6s)  knn=u  k=-    dexp=5.47  p_grd=0.436  unc_rem=0.277  unc_rel=0.910  drop=0.85  h=64  L=2  lr=0.05  wd=5e-05
+  [Trial 116] cora_random_0.3 | acc=0.6450  (27.1s)  knn=p  k=  8  dexp=1.34  p_grd=0.485  unc_rem=0.409  unc_rel=0.494  drop=0.82  h=128  L=2  lr=0.005  wd=0.05
+  [Trial 117] cora_random_0.3 | acc=0.6400  (25.4s)  knn=u  k=-    dexp=5.34  p_grd=0.376  unc_rem=0.150  unc_rel=0.884  drop=0.89  h=64  L=2  lr=0.005  wd=0.001
+  [Trial 118] cora_random_0.3 | acc=0.6920  (33.3s)  knn=u  k=-    dexp=3.04  p_grd=0.497  unc_rem=0.508  unc_rel=0.811  drop=0.63  h=64  L=2  lr=0.01  wd=0.0001
+  [Trial 119] cora_random_0.3 | acc=0.7080  (32.3s)  knn=p  k= 16  dexp=3.10  p_grd=0.467  unc_rem=0.196  unc_rel=0.139  drop=0.28  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 120] cora_random_0.3 | acc=0.5040  (27.1s)  knn=d  k= 10  dexp=3.88  p_grd=0.425  unc_rem=0.262  unc_rel=0.720  drop=0.70  h=128  L=2  lr=0.001  wd=0.05
+  [Trial 121] cora_random_0.3 | acc=0.7100  (27.9s)  knn=p  k= 15  dexp=5.75  p_grd=0.468  unc_rem=0.473  unc_rel=0.954  drop=0.77  h=64  L=2  lr=0.05  wd=0.001
+  [Trial 122] cora_random_0.3 | acc=0.7410  (29.0s)  knn=u  k=-    dexp=5.35  p_grd=0.471  unc_rem=0.264  unc_rel=0.780  drop=0.75  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 123] cora_random_0.3 | acc=0.3290  (34.5s)  knn=p  k= 11  dexp=1.95  p_grd=0.420  unc_rem=0.143  unc_rel=0.455  drop=0.77  h=128  L=2  lr=0.05  wd=0.1
+  [Trial 124] cora_random_0.3 | acc=0.5700  (27.4s)  knn=p  k= 12  dexp=2.62  p_grd=0.355  unc_rem=0.162  unc_rel=0.609  drop=0.68  h=128  L=1  lr=0.05  wd=0.001
+  [Trial 125] cora_random_0.3 | acc=0.6730  (30.8s)  knn=p  k=  6  dexp=1.58  p_grd=0.470  unc_rem=0.186  unc_rel=0.812  drop=0.87  h=128  L=2  lr=0.01  wd=5e-05
+  [Trial 126] cora_random_0.3 | acc=0.5480  (35.6s)  knn=d  k= 15  dexp=5.22  p_grd=0.395  unc_rem=0.050  unc_rel=0.629  drop=0.77  h=128  L=1  lr=0.005  wd=0.001
+  [Trial 127] cora_random_0.3 | acc=0.6660  (30.3s)  knn=d  k=  9  dexp=2.26  p_grd=0.276  unc_rem=0.161  unc_rel=0.972  drop=0.79  h=128  L=2  lr=0.05  wd=0.005
+  [Trial 128] cora_random_0.3 | acc=0.4030  (32.4s)  knn=p  k= 12  dexp=0.21  p_grd=0.371  unc_rem=0.238  unc_rel=0.943  drop=0.28  h=128  L=3  lr=0.05  wd=0.05
+  [Trial 129] cora_random_0.3 | acc=0.6830  (40.1s)  knn=u  k=-    dexp=5.07  p_grd=0.461  unc_rem=0.341  unc_rel=0.998  drop=0.88  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 130] cora_random_0.3 | acc=0.6920  (31.9s)  knn=p  k= 10  dexp=4.41  p_grd=0.390  unc_rem=0.359  unc_rel=0.847  drop=0.55  h=128  L=2  lr=0.05  wd=1e-05
+  [Trial 131] cora_random_0.3 | acc=0.5620  (37.9s)  knn=p  k= 14  dexp=0.31  p_grd=0.492  unc_rem=0.393  unc_rel=0.932  drop=0.81  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial 132] cora_random_0.3 | acc=0.6640  (22.5s)  knn=u  k=-    dexp=1.81  p_grd=0.477  unc_rem=0.064  unc_rel=0.384  drop=0.40  h=128  L=2  lr=0.05  wd=5e-05
+  [Trial 133] cora_random_0.3 | acc=0.6910  (31.2s)  knn=p  k= 16  dexp=6.29  p_grd=0.379  unc_rem=0.501  unc_rel=0.896  drop=0.89  h=64  L=2  lr=0.05  wd=0.001
+  [Trial 134] cora_random_0.3 | acc=0.1860  (35.0s)  knn=p  k= 15  dexp=1.23  p_grd=0.470  unc_rem=0.063  unc_rel=0.620  drop=0.79  h=128  L=2  lr=1e-05  wd=0.001
+  [Trial 135] cora_random_0.3 | acc=0.2830  (30.8s)  knn=p  k= 15  dexp=5.64  p_grd=0.367  unc_rem=0.245  unc_rel=0.968  drop=0.20  h=128  L=2  lr=0.05  wd=0.1
+  [Trial 136] cora_random_0.3 | acc=0.4180  (27.2s)  knn=u  k=-    dexp=7.90  p_grd=0.473  unc_rem=0.178  unc_rel=0.522  drop=0.77  h=128  L=3  lr=0.05  wd=0.05
+  [Trial 137] cora_random_0.3 | acc=0.6540  (31.4s)  knn=u  k=-    dexp=6.60  p_grd=0.471  unc_rem=0.208  unc_rel=0.823  drop=0.78  h=64  L=3  lr=0.05  wd=0.001
+  [Trial 138] cora_random_0.3 | acc=0.7190  (27.6s)  knn=p  k= 13  dexp=1.48  p_grd=0.342  unc_rem=0.119  unc_rel=0.842  drop=0.14  h=128  L=2  lr=0.05  wd=0.01
+  [Trial 139] cora_random_0.3 | acc=0.5770  (35.6s)  knn=p  k= 12  dexp=1.76  p_grd=0.424  unc_rem=0.398  unc_rel=0.600  drop=0.55  h=16  L=3  lr=0.05  wd=0.0005
+  [Trial 140] cora_random_0.3 | acc=0.6870  (30.8s)  knn=p  k= 11  dexp=1.42  p_grd=0.333  unc_rem=0.043  unc_rel=0.888  drop=0.22  h=128  L=2  lr=0.0005  wd=0.0005
+  [Trial 141] cora_random_0.3 | acc=0.6950  (21.5s)  knn=u  k=-    dexp=6.41  p_grd=0.496  unc_rem=0.297  unc_rel=0.693  drop=0.69  h=64  L=2  lr=0.0005  wd=0.001
+  [Trial 142] cora_random_0.3 | acc=0.3580  (28.8s)  knn=p  k= 16  dexp=0.41  p_grd=0.146  unc_rem=0.144  unc_rel=0.928  drop=0.18  h=128  L=3  lr=0.01  wd=0.001
+  [Trial 143] cora_random_0.3 | acc=0.6860  (34.0s)  knn=p  k= 13  dexp=0.85  p_grd=0.372  unc_rem=0.203  unc_rel=0.774  drop=0.25  h=128  L=2  lr=0.1  wd=0.01
+  [Trial 144] cora_random_0.3 | acc=0.6930  (39.8s)  knn=s  k= 35  dexp=8.60  p_grd=0.451  unc_rem=0.183  unc_rel=0.973  drop=0.69  h=64  L=2  lr=0.05  wd=0.001
+  [Trial 145] cora_random_0.3 | acc=0.7250  (31.9s)  knn=u  k=-    dexp=6.76  p_grd=0.432  unc_rem=0.163  unc_rel=0.809  drop=0.59  h=128  L=2  lr=0.05  wd=0.005
+  [Trial 146] cora_random_0.3 | acc=0.6790  (26.4s)  knn=u  k=-    dexp=8.11  p_grd=0.380  unc_rem=0.178  unc_rel=0.710  drop=0.55  h=128  L=2  lr=0.1  wd=0.005
+  [Trial 147] cora_random_0.3 | acc=0.7140  (30.4s)  knn=u  k=-    dexp=1.99  p_grd=0.328  unc_rem=0.173  unc_rel=0.912  drop=0.30  h=16  L=2  lr=0.05  wd=0.01
+  [Trial 148] cora_random_0.3 | acc=0.4230  (29.4s)  knn=p  k=  8  dexp=4.35  p_grd=0.480  unc_rem=0.079  unc_rel=0.927  drop=0.33  h=32  L=2  lr=0.0001  wd=0.001
+  [Trial 149] cora_random_0.3 | acc=0.6430  (62.9s)  knn=u  k=-    dexp=4.06  p_grd=0.442  unc_rem=0.211  unc_rel=0.732  drop=0.38  h=16  L=2  lr=0.05  wd=0.01
+  [Trial 150] cora_random_0.3 | acc=0.7060  (27.5s)  knn=u  k=-    dexp=6.76  p_grd=0.492  unc_rem=0.459  unc_rel=0.867  drop=0.56  h=128  L=2  lr=0.05  wd=0.005
+  [Trial 151] cora_random_0.3 | acc=0.6650  (27.7s)  knn=u  k=-    dexp=2.16  p_grd=0.250  unc_rem=0.084  unc_rel=0.708  drop=0.20  h=128  L=2  lr=0.05  wd=0.01
+  [Trial 152] cora_random_0.3 | acc=0.7130  (22.1s)  knn=u  k=-    dexp=0.31  p_grd=0.259  unc_rem=0.209  unc_rel=0.972  drop=0.34  h=16  L=2  lr=0.05  wd=0.01
+  [Trial 153] cora_random_0.3 | acc=0.6670  (34.0s)  knn=p  k= 11  dexp=1.78  p_grd=0.280  unc_rem=0.525  unc_rel=0.976  drop=0.22  h=16  L=2  lr=0.05  wd=0.01
+  [Trial 154] cora_random_0.3 | acc=0.6970  (23.6s)  knn=u  k=-    dexp=0.62  p_grd=0.138  unc_rem=0.026  unc_rel=0.968  drop=0.49  h=16  L=2  lr=0.05  wd=0.01
+  [Trial 155] cora_random_0.3 | acc=0.5150  (38.4s)  knn=p  k=  9  dexp=3.42  p_grd=0.421  unc_rem=0.151  unc_rel=0.896  drop=0.15  h=128  L=1  lr=0.05  wd=5e-05
+  [Trial 156] cora_random_0.3 | acc=0.6590  (28.0s)  knn=s  k=  5  dexp=4.22  p_grd=0.420  unc_rem=0.066  unc_rel=0.634  drop=0.85  h=32  L=2  lr=0.05  wd=0.001
+  [Trial 157] cora_random_0.3 | acc=0.7040  (25.2s)  knn=u  k=-    dexp=1.37  p_grd=0.317  unc_rem=0.303  unc_rel=0.866  drop=0.17  h=16  L=2  lr=0.05  wd=5e-05
+  [Trial 158] cora_random_0.3 | acc=0.1550  (26.2s)  knn=u  k=-    dexp=1.79  p_grd=0.263  unc_rem=0.275  unc_rel=0.997  drop=0.16  h=16  L=2  lr=1e-05  wd=0.01
+  [Trial 159] cora_random_0.3 | acc=0.6560  (31.1s)  knn=d  k= 12  dexp=2.92  p_grd=0.318  unc_rem=0.047  unc_rel=0.891  drop=0.62  h=32  L=3  lr=0.05  wd=5e-05
+  [Trial 160] cora_random_0.3 | acc=0.6660  (24.1s)  knn=u  k=-    dexp=0.48  p_grd=0.264  unc_rem=0.265  unc_rel=0.644  drop=0.32  h=16  L=2  lr=0.01  wd=0.01
+  [Trial 161] cora_random_0.3 | acc=0.6660  (36.3s)  knn=p  k= 12  dexp=2.96  p_grd=0.241  unc_rem=0.113  unc_rel=0.944  drop=0.17  h=128  L=3  lr=0.05  wd=0.005
+  [Trial 162] cora_random_0.3 | acc=0.6930  (23.8s)  knn=u  k=-    dexp=5.77  p_grd=0.230  unc_rem=0.061  unc_rel=0.781  drop=0.50  h=128  L=2  lr=0.05  wd=0.005
+  [Trial 163] cora_random_0.3 | acc=0.7040  (30.0s)  knn=u  k=-    dexp=1.56  p_grd=0.361  unc_rem=0.364  unc_rel=0.850  drop=0.21  h=32  L=3  lr=0.05  wd=0.01
+  [Trial 164] cora_random_0.3 | acc=0.6750  (30.5s)  knn=p  k=  9  dexp=3.11  p_grd=0.450  unc_rem=0.293  unc_rel=0.918  drop=0.56  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 165] cora_random_0.3 | acc=0.6000  (25.6s)  knn=d  k= 13  dexp=0.58  p_grd=0.240  unc_rem=0.309  unc_rel=0.868  drop=0.47  h=16  L=2  lr=0.001  wd=0.01
+  [Trial 166] cora_random_0.3 | acc=0.6780  (38.8s)  knn=p  k= 12  dexp=4.34  p_grd=0.402  unc_rem=0.172  unc_rel=0.959  drop=0.71  h=128  L=2  lr=0.1  wd=0.005
+  [Trial 167] cora_random_0.3 | acc=0.6090  (28.1s)  knn=d  k=  9  dexp=6.63  p_grd=0.494  unc_rem=0.513  unc_rel=0.888  drop=0.68  h=128  L=2  lr=0.001  wd=0.001
+  [Trial 168] cora_random_0.3 | acc=0.6830  (25.6s)  knn=u  k=-    dexp=5.30  p_grd=0.483  unc_rem=0.055  unc_rel=0.964  drop=0.45  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial 169] cora_random_0.3 | acc=0.6460  (37.4s)  knn=p  k= 14  dexp=1.91  p_grd=0.362  unc_rem=0.096  unc_rel=0.931  drop=0.38  h=128  L=3  lr=0.05  wd=5e-05
+  [Trial 170] cora_random_0.3 | acc=0.6790  (28.3s)  knn=s  k= 25  dexp=5.76  p_grd=0.438  unc_rem=0.057  unc_rel=0.839  drop=0.75  h=128  L=2  lr=0.005  wd=0.01
+  [Trial 171] cora_random_0.3 | acc=0.6880  (43.7s)  knn=p  k= 12  dexp=2.58  p_grd=0.378  unc_rem=0.158  unc_rel=0.876  drop=0.31  h=128  L=2  lr=0.05  wd=0.01
+  [Trial 172] cora_random_0.3 | acc=0.6690  (27.7s)  knn=u  k=-    dexp=0.21  p_grd=0.229  unc_rem=0.417  unc_rel=0.925  drop=0.59  h=16  L=3  lr=0.05  wd=0.01
+  [Trial 173] cora_random_0.3 | acc=0.6390  (27.5s)  knn=u  k=-    dexp=6.29  p_grd=0.490  unc_rem=0.304  unc_rel=0.980  drop=0.71  h=64  L=2  lr=0.0001  wd=0.001
+  [Trial 174] cora_random_0.3 | acc=0.6310  (26.0s)  knn=u  k=-    dexp=5.32  p_grd=0.412  unc_rem=0.170  unc_rel=0.669  drop=0.62  h=128  L=2  lr=0.001  wd=0.001
+  [Trial 175] cora_random_0.3 | acc=0.7060  (37.5s)  knn=u  k=-    dexp=1.41  p_grd=0.298  unc_rem=0.103  unc_rel=0.771  drop=0.44  h=16  L=2  lr=0.05  wd=0.005
+  [Trial 176] cora_random_0.3 | acc=0.5660  (31.0s)  knn=p  k= 16  dexp=0.16  p_grd=0.325  unc_rem=0.222  unc_rel=0.821  drop=0.13  h=128  L=1  lr=0.05  wd=0.01
+  [Trial 177] cora_random_0.3 | acc=0.7290  (33.0s)  knn=p  k= 16  dexp=1.92  p_grd=0.423  unc_rem=0.083  unc_rel=0.526  drop=0.58  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 178] cora_random_0.3 | acc=0.4000  (24.9s)  knn=u  k=-    dexp=6.85  p_grd=0.374  unc_rem=0.382  unc_rel=0.926  drop=0.83  h=128  L=2  lr=0.01  wd=0.1
+  [Trial 179] cora_random_0.3 | acc=0.7030  (25.0s)  knn=u  k=-    dexp=5.70  p_grd=0.499  unc_rem=0.238  unc_rel=0.877  drop=0.77  h=64  L=2  lr=0.05  wd=0.001
+  [Trial 180] cora_random_0.3 | acc=0.6930  (29.0s)  knn=p  k= 18  dexp=2.40  p_grd=0.256  unc_rem=0.175  unc_rel=0.601  drop=0.50  h=128  L=2  lr=0.05  wd=0.0005
+  [Trial 181] cora_random_0.3 | acc=0.7340  (26.7s)  knn=p  k= 17  dexp=8.01  p_grd=0.448  unc_rem=0.133  unc_rel=0.945  drop=0.68  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 182] cora_random_0.3 | acc=0.6900  (28.1s)  knn=p  k= 16  dexp=9.16  p_grd=0.448  unc_rem=0.052  unc_rel=0.778  drop=0.52  h=128  L=2  lr=0.05  wd=0.005
+  [Trial 183] cora_random_0.3 | acc=0.6830  (30.4s)  knn=p  k= 17  dexp=7.62  p_grd=0.430  unc_rem=0.159  unc_rel=0.858  drop=0.76  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 184] cora_random_0.3 | acc=0.6490  (25.0s)  knn=s  k= 25  dexp=1.73  p_grd=0.237  unc_rem=0.044  unc_rel=0.879  drop=0.13  h=32  L=2  lr=0.05  wd=0.01
+  [Trial 185] cora_random_0.3 | acc=0.7330  (35.2s)  knn=p  k= 15  dexp=3.68  p_grd=0.470  unc_rem=0.205  unc_rel=0.533  drop=0.75  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 186] cora_random_0.3 | acc=0.6790  (32.6s)  knn=p  k= 17  dexp=2.55  p_grd=0.365  unc_rem=0.228  unc_rel=0.328  drop=0.79  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 187] cora_random_0.3 | acc=0.6890  (23.0s)  knn=s  k= 20  dexp=3.15  p_grd=0.412  unc_rem=0.161  unc_rel=0.319  drop=0.51  h=128  L=2  lr=0.05  wd=0.001
+  [Trial 188] cora_random_0.3 | acc=0.6120  (35.2s)  knn=p  k= 17  dexp=0.37  p_grd=0.343  unc_rem=0.433  unc_rel=0.714  drop=0.13  h=16  L=3  lr=0.05  wd=5e-05
+  [Trial 189] cora_random_0.3 | acc=0.6610  (26.9s)  knn=u  k=-    dexp=1.15  p_grd=0.273  unc_rem=0.302  unc_rel=0.804  drop=0.32  h=16  L=4  lr=0.05  wd=0.01
+  [Trial 190] cora_random_0.3 | acc=0.1510  (28.1s)  knn=p  k= 14  dexp=7.68  p_grd=0.475  unc_rem=0.400  unc_rel=0.927  drop=0.61  h=16  L=2  lr=1e-05  wd=0.005
+  [Trial 191] cora_random_0.3 | acc=0.6620  (24.7s)  knn=u  k=-    dexp=2.11  p_grd=0.294  unc_rem=0.300  unc_rel=0.951  drop=0.48  h=16  L=2  lr=0.005  wd=0.01
+  [Trial 192] cora_random_0.3 | acc=0.2030  (54.2s)  knn=p  k= 14  dexp=0.32  p_grd=0.397  unc_rem=0.097  unc_rel=0.492  drop=0.26  h=128  L=2  lr=1e-05  wd=0.001
+  [Trial 193] cora_random_0.3 | acc=0.6610  (36.0s)  knn=p  k= 14  dexp=2.94  p_grd=0.457  unc_rem=0.097  unc_rel=0.896  drop=0.18  h=128  L=2  lr=0.005  wd=5e-05
+  [Trial 194] cora_random_0.3 | acc=0.7050  (38.5s)  knn=d  k= 17  dexp=4.26  p_grd=0.465  unc_rem=0.360  unc_rel=0.748  drop=0.73  h=128  L=2  lr=0.05  wd=0.01
+  [Trial 195] cora_random_0.3 | acc=0.6620  (39.1s)  knn=p  k= 13  dexp=0.65  p_grd=0.370  unc_rem=0.318  unc_rel=0.542  drop=0.56  h=16  L=2  lr=0.05  wd=0.001
+  [Trial 196] cora_random_0.3 | acc=0.7010  (26.6s)  knn=u  k=-    dexp=0.35  p_grd=0.344  unc_rem=0.278  unc_rel=0.935  drop=0.20  h=16  L=2  lr=0.05  wd=0.01
+  [Trial 197] cora_random_0.3 | acc=0.6490  (28.8s)  knn=p  k= 12  dexp=3.50  p_grd=0.252  unc_rem=0.338  unc_rel=0.961  drop=0.23  h=32  L=2  lr=0.05  wd=5e-05
+  [Trial 198] cora_random_0.3 | acc=0.6660  (35.1s)  knn=p  k= 15  dexp=8.47  p_grd=0.427  unc_rem=0.014  unc_rel=0.763  drop=0.66  h=128  L=3  lr=0.001  wd=0.001
+  [Trial 199] cora_random_0.3 | acc=0.4800  (29.0s)  knn=d  k=  9  dexp=2.05  p_grd=0.275  unc_rem=0.074  unc_rel=0.859  drop=0.61  h=128  L=2  lr=0.0001  wd=0.0005
+  [Trial 200] cora_random_0.3 | acc=0.6400  (33.6s)  knn=s  k= 25  dexp=3.96  p_grd=0.469  unc_rem=0.251  unc_rel=0.827  drop=0.79  h=128  L=2  lr=0.1  wd=0.001
+
+[Optuna] Optimization done. 200/200 trials completed.
+
+[Retest] (cora_random_0.3) Testing top-5 configs × 10 seeds...
+
+  [Retest] (cora_random_0.3) Config 1/5: (Trial #55, Orig Acc: 0.7590)
+           Params: {'knn_mode': 'p', 'k': 11, 'dexp': 2.8548450301813872, 'p_grd': 0.45025461959922114, 'unc_rem': 0.1562058966308699, 'unc_rel': 0.6089578675651539, 'dropout': 0.6586798576070253, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.05, 'weight_decay': 0.001}
+    [Retest] cora | Config 1 | Run 1/10 | seed=3000 | Acc: 0.7590 | Mean: 0.7590 | Time: 28.9s
+    [Retest] cora | Config 1 | Run 2/10 | seed=3001 | Acc: 0.7140 | Mean: 0.7365 | Time: 33.9s
+    [Retest] cora | Config 1 | Run 3/10 | seed=3002 | Acc: 0.5800 | Mean: 0.6843 | Time: 35.8s
+    [Retest] cora | Config 1 | Run 4/10 | seed=3003 | Acc: 0.6790 | Mean: 0.6830 | Time: 46.2s
+    [Retest] cora | Config 1 | Run 5/10 | seed=3004 | Acc: 0.7140 | Mean: 0.6892 | Time: 39.6s
+    [Retest] cora | Config 1 | Run 6/10 | seed=3005 | Acc: 0.6580 | Mean: 0.6840 | Time: 33.6s
+    [Retest] cora | Config 1 | Run 7/10 | seed=3006 | Acc: 0.6990 | Mean: 0.6861 | Time: 32.6s
+    [Retest] cora | Config 1 | Run 8/10 | seed=3007 | Acc: 0.6170 | Mean: 0.6775 | Time: 37.2s
+    [Retest] cora | Config 1 | Run 9/10 | seed=3008 | Acc: 0.6330 | Mean: 0.6726 | Time: 34.6s
+    [Retest] cora | Config 1 | Run 10/10 | seed=3009 | Acc: 0.7100 | Mean: 0.6763 | Time: 33.1s
+  [Retest] Config 1: mean=0.6763 ± 0.0513
+
+  [Retest] (cora_random_0.3) Config 2/5: (Trial #52, Orig Acc: 0.7480)
+           Params: {'knn_mode': 'd', 'k': 12, 'dexp': 5.075902145816013, 'p_grd': 0.47851057119040463, 'unc_rem': 0.2790441728824812, 'unc_rel': 0.88080021168312, 'dropout': 0.7993253490826664, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.05, 'weight_decay': 0.001}
+    [Retest] cora | Config 2 | Run 1/10 | seed=3000 | Acc: 0.7480 | Mean: 0.7480 | Time: 30.6s
+    [Retest] cora | Config 2 | Run 2/10 | seed=3001 | Acc: 0.7140 | Mean: 0.7310 | Time: 29.1s
+    [Retest] cora | Config 2 | Run 3/10 | seed=3002 | Acc: 0.6830 | Mean: 0.7150 | Time: 36.5s
+    [Retest] cora | Config 2 | Run 4/10 | seed=3003 | Acc: 0.7290 | Mean: 0.7185 | Time: 30.0s
+    [Retest] cora | Config 2 | Run 5/10 | seed=3004 | Acc: 0.6780 | Mean: 0.7104 | Time: 31.8s
+    [Retest] cora | Config 2 | Run 6/10 | seed=3005 | Acc: 0.6770 | Mean: 0.7048 | Time: 32.3s
+    [Retest] cora | Config 2 | Run 7/10 | seed=3006 | Acc: 0.7020 | Mean: 0.7044 | Time: 33.1s
+    [Retest] cora | Config 2 | Run 8/10 | seed=3007 | Acc: 0.6300 | Mean: 0.6951 | Time: 42.0s
+    [Retest] cora | Config 2 | Run 9/10 | seed=3008 | Acc: 0.6490 | Mean: 0.6900 | Time: 33.7s
+    [Retest] cora | Config 2 | Run 10/10 | seed=3009 | Acc: 0.7400 | Mean: 0.6950 | Time: 31.8s
+  [Retest] Config 2: mean=0.6950 ± 0.0367
+
+  [Retest] (cora_random_0.3) Config 3/5: (Trial #73, Orig Acc: 0.7440)
+           Params: {'knn_mode': 'p', 'k': 13, 'dexp': 2.9322623877977554, 'p_grd': 0.3727389102174374, 'unc_rem': 0.16499202401258428, 'unc_rel': 0.9277267464614836, 'dropout': 0.22230991112857873, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.05, 'weight_decay': 5e-05}
+    [Retest] cora | Config 3 | Run 1/10 | seed=3000 | Acc: 0.7440 | Mean: 0.7440 | Time: 37.5s
+    [Retest] cora | Config 3 | Run 2/10 | seed=3001 | Acc: 0.6750 | Mean: 0.7095 | Time: 38.5s
+    [Retest] cora | Config 3 | Run 3/10 | seed=3002 | Acc: 0.6760 | Mean: 0.6983 | Time: 47.1s
+    [Retest] cora | Config 3 | Run 4/10 | seed=3003 | Acc: 0.7430 | Mean: 0.7095 | Time: 37.9s
+    [Retest] cora | Config 3 | Run 5/10 | seed=3004 | Acc: 0.6890 | Mean: 0.7054 | Time: 33.7s
+    [Retest] cora | Config 3 | Run 6/10 | seed=3005 | Acc: 0.6340 | Mean: 0.6935 | Time: 39.0s
+    [Retest] cora | Config 3 | Run 7/10 | seed=3006 | Acc: 0.7050 | Mean: 0.6951 | Time: 46.4s
+    [Retest] cora | Config 3 | Run 8/10 | seed=3007 | Acc: 0.6020 | Mean: 0.6835 | Time: 55.6s
+    [Retest] cora | Config 3 | Run 9/10 | seed=3008 | Acc: 0.5860 | Mean: 0.6727 | Time: 46.4s
+    [Retest] cora | Config 3 | Run 10/10 | seed=3009 | Acc: 0.7300 | Mean: 0.6784 | Time: 38.0s
+  [Retest] Config 3: mean=0.6784 ± 0.0532
+
+  [Retest] (cora_random_0.3) Config 4/5: (Trial #121, Orig Acc: 0.7410)
+           Params: {'knn_mode': 'u', 'dexp': 5.351443728985798, 'p_grd': 0.4709052815964971, 'unc_rem': 0.26413334083330875, 'unc_rel': 0.780008401812712, 'dropout': 0.7532350626292114, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.05, 'weight_decay': 0.001}
+    [Retest] cora | Config 4 | Run 1/10 | seed=3000 | Acc: 0.7410 | Mean: 0.7410 | Time: 25.8s
+    [Retest] cora | Config 4 | Run 2/10 | seed=3001 | Acc: 0.7380 | Mean: 0.7395 | Time: 30.6s
+    [Retest] cora | Config 4 | Run 3/10 | seed=3002 | Acc: 0.7120 | Mean: 0.7303 | Time: 35.8s
+    [Retest] cora | Config 4 | Run 4/10 | seed=3003 | Acc: 0.7530 | Mean: 0.7360 | Time: 29.4s
+    [Retest] cora | Config 4 | Run 5/10 | seed=3004 | Acc: 0.7070 | Mean: 0.7302 | Time: 29.9s
+    [Retest] cora | Config 4 | Run 6/10 | seed=3005 | Acc: 0.6290 | Mean: 0.7133 | Time: 26.9s
+    [Retest] cora | Config 4 | Run 7/10 | seed=3006 | Acc: 0.7600 | Mean: 0.7200 | Time: 24.8s
+    [Retest] cora | Config 4 | Run 8/10 | seed=3007 | Acc: 0.6830 | Mean: 0.7154 | Time: 20.1s
+    [Retest] cora | Config 4 | Run 9/10 | seed=3008 | Acc: 0.6330 | Mean: 0.7062 | Time: 23.0s
+    [Retest] cora | Config 4 | Run 10/10 | seed=3009 | Acc: 0.7330 | Mean: 0.7089 | Time: 18.8s
+  [Retest] Config 4: mean=0.7089 ± 0.0445
+
+  [Retest] (cora_random_0.3) Config 5/5: (Trial #61, Orig Acc: 0.7400)
+           Params: {'knn_mode': 'p', 'k': 10, 'dexp': 1.7094104660419474, 'p_grd': 0.45176375442619976, 'unc_rem': 0.34172948310359824, 'unc_rel': 0.8021900005813407, 'dropout': 0.7064263247124135, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.05, 'weight_decay': 0.0005}
+    [Retest] cora | Config 5 | Run 1/10 | seed=3000 | Acc: 0.7400 | Mean: 0.7400 | Time: 29.6s
+    [Retest] cora | Config 5 | Run 2/10 | seed=3001 | Acc: 0.7250 | Mean: 0.7325 | Time: 27.0s
+    [Retest] cora | Config 5 | Run 3/10 | seed=3002 | Acc: 0.6310 | Mean: 0.6987 | Time: 25.5s
+    [Retest] cora | Config 5 | Run 4/10 | seed=3003 | Acc: 0.7430 | Mean: 0.7097 | Time: 26.1s
+    [Retest] cora | Config 5 | Run 5/10 | seed=3004 | Acc: 0.7180 | Mean: 0.7114 | Time: 31.3s
+    [Retest] cora | Config 5 | Run 6/10 | seed=3005 | Acc: 0.6080 | Mean: 0.6942 | Time: 26.4s
+    [Retest] cora | Config 5 | Run 7/10 | seed=3006 | Acc: 0.6860 | Mean: 0.6930 | Time: 24.9s
+    [Retest] cora | Config 5 | Run 8/10 | seed=3007 | Acc: 0.6640 | Mean: 0.6894 | Time: 23.9s
+    [Retest] cora | Config 5 | Run 9/10 | seed=3008 | Acc: 0.6600 | Mean: 0.6861 | Time: 24.1s
+    [Retest] cora | Config 5 | Run 10/10 | seed=3009 | Acc: 0.7020 | Mean: 0.6877 | Time: 26.4s
+  [Retest] Config 5: mean=0.6877 ± 0.0438
+
+[Optuna] Success: Best config saved to log/hpo_db.json:
+         {'knn_mode': 'u', 'dexp': 5.351443728985798, 'p_grd': 0.4709052815964971, 'unc_rem': 0.26413334083330875, 'unc_rel': 0.780008401812712, 'dropout': 0.7532350626292114, 'n_hidden': 128, 'n_layer': 2, 'lr': 0.05, 'weight_decay': 0.001}
+[Optuna] Success: Best retest mean accuracy: 0.7089
+[Optuna] Success: Done marker: ./log/nni_done\lnpcc_cora_random_0.3.done
+  [HPO] Done marker saved: ./log/nni_done\lnpcc_cora_random_0.3.done
+[total_exp] --hpo_only: skipping benchmark runs.
+[worker] OK DONE  hpo_cora_random_0.3  gpu=1  134.5 min  rc=0
