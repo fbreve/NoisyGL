@@ -12,6 +12,18 @@
 ![version](https://img.shields.io/badge/version-0.0.1-blue)
 
 # NoisyGL
+
+> [!NOTE]
+> **This repository is a modified fork of the original [NoisyGL](https://github.com/eaglelab-zju/NoisyGL) benchmark.**
+> It is maintained specifically to support our research paper focusing on **PCC + GCN** (Particle Competition and Cooperation + Graph Convolutional Network). 
+> 
+> Key enhancements in this fork include:
+> - **PCC + GCN Predictor**: Seamless integration of the PCC + GCN method.
+> - **Multi-GPU Parallel Workloads**: Schedulers for parallel benchmarks and concurrent Optuna HPO trials.
+> - **Platform & Scale Stabilizations**: Optimizations enabling Out-Of-Memory (OOM) prevention, and execution stability on Windows / CUDA.
+>
+> For the official, unmodified upstream benchmark code, please visit the original repository: [eaglelab-zju/NoisyGL](https://github.com/eaglelab-zju/NoisyGL).
+
 Official code for [NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) accepted by NeurIPS 2024. 
 NoisyGL is a comprehensive benchmark for **Graph Neural Networks under Label Noise (GLN)**.
 GLN is a family of robust Graph Neural Network (GNN) models, with a particular focus on performance in the presence of label noise. 
@@ -81,22 +93,66 @@ if self.conf.training['debug']:
     print("break point")
 ```
 
-### Run hyperparameter optimization.
+### Run hyperparameter optimization (NNI).
 ``` bash
 python hyperparam_opt.py --method gcn --data cora --noise_type uniform --noise_rate 0.1 --device cuda:0 --max_trial_number 20 --trial_concurrency 4 --port 8081 --update_config True
 ```
 By running the command above, an NNI manager will run on http://localhost:8081, 
-then automatically run 20 HPO trails, each trail call 'single_exp.py' with different hyperparameters. 
+then automatically run 20 HPO trials, each trial calling 'single_exp.py' with different hyperparameters. 
 After all HPO trials are finished, 
 a new config file with optimized hyperparameters will overwrite the original one at "./config/gcn/gcn_cora.yaml".
 You can optimize hyperparameters for different methods on various datasets and noise types 
 by changing the corresponding arguments. 
 
-## Sumamry
+### Run hyperparameter optimization (Optuna).
+For the `lnpcc` method, you can run hyperparameter optimization using the Optuna backend.
+```bash
+python hyperparam_opt_optuna.py --dataset cora --noise_type uniform --noise_rate 0.3 --max_trial_number 200 --device cuda:0
+```
+This is fully compatible with our pipeline, running `single_exp.py` subprocesses with advanced search space definitions (such as capping `k` for Cosine KNN on large datasets to avoid memory overhead), and saves the best parameters into a local JSON database at `./log/hpo_db.json`.
+
+### Run parallel benchmarks & hyperparameter optimization.
+NoisyGL now includes a robust parallel launcher framework to schedule and execute multi-scenario hyperparameter optimization and benchmarks concurrently across multiple GPUs.
+
+#### 1. PCC + GCN Parallel Pipeline (`run_lnpcc_parallel.py`)
+This script schedules GCN baselines and PCC + GCN (Particle Competition and Cooperation + Graph Convolutional Network) experiments using Longest Processing Time (LPT) scheduling for balanced GPU workloads.
+
+* **Phase 1: Multi-Scenario HPO Optimization** (Runs Optuna trials concurrently across GPUs):
+  ```bash
+  python run_lnpcc_parallel.py --all_datasets --hpo_only --optimize_trials 200 --gpus 0 1
+  ```
+* **Phase 2: Benchmark Retest** (Reuses pre-tuned configuration YAMLs and GCN results, saving computation time):
+  ```bash
+  python run_lnpcc_parallel.py --all_datasets --all_noise --gpus 0 1 --skip_hpo --skip_gcn --max_workers 16 --resume
+  ```
+
+#### 2. Instance-Dependent Noise Parallel Pipeline (`run_instance_parallel.py`)
+Runs concurrent Optuna hyperparameter optimization and benchmarks specifically for instance-dependent noise across multiple methods (`lnpcc`, `gcn`, `nrgnn`, `pignn`, `cp`).
+```bash
+python run_instance_parallel.py --gpus 0 --workers_per_gpu 4 --methods lnpcc gcn nrgnn pignn cp --max_trials 50 --resume
+```
+
+---
+
+## 🛠️ Advanced Features & Stability Updates
+To support large-scale benchmark runs under demanding environments (especially Windows + CUDA), several infrastructure updates have been made:
+
+1. **Memory-Efficient Instance-Dependent Noise**: Class-wise batching of weights projection avoids expanding matrices to `[N, D, C]`. This prevents Out-Of-Memory (OOM) errors on large datasets (e.g., `flickr`, `roman-empire`, `amazon-ratings`) while running instance-dependent noise.
+2. **CPU-First Data Loading**: Datasets are initialized and stored in CPU RAM, moving tensors to the target GPU device dynamically only during predictor training.
+3. **Windows/CUDA Sparse Matrix Compatibility**: Avoids GPU sparse tensor instabilities on Windows by performing graph operations and indexing directly on CPU before transferring minimal required tensors (e.g., `edge_index` and `edge_weight`) to the GPU.
+4. **Isolated Process Execution for CPU Kernels**: PCC's (Particle Competition and Cooperation) Cython-bound graph propagation runs in an isolated spawned subprocess using shared memory (`SharedMemory`) to prevent process-level native memory conflicts and segmentation faults.
+5. **GPU Execution Lock (`GPULock`)**: Multi-process worker synchronization utilizes a file-based lock mechanism to serialize GPU-bound GCN training phases, preventing multiple workers from colliding on GPU memory.
+6. **Utility and Monitoring Toolkit**:
+   * `kill_zombies.py`: Cleans up orphaned python/NNI background worker processes.
+   * `generate_plots.py` / `generate_plots_instance.py`: Automates summary plotting of Accuracy and Delta values.
+   * `generate_tables.py`: Exports raw experimental logs into consolidated LaTeX tables and Excel worksheets.
+   * `nni_monitor.py`: Real-time console monitor for tracking Optuna and NNI runs.
+
+## Summary
 
 **Method available** : 
 `gcn`, `smodel`, `forward`, `backward`, `coteaching`, `sce`, `jocor`, `apl`, `dgnn`, `cp`, `nrgnn`, `unionnet`, `rtgnn`, `clnode`, `cgnn`, `pignn`, `rncgln`, `crgnn`, `lcat`,
-`r2lp`, `tss`
+`r2lp`, `tss`, `lnpcc`
 
 **Dataset available** : 
 `cora`, `citeseer`, `pubmed`, `amazoncom`, `amazonpho`, `dblp`, `blogcatalog`, `flickr`, `amazon-ratings`, `roman-empire`
