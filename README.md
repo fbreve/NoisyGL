@@ -105,11 +105,19 @@ You can optimize hyperparameters for different methods on various datasets and n
 by changing the corresponding arguments. 
 
 ### Run hyperparameter optimization (Optuna).
-For the `lnpcc` method, you can run hyperparameter optimization using the Optuna backend.
-```bash
-python hyperparam_opt_optuna.py --dataset cora --noise_type uniform --noise_rate 0.3 --max_trial_number 200 --device cuda:0
-```
-This is fully compatible with our pipeline, running `single_exp.py` subprocesses with advanced search space definitions (such as capping `k` for Cosine KNN on large datasets to avoid memory overhead), and saves the best parameters into a local JSON database at `./log/hpo_db.json`.
+NoisyGL supports hyperparameter optimization using the Optuna backend for various methods:
+
+1. **For `lnpcc` under standard noise types (uniform/pair)**:
+   ```bash
+   python hyperparam_opt_optuna.py --dataset cora --noise_type uniform --noise_rate 0.3 --max_trial_number 200 --device cuda:0
+   ```
+   This runs `single_exp.py` subprocesses with advanced search space definitions (such as capping `k` for Cosine KNN on large datasets to avoid memory overhead), and saves the best parameters into a local JSON database at `./log/hpo_db.json`.
+
+2. **For `lnpcc` and comparison methods (`nrgnn`, `pignn`, `cp`) under instance-dependent noise**:
+   ```bash
+   python hyperparam_opt_instance.py --method nrgnn --dataset cora --noise_rate 0.3 --max_trial_number 50 --device cuda:0
+   ```
+   This runs HPO trials and final evaluations, saving the tuned parameters into the database at `./log/hpo_db_instance.json`.
 
 ### Run parallel benchmarks & hyperparameter optimization.
 NoisyGL now includes a robust parallel launcher framework to schedule and execute multi-scenario hyperparameter optimization and benchmarks concurrently across multiple GPUs.
@@ -132,16 +140,30 @@ Runs concurrent Optuna hyperparameter optimization and benchmarks specifically f
 python run_instance_parallel.py --gpus 0 --workers_per_gpu 4 --methods lnpcc gcn nrgnn pignn cp --max_trials 50 --resume
 ```
 
+### 3. Standalone (Single-Process) Benchmark Runners
+For running sequential, single-process benchmarks (useful for small-scale experiments or debugging specific datasets):
+* **PCC + GCN Standalone Benchmark (`total_exp_lnpcc.py`)**:
+  ```bash
+  python total_exp_lnpcc.py --datasets cora --noise_type uniform --noise_rate 0.3 --runs 10 --skip_hpo --device cuda:0
+  ```
+* **Instance-Dependent Noise Standalone Benchmark (`total_exp_instance.py`)**:
+  ```bash
+  python total_exp_instance.py --runs 10 --device cuda:0
+  ```
+
 ---
 
 ## 🛠️ Advanced Features & Stability Updates
 To support large-scale benchmark runs under demanding environments (especially Windows + CUDA), several infrastructure updates have been made:
 
-1. **Memory-Efficient Instance-Dependent Noise**: Class-wise batching of weights projection avoids expanding matrices to `[N, D, C]`. This prevents Out-Of-Memory (OOM) errors on large datasets (e.g., `flickr`, `roman-empire`, `amazon-ratings`) while running instance-dependent noise.
+1. **Memory-Efficient & GPU-Accelerated Instance-Dependent Noise**: Class-wise batching of weights projection avoids expanding matrices to `[N, D, C]`. This prevents Out-Of-Memory (OOM) errors on large datasets (e.g., `flickr`, `roman-empire`, `amazon-ratings`) while running instance-dependent noise. Additionally, the noise generation pipeline in [utils/labelnoise.py](utils/labelnoise.py#L95-L145) has been optimized from an $O(N)$ node-by-node Python loop to $O(C)$ class-wise batched PyTorch calculations, and sampling was migrated from a slow CPU-bound loop with `np.random.choice` to native parallelized `torch.multinomial` on GPU, accelerating noise generation from minutes to a fraction of a second.
 2. **CPU-First Data Loading**: Datasets are initialized and stored in CPU RAM, moving tensors to the target GPU device dynamically only during predictor training.
 3. **Windows/CUDA Sparse Matrix Compatibility**: Avoids GPU sparse tensor instabilities on Windows by performing graph operations and indexing directly on CPU before transferring minimal required tensors (e.g., `edge_index` and `edge_weight`) to the GPU.
-4. **Isolated Process Execution for CPU Kernels**: PCC's (Particle Competition and Cooperation) Cython-bound graph propagation runs in an isolated spawned subprocess using shared memory (`SharedMemory`) to prevent process-level native memory conflicts and segmentation faults.
-5. **GPU Execution Lock (`GPULock`)**: Multi-process worker synchronization utilizes a file-based lock mechanism to serialize GPU-bound GCN training phases, preventing multiple workers from colliding on GPU memory.
+4. **Isolated Process Execution for CPU Kernels**: PCC's (Particle Competition and Cooperation) Cython-bound graph propagation in [predictor/LNPCC_Predictor.py](predictor/LNPCC_Predictor.py#L403-L578) runs in an isolated spawned subprocess using shared memory (`SharedMemory`) to prevent process-level native memory conflicts and segmentation faults. To ensure maximum stability on Windows under multi-process workloads:
+   - Increased thread stack size (64MB) to prevent stack overflow errors (`STATUS_STACK_BUFFER_OVERRUN`) on dense graphs.
+   - Isolated thread pools (OMP/MKL set to sequential) and restricted CUDA initialization inside CPU workers to avoid thread deadlocks.
+   - Unique Numba compilation cache directories allocated per process to avoid write collisions.
+5. **GPU Execution Lock & VRAM Purging**: Multi-process worker synchronization utilizes a file-based lock mechanism (`GPULock`) to serialize GPU-bound GCN training phases, preventing multiple workers from colliding on GPU memory. Each worker strictly cleans up GPU resources after training by moving all tensors back to CPU, deleting model weights, running garbage collection, and purging PyTorch's CUDA cache (`empty_cache`) before releasing the lock.
 6. **Utility and Monitoring Toolkit**:
    * `kill_zombies.py`: Cleans up orphaned python/NNI background worker processes.
    * `generate_plots.py` / `generate_plots_instance.py`: Automates summary plotting of Accuracy and Delta values.
