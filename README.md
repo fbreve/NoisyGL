@@ -71,76 +71,71 @@ or add new modules to implement your novel methods within the framework we provi
 - xlsxwriter
 
 ## 🚀 Quick Start
-###  Run comprehensive benchmark.
-``` bash
+
+### 1. Original Upstream Workflows
+These are the standard workflows and scripts from the original NoisyGL benchmark.
+
+#### Run comprehensive benchmark
+```bash
 python total_exp.py --runs 10 --methods gcn gin --datasets cora citeseer pubmed --noise_type clean uniform pair --noise_rate 0.1 0.2 --device cuda:0 --seed 3000
 ```
-By running the command above, two methods 'gcn' and 'gin' will be tested 
-on three datasets 'cora', 'citeseer', and 'pubmed' under different types and rates of label noise.
-Each experiment will run 10 times and the total results will be saved at ./log and named by the current timestamp.
-You can customize the combination of method, data, noise type, and noise rate by changing the corresponding arguments.
+By running the command above, two methods 'gcn' and 'gin' will be tested on three datasets 'cora', 'citeseer', and 'pubmed' under different types and rates of label noise. Each experiment will run 10 times and the total results will be saved at `./log` and named by the current timestamp. You can customize the combination of method, data, noise type, and noise rate by changing the corresponding arguments.
 
-###  Run single experiment.
-``` bash
+#### Run single experiment (Debug Mode)
+```bash
 python single_exp.py --method gcn --data cora --noise_type uniform --noise_rate 0.1 --device cuda:0 --seed 3000
 ```
-This command runs a single experiment in debug mode and is usually used for debugging. 
-By running this, detailed experiment information will be printed on the terminal, which can be used to locate the problem.
+This command runs a single experiment in debug mode. Detailed experiment information will be printed on the terminal, which can be used to locate problems.
 
 When designing your customized predictor, you can add code blocks that only execute in debug mode in the following way:
-``` python
+```python
 if self.conf.training['debug']:
     print("break point")
 ```
 
-### Run hyperparameter optimization (NNI).
-``` bash
+#### Run hyperparameter optimization (NNI)
+```bash
 python hyperparam_opt.py --method gcn --data cora --noise_type uniform --noise_rate 0.1 --device cuda:0 --max_trial_number 20 --trial_concurrency 4 --port 8081 --update_config True
 ```
-By running the command above, an NNI manager will run on http://localhost:8081, 
-then automatically run 20 HPO trials, each trial calling 'single_exp.py' with different hyperparameters. 
-After all HPO trials are finished, 
-a new config file with optimized hyperparameters will overwrite the original one at "./config/gcn/gcn_cora.yaml".
-You can optimize hyperparameters for different methods on various datasets and noise types 
-by changing the corresponding arguments. 
+An NNI manager will run on http://localhost:8081, automatically running 20 HPO trials. After all trials are finished, a new config file with optimized hyperparameters will overwrite the original one at `./config/gcn/gcn_cora.yaml`.
 
-### Run hyperparameter optimization (Optuna).
+---
+
+### 2. Fork-Specific Enhanced Workflows (GCN+PCC & Instance Noise)
+These are custom scripts and pipelines added in this fork to run parallel schedules, standalone experiments, and Optuna HPO for the GCN+PCC method and instance-dependent noise.
+
+#### Run hyperparameter optimization (Optuna)
 NoisyGL supports hyperparameter optimization using the Optuna backend for various methods:
+* **For `lnpcc` under standard noise types (uniform/pair)**:
+  ```bash
+  python hyperparam_opt_optuna.py --dataset cora --noise_type uniform --noise_rate 0.3 --max_trial_number 200 --device cuda:0
+  ```
+  Runs `single_exp.py` subprocesses with advanced search space definitions (such as capping `k` for Cosine KNN on large datasets to avoid memory overhead), and saves the best parameters into a local JSON database at `./log/hpo_db.json`.
+* **For `lnpcc` and comparison methods (`nrgnn`, `pignn`, `cp`) under instance-dependent noise**:
+  ```bash
+  python hyperparam_opt_instance.py --method nrgnn --dataset cora --noise_rate 0.3 --max_trial_number 50 --device cuda:0
+  ```
+  Runs HPO trials and final evaluations, saving the tuned parameters into the database at `./log/hpo_db_instance.json`.
 
-1. **For `lnpcc` under standard noise types (uniform/pair)**:
-   ```bash
-   python hyperparam_opt_optuna.py --dataset cora --noise_type uniform --noise_rate 0.3 --max_trial_number 200 --device cuda:0
-   ```
-   This runs `single_exp.py` subprocesses with advanced search space definitions (such as capping `k` for Cosine KNN on large datasets to avoid memory overhead), and saves the best parameters into a local JSON database at `./log/hpo_db.json`.
-
-2. **For `lnpcc` and comparison methods (`nrgnn`, `pignn`, `cp`) under instance-dependent noise**:
-   ```bash
-   python hyperparam_opt_instance.py --method nrgnn --dataset cora --noise_rate 0.3 --max_trial_number 50 --device cuda:0
-   ```
-   This runs HPO trials and final evaluations, saving the tuned parameters into the database at `./log/hpo_db_instance.json`.
-
-### Run parallel benchmarks & hyperparameter optimization.
+#### Run parallel benchmarks & HPO (Multi-GPU)
 NoisyGL now includes a robust parallel launcher framework to schedule and execute multi-scenario hyperparameter optimization and benchmarks concurrently across multiple GPUs.
-
-#### 1. PCC + GCN Parallel Pipeline (`run_lnpcc_parallel.py`)
-This script schedules GCN baselines and PCC + GCN (Particle Competition and Cooperation + Graph Convolutional Network) experiments using Longest Processing Time (LPT) scheduling for balanced GPU workloads.
-
-* **Phase 1: Multi-Scenario HPO Optimization** (Runs Optuna trials concurrently across GPUs):
+* **PCC + GCN Parallel Pipeline (`run_lnpcc_parallel.py`)**:
+  Schedules GCN baselines and PCC + GCN experiments using Longest Processing Time (LPT) scheduling for balanced GPU workloads.
+  * *Phase 1: Multi-Scenario HPO Optimization* (Optuna trials concurrently across GPUs):
+    ```bash
+    python run_lnpcc_parallel.py --all_datasets --hpo_only --optimize_trials 200 --gpus 0 1
+    ```
+  * *Phase 2: Benchmark Retest* (Reuses pre-tuned configuration YAMLs and GCN results, saving computation time):
+    ```bash
+    python run_lnpcc_parallel.py --all_datasets --all_noise --gpus 0 1 --skip_hpo --skip_gcn --max_workers 16 --resume
+    ```
+* **Instance-Dependent Noise Parallel Pipeline (`run_instance_parallel.py`)**:
+  Runs concurrent Optuna HPO and benchmarks specifically for instance-dependent noise across multiple methods (`lnpcc`, `gcn`, `nrgnn`, `pignn`, `cp`):
   ```bash
-  python run_lnpcc_parallel.py --all_datasets --hpo_only --optimize_trials 200 --gpus 0 1
-  ```
-* **Phase 2: Benchmark Retest** (Reuses pre-tuned configuration YAMLs and GCN results, saving computation time):
-  ```bash
-  python run_lnpcc_parallel.py --all_datasets --all_noise --gpus 0 1 --skip_hpo --skip_gcn --max_workers 16 --resume
+  python run_instance_parallel.py --gpus 0 --workers_per_gpu 4 --methods lnpcc gcn nrgnn pignn cp --max_trials 50 --resume
   ```
 
-#### 2. Instance-Dependent Noise Parallel Pipeline (`run_instance_parallel.py`)
-Runs concurrent Optuna hyperparameter optimization and benchmarks specifically for instance-dependent noise across multiple methods (`lnpcc`, `gcn`, `nrgnn`, `pignn`, `cp`).
-```bash
-python run_instance_parallel.py --gpus 0 --workers_per_gpu 4 --methods lnpcc gcn nrgnn pignn cp --max_trials 50 --resume
-```
-
-### 3. Standalone (Single-Process) Benchmark Runners
+#### Standalone (Single-Process) Benchmark Runners
 For running sequential, single-process benchmarks (useful for small-scale experiments or debugging specific datasets):
 * **PCC + GCN Standalone Benchmark (`total_exp_lnpcc.py`)**:
   ```bash
@@ -153,8 +148,8 @@ For running sequential, single-process benchmarks (useful for small-scale experi
 
 ---
 
-## 🛠️ Advanced Features & Stability Updates
-To support large-scale benchmark runs under demanding environments (especially Windows + CUDA), several infrastructure updates have been made:
+## 🛠️ Fork Improvements & Stability Updates
+These are custom infrastructure, performance, and stability updates introduced in this fork to enable executing large-scale, parallelized GCN+PCC research under Windows/CUDA environments:
 
 1. **Memory-Efficient & GPU-Accelerated Instance-Dependent Noise**: Class-wise batching of weights projection avoids expanding matrices to `[N, D, C]`. This prevents Out-Of-Memory (OOM) errors on large datasets (e.g., `flickr`, `roman-empire`, `amazon-ratings`) while running instance-dependent noise. Additionally, the noise generation pipeline in [utils/labelnoise.py](utils/labelnoise.py#L95-L145) has been optimized from an $O(N)$ node-by-node Python loop to $O(C)$ class-wise batched PyTorch calculations, and sampling was migrated from a slow CPU-bound loop with `np.random.choice` to native parallelized `torch.multinomial` on GPU, accelerating noise generation from minutes to a fraction of a second.
 2. **CPU-First Data Loading**: Datasets are initialized and stored in CPU RAM, moving tensors to the target GPU device dynamically only during predictor training.
@@ -204,7 +199,9 @@ To support large-scale benchmark runs under demanding environments (especially W
 
 
 ## Citation
-If our work could help your research, please cite: [NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) 
+If this benchmark helps your research, please cite the original NoisyGL paper:
+
+[NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) 
 
 ```
 @inproceedings{NEURIPS2024_436ffa18,
