@@ -81,6 +81,7 @@ DATASET_LABELS = {
     'flickr':        'Flickr',
     'amazon-ratings':'Amz-Rat.',
     'roman-empire':  'Roman-Emp.',
+    'GLOBAL_MEAN':   'Average',
 }
 
 NOISE_TYPE_ORDER = ['clean', 'uniform', 'pair', 'random']
@@ -372,19 +373,27 @@ def build_ranking_table(summary_rows: list, datasets: list):
     return ranking_rows
 
 def build_gain_pivot(abs_rows_main, abs_rows_gcn, datasets):
-    """Compute (main_mean - gcn_mean) for every cell."""
+    """Compute (main_mean - gcn_mean) for every cell and the average across datasets."""
     gain_rows = []
     for row_m, row_g in zip(abs_rows_main, abs_rows_gcn):
         grow = {'noise_type': row_m['noise_type'], 'noise_rate': row_m['noise_rate']}
+        row_gains = []
         for ds in datasets:
             vm = row_m.get(ds)
             vg = row_g.get(ds)
             if vm is not None and vg is not None:
                 mean_m = vm[0]
                 mean_g = vg[0]
-                grow[ds] = (mean_m - mean_g, None)
+                diff = mean_m - mean_g
+                grow[ds] = (diff, None)
+                row_gains.append(diff)
             else:
                 grow[ds] = None
+        # Mean across datasets for this scenario
+        if row_gains:
+            grow['GLOBAL_MEAN'] = (sum(row_gains) / len(row_gains), None)
+        else:
+            grow['GLOBAL_MEAN'] = None
         gain_rows.append(grow)
     return gain_rows
 
@@ -539,10 +548,9 @@ def _excel_color(val, is_gain=False):
     if val is None:
         return None
     if is_gain:
-        if val > 2.0:   return 'A8D08D'   # stronger green
-        if val > 0.5:   return 'E2EFDA'   # lighter green
-        if val > -0.5:  return None
-        return 'FFC7CE'                    # red
+        if val > 0.5:   return 'E2EFDA'   # light green
+        if val < -0.5:  return 'FFC7CE'   # light red
+        return None                       # intermediate (no color)
     return None
 
 def write_excel_sheet(wb, sheet_name, rows, datasets, is_gain=False, title=''):
@@ -603,8 +611,6 @@ def write_excel_sheet(wb, sheet_name, rows, datasets, is_gain=False, title=''):
                     color = _excel_color(raw_val[0], is_gain=is_gain)
                     if color:
                         c.fill = PatternFill("solid", fgColor=color)
-                        if is_gain and raw_val[0] > 2.0:
-                            c.font = Font(bold=True, size=10)
     # ── Column widths ───────────────────────────────────────────────────────
     ws.column_dimensions['A'].width = 18
     for i in range(len(datasets)):
@@ -922,14 +928,11 @@ def latex_cell_gain(cell, is_mean=False):
     sign = '+' if gain >= 0 else ''
     s = f'{sign}{gain:.2f}'
     
-    # Matching Excel conditional formatting and bolding:
-    # gain > 2.0: stronger green (A8D08D) + bold
-    # 0.5 < gain <= 2.0: lighter green (E2EFDA)
-    # gain < -0.5: red (FFC7CE)
+    # Matching Excel conditional formatting (no bold):
+    # gain > 0.5: light green (E2EFDA)
+    # gain < -0.5: light red (FFC7CE)
     # -0.5 <= gain <= 0.5: no background
-    if gain > 2.0:
-        return f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{s}}}'
-    elif gain > 0.5:
+    if gain > 0.5:
         return f'\\cellcolor[HTML]{{E2EFDA}}{s}'
     elif gain < -0.5:
         return f'\\cellcolor[HTML]{{FFC7CE}}{s}'
@@ -939,9 +942,11 @@ def latex_cell_gain(cell, is_mean=False):
 def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
                 datasets, method_label, gcn_label='GCN'):
     """Write a .tex file with two tables: absolute and gain."""
-    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets]
-    def make_table(rows, fmt_fn, caption, label, is_gain):
-        n_ds = len(datasets)
+    datasets_gain = datasets + ['GLOBAL_MEAN']
+
+    def make_table(rows, fmt_fn, caption, label, is_gain, tbl_datasets):
+        ds_labels = [DATASET_LABELS.get(d, d) for d in tbl_datasets]
+        n_ds = len(tbl_datasets)
         col_spec = 'll' + 'c' * n_ds
         ds_header = ' & '.join(f'\\textbf{{{l}}}' for l in ds_labels)
         lines = []
@@ -972,11 +977,11 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
                 nt_cell = ''
                 nr_cell = f'{nr:.1f}'
             # Determine best column for bold (for absolute table)
-            raw_vals = [row.get(ds) for ds in datasets]
+            raw_vals = [row.get(ds) for ds in tbl_datasets]
             valid_vals = [v[0] for v in raw_vals if v is not None]
             best = max(valid_vals) if valid_vals else None
             cells = []
-            for ds in datasets:
+            for ds in tbl_datasets:
                 cell = row.get(ds)
                 if is_gain:
                     cells.append(fmt_fn(cell, is_mean=is_mean))
@@ -1002,6 +1007,7 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
         caption=f'{method_label} — Absolute Accuracy (\\%)',
         label='tab:abs_results',
         is_gain=False,
+        tbl_datasets=datasets,
     )
     gain_table = make_table(
         rows_gain,
@@ -1009,6 +1015,7 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
         caption=f'{method_label} — Relative Gain vs {gcn_label} (percentage points)',
         label='tab:gain_results',
         is_gain=True,
+        tbl_datasets=datasets_gain,
     )
     preamble = (
         '% Generated by results/generate_tables.py\n'
@@ -1339,6 +1346,7 @@ def main():
     rows_gain = build_gain_pivot(rows_main, rows_gcn, datasets)
     main_label = METHOD_LABELS.get(main_method, main_method.upper())
     gcn_label  = METHOD_LABELS.get(baseline, baseline.upper())
+    datasets_gain = datasets + ['GLOBAL_MEAN']
 
     # ── Build Summary Tables ─────────────────────────────────────────────────
     summary_rows = build_summary_table(data, all_methods_in_data, datasets)
@@ -1346,7 +1354,7 @@ def main():
 
     # ── Terminal Output ─────────────────────────────────────────────────────
     print_table(rows_main, datasets, f'{main_label} — Absolute Accuracy (%)', fmt_abs)
-    print_table(rows_gain, datasets, f'{main_label} Relative Gain vs {gcn_label} (pp)', fmt_gain)
+    print_table(rows_gain, datasets_gain, f'{main_label} Relative Gain vs {gcn_label} (pp)', fmt_gain)
     
     print_summary_table(summary_rows, datasets, "Summary: Global Average Accuracy by Method (Clean + Noisy)")
     print_summary_with_rank_table(summary_rows, ranking_rows, datasets, "Summary: Global Average Accuracy and Average Rank by Method")
@@ -1365,7 +1373,7 @@ def main():
             wb = openpyxl.Workbook()
             wb.remove(wb.active)
             write_excel_sheet(wb, f'{main_label} Absolute', rows_main, datasets, False, f'{main_label} Absolute Accuracy (%)')
-            write_excel_sheet(wb, f'Gain vs {gcn_label}', rows_gain, datasets, True, f'{main_label} Gain vs {gcn_label} (pp)')
+            write_excel_sheet(wb, f'Gain vs {gcn_label}', rows_gain, datasets_gain, True, f'{main_label} Gain vs {gcn_label} (pp)')
             
             write_summary_sheet(wb, summary_rows, datasets, "Average Accuracy (All Scenarios)")
             write_summary_with_rank_sheet(wb, summary_rows, ranking_rows, datasets, "Average Accuracy and Average Rank by Method")
