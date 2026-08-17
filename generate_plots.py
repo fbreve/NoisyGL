@@ -107,7 +107,7 @@ with open(CSV_PATH, newline='', encoding='utf-8') as f:
             'mean': float(row['lnpcc_mean']) * 100.0,
             'std': float(row['lnpcc_std']) * 100.0
         }
-        add_result('LN-PCC', dataset, ntype, rate, data)
+        add_result('PCC+GCN', dataset, ntype, rate, data)
 
 # 3. Helpers
 noise_types = ['uniform', 'pair', 'random']
@@ -118,7 +118,7 @@ complete_methods = [m for m in all_methods if len(all_results[m]) == len(all_dat
 def find_best_baseline_for_dataset(ds, mode='accuracy'):
     winner, max_avg = None, -999.0
     for m in all_methods:
-        if m in ['LN-PCC', 'GCN'] or ds not in all_results[m]: continue
+        if m in ['PCC+GCN', 'GCN'] or ds not in all_results[m]: continue
         vals = []
         for nt in noise_types:
             if nt in all_results[m][ds]:
@@ -137,7 +137,7 @@ def find_best_baseline_for_dataset(ds, mode='accuracy'):
 def find_global_best_complete(mode='accuracy'):
     winner, max_avg = None, -999.0
     for m in complete_methods:
-        if m in ['LN-PCC', 'GCN']: continue
+        if m in ['PCC+GCN', 'GCN']: continue
         vals = []
         for ds in all_datasets:
             for nt in noise_types:
@@ -157,11 +157,11 @@ def find_global_best_complete(mode='accuracy'):
 sns.set_theme(style="whitegrid")
 palette = sns.color_palette("muted", len(all_methods))
 method_colors = {m: palette[i] for i, m in enumerate(all_methods)}
-method_colors['LN-PCC'] = 'red'
+method_colors['PCC+GCN'] = 'red'
 method_colors['GCN'] = 'blue'
 
 def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
-    prio = ['LN-PCC', 'GCN']
+    prio = ['PCC+GCN', 'GCN']
     if best_baseline: prio.append(best_baseline)
     
     draw_order = [m for m in methods_to_show if m not in prio] + [m for m in prio]
@@ -199,7 +199,7 @@ def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
 
         if plot_means:
             color = 'green' if m == best_baseline else method_colors.get(m, 'gray')
-            if m == 'LN-PCC': lw, alpha, shaded, shade_alpha, zorder = 4.5, 1.0, True, 0.2, 10
+            if m == 'PCC+GCN': lw, alpha, shaded, shade_alpha, zorder = 4.5, 1.0, True, 0.2, 10
             elif m == 'GCN': lw, alpha, shaded, shade_alpha, zorder = 2.5, 0.9, False, 0.0, 8
             elif m == best_baseline: lw, alpha, shaded, shade_alpha, zorder = 2.5, 0.9, True, 0.1, 8
             else: lw, alpha, shaded, shade_alpha, zorder = 0.8, 0.4, False, 0.0, 2

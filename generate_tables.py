@@ -1,23 +1,24 @@
 """
 generate_tables.py
 ==================
-Gera tabelas de resultados do LN-PCC em três formatos simultâneos:
-  - Terminal (texto formatado)
-  - Excel (.xlsx, com formatação)
-  - LaTeX (.tex, estilo paper)
-Tabelas geradas:
-  1. Resultados absolutos   — acurácia (%) com ± std
-  2. Ganho relativo ao GCN  — Δ% em relação ao GCN
-  3. Hiperparâmetros        — parâmetros ajustados por dataset
-Estrutura das tabelas de resultados:
-  Linhas  : (noise_type, noise_rate)  +  linha "Média" ao final
-  Colunas : um dataset por coluna
-Uso básico (sem argumentos — busca automaticamente o CSV mais recente):
-  python results/generate_tables.py
-Uso avançado:
-  python results/generate_tables.py --csv log/meu_arquivo.csv
-  python results/generate_tables.py --methods lnpcc gcn
-  python results/generate_tables.py --noise_types uniform pair
+Generates PCC+GCN benchmark result tables in three simultaneous formats:
+  - Terminal (formatted text)
+  - Excel (.xlsx, with formatting)
+  - LaTeX (.tex, paper style)
+Generated tables:
+  1. Absolute results        — accuracy (%) with ± std
+  2. Relative gain vs GCN    — Δ% with respect to GCN
+  3. Hyperparameters         — tuned parameters per dataset
+  4. Global summary & rank   — summary across datasets
+Result tables structure:
+  Rows    : (noise_type, noise_rate) + "Average" summary row at the bottom
+  Columns : one dataset per column
+Basic usage (automatically finds latest CSV):
+  python generate_tables.py
+Advanced usage:
+  python generate_tables.py --csv log/my_file.csv
+  python generate_tables.py --methods lnpcc gcn
+  python generate_tables.py --noise_types uniform pair
 """
 import argparse
 import glob
@@ -28,6 +29,7 @@ import csv
 import math
 from collections import defaultdict
 from pathlib import Path
+
 # ---------------------------------------------------------------------------
 # Depend on pandas / openpyxl (soft requirement for Excel)
 # ---------------------------------------------------------------------------
@@ -37,6 +39,7 @@ try:
 except ImportError:
     HAS_PANDAS = False
     pd = None
+
 try:
     import openpyxl
     from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -44,11 +47,13 @@ try:
     HAS_OPENPYXL = True
 except ImportError:
     HAS_OPENPYXL = False
+
 try:
     import yaml
     HAS_YAML = True
 except ImportError:
     HAS_YAML = False
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -57,12 +62,14 @@ PROJECT_DIR = SCRIPT_DIR                     # .../NoisyGL/
 LOG_DIR     = PROJECT_DIR / "log"
 CONFIG_DIR  = PROJECT_DIR / "config" / "lnpcc"
 HPO_DB_PATH = LOG_DIR / "hpo_db.json"
+
 DATASET_ORDER = [
     'cora', 'citeseer', 'pubmed',
     'amazoncom', 'amazonpho', 'dblp',
     'blogcatalog', 'flickr',
     'amazon-ratings', 'roman-empire',
 ]
+
 DATASET_LABELS = {
     'cora':          'Cora',
     'citeseer':      'CiteSeer',
@@ -75,6 +82,7 @@ DATASET_LABELS = {
     'amazon-ratings':'Amz-Rat.',
     'roman-empire':  'Roman-Emp.',
 }
+
 NOISE_TYPE_ORDER = ['clean', 'uniform', 'pair', 'random']
 NOISE_TYPE_LABELS = {
     'clean':    'Clean',
@@ -82,6 +90,7 @@ NOISE_TYPE_LABELS = {
     'pair':     'Pair',
     'random':   'Random',
 }
+
 # Hyperparameters present in hpo_db.json and their display labels
 HYPERPARAM_DISPLAY = {
     'knn_mode':     'KNN Mode',
@@ -96,12 +105,14 @@ HYPERPARAM_DISPLAY = {
     'lr':           'LR',
     'weight_decay': 'WD',
 }
+
 # Hyperparameters to format as integers
 HYPERPARAM_INT = {'k', 'n_hidden', 'n_layer'}
 # Hyperparameters to format with 4 sig-figs
 HYPERPARAM_FLOAT4 = {'p_grd', 'unc_rem', 'unc_rel', 'dropout', 'lr', 'weight_decay', 'dexp'}
+
 METHOD_LABELS = {
-    'lnpcc': 'LN-PCC',
+    'lnpcc': 'PCC+GCN',
     'gcn':   'GCN',
     'nrgnn': 'NRGNN',
     'rtgnn': 'RTGNN',
@@ -114,6 +125,7 @@ METHOD_LABELS = {
     'cgnn':  'CGNN',
     'cr-gnn': 'CR-GNN',
 }
+
 # ---------------------------------------------------------------------------
 # Helper: find latest CSV
 # ---------------------------------------------------------------------------
@@ -127,6 +139,7 @@ def find_latest_csv(log_dir: Path) -> Path:
             "Run a benchmark first or pass --csv explicitly."
         )
     return Path(max(files, key=os.path.getmtime))
+
 # ---------------------------------------------------------------------------
 # CSV parsing
 # ---------------------------------------------------------------------------
@@ -139,6 +152,7 @@ def parse_noise_label(label: str):
     if m:
         return m.group(1), float(m.group(2))
     raise ValueError(f"Cannot parse noise label: {label!r}")
+
 def load_csv(path: Path) -> dict:
     """
     Load a lnpcc_results_*.csv.
@@ -183,17 +197,17 @@ def load_external_baseline_xlsx(path: Path) -> dict:
     dict: {(method_id, dataset, noise_type, noise_rate): (mean%, std%)}
     """
     if not HAS_PANDAS:
-        print("[AVISO] pandas não instalado — não foi possível carregar o baseline Excel.")
+        print("[WARNING] pandas not installed — could not load baseline Excel.")
         return {}
     if not path.exists():
-        print(f"[AVISO] Baseline Excel não encontrada: {path}")
+        print(f"[WARNING] Baseline Excel not found: {path}")
         return {}
 
     data = {}
     try:
-        df = pd.read_excel(path, sheet_name=0, header=None) # Sheet 0 is usually Planilha1
+        df = pd.read_excel(path, sheet_name=0, header=None)  # Sheet 0 is usually Planilha1
     except Exception as e:
-        print(f"[ERRO] Falha ao ler Excel: {e}")
+        print(f"[ERROR] Failed to read Excel: {e}")
         return {}
 
     # Find header row
@@ -202,16 +216,17 @@ def load_external_baseline_xlsx(path: Path) -> dict:
         if str(df.iloc[i, 2]).strip() == "Dataset":
             header_row_idx = i
             break
-    if header_row_idx == -1: return {}
+    if header_row_idx == -1:
+        return {}
 
     # Identify method columns
     methods_found = {}
     for col_idx in range(4, len(df.columns)):
         m_name = str(df.iloc[header_row_idx, col_idx]).strip().lower()
         if m_name and m_name != "nan":
-             # Normalize name to match our keys (e.g. 'cr-gnn' or 'clnode')
-             m_id = m_name.replace(' ', '-').replace('_', '-')
-             methods_found[col_idx] = m_id
+            # Normalize name to match our keys (e.g. 'cr-gnn' or 'clnode')
+            m_id = m_name.replace(' ', '-').replace('_', '-')
+            methods_found[col_idx] = m_id
 
     ds_map = {
         'a-computers': 'amazoncom', 'a-photo': 'amazonpho', 'a-photos': 'amazonpho',
@@ -235,32 +250,40 @@ def load_external_baseline_xlsx(path: Path) -> dict:
             if ds_raw and ds_raw != "nan" and ds_raw != "Dataset":
                 ds_parts = ds_raw.split()
                 ds_candidate = ds_parts[-1].lower() if ds_parts else ""
-                if ds_candidate in ds_map: current_block['dataset'] = ds_map[ds_candidate]
-                elif any(ds_candidate == d.lower() for d in DATASET_ORDER): current_block['dataset'] = ds_candidate
+                if ds_candidate in ds_map:
+                    current_block['dataset'] = ds_map[ds_candidate]
+                elif any(ds_candidate == d.lower() for d in DATASET_ORDER):
+                    current_block['dataset'] = ds_candidate
 
     for block in blocks:
         dataset = block['dataset']
-        if not dataset: continue
+        if not dataset:
+            continue
         for idx in block['rows']:
             row = df.iloc[idx]
             noise_raw = str(row[3]).strip().lower()
-            if 'clean' in noise_raw: nt, nr = 'clean', 0.0
+            if 'clean' in noise_raw:
+                nt, nr = 'clean', 0.0
             else:
                 m = re.search(r'(\d+)\s*%?\s+([a-z-]+)', noise_raw)
                 if m:
                     nr, nt = float(m.group(1)) / 100.0, m.group(2)
-                    if nt in ['asymmetric', 'pair-asym']: nt = 'random'
-                else: continue
+                    if nt in ['asymmetric', 'pair-asym']:
+                        nt = 'random'
+                else:
+                    continue
             
             for col_idx, m_id in methods_found.items():
                 raw_str = str(row[col_idx]).strip()
-                if not raw_str or raw_str == "nan": continue
+                if not raw_str or raw_str == "nan":
+                    continue
                 nums = re.findall(r'[\d.]+', raw_str)
                 if nums:
                     mean_v = float(nums[0])
                     std_v = float(nums[1]) if len(nums) > 1 else 0.0
                     data[(m_id, dataset, nt, nr)] = (mean_v, std_v)
     return data
+
 # ---------------------------------------------------------------------------
 # Build pivot table
 # ---------------------------------------------------------------------------
@@ -296,9 +319,11 @@ def build_summary_table(data: dict, methods: list, datasets: list):
     # Define order
     others = sorted([m for m in methods if m not in ['gcn', 'lnpcc']])
     ordered_methods = []
-    if 'gcn' in methods: ordered_methods.append('gcn')
+    if 'gcn' in methods:
+        ordered_methods.append('gcn')
     ordered_methods.extend(others)
-    if 'lnpcc' in methods: ordered_methods.append('lnpcc')
+    if 'lnpcc' in methods:
+        ordered_methods.append('lnpcc')
 
     summary_rows = []
     for m in ordered_methods:
@@ -345,6 +370,7 @@ def build_ranking_table(summary_rows: list, datasets: list):
         row['GLOBAL_MEAN'] = sum(ranks) / len(ranks) if ranks else None
             
     return ranking_rows
+
 def build_gain_pivot(abs_rows_main, abs_rows_gcn, datasets):
     """Compute (main_mean - gcn_mean) for every cell."""
     gain_rows = []
@@ -361,16 +387,18 @@ def build_gain_pivot(abs_rows_main, abs_rows_gcn, datasets):
                 grow[ds] = None
         gain_rows.append(grow)
     return gain_rows
+
 # ---------------------------------------------------------------------------
 # Terminal printing
 # ---------------------------------------------------------------------------
 def row_label(noise_type, noise_rate):
     nt = NOISE_TYPE_LABELS.get(noise_type, noise_type.capitalize())
     if noise_type == 'MEAN':
-        return 'Média'
+        return 'Average'
     if noise_type == 'clean':
         return f'{nt}'
     return f'{nt} {noise_rate:.1f}'
+
 def fmt_abs(cell):
     if cell is None:
         return '  ---  '
@@ -378,12 +406,14 @@ def fmt_abs(cell):
     if std is None:
         return f'{mean:6.2f}'
     return f'{mean:6.2f}±{std:.2f}'
+
 def fmt_gain(cell):
     if cell is None:
         return '  ---  '
     gain, _ = cell
     sign = '+' if gain >= 0 else ''
     return f'{sign}{gain:6.2f}'
+
 def print_table(rows, datasets, title, fmt_fn):
     ds_labels = [DATASET_LABELS.get(d, d) for d in datasets]
     col_w = max(12, max(len(l) for l in ds_labels) + 2)
@@ -392,7 +422,7 @@ def print_table(rows, datasets, title, fmt_fn):
     print('=' * (row_w + col_w * len(datasets) + 4))
     print(f'  {title}')
     print('=' * (row_w + col_w * len(datasets) + 4))
-    header = f'{"Ruído":<{row_w}}' + ''.join(f'{l:^{col_w}}' for l in ds_labels)
+    header = f'{"Noise":<{row_w}}' + ''.join(f'{l:^{col_w}}' for l in ds_labels)
     print(header)
     print('-' * (row_w + col_w * len(datasets) + 4))
     for i, row in enumerate(rows):
@@ -404,12 +434,12 @@ def print_table(rows, datasets, title, fmt_fn):
     print('=' * (row_w + col_w * len(datasets) + 4))
 
 def print_summary_table(rows, datasets, title):
-    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Média']
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average']
     datasets_ext = datasets + ['GLOBAL_MEAN']
     col_w = max(10, max(len(l) for l in ds_labels) + 1)
     row_w = 12
     print(f"\n{'='*80}\n  {title}\n{'='*80}")
-    header = f'{"Método":<{row_w}}' + ''.join(f'{l:>{col_w}}' for l in ds_labels)
+    header = f'{"Method":<{row_w}}' + ''.join(f'{l:>{col_w}}' for l in ds_labels)
     print(header)
     print('-' * len(header))
     
@@ -424,18 +454,19 @@ def print_summary_table(rows, datasets, title):
                 col_vals = [r[ds] for r in rows if r.get(ds) is not None]
                 is_best = abs(val - max(col_vals)) < 1e-5
                 cell_str = f"{val:6.2f}"
-                if is_best: cell_str = f"*{cell_str}*"
+                if is_best:
+                    cell_str = f"*{cell_str}*"
                 cells += f'{cell_str:>{col_w}}'
         print(f'{m_label:<{row_w}}{cells}')
     print('=' * len(header))
 
 def print_ranking_table(rows, datasets, title):
-    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Rank Médio']
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average Rank']
     datasets_ext = datasets + ['GLOBAL_MEAN']
-    col_w = max(11, max(len(l) for l in ds_labels) + 1)
+    col_w = max(13, max(len(l) for l in ds_labels) + 1)
     row_w = 12
     print(f"\n{'='*80}\n  {title}\n{'='*80}")
-    header = f'{"Método":<{row_w}}' + ''.join(f'{l:>{col_w}}' for l in ds_labels)
+    header = f'{"Method":<{row_w}}' + ''.join(f'{l:>{col_w}}' for l in ds_labels)
     print(header)
     print('-' * len(header))
     
@@ -451,12 +482,55 @@ def print_ranking_table(rows, datasets, title):
                 all_means = [r.get('GLOBAL_MEAN') for r in rows if r.get('GLOBAL_MEAN') is not None]
                 is_best = abs(val - min(all_means)) < 1e-5
                 s = f"{val:.2f}"
-                if is_best: s = f"*{s}*"
+                if is_best:
+                    s = f"*{s}*"
                 cells += f'{s:>{col_w}}'
             else:
                 cells += f'{int(val):>{col_w}}'
         print(f'{m_label:<{row_w}}{cells}')
     print('=' * len(header))
+
+def print_summary_with_rank_table(summary_rows, ranking_rows, datasets, title):
+    rank_by_method = {r['method']: r.get('GLOBAL_MEAN') for r in ranking_rows}
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average', 'Average Rank']
+    datasets_ext = datasets + ['GLOBAL_MEAN']
+    col_w = max(13, max(len(l) for l in ds_labels) + 1)
+    row_w = 12
+    print(f"\n{'='*80}\n  {title}\n{'='*80}")
+    header = f'{"Method":<{row_w}}' + ''.join(f'{l:>{col_w}}' for l in ds_labels)
+    print(header)
+    print('-' * len(header))
+    
+    all_ranks = [r.get('GLOBAL_MEAN') for r in ranking_rows if r.get('GLOBAL_MEAN') is not None]
+    min_rank = min(all_ranks) if all_ranks else None
+
+    for row in summary_rows:
+        m_label = METHOD_LABELS.get(row['method'], row['method'])
+        cells = ""
+        for ds in datasets_ext:
+            val = row.get(ds)
+            if val is None:
+                cells += f'{"---":>{col_w}}'
+            else:
+                col_vals = [r[ds] for r in summary_rows if r.get(ds) is not None]
+                is_best = abs(val - max(col_vals)) < 1e-5
+                cell_str = f"{val:6.2f}"
+                if is_best:
+                    cell_str = f"*{cell_str}*"
+                cells += f'{cell_str:>{col_w}}'
+        # Average Rank column
+        rank_val = rank_by_method.get(row['method'])
+        if rank_val is None:
+            cells += f'{"---":>{col_w}}'
+        else:
+            is_best_rank = min_rank is not None and abs(rank_val - min_rank) < 1e-5
+            r_str = f"{rank_val:.2f}"
+            if is_best_rank:
+                r_str = f"*{r_str}*"
+            cells += f'{r_str:>{col_w}}'
+        print(f'{m_label:<{row_w}}{cells}')
+    print('=' * len(header))
+
 # ---------------------------------------------------------------------------
 # Excel export
 # ---------------------------------------------------------------------------
@@ -465,11 +539,12 @@ def _excel_color(val, is_gain=False):
     if val is None:
         return None
     if is_gain:
-        if val > 2.0:   return 'C6EFCE'   # green
-        if val > 0.5:   return 'FFEB9C'   # yellow
+        if val > 2.0:   return 'A8D08D'   # stronger green
+        if val > 0.5:   return 'E2EFDA'   # lighter green
         if val > -0.5:  return None
         return 'FFC7CE'                    # red
     return None
+
 def write_excel_sheet(wb, sheet_name, rows, datasets, is_gain=False, title=''):
     ws = wb.create_sheet(title=sheet_name)
     # ── Styles ──────────────────────────────────────────────────────────────
@@ -487,7 +562,7 @@ def write_excel_sheet(wb, sheet_name, rows, datasets, is_gain=False, title=''):
     ws.cell(1, 1).font = Font(bold=True, size=12)
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=1 + len(datasets))
     # ── Header ──────────────────────────────────────────────────────────────
-    header_row = ['Ruído'] + ds_labels
+    header_row = ['Noise'] + ds_labels
     ws.append(header_row)
     for col_idx, val in enumerate(header_row, start=1):
         cell = ws.cell(2, col_idx, val)
@@ -530,7 +605,6 @@ def write_excel_sheet(wb, sheet_name, rows, datasets, is_gain=False, title=''):
                         c.fill = PatternFill("solid", fgColor=color)
                         if is_gain and raw_val[0] > 2.0:
                             c.font = Font(bold=True, size=10)
-        # Add ± std in comment or second sub-column? Keep simple: just mean.
     # ── Column widths ───────────────────────────────────────────────────────
     ws.column_dimensions['A'].width = 18
     for i in range(len(datasets)):
@@ -540,22 +614,22 @@ def write_excel_sheet(wb, sheet_name, rows, datasets, is_gain=False, title=''):
     ws.freeze_panes = 'B3'
 
 def write_summary_sheet(wb, rows, datasets, title):
-    ws = wb.create_sheet(title='Resumo Médio')
+    ws = wb.create_sheet(title='Average Summary')
     hdr_fill = PatternFill("solid", fgColor="1F3864")
     hdr_font = Font(bold=True, color="FFFFFF", size=10)
-    best_fill = PatternFill("solid", fgColor="C6EFCE") # light green for bold
+    best_fill = PatternFill("solid", fgColor="A8D08D")  # green for best accuracy
     bold_font = Font(bold=True, size=10)
     thin = Side(style='thin', color='BFBFBF')
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
     center = Alignment(horizontal='center', vertical='center')
     left_align = Alignment(horizontal='left', vertical='center')
     
-    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Média']
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average']
     datasets_ext = datasets + ['GLOBAL_MEAN']
     
     ws.append([title])
     ws.cell(1, 1).font = Font(bold=True, size=12)
-    ws.append(['Método'] + ds_labels)
+    ws.append(['Method'] + ds_labels)
     for col_idx in range(1, len(ds_labels) + 2):
         c = ws.cell(2, col_idx)
         c.fill = hdr_fill
@@ -587,18 +661,18 @@ def write_ranking_sheet(wb, rows, datasets, title):
     ws = wb.create_sheet(title='Ranking')
     hdr_fill = PatternFill("solid", fgColor="1F3864")
     hdr_font = Font(bold=True, color="FFFFFF", size=10)
-    rank1_fill = PatternFill("solid", fgColor="FFD700") # Gold for Rank 1
+    rank1_fill = PatternFill("solid", fgColor="A8D08D")  # green for Rank 1 and best Mean Rank
     thin = Side(style='thin', color='BFBFBF')
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
     center = Alignment(horizontal='center', vertical='center')
     left_align = Alignment(horizontal='left', vertical='center')
     
-    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Rank Médio']
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average Rank']
     datasets_ext = datasets + ['GLOBAL_MEAN']
     
     ws.append([title])
     ws.cell(1, 1).font = Font(bold=True, size=12)
-    ws.append(['Método'] + ds_labels)
+    ws.append(['Method'] + ds_labels)
     for col_idx in range(1, len(ds_labels) + 2):
         c = ws.cell(2, col_idx)
         c.fill = hdr_fill
@@ -627,16 +701,73 @@ def write_ranking_sheet(wb, rows, datasets, title):
                     c.fill = rank1_fill
                     c.font = Font(bold=True)
             # Highlight BEST Mean Rank (lowest)
-            if ds_labels[col_idx-2] == 'Rank Médio' if col_idx > 1 else False:
+            if ds_labels[col_idx-2] == 'Average Rank' if col_idx > 1 else False:
                 val = excel_row[col_idx-1]
                 all_means = [r.get('GLOBAL_MEAN') for r in rows if r.get('GLOBAL_MEAN') is not None]
                 if val is not None and abs(val - min(all_means)) < 1e-5:
                     c.font = Font(bold=True)
-                    c.fill = rank1_fill # Highlight best mean rank too
+                    c.fill = rank1_fill
     ws.column_dimensions['A'].width = 15
+
+def write_summary_with_rank_sheet(wb, summary_rows, ranking_rows, datasets, title):
+    ws = wb.create_sheet(title='Summary + Rank')
+    hdr_fill = PatternFill("solid", fgColor="1F3864")
+    hdr_font = Font(bold=True, color="FFFFFF", size=10)
+    best_fill = PatternFill("solid", fgColor="A8D08D")  # green for best acc and best rank
+    bold_font = Font(bold=True, size=10)
+    thin = Side(style='thin', color='BFBFBF')
+    border = Border(left=thin, right=thin, top=thin, bottom=thin)
+    center = Alignment(horizontal='center', vertical='center')
+    left_align = Alignment(horizontal='left', vertical='center')
+    
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average', 'Average Rank']
+    datasets_ext = datasets + ['GLOBAL_MEAN']
+    rank_by_method = {r['method']: r.get('GLOBAL_MEAN') for r in ranking_rows}
+    all_ranks = [r.get('GLOBAL_MEAN') for r in ranking_rows if r.get('GLOBAL_MEAN') is not None]
+    min_rank = min(all_ranks) if all_ranks else None
+    
+    ws.append([title])
+    ws.cell(1, 1).font = Font(bold=True, size=12)
+    ws.append(['Method'] + ds_labels)
+    for col_idx in range(1, len(ds_labels) + 2):
+        c = ws.cell(2, col_idx)
+        c.fill = hdr_fill
+        c.font = hdr_font
+        c.alignment = center
+        c.border = border
+        
+    for row in summary_rows:
+        m_label = METHOD_LABELS.get(row['method'], row['method'])
+        excel_row = [m_label]
+        for ds in datasets_ext:
+            excel_row.append(row.get(ds))
+        excel_row.append(rank_by_method.get(row['method']))
+        ws.append(excel_row)
+        r = ws.max_row
+        for col_idx in range(1, len(excel_row) + 1):
+            c = ws.cell(r, col_idx)
+            c.border = border
+            c.alignment = center if col_idx > 1 else left_align
+            # Accuracy columns highlighting (best in column)
+            if 1 < col_idx <= len(datasets_ext) + 1:
+                val = excel_row[col_idx - 1]
+                ds_key = datasets_ext[col_idx - 2]
+                if val is not None:
+                    col_vals = [r[ds_key] for r in summary_rows if r.get(ds_key) is not None]
+                    if abs(val - max(col_vals)) < 1e-5:
+                        c.font = bold_font
+                        c.fill = best_fill
+            # Average Rank column highlighting (lowest rank)
+            elif col_idx == len(excel_row):
+                val = excel_row[col_idx - 1]
+                if val is not None and min_rank is not None and abs(val - min_rank) < 1e-5:
+                    c.font = bold_font
+                    c.fill = best_fill
+    ws.column_dimensions['A'].width = 15
+
 def write_hyperparam_sheet(wb, hyperparams: dict):
     """Write a sheet with per-dataset hyperparameter summary (clean scenario)."""
-    ws = wb.create_sheet(title='HP por Dataset')
+    ws = wb.create_sheet(title='HP by Dataset')
     hdr_fill = PatternFill("solid", fgColor="1F3864")
     hdr_font = Font(bold=True, color="FFFFFF", size=10)
     thin = Side(style='thin', color='BFBFBF')
@@ -647,10 +778,10 @@ def write_hyperparam_sheet(wb, hyperparams: dict):
     ds_labels = [DATASET_LABELS.get(d, d) for d in datasets_present]
     params = list(HYPERPARAM_DISPLAY.keys())
     # Title
-    ws.append(['HPO (cenário clean por dataset)'])
+    ws.append(['HPO (clean scenario by dataset)'])
     ws.cell(1, 1).font = Font(bold=True, size=12)
     # Header
-    header = ['Parâmetro'] + ds_labels
+    header = ['Parameter'] + ds_labels
     ws.append(header)
     for col_idx, val in enumerate(header, start=1):
         c = ws.cell(2, col_idx, val)
@@ -681,9 +812,9 @@ def write_hpo_scenarios_sheet(wb, hpo_by_ds: dict, datasets: list,
     Write a per-scenario HPO sheet.
     Rows: (noise_type, noise_rate) — same structure as result tables.
     Columns: grouped by dataset, one sub-column per hyperparameter.
-    Layout: Ruído | Rate || [Dataset1: param1 param2 ...] || [Dataset2: ...] || ...
+    Layout: Noise | Rate || [Dataset1: param1 param2 ...] || [Dataset2: ...] || ...
     """
-    ws = wb.create_sheet(title='HP por Cenário')
+    ws = wb.create_sheet(title='HP by Scenario')
     hdr_fill  = PatternFill("solid", fgColor="1F3864")
     hdr2_fill = PatternFill("solid", fgColor="2F5597")
     hdr_font  = Font(bold=True, color="FFFFFF", size=10)
@@ -698,7 +829,7 @@ def write_hpo_scenarios_sheet(wb, hpo_by_ds: dict, datasets: list,
     n_params     = len(params)
 
     # ── Row 1: dataset group headers ────────────────────────────────────────
-    ws.cell(1, 1, 'Ruído').fill = hdr_fill
+    ws.cell(1, 1, 'Noise').fill = hdr_fill
     ws.cell(1, 1).font = hdr_font
     ws.cell(1, 1).alignment = center
     ws.cell(1, 1).border = border
@@ -739,10 +870,6 @@ def write_hpo_scenarios_sheet(wb, hpo_by_ds: dict, datasets: list,
         for nr in rates:
             nt_label = NOISE_TYPE_LABELS.get(nt, nt.capitalize())
             nr_label = 'Clean' if nt == 'clean' else f'{nr:.1f}'
-            # Group separator
-            if nt != prev_nt and prev_nt is not None:
-                # light separator row for visual grouping (just bold borders)
-                pass
             c1 = ws.cell(row_idx, 1, nt_label if nt != prev_nt else '')
             c1.border = border
             c1.alignment = left_align
@@ -773,6 +900,7 @@ def write_hpo_scenarios_sheet(wb, hpo_by_ds: dict, datasets: list,
             ws.column_dimensions[ltr].width = 7 if param in ('knn_mode', 'k', 'n_layer', 'n_hidden') else 8
             col_letter_idx += 1
     ws.freeze_panes = 'C3'
+
 # ---------------------------------------------------------------------------
 # LaTeX export
 # ---------------------------------------------------------------------------
@@ -786,13 +914,28 @@ def latex_cell_abs(cell, bold=False):
         s = f'{mean:.2f}{{\\scriptscriptstyle\\pm}}{std:.2f}'
     s = f'${s}$'
     return f'\\textbf{{{s}}}' if bold else s
-def latex_cell_gain(cell, bold=False):
+
+def latex_cell_gain(cell, is_mean=False):
     if cell is None:
         return '---'
     gain, _ = cell
     sign = '+' if gain >= 0 else ''
     s = f'{sign}{gain:.2f}'
-    return f'\\textbf{{{s}}}' if bold else s
+    
+    # Matching Excel conditional formatting and bolding:
+    # gain > 2.0: stronger green (A8D08D) + bold
+    # 0.5 < gain <= 2.0: lighter green (E2EFDA)
+    # gain < -0.5: red (FFC7CE)
+    # -0.5 <= gain <= 0.5: no background
+    if gain > 2.0:
+        return f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{s}}}'
+    elif gain > 0.5:
+        return f'\\cellcolor[HTML]{{E2EFDA}}{s}'
+    elif gain < -0.5:
+        return f'\\cellcolor[HTML]{{FFC7CE}}{s}'
+    else:
+        return s
+
 def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
                 datasets, method_label, gcn_label='GCN'):
     """Write a .tex file with two tables: absolute and gain."""
@@ -820,7 +963,7 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
             if is_mean:
                 lines.append(r'\midrule')
             if is_mean:
-                nt_cell = '\\textbf{Média}'
+                nt_cell = '\\textbf{Average}'
                 nr_cell = ''
             elif nt != prev_nt:
                 nt_cell = NOISE_TYPE_LABELS.get(nt, nt.capitalize())
@@ -828,21 +971,21 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
             else:
                 nt_cell = ''
                 nr_cell = f'{nr:.1f}'
-            # Determine best column for bold
+            # Determine best column for bold (for absolute table)
             raw_vals = [row.get(ds) for ds in datasets]
             valid_vals = [v[0] for v in raw_vals if v is not None]
-            if is_gain:
-                best = max(valid_vals) if valid_vals else None
-            else:
-                best = max(valid_vals) if valid_vals else None
+            best = max(valid_vals) if valid_vals else None
             cells = []
             for ds in datasets:
                 cell = row.get(ds)
-                is_best = (
-                    cell is not None and best is not None and
-                    abs(cell[0] - best) < 1e-4 and not is_mean
-                )
-                cells.append(fmt_fn(cell, bold=is_best))
+                if is_gain:
+                    cells.append(fmt_fn(cell, is_mean=is_mean))
+                else:
+                    is_best = (
+                        cell is not None and best is not None and
+                        abs(cell[0] - best) < 1e-4 and not is_mean
+                    )
+                    cells.append(fmt_fn(cell, bold=is_best))
             lines.append(
                 f'{nt_cell} & {nr_cell} & ' + ' & '.join(cells) + r' \\'
             )
@@ -856,77 +999,122 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
     abs_table = make_table(
         rows_abs,
         latex_cell_abs,
-        caption=f'{method_label} — Acurácia absoluta (\\%)',
+        caption=f'{method_label} — Absolute Accuracy (\\%)',
         label='tab:abs_results',
         is_gain=False,
     )
     gain_table = make_table(
         rows_gain,
         latex_cell_gain,
-        caption=f'{method_label} — Ganho relativo ao {gcn_label} (pontos percentuais)',
+        caption=f'{method_label} — Relative Gain vs {gcn_label} (percentage points)',
         label='tab:gain_results',
         is_gain=True,
     )
     preamble = (
         '% Generated by results/generate_tables.py\n'
-        '% Required: \\usepackage{booktabs, multirow, graphicx}\n\n'
+        '% Required: \\usepackage{booktabs, multirow, graphicx}\n'
+        '%           \\usepackage[table]{xcolor} % (or \\usepackage{colortbl})\n\n'
     )
     with open(path, 'w', encoding='utf-8') as f:
         f.write(preamble + abs_table + '\n\n' + gain_table)
 
 def write_latex_summary(path: Path, summary_rows, ranking_rows, datasets):
     """Append summary and ranking tables to the .tex file."""
-    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Média']
+    ds_labels = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average']
     datasets_ext = datasets + ['GLOBAL_MEAN']
     n_cols = len(datasets_ext)
     
     def make_summary_tex():
         lines = [r'\begin{table*}[htbp]', r'\centering', r'\small', 
-                 r'\caption{Resumo: Acurácia Média Global por Método (Clean + Noisy)}', 
+                 r'\caption{Summary: Global Average Accuracy by Method (Clean + Noisy)}', 
                  r'\label{tab:summary_mean}', r'\begin{tabular}{l' + 'c'*n_cols + '}', r'\toprule',
-                 r'\textbf{Método} & ' + ' & '.join(f'\\textbf{{{l}}}' for l in ds_labels) + r' \\', r'\midrule']
+                 r'\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for l in ds_labels) + r' \\', r'\midrule']
         for row in summary_rows:
             m_label = METHOD_LABELS.get(row['method'], row['method']).replace('_', '-')
             cells = []
             for ds in datasets_ext:
                 val = row.get(ds)
-                if val is None: cells.append('---')
+                if val is None:
+                    cells.append('---')
                 else:
                     col_vals = [r[ds] for r in summary_rows if r.get(ds) is not None]
                     is_best = abs(val - max(col_vals)) < 1e-5
                     s = f"{val:.2f}"
-                    cells.append(f'\\textbf{{{s}}}' if is_best else s)
+                    cells.append(f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{s}}}' if is_best else s)
             lines.append(f'{m_label} & ' + ' & '.join(cells) + r' \\')
         lines.extend([r'\bottomrule', r'\end{tabular}', r'\end{table*}', ''])
         return '\n'.join(lines)
 
     def make_ranking_tex():
-        ds_labels_tex = [DATASET_LABELS.get(d, d) for d in datasets] + ['Rank Médio']
+        ds_labels_tex = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average Rank']
         lines = [r'\begin{table*}[htbp]', r'\centering', r'\small', 
-                 r'\caption{Ranking Médio por Dataset (Posição na Tabela 1)}', 
+                 r'\caption{Summary: Average Rank by Dataset (Position in Table 1)}', 
                  r'\label{tab:summary_ranking}', r'\begin{tabular}{l' + 'c'*n_cols + '}', r'\toprule',
-                 r'\textbf{Método} & ' + ' & '.join(f'\\textbf{{{l}}}' for l in ds_labels_tex) + r' \\', r'\midrule']
+                 r'\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for l in ds_labels_tex) + r' \\', r'\midrule']
         for row in ranking_rows:
             m_label = METHOD_LABELS.get(row['method'], row['method']).replace('_', '-')
             cells = []
             for ds in datasets_ext:
                 if ds == 'GLOBAL_MEAN':
                     val = row.get('GLOBAL_MEAN')
-                    if val is None: cells.append('---')
+                    if val is None:
+                        cells.append('---')
                     else:
                         all_means = [r.get('GLOBAL_MEAN') for r in ranking_rows if r.get('GLOBAL_MEAN') is not None]
                         is_best = abs(val - min(all_means)) < 1e-5
                         s = f"{val:.2f}"
-                        cells.append(f'\\textbf{{{s}}}' if is_best else s)
+                        cells.append(f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{s}}}' if is_best else s)
                 else:
                     rank = row['ranks'].get(ds)
-                    cells.append(str(rank) if rank is not None else '---')
+                    if rank is None:
+                        cells.append('---')
+                    elif rank == 1:
+                        cells.append(f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{rank}}}')
+                    else:
+                        cells.append(str(rank))
+            lines.append(f'{m_label} & ' + ' & '.join(cells) + r' \\')
+        lines.extend([r'\bottomrule', r'\end{tabular}', r'\end{table*}', ''])
+        return '\n'.join(lines)
+
+    def make_summary_with_rank_tex():
+        ds_labels_tex = [DATASET_LABELS.get(d, d) for d in datasets] + ['Average', 'Average Rank']
+        datasets_ext = datasets + ['GLOBAL_MEAN']
+        rank_by_method = {r['method']: r.get('GLOBAL_MEAN') for r in ranking_rows}
+        all_ranks = [r.get('GLOBAL_MEAN') for r in ranking_rows if r.get('GLOBAL_MEAN') is not None]
+        min_rank = min(all_ranks) if all_ranks else None
+        n_all_cols = len(ds_labels_tex) + 1
+
+        lines = [r'\begin{table*}[htbp]', r'\centering', r'\small', 
+                 r'\caption{Summary: Global Average Accuracy and Average Rank by Method (Clean + Noisy)}', 
+                 r'\label{tab:summary_mean_and_rank}', r'\begin{tabular}{l' + 'c'*(n_all_cols - 1) + '}', r'\toprule',
+                 r'\textbf{Method} & ' + ' & '.join(f'\\textbf{{{l}}}' for l in ds_labels_tex) + r' \\', r'\midrule']
+        for row in summary_rows:
+            m_label = METHOD_LABELS.get(row['method'], row['method']).replace('_', '-')
+            cells = []
+            for ds in datasets_ext:
+                val = row.get(ds)
+                if val is None:
+                    cells.append('---')
+                else:
+                    col_vals = [r[ds] for r in summary_rows if r.get(ds) is not None]
+                    is_best = abs(val - max(col_vals)) < 1e-5
+                    s = f"{val:.2f}"
+                    cells.append(f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{s}}}' if is_best else s)
+            # Average Rank
+            r_val = rank_by_method.get(row['method'])
+            if r_val is None:
+                cells.append('---')
+            else:
+                is_best_rank = min_rank is not None and abs(r_val - min_rank) < 1e-5
+                s = f"{r_val:.2f}"
+                cells.append(f'\\cellcolor[HTML]{{A8D08D}}\\textbf{{{s}}}' if is_best_rank else s)
             lines.append(f'{m_label} & ' + ' & '.join(cells) + r' \\')
         lines.extend([r'\bottomrule', r'\end{tabular}', r'\end{table*}', ''])
         return '\n'.join(lines)
 
     with open(path, 'a', encoding='utf-8') as f:
-        f.write('\n\n' + make_summary_tex() + '\n\n' + make_ranking_tex())
+        f.write('\n\n' + make_summary_tex() + '\n\n' + make_summary_with_rank_tex() + '\n\n' + make_ranking_tex())
+
 def write_latex_hyperparams(path: Path, hyperparams: dict):
     """Write a .tex file with the hyperparameter table."""
     datasets_present = [d for d in DATASET_ORDER if d in hyperparams]
@@ -939,12 +1127,12 @@ def write_latex_hyperparams(path: Path, hyperparams: dict):
     lines.append(r'\begin{table}[htbp]')
     lines.append(r'\centering')
     lines.append(r'\small')
-    lines.append(r'\caption{LN-PCC Hyperparâmetros ajustados por dataset}')
+    lines.append(r'\caption{PCC+GCN Tuned Hyperparameters by Dataset}')
     lines.append(r'\label{tab:hyperparams}')
     lines.append(r'\resizebox{\textwidth}{!}{%')
     lines.append(f'\\begin{{tabular}}{{{col_spec}}}')
     lines.append(r'\toprule')
-    lines.append(f'\\textbf{{Parâmetro}} & {ds_header} \\\\')
+    lines.append(f'\\textbf{{Parameter}} & {ds_header} \\\\')
     lines.append(r'\midrule')
     for param, label in zip(params, param_labels):
         cells = []
@@ -965,6 +1153,7 @@ def write_latex_hyperparams(path: Path, hyperparams: dict):
         f.write('% Generated by results/generate_tables.py\n')
         f.write('% Required: \\usepackage{booktabs, graphicx}\n\n')
         f.write('\n'.join(lines))
+
 # ---------------------------------------------------------------------------
 # Load hyperparameters from HPO database (hpo_db.json)
 # ---------------------------------------------------------------------------
@@ -995,7 +1184,7 @@ def load_hpo_db(hpo_db_path: Path) -> dict:
     }
     """
     if not hpo_db_path.exists():
-        print(f'[AVISO] HPO DB não encontrada: {hpo_db_path}')
+        print(f'[WARNING] HPO DB not found: {hpo_db_path}')
         return {}
     import json
     with open(hpo_db_path, encoding='utf-8') as f:
@@ -1003,7 +1192,6 @@ def load_hpo_db(hpo_db_path: Path) -> dict:
     result = {}
     for key, params in raw.items():
         # key format: "dataset_noisetype_rate"  e.g. "cora_uniform_0.3"
-        # Split from right to get rate, then from right again for noise_type
         parts = key.rsplit('_', 1)
         if len(parts) != 2:
             continue
@@ -1013,7 +1201,6 @@ def load_hpo_db(hpo_db_path: Path) -> dict:
         except ValueError:
             continue
         # prefix is like "cora_uniform" or "amazon-ratings_pair"
-        # noise types we know:
         noise_types_known = ['clean', 'uniform', 'pair', 'random', 'instance']
         noise_type = None
         dataset = None
@@ -1049,60 +1236,61 @@ def hpo_db_to_dataset_summary(hpo_by_ds: dict) -> dict:
 def load_hyperparams(config_dir: Path) -> dict:
     """Legacy: load YAML-based hyperparams. Kept for fallback."""
     return {}  # No longer used as primary source
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 def parse_args():
     p = argparse.ArgumentParser(
-        description='Gera tabelas de resultados LN-PCC (terminal, Excel, LaTeX)'
+        description='Generates PCC+GCN result tables (terminal, Excel, LaTeX)'
     )
     p.add_argument(
         '--csv', type=str, default=None,
-        help='Caminho para o CSV de resultados. '
-             'Se omitido, usa o lnpcc_results_*.csv mais recente em log/'
+        help='Path to results CSV. If omitted, uses the most recent lnpcc_results_*.csv in log/'
     )
     p.add_argument(
         '--methods', nargs='+', default=['lnpcc', 'gcn'],
-        help='Métodos a incluir nas tabelas (default: lnpcc gcn)'
+        help='Methods to include in tables (default: lnpcc gcn)'
     )
     p.add_argument(
         '--main_method', type=str, default='lnpcc',
-        help='Método principal para ganho relativo (default: lnpcc)'
+        help='Main method for relative gain computation (default: lnpcc)'
     )
     p.add_argument(
         '--baseline', type=str, default='gcn',
-        help='Método baseline para cálculo de ganho (default: gcn)'
+        help='Baseline method for relative gain computation (default: gcn)'
     )
     p.add_argument(
         '--datasets', nargs='+', default=None,
-        help='Datasets a incluir (default: todos encontrados no CSV)'
+        help='Datasets to include (default: all found in CSV)'
     )
     p.add_argument(
         '--noise_types', nargs='+', default=None,
         choices=list(NOISE_TYPE_LABELS.keys()),
-        help='Tipos de ruído a incluir (default: todos)'
+        help='Noise types to include (default: all)'
     )
     p.add_argument(
         '--noise_rates', nargs='+', type=float, default=None,
-        help='Taxas de ruído a incluir (default: todas)'
+        help='Noise rates to include (default: all)'
     )
     p.add_argument(
         '--outdir', type=str, default=None,
-        help='Diretório de saída (default: mesmo diretório deste script)'
+        help='Output directory (default: same directory as this script / results)'
     )
     p.add_argument(
         '--no_excel', action='store_true',
-        help='Não gerar o arquivo Excel'
+        help='Do not generate Excel file'
     )
     p.add_argument(
         '--no_latex', action='store_true',
-        help='Não gerar o arquivo LaTeX'
+        help='Do not generate LaTeX file'
     )
     p.add_argument(
         '--no_hyperparams', action='store_true',
-        help='Não gerar a tabela de hiperparâmetros'
+        help='Do not generate hyperparameter table'
     )
     return p.parse_args()
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -1116,19 +1304,19 @@ def main():
         csv_path = Path(args.csv)
     else:
         csv_path = find_latest_csv(LOG_DIR)
-        print(f'[INFO] CSV encontrado automaticamente: {csv_path}')
-    print(f'[INFO] Carregando dados de: {csv_path}')
+        print(f'[INFO] Automatically found CSV: {csv_path}')
+    print(f'[INFO] Loading data from: {csv_path}')
     data = load_csv(csv_path)
     
     # ── External Baselines ──────────────────────────────────────────────────
     baseline_path = PROJECT_DIR / "results" / "NoisyGL.xlsx"
     excel_data = load_external_baseline_xlsx(baseline_path)
     if excel_data:
-        print(f'[INFO] Carregando baselines de: {baseline_path.name} ({len(excel_data)} registros)')
+        print(f'[INFO] Loading baselines from: {baseline_path.name} ({len(excel_data)} records)')
         data.update(excel_data)
     
     if not data:
-        print('ERRO: Nenhum dado carregado. Verifique os CSVs.', file=sys.stderr)
+        print('ERROR: No data loaded. Please check CSV files.', file=sys.stderr)
         sys.exit(1)
 
     # ── Global Parameters ───────────────────────────────────────────────────
@@ -1138,7 +1326,7 @@ def main():
     # Canonical order
     datasets = [d for d in DATASET_ORDER if d in datasets]
     
-    # Filter 'clean' if not requested
+    # Filter noise types and rates
     noise_types = args.noise_types or NOISE_TYPE_ORDER
     noise_rates = args.noise_rates or [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
     
@@ -1157,47 +1345,54 @@ def main():
     ranking_rows = build_ranking_table(summary_rows, datasets)
 
     # ── Terminal Output ─────────────────────────────────────────────────────
-    print_table(rows_main, datasets, f'{main_label} — Acurácia Absoluta (%)', fmt_abs)
-    print_table(rows_gain, datasets, f'Ganho de {main_label} relativo ao {gcn_label} (pp)', fmt_gain)
+    print_table(rows_main, datasets, f'{main_label} — Absolute Accuracy (%)', fmt_abs)
+    print_table(rows_gain, datasets, f'{main_label} Relative Gain vs {gcn_label} (pp)', fmt_gain)
     
-    print_summary_table(summary_rows, datasets, "Resumo: Acurácia Média Global por Método (Clean + Noisy)")
-    print_ranking_table(ranking_rows, datasets, "Resumo: Ranking Médio por Dataset")
+    print_summary_table(summary_rows, datasets, "Summary: Global Average Accuracy by Method (Clean + Noisy)")
+    print_summary_with_rank_table(summary_rows, ranking_rows, datasets, "Summary: Global Average Accuracy and Average Rank by Method")
+    print_ranking_table(ranking_rows, datasets, "Summary: Average Rank by Dataset")
+
+    # ── Load HPO DB ──────────────────────────────────────────────────────────
+    hpo_db = load_hpo_db(HPO_DB_PATH)
+    hpo_summary = hpo_db_to_dataset_summary(hpo_db)
 
     # ── Excel Export ────────────────────────────────────────────────────────
     if not args.no_excel:
         if not HAS_OPENPYXL:
-            print('[AVISO] openpyxl não instalado — Excel desativado.')
+            print('[WARNING] openpyxl not installed — Excel export disabled.')
         else:
             out_xlsx = outdir / 'results.xlsx'
             wb = openpyxl.Workbook()
             wb.remove(wb.active)
-            write_excel_sheet(wb, f'{main_label} Absoluto', rows_main, datasets, False, f'{main_label} Acurácia Absoluta (%)')
-            write_excel_sheet(wb, f'Ganho vs {gcn_label}', rows_gain, datasets, True, f'Ganho de {main_label} vs {gcn_label} (pp)')
+            write_excel_sheet(wb, f'{main_label} Absolute', rows_main, datasets, False, f'{main_label} Absolute Accuracy (%)')
+            write_excel_sheet(wb, f'Gain vs {gcn_label}', rows_gain, datasets, True, f'{main_label} Gain vs {gcn_label} (pp)')
             
-            write_summary_sheet(wb, summary_rows, datasets, "Acurácia Média (Todos os cenários)")
-            write_ranking_sheet(wb, ranking_rows, datasets, "Ranking por Dataset")
+            write_summary_sheet(wb, summary_rows, datasets, "Average Accuracy (All Scenarios)")
+            write_summary_with_rank_sheet(wb, summary_rows, ranking_rows, datasets, "Average Accuracy and Average Rank by Method")
+            write_ranking_sheet(wb, ranking_rows, datasets, "Ranking by Dataset")
 
-            hpo_db = load_hpo_db(HPO_DB_PATH)
-            hpo_summary = hpo_db_to_dataset_summary(hpo_db)
             if hpo_summary:
                 write_hyperparam_sheet(wb, hpo_summary)
                 write_hpo_scenarios_sheet(wb, hpo_db, datasets, noise_types, noise_rates)
             
-            wb.save(out_xlsx)
-            print(f'\n[OK] Excel salvo em: {out_xlsx}')
+            try:
+                wb.save(out_xlsx)
+                print(f'\n[OK] Excel saved to: {out_xlsx}')
+            except PermissionError:
+                print(f'\n[WARNING] Could not save {out_xlsx} (file may be open in Excel). Close it and re-run to update Excel.')
 
     # ── LaTeX Export ─────────────────────────────────────────────────────────
     if not args.no_latex:
         out_tex = outdir / 'results.tex'
         write_latex(out_tex, rows_main, rows_gain, rows_gcn, datasets, main_label, gcn_label)
         write_latex_summary(out_tex, summary_rows, ranking_rows, datasets)
-        print(f'[OK] LaTeX salvo em: {out_tex}')
+        print(f'[OK] LaTeX saved to: {out_tex}')
         
         if hpo_summary:
             hp_tex_path = outdir / 'hyperparams.tex'
             write_latex_hyperparams(hp_tex_path, hpo_summary)
 
-    print("\nProcessamento concluído com sucesso!")
+    print("\nProcessing completed successfully!")
 
 if __name__ == "__main__":
     main()

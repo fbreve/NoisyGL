@@ -120,7 +120,7 @@ with open(CSV_PATH, newline='', encoding='utf-8') as f:
             'mean': float(row['lnpcc_mean']) * 100.0,
             'std': float(row['lnpcc_std']) * 100.0
         }
-        add_result('LN-PCC', dataset, ntype, rate, data)
+        add_result('PCC+GCN', dataset, ntype, rate, data)
 
 # 3. Parse Instance CSV
 print(f"Reading Instance CSV from {INSTANCE_CSV_PATH}...")
@@ -131,7 +131,7 @@ with open(INSTANCE_CSV_PATH, newline='', encoding='utf-8') as f:
         rate = float(row['noise_rate'])
         method_raw = row['method'].strip().lower()
         # map method names to match excel
-        if method_raw == 'lnpcc': method = 'LN-PCC'
+        if method_raw == 'lnpcc': method = 'PCC+GCN'
         elif method_raw == 'gcn': method = 'GCN'
         elif method_raw == 'cp': method = 'CP'
         elif method_raw == 'nrgnn': method = 'NRGNN'
@@ -151,12 +151,12 @@ DATASET_ORDER = ['cora', 'citeseer', 'pubmed', 'blogcatalog', 'flickr', 'dblp', 
 all_datasets = [ds for ds in DATASET_ORDER if any(ds in all_results[m] for m in all_results)]
 
 # We only care about methods that are present in the instance experiments
-instance_methods = ['GCN', 'CP', 'NRGNN', 'PIGNN', 'LN-PCC']
+instance_methods = ['GCN', 'CP', 'NRGNN', 'PIGNN', 'PCC+GCN']
 
 def find_best_baseline_for_dataset(ds, mode='accuracy'):
     winner, max_avg = None, -999.0
     for m in instance_methods:
-        if m in ['LN-PCC', 'GCN'] or m not in all_results or ds not in all_results[m]: continue
+        if m in ['PCC+GCN', 'GCN'] or m not in all_results or ds not in all_results[m]: continue
         vals = []
         if 'instance' in all_results[m][ds]:
             for r in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]:
@@ -184,7 +184,7 @@ def find_best_baseline_for_dataset(ds, mode='accuracy'):
 def find_global_best_complete(mode='accuracy'):
     winner, max_avg = None, -999.0
     for m in instance_methods:
-        if m in ['LN-PCC', 'GCN'] or m not in all_results: continue
+        if m in ['PCC+GCN', 'GCN'] or m not in all_results: continue
         vals = []
         for ds in all_datasets:
             for r in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]:
@@ -209,7 +209,7 @@ def find_global_best_complete(mode='accuracy'):
 plt.style.use('ggplot')
 # Dynamic Color Mapping for all methods
 all_found_methods = sorted(all_results.keys())
-cmap = plt.cm.get_cmap('tab20', len(all_found_methods))
+cmap = matplotlib.colormaps['tab20'].resampled(max(1, len(all_found_methods)))
 method_colors = {m: cmap(i) for i, m in enumerate(all_found_methods)}
 # Keep specific brand colors for core methods
 core_overrides = {
@@ -217,7 +217,7 @@ core_overrides = {
     'CP': '#ff7f0e', 
     'NRGNN': '#2ca02c', 
     'PIGNN': '#9467bd', 
-    'LN-PCC': '#d62728',
+    'PCC+GCN': '#d62728',
     'CGNN': '#8c564b'  # Distinct Brown for CGNN
 }
 for m, c in core_overrides.items():
@@ -225,17 +225,17 @@ for m, c in core_overrides.items():
 
 def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
     # Highlight logic
-    prio = ['LN-PCC', 'GCN']
+    prio = ['PCC+GCN', 'GCN']
     if best_baseline and best_baseline not in prio:
         prio.append(best_baseline)
         
-    # Sort for legend: GCN first, others in between, LN-PCC last
-    others = [m for m in methods_to_show if m not in ['GCN', 'LN-PCC']]
+    # Sort for legend: GCN first, others in between, PCC+GCN last
+    others = [m for m in methods_to_show if m not in ['GCN', 'PCC+GCN']]
     # We sort 'others' alphabetically to keep the middle part organized
     others.sort()
     sorted_methods = (['GCN'] if 'GCN' in methods_to_show else []) + \
                      others + \
-                     (['LN-PCC'] if 'LN-PCC' in methods_to_show else [])
+                     (['PCC+GCN'] if 'PCC+GCN' in methods_to_show else [])
     
     has_data = False
     for m in sorted_methods:
@@ -263,7 +263,7 @@ def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
             if m in prio:
                 lw = 2.6
                 alpha = 1.0
-                zorder = 20 if m == 'LN-PCC' else 15
+                zorder = 20 if m == 'PCC+GCN' else 15
             else:
                 lw = 1.2
                 alpha = 0.5
@@ -278,8 +278,11 @@ def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
     return has_data
 
 def save_dual(fig, base_path, dpi=300):
-    fig.savefig(base_path + ".png", dpi=dpi, bbox_inches='tight')
-    fig.savefig(base_path + ".pdf", bbox_inches='tight')
+    try:
+        fig.savefig(base_path + ".png", dpi=dpi, bbox_inches='tight')
+        fig.savefig(base_path + ".pdf", bbox_inches='tight')
+    except Exception as e:
+        print(f"[WARNING] Could not save figure {base_path}: {e}", flush=True)
 
 def plot_and_save(ds, nt, mode, local_best, global_best, ds_mode):
     # Rename to detailed instead of instance
@@ -333,9 +336,9 @@ def plot_bar_chart_average_accuracy(ntype='instance'):
     # Display names for labels
     ds_labels = [d.replace('-', ' ').replace('_', ' ').title() if d != 'average' else 'AVERAGE' for d in ds_order_raw]
     
-    # Force order: GCN first, LN-PCC last
-    others = [m for m in methods_to_use if m not in ['GCN', 'LN-PCC']]
-    methods_to_use = (['GCN'] if 'GCN' in methods_to_use else []) + others + (['LN-PCC'] if 'LN-PCC' in methods_to_use else [])
+    # Force order: GCN first, PCC+GCN last
+    others = [m for m in methods_to_use if m not in ['GCN', 'PCC+GCN']]
+    methods_to_use = (['GCN'] if 'GCN' in methods_to_use else []) + others + (['PCC+GCN'] if 'PCC+GCN' in methods_to_use else [])
     
     fig, ax = plt.subplots(figsize=(18, 8))
     indices = np.arange(len(ds_order_raw))
@@ -383,9 +386,9 @@ def plot_bar_chart_stacked_times():
     ds_order_raw = [d for d in DATASET_ORDER if d in active_ds] + ['average']
     ds_labels = [d.replace('-', ' ').replace('_', ' ').title() if d != 'average' else 'AVERAGE' for d in ds_order_raw]
     
-    # Force order: GCN first, LN-PCC last
-    others = [m for m in instance_methods if m not in ['GCN', 'LN-PCC']]
-    methods_ordered = (['GCN'] if 'GCN' in instance_methods else []) + others + (['LN-PCC'] if 'LN-PCC' in instance_methods else [])
+    # Force order: GCN first, PCC+GCN last
+    others = [m for m in instance_methods if m not in ['GCN', 'PCC+GCN']]
+    methods_ordered = (['GCN'] if 'GCN' in instance_methods else []) + others + (['PCC+GCN'] if 'PCC+GCN' in instance_methods else [])
     
     fig, ax = plt.subplots(figsize=(20, 9))
     bw = 0.8 / len(methods_ordered); indices = np.arange(len(ds_order_raw))
@@ -443,12 +446,21 @@ SKIP_INDIVIDUAL = True
 for d in ['summary_plots', 'dataset_grids', 'plots_bar_average', 'plots_instance_bar', 'plots_detailed_accuracy', 'plots_detailed_delta']:
     os.makedirs(os.path.join(BASE_OUTPUT_DIR, d), exist_ok=True)
 
-for mode in ['accuracy', 'delta']:
-    run_visualization_mode(mode, SKIP_INDIVIDUAL)
-    plot_summary_classic_noises(mode)
-    plot_summary_instance_noise(mode)
-    for nt in noise_types: plot_dataset_grid(nt, mode)
+try:
+    for mode in ['accuracy', 'delta']:
+        print(f"Generating summary plots for mode={mode}...", flush=True)
+        run_visualization_mode(mode, SKIP_INDIVIDUAL)
+        plot_summary_classic_noises(mode)
+        plot_summary_instance_noise(mode)
+        for nt in noise_types:
+            plot_dataset_grid(nt, mode)
 
-for nt in noise_types: plot_bar_chart_average_accuracy(nt)
-plot_bar_chart_stacked_times()
-print(f"Completed! Plots generated in {BASE_OUTPUT_DIR}")
+    print("Generating bar charts...", flush=True)
+    for nt in noise_types:
+        plot_bar_chart_average_accuracy(nt)
+    plot_bar_chart_stacked_times()
+    print(f"Completed! Plots generated in {BASE_OUTPUT_DIR}", flush=True)
+except Exception as e:
+    import traceback
+    print(f"Error during plot generation: {e}", flush=True)
+    traceback.print_exc()
