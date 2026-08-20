@@ -228,12 +228,13 @@ def run_visualization_mode(mode='accuracy'):
             if plot_lines(ax, ds, nt, local_best, all_methods, mode):
                 title_prefix = "Accuracy Curve" if mode == 'accuracy' else "Accuracy Delta vs GCN"
                 y_label = "Accuracy (%)" if mode == 'accuracy' else "Accuracy Delta (%)"
-                ax.set_title(f"{title_prefix}: {ds.capitalize()} - {nt.capitalize()} Noise", fontsize=15)
-                ax.set_xlabel("Noise Rate", fontsize=12)
-                ax.set_ylabel(y_label, fontsize=12)
-                ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+                ax.set_title(f"{title_prefix}: {ds.capitalize()} - {nt.capitalize()} Noise", fontsize=18, fontweight='bold')
+                ax.set_xlabel("Noise Rate", fontsize=15, fontweight='bold')
+                ax.set_ylabel(y_label, fontsize=15, fontweight='bold')
+                ax.tick_params(axis='both', which='major', labelsize=13)
+                ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=13, framealpha=0.95)
                 plt.tight_layout()
-                plt.savefig(os.path.join(output_dir, f"{ds}_{nt}.png"), dpi=150)
+                plt.savefig(os.path.join(output_dir, f"{ds}_{nt}.png"), dpi=200)
             plt.close()
 
     for nt in noise_types:
@@ -241,12 +242,13 @@ def run_visualization_mode(mode='accuracy'):
         if plot_lines(ax, None, nt, global_best, complete_methods, mode):
             title_prefix = "Mean Accuracy Curve" if mode == 'accuracy' else "Mean Accuracy Delta vs GCN"
             y_label = "Mean Accuracy (%)" if mode == 'accuracy' else "Mean Accuracy Delta (%)"
-            ax.set_title(f"{title_prefix} - {nt.capitalize()} Noise", fontsize=15)
-            ax.set_xlabel("Noise Rate", fontsize=12)
-            ax.set_ylabel(y_label, fontsize=12)
-            ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+            ax.set_title(f"{title_prefix} - {nt.capitalize()} Noise", fontsize=18, fontweight='bold')
+            ax.set_xlabel("Noise Rate", fontsize=15, fontweight='bold')
+            ax.set_ylabel(y_label, fontsize=15, fontweight='bold')
+            ax.tick_params(axis='both', which='major', labelsize=13)
+            ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=13, framealpha=0.95)
             plt.tight_layout()
-            plt.savefig(os.path.join(output_dir, f"average_{nt}.png"), dpi=150)
+            plt.savefig(os.path.join(output_dir, f"average_{nt}.png"), dpi=200)
         plt.close()
 
 run_visualization_mode('accuracy')

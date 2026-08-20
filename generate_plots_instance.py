@@ -223,7 +223,8 @@ core_overrides = {
 for m, c in core_overrides.items():
     if m in method_colors: method_colors[m] = c
 
-def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
+def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy', 
+               fontsize_labels=12, fontsize_ticks=11, lw_scale=1.0):
     # Highlight logic
     prio = ['PCC+GCN', 'GCN']
     if best_baseline and best_baseline not in prio:
@@ -260,21 +261,36 @@ def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy'):
         if plot_means:
             has_data = True
             color = method_colors.get(m, 'gray')
-            if m in prio:
-                lw = 2.6
+            if m == 'PCC+GCN':
+                lw = 3.6 * lw_scale
                 alpha = 1.0
-                zorder = 20 if m == 'PCC+GCN' else 15
+                zorder = 25
+                ms = 8 * lw_scale
+                capsize = 4 * lw_scale
+                elw = 1.5 * lw_scale
+            elif m in prio:
+                lw = 2.8 * lw_scale
+                alpha = 0.95
+                zorder = 18
+                ms = 7 * lw_scale
+                capsize = 4 * lw_scale
+                elw = 1.2 * lw_scale
             else:
-                lw = 1.2
-                alpha = 0.5
+                lw = 1.5 * lw_scale
+                alpha = 0.55
                 zorder = 5
+                ms = 5 * lw_scale
+                capsize = 3 * lw_scale
+                elw = 1.0 * lw_scale
             
             ax.errorbar(plot_rates, plot_means, yerr=plot_stds, label=m, color=color, 
-                        linewidth=lw, alpha=alpha, marker='o', markersize=4, 
-                        capsize=3, elinewidth=0.8, capthick=0.8, zorder=zorder)
+                        linewidth=lw, alpha=alpha, marker='o', markersize=ms, 
+                        capsize=capsize, elinewidth=elw, capthick=elw, zorder=zorder)
     
-    ax.set_xlabel("Noise Rate", fontsize=11)
-    ax.set_ylabel("Accuracy (%)" if mode == 'accuracy' else "Delta vs GCN (%)", fontsize=11)
+    ax.set_xlabel("Noise Rate", fontsize=fontsize_labels, fontweight='bold')
+    ax.set_ylabel("Accuracy (%)" if mode == 'accuracy' else "Delta vs GCN (%)", fontsize=fontsize_labels, fontweight='bold')
+    ax.tick_params(axis='both', which='major', labelsize=fontsize_ticks, width=1.5)
+    ax.set_xticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
     return has_data
 
 def save_dual(fig, base_path, dpi=300):
@@ -291,12 +307,12 @@ def plot_and_save(ds, nt, mode, local_best, global_best, ds_mode):
     os.makedirs(output_dir, exist_ok=True)
     fig, ax = plt.subplots(figsize=(10, 7))
     methods_to_plot = instance_methods if nt == 'instance' else sorted(all_results.keys())
-    if plot_lines(ax, ds, nt, local_best, methods_to_plot, mode):
+    if plot_lines(ax, ds, nt, local_best, methods_to_plot, mode, fontsize_labels=16, fontsize_ticks=14, lw_scale=1.1):
         # Force lowercase filename
         fname = (ds if ds else "average").lower()
         title_name = ds.capitalize() if ds else "Average"
-        ax.set_title(f"{mode.capitalize()}: {title_name} - {nt.capitalize()} Noise", fontsize=15, fontweight='bold')
-        ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=9)
+        ax.set_title(f"{mode.capitalize()}: {title_name} - {nt.capitalize()} Noise", fontsize=18, fontweight='bold')
+        ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=13, framealpha=0.95)
         plt.tight_layout()
         save_dual(fig, os.path.join(output_dir, f"{fname}_{nt}"))
     plt.close()
@@ -349,13 +365,16 @@ def plot_bar_chart_average_accuracy(ntype='instance'):
         for d in ds_order_raw:
             val = next((r['Accuracy'] for r in data_records if r['ds_raw'] == d and r['Method'] == m), 0)
             accs.append(val)
-        ax.bar(indices + (i - len(methods_to_use)/2 + 0.5)*bw, accs, bw, label=m, color=method_colors.get(m, 'gray'), edgecolor='black', linewidth=0.5)
+        ax.bar(indices + (i - len(methods_to_use)/2 + 0.5)*bw, accs, bw, label=m, color=method_colors.get(m, 'gray'), edgecolor='black', linewidth=0.6)
     
-    ax.set_title(f'Mean Accuracy Comparison: {ntype.upper()} Noise', fontsize=18, fontweight='bold')
-    ax.set_xticks(indices); ax.set_xticklabels(ds_labels, rotation=45, fontsize=11)
-    ax.set_ylabel("Accuracy (%)", fontsize=14); ax.set_ylim(0, 105)
+    ax.set_title(f'Mean Accuracy Comparison: {ntype.upper()} Noise', fontsize=22, fontweight='bold', pad=12)
+    ax.set_xticks(indices)
+    ax.set_xticklabels(ds_labels, rotation=40, ha='right', fontsize=15, fontweight='bold')
+    ax.tick_params(axis='y', labelsize=15)
+    ax.set_ylabel("Accuracy (%)", fontsize=18, fontweight='bold')
+    ax.set_ylim(0, 105)
     ax.grid(axis='y', linestyle='--', alpha=0.7)
-    ax.legend(bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=10)
+    ax.legend(bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=15, framealpha=0.95)
     plt.tight_layout()
     save_dual(fig, os.path.join(BASE_OUTPUT_DIR, 'plots_bar_average', f"bar_avg_{ntype}"))
     plt.close()
@@ -390,41 +409,47 @@ def plot_bar_chart_stacked_times():
     others = [m for m in instance_methods if m not in ['GCN', 'PCC+GCN']]
     methods_ordered = (['GCN'] if 'GCN' in instance_methods else []) + others + (['PCC+GCN'] if 'PCC+GCN' in instance_methods else [])
     
-    fig, ax = plt.subplots(figsize=(20, 9))
+    fig, ax = plt.subplots(figsize=(20, 8.5))
     bw = 0.8 / len(methods_ordered); indices = np.arange(len(ds_order_raw))
     
     for i, m in enumerate(methods_ordered):
         cv = [next((r['CPU'] for r in data_records if r['ds_raw'] == d and r['Method'] == m), 0) for d in ds_order_raw]
         gv = [next((r['GPU'] for r in data_records if r['ds_raw'] == d and r['Method'] == m), 0) for d in ds_order_raw]
         x_pos = indices + (i - len(instance_methods)/2 + 0.5)*bw
-        ax.bar(x_pos, cv, bw, color=method_colors.get(m,'gray'), alpha=0.4, edgecolor='black')
-        ax.bar(x_pos, gv, bw, bottom=cv, color=method_colors.get(m,'gray'), alpha=0.9, edgecolor='black')
+        ax.bar(x_pos, cv, bw, color=method_colors.get(m,'gray'), alpha=0.4, edgecolor='black', linewidth=0.6)
+        ax.bar(x_pos, gv, bw, bottom=cv, color=method_colors.get(m,'gray'), alpha=0.9, edgecolor='black', linewidth=0.6)
         
-    ax.set_title("Mean Training Time Comparison (Stacked CPU+GPU)", fontsize=18, fontweight='bold')
-    ax.set_xticks(indices); ax.set_xticklabels(ds_labels, rotation=45, fontsize=11); ax.set_ylabel("Time (seconds)", fontsize=14)
+    ax.set_title("Mean Training Time Comparison (Stacked CPU+GPU)", fontsize=22, fontweight='bold', pad=12)
+    ax.set_xticks(indices)
+    ax.set_xticklabels(ds_labels, rotation=40, ha='right', fontsize=15, fontweight='bold')
+    ax.tick_params(axis='y', labelsize=15)
+    ax.set_ylabel("Time (seconds)", fontsize=18, fontweight='bold')
     ax.grid(axis='y', linestyle='--', alpha=0.7)
     
     from matplotlib.lines import Line2D
     legend_elements = [Line2D([0], [0], color=method_colors[m], lw=4, label=m) for m in methods_ordered]
     legend_elements.extend([Line2D([0], [0], color='gray', alpha=0.4, lw=4, label='CPU Time'), Line2D([0], [0], color='gray', alpha=0.9, lw=4, label='GPU Time')])
-    ax.legend(handles=legend_elements, bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=10)
+    ax.legend(handles=legend_elements, bbox_to_anchor=(1.01, 1), loc='upper left', fontsize=15, framealpha=0.95)
     plt.tight_layout(); save_dual(fig, os.path.join(BASE_OUTPUT_DIR, 'plots_instance_bar', "stacked_times")); plt.close()
 
 def plot_summary_classic_noises(mode='accuracy'):
-    fig, axes = plt.subplots(1, 3, figsize=(24, 7))
+    fig, axes = plt.subplots(1, 3, figsize=(22, 7))
     methods = sorted(all_results.keys())
     for i, nt in enumerate(['uniform', 'pair', 'random']):
-        plot_lines(axes[i], None, nt, find_global_best_complete(mode), methods, mode)
-        axes[i].set_title(nt.capitalize() + " Noise", fontsize=17, fontweight='bold')
-        if i == 2: axes[i].legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=11)
-    plt.suptitle(f"Global Benchmark Summary ({mode.capitalize()})", fontsize=20, y=1.02)
+        plot_lines(axes[i], None, nt, find_global_best_complete(mode), methods, mode, 
+                   fontsize_labels=20, fontsize_ticks=17, lw_scale=1.1)
+        axes[i].set_title(nt.capitalize() + " Noise", fontsize=23, fontweight='bold', pad=10)
+        if i == 2: 
+            axes[i].legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=16, framealpha=0.95)
+    plt.suptitle(f"Global Benchmark Summary ({mode.capitalize()})", fontsize=26, fontweight='bold', y=1.02)
     plt.tight_layout(); save_dual(fig, os.path.join(BASE_OUTPUT_DIR, 'summary_plots', f"summary_classic_{mode}")); plt.close()
 
 def plot_summary_instance_noise(mode='accuracy'):
-    fig, ax = plt.subplots(figsize=(12, 7))
-    plot_lines(ax, None, 'instance', find_global_best_complete(mode), instance_methods, mode)
-    ax.set_title(f"Instance Noise Global Summary ({mode.capitalize()})", fontsize=17, fontweight='bold')
-    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=11)
+    fig, ax = plt.subplots(figsize=(11, 7))
+    plot_lines(ax, None, 'instance', find_global_best_complete(mode), instance_methods, mode, 
+               fontsize_labels=19, fontsize_ticks=16, lw_scale=1.15)
+    ax.set_title(f"Instance Noise Global Summary ({mode.capitalize()})", fontsize=22, fontweight='bold', pad=12)
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=16, framealpha=0.95)
     plt.tight_layout(); save_dual(fig, os.path.join(BASE_OUTPUT_DIR, 'summary_plots', f"summary_instance_{mode}")); plt.close()
 
 def plot_dataset_grid(ntype='instance', mode='accuracy'):
@@ -432,14 +457,15 @@ def plot_dataset_grid(ntype='instance', mode='accuracy'):
     methods = instance_methods if ntype == 'instance' else sorted(all_results.keys())
     for i, ds in enumerate(all_datasets):
         ax = axes.flatten()[i]
-        plot_lines(ax, ds, ntype, find_best_baseline_for_dataset(ds, mode), methods, mode)
+        plot_lines(ax, ds, ntype, find_best_baseline_for_dataset(ds, mode), methods, mode, 
+                   fontsize_labels=16, fontsize_ticks=14, lw_scale=0.95)
         # Cleaner dataset titles
-        ax.set_title(ds.replace('-', ' ').replace('_', ' ').title(), fontsize=16, fontweight='bold')
+        ax.set_title(ds.replace('-', ' ').replace('_', ' ').title(), fontsize=20, fontweight='bold', pad=8)
     handles, labels = axes[0,0].get_legend_handles_labels()
     # Force ncol=6 for symmetric 2-row legend if 12 methods
     n_col = 6 if len(methods) >= 6 else len(methods)
-    fig.legend(handles, labels, loc='lower center', ncol=n_col, fontsize=13, bbox_to_anchor=(0.5, 0.01))
-    plt.tight_layout(rect=[0, 0.08, 1, 0.95])
+    fig.legend(handles, labels, loc='lower center', ncol=n_col, fontsize=18, bbox_to_anchor=(0.5, 0.01), framealpha=0.95)
+    plt.tight_layout(rect=[0, 0.08, 1, 0.96])
     save_dual(fig, os.path.join(BASE_OUTPUT_DIR, 'dataset_grids', f"grid_{ntype}_{mode}")); plt.close()
 
 SKIP_INDIVIDUAL = True
