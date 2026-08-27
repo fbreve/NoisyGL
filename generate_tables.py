@@ -976,21 +976,13 @@ def write_latex(path: Path, rows_abs, rows_gain, rows_abs_gcn,
             else:
                 nt_cell = ''
                 nr_cell = f'{nr:.1f}'
-            # Determine best column for bold (for absolute table)
-            raw_vals = [row.get(ds) for ds in tbl_datasets]
-            valid_vals = [v[0] for v in raw_vals if v is not None]
-            best = max(valid_vals) if valid_vals else None
             cells = []
             for ds in tbl_datasets:
                 cell = row.get(ds)
                 if is_gain:
                     cells.append(fmt_fn(cell, is_mean=is_mean))
                 else:
-                    is_best = (
-                        cell is not None and best is not None and
-                        abs(cell[0] - best) < 1e-4 and not is_mean
-                    )
-                    cells.append(fmt_fn(cell, bold=is_best))
+                    cells.append(fmt_fn(cell))
             lines.append(
                 f'{nt_cell} & {nr_cell} & ' + ' & '.join(cells) + r' \\'
             )
