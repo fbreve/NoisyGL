@@ -205,6 +205,7 @@ for col_idx in range(1, len(header) + 1):
     c = ws.cell(2, col_idx)
     c.fill = hdr_fill; c.font = hdr_font; c.alignment = center; c.border = border
 
+total_rows = {}
 for m in instance_methods:
     for metric, label in [('cpu', 'CPU'), ('gpu', 'GPU'), ('total', 'Total')]:
         row_vals = [m if label == 'CPU' else '', label]
@@ -226,6 +227,8 @@ for m in instance_methods:
         row_vals.append(round(np.mean(ds_times), 2) if ds_times else None)
         ws.append(row_vals)
         r = ws.max_row
+        if label == 'Total':
+            total_rows[m] = r
         for col_idx in range(1, len(header) + 1):
             c = ws.cell(r, col_idx)
             c.border = border
@@ -234,6 +237,25 @@ for m in instance_methods:
                 c.font = bold_font
                 if col_idx == 2:
                     c.fill = PatternFill("solid", fgColor="F2F2F2")
+
+# Highlight best total of each column (disconsidering GCN)
+methods_to_compare = [m for m in instance_methods if m.upper() != 'GCN']
+for col_idx in range(3, len(header) + 1):
+    vals = []
+    for m in methods_to_compare:
+        r_num = total_rows.get(m)
+        if r_num:
+            val = ws.cell(r_num, col_idx).value
+            if val is not None:
+                vals.append(val)
+    if vals:
+        best_val = min(vals)
+        for m in methods_to_compare:
+            r_num = total_rows.get(m)
+            if r_num:
+                c = ws.cell(r_num, col_idx)
+                if c.value is not None and abs(c.value - best_val) < 1e-5:
+                    c.fill = best_fill
 
 ws.column_dimensions['A'].width = 15
 ws.column_dimensions['B'].width = 10
