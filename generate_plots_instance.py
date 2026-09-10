@@ -148,6 +148,19 @@ with open(INSTANCE_CSV_PATH, newline='', encoding='utf-8') as f:
 
 noise_types = ['instance', 'uniform', 'pair', 'random']
 DATASET_ORDER = ['cora', 'citeseer', 'pubmed', 'blogcatalog', 'flickr', 'dblp', 'amazoncom', 'amazonpho', 'amazon-ratings', 'roman-empire']
+DATASET_DISPLAY_NAMES = {
+    'cora': 'Cora',
+    'citeseer': 'CiteSeer',
+    'pubmed': 'PubMed',
+    'blogcatalog': 'BlogCatalog',
+    'flickr': 'Flickr',
+    'dblp': 'DBLP',
+    'amazoncom': 'Amazon-C',
+    'amazonpho': 'Amazon-P',
+    'amazon-ratings': 'Amz-Rat.',
+    'roman-empire': 'Roman-Emp.',
+    'average': 'Average'
+}
 all_datasets = [ds for ds in DATASET_ORDER if any(ds in all_results[m] for m in all_results)]
 
 # We only care about methods that are present in the instance experiments
@@ -310,7 +323,7 @@ def plot_and_save(ds, nt, mode, local_best, global_best, ds_mode):
     if plot_lines(ax, ds, nt, local_best, methods_to_plot, mode, fontsize_labels=16, fontsize_ticks=14, lw_scale=1.1):
         # Force lowercase filename
         fname = (ds if ds else "average").lower()
-        title_name = ds.capitalize() if ds else "Average"
+        title_name = DATASET_DISPLAY_NAMES.get(ds, ds.capitalize()) if ds else "Average"
         ax.set_title(f"{mode.capitalize()}: {title_name} - {nt.capitalize()} Noise", fontsize=18, fontweight='bold')
         ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=13, framealpha=0.95)
         plt.tight_layout()
@@ -350,7 +363,7 @@ def plot_bar_chart_average_accuracy(ntype='instance'):
     active_ds = list(set(r['ds_raw'] for r in data_records if r['ds_raw'] != 'average'))
     ds_order_raw = [d for d in DATASET_ORDER if d in active_ds] + ['average']
     # Display names for labels
-    ds_labels = [d.replace('-', ' ').replace('_', ' ').title() if d != 'average' else 'AVERAGE' for d in ds_order_raw]
+    ds_labels = [DATASET_DISPLAY_NAMES.get(d, d) for d in ds_order_raw]
     
     # Force order: GCN first, PCC+GCN last
     others = [m for m in methods_to_use if m not in ['GCN', 'PCC+GCN']]
@@ -403,7 +416,7 @@ def plot_bar_chart_stacked_times():
     if not data_records: return
     active_ds = list(set(r['ds_raw'] for r in data_records if r['ds_raw'] != 'average'))
     ds_order_raw = [d for d in DATASET_ORDER if d in active_ds] + ['average']
-    ds_labels = [d.replace('-', ' ').replace('_', ' ').title() if d != 'average' else 'AVERAGE' for d in ds_order_raw]
+    ds_labels = [DATASET_DISPLAY_NAMES.get(d, d) for d in ds_order_raw]
     
     # Force order: GCN first, PCC+GCN last
     others = [m for m in instance_methods if m not in ['GCN', 'PCC+GCN']]
@@ -419,7 +432,7 @@ def plot_bar_chart_stacked_times():
         ax.bar(x_pos, cv, bw, color=method_colors.get(m,'gray'), alpha=0.4, edgecolor='black', linewidth=0.6)
         ax.bar(x_pos, gv, bw, bottom=cv, color=method_colors.get(m,'gray'), alpha=0.9, edgecolor='black', linewidth=0.6)
         
-    ax.set_title("Mean Training Time Comparison (Stacked CPU+GPU)", fontsize=22, fontweight='bold', pad=12)
+    ax.set_title("Average Execution Time by Dataset", fontsize=22, fontweight='bold', pad=12)
     ax.set_xticks(indices)
     ax.set_xticklabels(ds_labels, rotation=40, ha='right', fontsize=15, fontweight='bold')
     ax.tick_params(axis='y', labelsize=15)
@@ -460,7 +473,7 @@ def plot_dataset_grid(ntype='instance', mode='accuracy'):
         plot_lines(ax, ds, ntype, find_best_baseline_for_dataset(ds, mode), methods, mode, 
                    fontsize_labels=16, fontsize_ticks=14, lw_scale=0.95)
         # Cleaner dataset titles
-        ax.set_title(ds.replace('-', ' ').replace('_', ' ').title(), fontsize=20, fontweight='bold', pad=8)
+        ax.set_title(DATASET_DISPLAY_NAMES.get(ds, ds.replace('-', ' ').replace('_', ' ').title()), fontsize=20, fontweight='bold', pad=8)
     handles, labels = axes[0,0].get_legend_handles_labels()
     # Force ncol=6 for symmetric 2-row legend if 12 methods
     n_col = 6 if len(methods) >= 6 else len(methods)
