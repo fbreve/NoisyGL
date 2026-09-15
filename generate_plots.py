@@ -227,7 +227,7 @@ def run_visualization_mode(mode='accuracy'):
             fig, ax = plt.subplots(figsize=(10, 7))
             if plot_lines(ax, ds, nt, local_best, all_methods, mode):
                 title_prefix = "Accuracy Curve" if mode == 'accuracy' else "Accuracy Delta vs GCN"
-                y_label = "Accuracy (%)" if mode == 'accuracy' else "Accuracy Delta (%)"
+                y_label = "Accuracy (%)" if mode == 'accuracy' else "Delta vs GCN (pp)"
                 ax.set_title(f"{title_prefix}: {ds.capitalize()} - {nt.capitalize()} Noise", fontsize=18, fontweight='bold')
                 ax.set_xlabel("Noise Rate", fontsize=15, fontweight='bold')
                 ax.set_ylabel(y_label, fontsize=15, fontweight='bold')
@@ -241,7 +241,7 @@ def run_visualization_mode(mode='accuracy'):
         fig, ax = plt.subplots(figsize=(10, 7))
         if plot_lines(ax, None, nt, global_best, complete_methods, mode):
             title_prefix = "Mean Accuracy Curve" if mode == 'accuracy' else "Mean Accuracy Delta vs GCN"
-            y_label = "Mean Accuracy (%)" if mode == 'accuracy' else "Mean Accuracy Delta (%)"
+            y_label = "Mean Accuracy (%)" if mode == 'accuracy' else "Delta vs GCN (pp)"
             ax.set_title(f"{title_prefix} - {nt.capitalize()} Noise", fontsize=18, fontweight='bold')
             ax.set_xlabel("Noise Rate", fontsize=15, fontweight='bold')
             ax.set_ylabel(y_label, fontsize=15, fontweight='bold')

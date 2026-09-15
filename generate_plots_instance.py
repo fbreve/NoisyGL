@@ -301,7 +301,7 @@ def plot_lines(ax, ds, nt, best_baseline, methods_to_show, mode='accuracy',
                         capsize=capsize, elinewidth=elw, capthick=elw, zorder=zorder)
     
     ax.set_xlabel("Noise Rate", fontsize=fontsize_labels, fontweight='bold')
-    ax.set_ylabel("Accuracy (%)" if mode == 'accuracy' else "Delta vs GCN (%)", fontsize=fontsize_labels, fontweight='bold')
+    ax.set_ylabel("Accuracy (%)" if mode == 'accuracy' else "Delta vs GCN (pp)", fontsize=fontsize_labels, fontweight='bold')
     ax.tick_params(axis='both', which='major', labelsize=fontsize_ticks, width=1.5)
     ax.set_xticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
     return has_data
