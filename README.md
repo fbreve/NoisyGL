@@ -34,6 +34,8 @@ The manuscript is currently under submission. A bibliographic reference and DOI 
 
 > **Implementation note:** some internal files, configuration entries, and command-line identifiers retain the historical `lnpcc` naming. In the associated manuscript, the complete hybrid method is referred to as **PCC+GCN**.
 
+## Original NoisyGL Benchmark
+
 Official code for [NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) accepted by NeurIPS 2024.
 NoisyGL is a comprehensive benchmark for **Graph Neural Networks under Label Noise (GLN)**.
 GLN is a family of robust Graph Neural Network (GNN) models, with a particular focus on performance in the presence of label noise.
