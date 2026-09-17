@@ -15,18 +15,28 @@
 
 > [!NOTE]
 > **This repository is a modified fork of the original [NoisyGL](https://github.com/eaglelab-zju/NoisyGL) benchmark.**
-> It is maintained specifically to support our research paper focusing on **PCC + GCN** (Particle Competition and Cooperation + Graph Convolutional Network). 
-> 
+> It is maintained specifically to support research on **PCC+GCN** (Particle Competition and Cooperation + Graph Convolutional Networks).
+>
 > Key enhancements in this fork include:
-> - **PCC + GCN Predictor**: Seamless integration of the PCC + GCN method.
+> - **PCC+GCN Predictor**: Integration of the PCC+GCN method.
 > - **Multi-GPU Parallel Workloads**: Schedulers for parallel benchmarks and concurrent Optuna HPO trials.
-> - **Platform & Scale Stabilizations**: Optimizations enabling Out-Of-Memory (OOM) prevention, and execution stability on Windows / CUDA.
+> - **Platform & Scale Stabilizations**: Optimizations enabling Out-Of-Memory (OOM) prevention and execution stability on Windows / CUDA.
 >
 > For the official, unmodified upstream benchmark code, please visit the original repository: [eaglelab-zju/NoisyGL](https://github.com/eaglelab-zju/NoisyGL).
 
-Official code for [NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) accepted by NeurIPS 2024. 
+## Associated Paper
+
+This repository contains the benchmark implementation and experimental results associated with:
+
+**Fabricio Breve. "Particle Competition and Cooperation for Robust Graph Convolutional Network Learning Under Label Noise."**
+
+The manuscript is currently under submission. A bibliographic reference and DOI will be added here upon publication.
+
+> **Implementation note:** some internal files, configuration entries, and command-line identifiers retain the historical `lnpcc` naming. In the associated manuscript, the complete hybrid method is referred to as **PCC+GCN**.
+
+Official code for [NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) accepted by NeurIPS 2024.
 NoisyGL is a comprehensive benchmark for **Graph Neural Networks under Label Noise (GLN)**.
-GLN is a family of robust Graph Neural Network (GNN) models, with a particular focus on performance in the presence of label noise. 
+GLN is a family of robust Graph Neural Network (GNN) models, with a particular focus on performance in the presence of label noise.
 
 
 ## Overview of the Benchmark
@@ -37,13 +47,13 @@ NoisyGL provides a fair and comprehensive platform to evaluate existing LLN and 
 ## Why NoisyGL ?
 
 NoisyGL offers the following features:
- 1. **A unified data loader module for diverse datasets.** You can customize the configuration file of the dataset (located in [config/_dataset](https://github.com/eaglelab-zju/NoisyGL/tree/main/config/_dataset)) to modify data splitting and preprocessing strategies. 
+ 1. **A unified data loader module for diverse datasets.** You can customize the configuration file of the dataset (located in [config/_dataset](https://github.com/eaglelab-zju/NoisyGL/tree/main/config/_dataset)) to modify data splitting and preprocessing strategies.
  2. **Generic noise injection schemes.** These schemes ([utils.labelnoise](https://github.com/eaglelab-zju/NoisyGL/blob/main/utils/labelnoise.py)), widely used in previous studies, can comprehensively evaluate the robustness of each method.
  3. **Generic Base_predictor class.** NoisyGL provides a generic implementation template and API for different GLN predictors ([predictors.Base_predictor](https://github.com/eaglelab-zju/NoisyGL/blob/main/predictor/Base_Predictor.py)). You can develop your methods by overriding specific methods.
- 4. **Integrated hyperparameter optimization tool.** NoisyGL integrates Neural Network Intelligence (NNI) provided by Microsoft ([hyperparam_opt.py](https://github.com/eaglelab-zju/NoisyGL/blob/main/hyperparam_opt.py)). You can easily optimize and update hyperparameters for each method based on the instructions in the README.
+ 4. **Integrated hyperparameter optimization tool.** NoisyGL integrates Neural Network Intelligence (NNI) provided by Microsoft ([hyperparam_opt.py](hyperparam_opt.py)). You can easily optimize and update hyperparameters for each method based on the instructions in the README.
 
-The above features provide you with convenience and freedom when using our library. 
-You can modify the implementation details of specific methods, 
+The above features provide you with convenience and freedom when using our library.
+You can modify the implementation details of specific methods,
 or add new modules to implement your novel methods within the framework we provide easily.
 
 ## ⚙️ Installation
@@ -63,7 +73,7 @@ or add new modules to implement your novel methods within the framework we provi
 - pandas
 - scipy
 - scikit-learn
-- ruamel 
+- ruamel
 - ruamel.yaml
 - nni
 - matplotlib
@@ -101,8 +111,8 @@ An NNI manager will run on http://localhost:8081, automatically running 20 HPO t
 
 ---
 
-### 2. Fork-Specific Enhanced Workflows (GCN+PCC & Instance Noise)
-These are custom scripts and pipelines added in this fork to run parallel schedules, standalone experiments, and Optuna HPO for the GCN+PCC method and instance-dependent noise.
+### 2. Fork-Specific Enhanced Workflows (PCC+GCN & Instance Noise)
+These are custom scripts and pipelines added in this fork to run parallel schedules, standalone experiments, and Optuna HPO for the PCC+GCN method and instance-dependent noise.
 
 #### Run hyperparameter optimization (Optuna)
 NoisyGL supports hyperparameter optimization using the Optuna backend for various methods:
@@ -119,8 +129,8 @@ NoisyGL supports hyperparameter optimization using the Optuna backend for variou
 
 #### Run parallel benchmarks & HPO (Multi-GPU)
 NoisyGL now includes a robust parallel launcher framework to schedule and execute multi-scenario hyperparameter optimization and benchmarks concurrently across multiple GPUs.
-* **PCC + GCN Parallel Pipeline (`run_lnpcc_parallel.py`)**:
-  Schedules GCN baselines and PCC + GCN experiments using Longest Processing Time (LPT) scheduling for balanced GPU workloads.
+* **PCC+GCN Parallel Pipeline (`run_lnpcc_parallel.py`)**:
+  Schedules GCN baselines and PCC+GCN experiments using Longest Processing Time (LPT) scheduling for balanced GPU workloads.
   * *Phase 1: Multi-Scenario HPO Optimization* (Optuna trials concurrently across GPUs):
     ```bash
     python run_lnpcc_parallel.py --all_datasets --hpo_only --optimize_trials 200 --gpus 0 1
@@ -137,7 +147,7 @@ NoisyGL now includes a robust parallel launcher framework to schedule and execut
 
 #### Standalone (Single-Process) Benchmark Runners
 For running sequential, single-process benchmarks (useful for small-scale experiments or debugging specific datasets):
-* **PCC + GCN Standalone Benchmark (`total_exp_lnpcc.py`)**:
+* **PCC+GCN Standalone Benchmark (`total_exp_lnpcc.py`)**:
   ```bash
   python total_exp_lnpcc.py --datasets cora --noise_type uniform --noise_rate 0.3 --runs 10 --skip_hpo --device cuda:0
   ```
@@ -149,9 +159,9 @@ For running sequential, single-process benchmarks (useful for small-scale experi
 ---
 
 ## 🛠️ Fork Improvements & Stability Updates
-These are custom infrastructure, performance, and stability updates introduced in this fork to enable executing large-scale, parallelized GCN+PCC research under Windows/CUDA environments:
+These are custom infrastructure, performance, and stability updates introduced in this fork to enable executing large-scale, parallelized PCC+GCN research under Windows/CUDA environments:
 
-1. **Memory-Efficient & GPU-Accelerated Instance-Dependent Noise**: Class-wise batching of weights projection avoids expanding matrices to `[N, D, C]`. This prevents Out-Of-Memory (OOM) errors on large datasets (e.g., `flickr`, `roman-empire`, `amazon-ratings`) while running instance-dependent noise. Additionally, the noise generation pipeline in [utils/labelnoise.py](utils/labelnoise.py#L95-L145) has been optimized from an $O(N)$ node-by-node Python loop to $O(C)$ class-wise batched PyTorch calculations, and sampling was migrated from a slow CPU-bound loop with `np.random.choice` to native parallelized `torch.multinomial` on GPU, accelerating noise generation from minutes to a fraction of a second.
+1. **Memory-Efficient & GPU-Accelerated Instance-Dependent Noise**: Class-wise batching of weight projections avoids expanding matrices to `[N, D, C]`, preventing Out-Of-Memory (OOM) errors on large datasets such as `flickr`, `roman-empire`, and `amazon-ratings`. The implementation eliminates the original node-wise Python loop in favor of class-wise batched PyTorch operations on the GPU. Matrix multiplications are performed per class, and sampling is migrated from CPU-side `np.random.choice` calls to GPU-based `torch.multinomial`, while preserving the original noise-generation model.
 2. **CPU-First Data Loading**: Datasets are initialized and stored in CPU RAM, moving tensors to the target GPU device dynamically only during predictor training.
 3. **Windows/CUDA Sparse Matrix Compatibility**: Avoids GPU sparse tensor instabilities on Windows by performing graph operations and indexing directly on CPU before transferring minimal required tensors (e.g., `edge_index` and `edge_weight`) to the GPU.
 4. **Isolated Process Execution for CPU Kernels**: PCC's (Particle Competition and Cooperation) Cython-bound graph propagation in [predictor/LNPCC_Predictor.py](predictor/LNPCC_Predictor.py#L403-L578) runs in an isolated spawned subprocess using shared memory (`SharedMemory`) to prevent process-level native memory conflicts and segmentation faults. To ensure maximum stability on Windows under multi-process workloads:
@@ -167,27 +177,27 @@ These are custom infrastructure, performance, and stability updates introduced i
 
 ## Summary
 
-**Method available** : 
+**Method available** :
 `gcn`, `smodel`, `forward`, `backward`, `coteaching`, `sce`, `jocor`, `apl`, `dgnn`, `cp`, `nrgnn`, `unionnet`, `rtgnn`, `clnode`, `cgnn`, `pignn`, `rncgln`, `crgnn`, `lcat`,
 `r2lp`, `tss`, `lnpcc`
 
-**Dataset available** : 
+**Dataset available** :
 `cora`, `citeseer`, `pubmed`, `amazoncom`, `amazonpho`, `dblp`, `blogcatalog`, `flickr`, `amazon-ratings`, `roman-empire`
 
 | Dataset          | # Nodes | # Edges | # Feat. | # Classes | # Homophily | Avg. # degree |
 |------------------|---------|---------|---------|-----------|-------------|---------------|
 | Cora             | 2,708   | 5,278   | 1,433   | 7         | 0.81        | 3.90          |
-| Citeseer         | 3,327   | 4,552   | 3,703   | 6         | 0.74        | 2.74          |
-| Pubmed           | 19,717  | 44,324  | 500     | 3         | 0.80        | 4.50          |
+| CiteSeer         | 3,327   | 4,552   | 3,703   | 6         | 0.74        | 2.74          |
+| PubMed           | 19,717  | 44,324  | 500     | 3         | 0.80        | 4.50          |
 | Amazon-Computers | 13,752  | 491,722 | 767     | 10        | 0.78        | 35.8          |
 | Amazon-Photos    | 7,650   | 238,162 | 745     | 8         | 0.83        | 31.1          |
 | DBLP             | 17,716  | 105,734 | 1,639   | 4         | 0.83        | 5.97          |
 | BlogCatalog      | 5,196   | 343,486 | 8,189   | 6         | 0.40        | 66.1          |
 | Flickr           | 7,575   | 239,738 | 12,047  | 9         | 0.24        | 63.3          |
-| Amazon-ratings	  | 24,492	 | 93,050	 | 300	    | 5	        | 0.38	       | 7.60          |
-| Roman-empire	    | 22,662	 | 32,927	 | 300	    | 18	       | 0.05	       | 2.90          |
+| Amazon-Ratings   | 24,492  | 93,050  | 300     | 5         | 0.38        | 7.60          |
+| Roman-Empire     | 22,662  | 32,927  | 300     | 18        | 0.05        | 2.90          |
 
-**Label noise type** ： 
+**Label noise type** ：
 `clean`, `pair`, `uniform`, `random`, `instance(instance dependent)`
 
 [//]: # (## Performance overview)
@@ -199,9 +209,12 @@ These are custom infrastructure, performance, and stability updates introduced i
 
 
 ## Citation
-If this benchmark helps your research, please cite the original NoisyGL paper:
 
-[NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html) 
+If you use this modified fork for PCC+GCN experiments, please cite the associated paper once its bibliographic information becomes available.
+
+If this benchmark helps your research, please also cite the original NoisyGL paper:
+
+[NoisyGL: A Comprehensive Benchmark for Graph Neural Networks under Label Noise](https://proceedings.neurips.cc/paper_files/paper/2024/hash/436ffa18e7e17be336fd884f8ebb5748-Abstract-Datasets_and_Benchmarks_Track.html)
 
 ```
 @inproceedings{NEURIPS2024_436ffa18,
@@ -229,12 +242,12 @@ If this benchmark helps your research, please cite the original NoisyGL paper:
 | **ID** | **Paper**                                                                                                                | **Method**  | **Conference/Journal** |
 |--------|--------------------------------------------------------------------------------------------------------------------------|:-----------:|:----------------------:|
 | 1      | [Training deep neural-networks using a noise adaptation layer](https://openreview.net/pdf?id=H12GRgcxg)                  |   S-model   |       ICLR 2017        |
-| 2      | [Making deep neural networks robust to label noise: A loss correction approach](https://arxiv.org/pdf/1609.03683)        |   Forward   |       CVPR 2017        | 
-| 3      | [Making deep neural networks robust to label noise: A loss correction approach](https://arxiv.org/pdf/1609.03683)  |  Backward   |       CVPR 2017        | 
-| 4      | [Co-teaching: Robust training of deep neural networks with extremely noisy labels](https://arxiv.org/pdf/1804.06872)     | Co-teaching |     NeurIPS 2018,      |
+| 2      | [Making deep neural networks robust to label noise: A loss correction approach](https://arxiv.org/pdf/1609.03683)        |   Forward   |       CVPR 2017        |
+| 3      | [Making deep neural networks robust to label noise: A loss correction approach](https://arxiv.org/pdf/1609.03683)        |  Backward   |       CVPR 2017        |
+| 4      | [Co-teaching: Robust training of deep neural networks with extremely noisy labels](https://arxiv.org/pdf/1804.06872)     | Co-teaching |     NeurIPS 2018       |
 | 5      | [Symmetric Cross Entropy for Robust Learning With Noisy Labels](https://arxiv.org/pdf/1908.06112)                        |     SCE     |       ICCV 2019        |
-| 6      | [Combating Noisy Labels by Agreement: A Joint Training Method with Co-Regularization](https://arxiv.org/pdf/2003.02752) |    JoCoR    |       CVPR 2020        |
-| 7      | [Normalized Loss Functions for Deep Learning with Noisy Labels](https://proceedings.mlr.press/v119/ma20c/ma20c.pdf) |     APL     |       ICLR 2020        |
+| 6      | [Combating Noisy Labels by Agreement: A Joint Training Method with Co-Regularization](https://arxiv.org/pdf/2003.02752)   |    JoCoR    |       CVPR 2020        |
+| 7      | [Normalized Loss Functions for Deep Learning with Noisy Labels](https://proceedings.mlr.press/v119/ma20c/ma20c.pdf)       |     APL     |       ICLR 2020        |
 
 ### GLN:
 | **ID** | **Paper** | **Method** | **Conference/Journal** |
@@ -247,20 +260,8 @@ If this benchmark helps your research, please cite the original NoisyGL paper:
 | 6      | [Learning on Graphs under Label Noise](https://ieeexplore.ieee.org/abstract/document/10096088/)  |    CGNN    |      ICASSP 2023       |
 | 7      | [Noise-robust Graph Learning by Estimating and Leveraging Pairwise Interactions](https://openreview.net/forum?id=r7imkFEAQb) |   PIGNN    |       TMLR 2023        |
 | 8      | [Robust Node Classification on Graph Data with Graph and Label Noise](https://ojs.aaai.org/index.php/AAAI/article/view/29668) |   RNCGLN   |       AAAI 2024        |
-| 9      | [Contrastive learning of graphs under label noise](https://www.sciencedirect.com/science/article/pii/S0893608024000273) |   CRGNN    |   Neural Netw. 2024    
+| 9      | [Contrastive learning of graphs under label noise](https://www.sciencedirect.com/science/article/pii/S0893608024000273) |   CRGNN    |   Neural Netw. 2024    |
 | 10     | [Resurrecting label propagation for graphs with heterophily and label noise](https://dl.acm.org/doi/abs/10.1145/3637528.3671774)  |    R2LP    |        KDD 2024        |
 | 11     | [Mitigating Label Noise on Graph via Topological Sample Selection](https://proceedings.mlr.press/v235/wu24ae.html)  |    TSS     |       ICML 2024        |
 
 [//]: # (| 12     | [Learning Graph Neural Networks with Noisy Labels]&#40;https://arxiv.org/abs/1905.01591&#41;      |   D-GNN    |       ICLR 2019        |)
-
-
-
-
-
-
-
-
-
-
-
-
